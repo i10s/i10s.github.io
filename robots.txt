@@ -1,0 +1,4 @@
+Sitemap: https://ifuentes.net/sitemap.xml
+User-Agent: *
+Disallow: /es/
+Disallow: /amazon/

@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/ifuentes
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://ifuentes.net
+  * I am ifuentes (https://keybase.io/ifuentes) on keybase.
+  * I have a public key ASBfaMtTGwg10uWIRBRwawVLQ4XHHAyx5G0jNLCH32omMwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120ed23a7929017124c2c0f02b942d18ba789288a3badec1e1f12087bae83f063ad0a",
+      "host": "keybase.io",
+      "kid": "01205f68cb531b0835d2e5884414706b054b4385c71c0cb1e46d2334b087df6a26330a",
+      "uid": "bd6d30934866de87d86bd960d4e90919",
+      "username": "ifuentes"
+    },
+    "merkle_root": {
+      "ctime": 1582582543,
+      "hash": "ab9d0a70dfdf12c980e7557eb8dcad85f5e2ebc0083dc79cf23117a28a654d6f6f45e47295f826d8ca95337db09b04b3abed43c431fd83b9764a7edfc43c74e0",
+      "hash_meta": "487741404e3c897183e6ddf4e6568a8f3ee64a3f191899c2aade74395a06a183",
+      "seqno": 14727643
+    },
+    "service": {
+      "entropy": "UWxE6Q3k44mSv1SG8kCkhhjJ",
+      "hostname": "ifuentes.net",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.2.0"
+  },
+  "ctime": 1582582563,
+  "expire_in": 504576000,
+  "prev": "83d8955e5b76bd873274ce3be3b232802bc370658d4992fa68e8017807245808",
+  "seqno": 18,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgX2jLUxsINdLliEQUcGsFS0OFxxwMseRtIzSwh99qJjMKp3BheWxvYWTESpcCEsQgg9iVXlt2vYcydM4747IygCvDcGWNSZL6aOgBeAckWAjEIBOKCNGkZP71lFeWBidh/nuMLOwRj/d9IqBouZl5bv/hAgHCo3NpZ8RAmeR+pQ6MVp1xEKXbP5ET0anI2xm1dzOteFfoem77LUF+y49H0r3ZiLmDvp9xxATM5v96fYzGJZU3/MLVPix/DqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEICFbQvpYzyidpy6yMpIDPyMozfaoTx4UTpIy0lKVBnvbo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/ifuentes
+
+==================================================================
