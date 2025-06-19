@@ -1,101 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- SEO -->
   <title>Iñaki Fuentes | People, Business and Technology</title>
-  <meta name="description" content="Stay calm. Be critical. Start building. Trying to be less wrong every day.">
-  <!-- Tells search engines to index the page (optional) -->
-  <meta name="robots" content="index,follow">
-  <!-- Browser toolbar color on some mobile devices (optional) -->
-  <meta name="theme-color" content="#ffffff">
-  <!-- Dark/light theme scheme -->
-  <meta name="color-scheme" content="light dark">
-
-  <!-- Canonical link -->
+  <meta name="description" content="Stay calm. Be critical. Start building. Trying to be less wrong every day." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="color-scheme" content="light dark" />
   <link rel="canonical" href="https://ifuentes.net" />
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="msapplication-TileColor" content="#da532c" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="Iñaki Fuentes Liberal" />
+  <meta property="og:description" content="Stay calm. Be critical. Start building. Trying to be less wrong every day." />
   <meta property="og:url" content="https://ifuentes.net/" />
   <meta property="og:image" content="https://ifuentes.net/if.png" />
   <meta property="og:site_name" content="Iñaki Fuentes Liberal" />
-  <meta property="og:description" content="Stay calm. Be critical. Start building. Trying to be less wrong every day." />
   <meta property="og:type" content="website" />
 
-  <!-- Twitter Cards -->
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@ifuentes" />
   <meta name="twitter:creator" content="@ifuentes" />
-  <meta name="twitter:image" content="https://ifuentes.net/if.png" />
   <meta name="twitter:title" content="Iñaki Fuentes Liberal" />
   <meta name="twitter:description" content="Stay calm. Be critical. Start building. Trying to be less wrong every day." />
+  <meta name="twitter:image" content="https://ifuentes.net/if.png" />
 
-  <!-- Local CSS Styles (consider moving this to an external .css file) -->
+  <!-- Font Awesome (for icons, if needed) -->
+  <script src="https://kit.fontawesome.com/0025fa325d.js" crossorigin="anonymous" defer></script>
+
+  <!-- Styles -->
   <style>
+    :root {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.6;
+      color-scheme: light dark;
+    }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      line-height: 1.5;
-      max-width: 980px;
       margin: 0 auto;
-      padding: 0 8px;
+      padding: 1rem;
+      max-width: 720px;
+      background: #fff;
+      color: #000;
     }
     @media (prefers-color-scheme: dark) {
-      html {
+      body {
         background: #1c1c1c;
-        color: white;
+        color: #f5f5f5;
       }
-      a { color: #6bf; }
-      a:visited { color: #f8f; }
-      a:active { color: red; }
+      a { color: #61dafb; }
+      a:visited { color: #e18cf7; }
     }
-    ul {
-      list-style-type: none;
+    nav ul {
+      list-style: none;
       padding: 0;
     }
-    li {
-      margin: 0 0 10px 0;
+    nav li {
+      margin-bottom: 0.5rem;
     }
   </style>
-
-  <!-- Font Awesome (optional) -->
-  <script src="https://kit.fontawesome.com/0025fa325d.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-  <h1 id="top">Iñaki Fuentes</h1>
+  <header>
+    <h1>Iñaki Fuentes</h1>
+    <p>Stay calm. Be critical. Start building.<br>Trying to be less wrong every day.</p>
+  </header>
 
-  <!-- Using a list for social links for better semantics -->
-  <ul>
-    <!-- For personal social profiles, you can optionally add rel="me" -->
-    <li><a href="https://www.linkedin.com/in/inakifuentes/" rel="noopener noreferrer me">LinkedIn</a></li>
-    <li><a href="https://twitter.com/ifuentes" rel="noopener noreferrer me">Twitter</a></li>
-    <li><a href="https://github.com/i10s" rel="noopener noreferrer me">GitHub</a></li>
-    <li><a href="https://www.strava.com/athletes/1980963" rel="noopener noreferrer">Strava</a></li>
-    <li><a href="https://discordapp.com/users/i10s#1599" rel="noopener noreferrer">Discord</a></li>
-    <li><a href="https://inaki.bearblog.dev/blog/" rel="noopener noreferrer">Blog</a></li>
-    <li><a href="https://keybase.io/ifuentes" rel="noopener noreferrer">Keybase</a></li>
-  </ul>
+  <nav>
+    <ul>
+      <li><a href="https://www.linkedin.com/in/inakifuentes/" rel="me noopener noreferrer">LinkedIn</a></li>
+      <li><a href="https://twitter.com/ifuentes" rel="me noopener noreferrer">Twitter</a></li>
+      <li><a href="https://github.com/i10s" rel="me noopener noreferrer">GitHub</a></li>
+      <li><a href="https://www.strava.com/athletes/1980963" rel="noopener noreferrer">Strava</a></li>
+      <li><a href="https://discordapp.com/users/i10s#1599" rel="noopener noreferrer">Discord</a></li>
+      <li><a href="https://inaki.bearblog.dev/blog/" rel="noopener noreferrer">Blog</a></li>
+      <li><a href="https://keybase.io/ifuentes" rel="noopener noreferrer">Keybase</a></li>
+    </ul>
+  </nav>
 
-  <!-- JSON-LD structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "familyName": "Fuentes",
     "givenName": "Iñaki",
+    "familyName": "Fuentes",
     "email": "inaki@ifuentes.net",
-    "alumniOf": "https://www.northumbria.ac.uk/",
-    "gender": "https://schema.org/Male",
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Northumbria University",
+      "url": "https://www.northumbria.ac.uk/"
+    },
+    "gender": "Male",
     "sameAs": [
       "https://t.me/ifuentes",
       "https://twitter.com/ifuentes",
