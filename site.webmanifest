@@ -24,21 +24,5 @@
   "lang": "en",
   "dir": "ltr",
   "orientation": "portrait-primary",
-  "categories": ["business", "technology", "personal"],
-  "shortcuts": [
-    {
-      "name": "LinkedIn",
-      "short_name": "LinkedIn",
-      "description": "View LinkedIn profile",
-      "url": "https://www.linkedin.com/in/inakifuentes/",
-      "icons": [{ "src": "/if.png", "sizes": "192x192" }]
-    },
-    {
-      "name": "GitHub",
-      "short_name": "GitHub",
-      "description": "View GitHub profile",
-      "url": "https://github.com/i10s",
-      "icons": [{ "src": "/if.png", "sizes": "192x192" }]
-    }
-  ]
+  "categories": ["business", "technology", "personal"]
 }
