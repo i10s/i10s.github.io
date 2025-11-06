@@ -4,8 +4,7 @@
 User-Agent: *
 Allow: /
 
-# Humans
-Human: https://ifuentes.net/humans.txt
+# Humans TXT: https://ifuentes.net/humans.txt
 
 # Sitemaps
 Sitemap: https://ifuentes.net/sitemap.xml
