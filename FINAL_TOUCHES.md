@@ -32,13 +32,14 @@
 
 ### 4. ✅ Security
 - **security.txt** (RFC 9116 compliant)
-- **_headers file** for Netlify with:
-  - Content Security Policy (CSP)
+- (Removed) `_headers` file was Netlify-specific; GitHub Pages does not apply custom response headers.
+- Example header set (for future reverse proxy/CDN) would include:
+  - Content-Security-Policy
   - X-Frame-Options, X-Content-Type-Options
   - Referrer-Policy, Permissions-Policy
   - Cross-Origin policies
-  - Cache-Control headers optimized per resource type
-- **.htaccess** backup for Apache servers
+  - Cache-Control headers per resource type
+- `.htaccess` retained only as a reference (not used by GitHub Pages)
 
 ### 5. ✅ Accessibility
 - **ARIA labels** on all interactive elements
@@ -117,7 +118,7 @@ archive/
 
 ## 🔒 Security Headers
 
-All headers configured in `_headers` (Netlify) and `.htaccess` (Apache):
+Illustrative header set (not active on GitHub Pages) formerly in `_headers` and `.htaccess`:
 
 - ✅ Content-Security-Policy
 - ✅ X-Frame-Options: SAMEORIGIN
@@ -227,14 +228,14 @@ Run the audit script to verify everything:
 
 ## 🚀 Deployment
 
-### Automatic (Netlify):
+### GitHub Pages
 ```bash
 git add -A
-git commit -m "Final optimizations: headers, PWA, animations, SEO"
+git commit -m "final: polish pass (docs, SEO alignment, offline fallback)"
 git push origin main
 ```
 
-Netlify will auto-deploy in ~30 seconds.
+GitHub Pages will publish in ~1–2 minutes (Settings → Pages).
 
 ### Manual Verification:
 1. Check https://ifuentes.net loads correctly

@@ -1,12 +1,15 @@
 // Service Worker for Progressive Web App
-// Version 1.0.0
+// Version 1.0.1
 
-const CACHE_NAME = 'ifuentes-v1';
+const VERSION = '1.0.1';
+const CACHE_NAME = `ifuentes-v${VERSION}`;
+const OFFLINE_URL = '/offline.html';
 const urlsToCache = [
   '/',
   '/index.html',
   '/if.png',
-  '/site.webmanifest'
+  '/site.webmanifest',
+  OFFLINE_URL
 ];
 
 // Install Service Worker
@@ -23,34 +26,16 @@ self.addEventListener('install', event => {
 
 // Fetch with cache-first strategy
 self.addEventListener('fetch', event => {
+  if (event.request.method !== 'GET') return;
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Cache hit - return response
-        if (response) {
-          return response;
+    caches.match(event.request).then(cached => {
+      if (cached) return cached;
+      return fetch(event.request).catch(() => {
+        if (event.request.mode === 'navigate') {
+          return caches.match(OFFLINE_URL);
         }
-        
-        // Clone the request
-        const fetchRequest = event.request.clone();
-        
-        return fetch(fetchRequest).then(response => {
-          // Check if valid response
-          if (!response || response.status !== 200 || response.type !== 'basic') {
-            return response;
-          }
-          
-          // Clone the response
-          const responseToCache = response.clone();
-          
-          caches.open(CACHE_NAME)
-            .then(cache => {
-              cache.put(event.request, responseToCache);
-            });
-          
-          return response;
-        });
-      })
+      });
+    })
   );
 });
 

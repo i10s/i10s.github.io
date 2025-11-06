@@ -3,9 +3,9 @@
 
 User-Agent: *
 Allow: /
-Disallow: /es/
-Disallow: /amazon/
-Disallow: /archive/
+
+# Humans
+Human: https://ifuentes.net/humans.txt
 
 # Sitemaps
 Sitemap: https://ifuentes.net/sitemap.xml

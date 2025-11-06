@@ -52,7 +52,7 @@ git commit -m "feat: comprehensive performance and UX optimizations
 git push origin main
 ```
 
-The site will auto-deploy on Netlify in ~1 minute.
+GitHub Pages will publish automatically after the push (typically within 30–120 seconds). Check under Repository → Settings → Pages or load https://ifuentes.net.
 
 ## 📊 Test Your Site
 
@@ -143,9 +143,9 @@ curl -I https://ifuentes.net
 ./audit.sh
 ```
 
-### View Netlify Status
+### View GitHub Pages Status
 
-Visit: https://app.netlify.com/sites/ifuentes/deploys
+Repository → Settings → Pages (build status & published URL)
 
 ## 📈 Performance Metrics
 
@@ -166,13 +166,16 @@ Visit: https://app.netlify.com/sites/ifuentes/deploys
 ### Site not updating after push?
 
 ```bash
-# Check Netlify deploy logs
-# Visit: https://app.netlify.com/sites/ifuentes/deploys
-
-# Force redeploy
-git commit --allow-empty -m "trigger deploy"
+# Force a rebuild (GitHub Pages re-caches after push)
+git commit --allow-empty -m "trigger rebuild"
 git push origin main
 ```
+
+If changes haven't appeared after 2 minutes:
+- Confirm you're pushing to the default branch (`main`).
+- Check Repository → Settings → Pages for build status.
+- Purge local browser cache / use private window.
+- Verify custom domain DNS records (if recently changed).
 
 ### Want to preview locally?
 

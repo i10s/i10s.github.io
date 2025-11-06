@@ -148,30 +148,19 @@ python3 -m http.server 8000
 git add .
 
 # Commit with descriptive message
-git commit -m "feat: comprehensive performance and UX optimizations
+git commit -m "feat: comprehensive performance and UX optimizations"
 
-- Remove unused Font Awesome dependency (-80KB)
-- Implement modern CSS with custom properties
-- Add accessibility improvements (ARIA labels, focus states)
-- Improve dark mode support
-- Add performance optimizations (inline CSS, no blocking resources)
-- Complete web manifest for PWA
-- Add comprehensive documentation and audit tools
-- Improve link security (target=_blank with noopener)
-"
-
-# Deploy (auto-deploys to Netlify)
-git push origin main
-
-# Deploy (auto-deploys to GitHub Pages build)
+# Push to default branch (GitHub Pages will rebuild automatically)
 git push origin main
 ```
 
+> GitHub Pages picks up the change usually within 30–120 seconds. Track status under: Repository → Settings → Pages.
+
 #### 4. Verify Deployment (5 minutes)
 
-1. Wait ~1 minute for Netlify build
+1. Wait ~1 minute for GitHub Pages propagation (usually <2 minutes)
 2. Visit: https://ifuentes.net
-3. Check: Dark mode toggle works
+3. Check: Dark mode auto theme works
 4. Test: Mobile responsiveness
 5. Verify: All links work
 
@@ -239,8 +228,7 @@ Edit header text in `index.html` (around line 80).
 curl -I https://ifuentes.net   # Check HTTP headers
 ```
 
-**View Netlify deploys:**
-**View GitHub Pages status:**
+**View GitHub Pages build status:**
 Repository → Settings → Pages (published URL & build status)
 
 **External tools to run:**

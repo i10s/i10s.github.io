@@ -6,10 +6,11 @@
   
   <!-- Performance: Early resource hints -->
   <link rel="preconnect" href="https://ifuentes.net" />
+  <link rel="alternate" type="application/atom+xml" title="Iñaki Fuentes Blog Feed" href="https://inaki.bearblog.dev/feed/" />
 
   <!-- SEO -->
   <title>Iñaki Fuentes | People, Business and Technology</title>
-  <meta name="description" content="Stay calm. Be critical. Start building. Trying to be less wrong every day." />
+  <meta name="description" content="COO at Travelgate. Leading operations and strategy to grow the world's largest travel marketplace. Advisor, investor & AI automation builder in travel tech." />
   <meta name="author" content="Iñaki Fuentes" />
   <meta name="keywords" content="COO, Travelgate, travel marketplace, technology leadership, startup advisor, AI automation, business strategy, operations, innovation" />
   <meta name="abstract" content="Currently COO at Travelgate, leading operations and strategy to grow the world's largest travel marketplace. Focused on innovation, partnerships, and scalability, ensuring our partners thrive in an ever-changing industry. Also advising and investing in startups, helping founders define business models, scale operations, and secure funding. Developing AI-driven automation solutions focused on improving efficiency and simplifying processes within the travel ecosystem." />
@@ -156,6 +157,8 @@
     nav {
       flex: 1;
       animation: fadeIn 0.7s ease-out 0.2s both;
+      content-visibility: auto;
+      contain-intrinsic-size: 0 480px;
     }
 
     nav ul {
@@ -167,6 +170,11 @@
 
     nav li {
       margin: 0;
+    }
+
+    main, footer {
+      content-visibility: auto;
+      contain-intrinsic-size: 0 600px;
     }
 
     /* Links */
@@ -329,6 +337,19 @@
 
   <!-- Service Worker Registration (PWA) -->
   <script>
+    // Speculation Rules: hint browser to prerender external blog for instant navigation
+    try {
+      const rules = {
+        prerender: [
+          { source: "list", urls: ["https://inaki.bearblog.dev/blog/"] }
+        ]
+      };
+      const el = document.createElement('script');
+      el.type = 'speculationrules';
+      el.textContent = JSON.stringify(rules);
+      document.head.appendChild(el);
+    } catch (e) { /* ignore unsupported browsers */ }
+
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
