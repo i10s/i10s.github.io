@@ -1,6 +1,6 @@
 # i10s.github.io - Personal Website
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ab740aca-b8e6-419e-85ee-5d479bd66d51/deploy-status)](https://app.netlify.com/sites/ifuentes/deploys)
+[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-deployed-success?logo=github)](https://ifuentes.net)
 
 Personal website for Iñaki Fuentes. A minimal, fast, and accessible landing page showcasing professional links and social profiles.
 
@@ -98,13 +98,14 @@ Personal website for Iñaki Fuentes. A minimal, fast, and accessible landing pag
 
 ## 🚀 Deployment
 
-This site is deployed on Netlify:
+This site is deployed on **GitHub Pages**:
 - **Production URL**: https://ifuentes.net
 - **Auto-deploy**: Pushes to `main` branch trigger deployment
+- **Build time**: ~1-2 minutes
 
 ## 📈 Monitoring
 
-- **Netlify**: Deployment status and analytics
+- **GitHub Actions**: Build and deployment logs
 - **Performance**: Lighthouse CI recommended
 
 ## 🧪 Testing
