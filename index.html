@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Performance: Early resource hints -->
+  <link rel="preconnect" href="https://ifuentes.net" />
 
   <!-- SEO -->
   <title>Iñaki Fuentes | People, Business and Technology</title>
@@ -26,8 +29,8 @@
   <link rel="preconnect" href="https://github.com" crossorigin />
 
   <!-- Preload critical resources -->
-  <link rel="preload" as="script" href="/sw.js" />
-  <link rel="preload" as="fetch" href="/site.webmanifest" crossorigin />
+  <link rel="preload" as="script" href="/sw.js" fetchpriority="high" />
+  <link rel="preload" as="fetch" href="/site.webmanifest" crossorigin fetchpriority="low" />
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

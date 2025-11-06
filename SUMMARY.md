@@ -162,6 +162,9 @@ git commit -m "feat: comprehensive performance and UX optimizations
 
 # Deploy (auto-deploys to Netlify)
 git push origin main
+
+# Deploy (auto-deploys to GitHub Pages build)
+git push origin main
 ```
 
 #### 4. Verify Deployment (5 minutes)
@@ -237,7 +240,8 @@ curl -I https://ifuentes.net   # Check HTTP headers
 ```
 
 **View Netlify deploys:**
-https://app.netlify.com/sites/ifuentes/deploys
+**View GitHub Pages status:**
+Repository → Settings → Pages (published URL & build status)
 
 **External tools to run:**
 - PageSpeed Insights: https://pagespeed.web.dev/
