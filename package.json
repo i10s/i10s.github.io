@@ -37,6 +37,9 @@
     "mocha": "^10.2.0",
     "nyc": "^15.1.0"
   },
+  "overrides": {
+    "underscore": "^1.13.6"
+  },
   "nyc": {
     "reporter": [
       "html",
