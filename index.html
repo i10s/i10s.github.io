@@ -73,6 +73,12 @@
       --spacing-unit: 1rem;
       --max-width: 720px;
       --transition-speed: 0.2s;
+      /* Responsive spacing scale */
+      --space-1: clamp(0.5rem, 0.4rem + 0.6vw, 0.75rem);
+      --space-2: clamp(0.75rem, 0.6rem + 0.8vw, 1.125rem);
+      --space-3: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+      --space-4: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+      --space-5: clamp(2rem, 1.6rem + 1.5vw, 3rem);
     }
 
     @media (prefers-color-scheme: dark) {
@@ -116,13 +122,14 @@
 
     body {
       margin: 0 auto;
-      padding: var(--spacing-unit);
+      padding: var(--space-3) var(--space-2);
       max-width: var(--max-width);
       background-color: var(--color-bg);
       color: var(--color-text);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem); /* Fluid base font size */
       animation: fadeIn 0.5s ease-out;
     }
 
@@ -143,8 +150,8 @@
 
     /* Header */
     header {
-      margin-bottom: 2rem;
-      padding-bottom: 1.5rem;
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
       border-bottom: 2px solid var(--color-border);
       animation: fadeIn 0.6s ease-out 0.1s both;
     }
@@ -161,7 +168,19 @@
       list-style: none;
       padding: 0;
       display: grid;
-      gap: 0.75rem;
+      gap: var(--space-2);
+      grid-template-columns: 1fr; /* Mobile first */
+    }
+
+    /* Progressive enhancement: nav columns scale with width */
+    @media (min-width: 480px) {
+      nav ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (min-width: 640px) {
+      nav ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+    @media (min-width: 960px) {
+      nav ul { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     }
 
     nav li {
@@ -182,6 +201,9 @@
       transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
       font-weight: 500;
       will-change: transform;
+      padding: 0.55rem 0.75rem; /* Improve touch target size */
+      border-radius: 6px;
+      line-height: 1.3;
     }
 
     a:visited {
@@ -229,26 +251,19 @@
 
     /* Responsive Design */
     @media (max-width: 768px) {
-      body {
-        padding: 1.5rem 1rem;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      p {
-        font-size: 1rem;
-      }
+      body { padding: var(--space-3) var(--space-2); }
+      h1 { font-size: clamp(1.75rem, 6vw, 2.25rem); }
+      p { font-size: 1rem; }
+      a { padding: 0.5rem 0.65rem; }
     }
 
     /* Footer */
     footer {
-      margin-top: 4rem;
-      padding-top: 2rem;
+      margin-top: var(--space-5);
+      padding-top: var(--space-3);
       border-top: 1px solid var(--color-border);
       text-align: center;
-      font-size: 0.875rem;
+      font-size: 0.85rem;
     }
 
     footer a {
@@ -296,10 +311,28 @@
       outline: 2px solid var(--color-link);
       outline-offset: 4px;
     }
+
+    /* Accessible skip link */
+    .skip-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(-120%);
+      background: var(--color-link);
+      color: #fff;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0 0 6px 0;
+      font-weight: 600;
+      transition: transform var(--transition-speed) ease;
+      z-index: 1000;
+    }
+    .skip-link:focus { transform: translateY(0); }
   </style>
 </head>
 
 <body>
+  <a href="#content" class="skip-link">Skip to content</a>
+  <main id="content">
   <header>
     <h1>Iñaki Fuentes</h1>
     <p>Stay calm. Be critical. Start building.<br>Trying to be less wrong every day.</p>
@@ -316,6 +349,7 @@
       <li><a href="https://keybase.io/ifuentes" rel="noopener noreferrer" target="_blank" aria-label="Keybase profile (opens in new tab)">Keybase</a></li>
     </ul>
   </nav>
+  </main>
 
   <script type="application/ld+json">
   {
