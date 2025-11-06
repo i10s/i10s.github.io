@@ -225,10 +225,10 @@
     a::after {
       content: '';
       position: absolute;
-      width: 100%;
+      width: calc(100% - 1.5rem); /* Account for horizontal padding */
       height: 1px;
-      bottom: -2px;
-      left: 0;
+      bottom: 0.4rem; /* Position above bottom padding */
+      left: 0.75rem; /* Align with horizontal padding */
       background-color: var(--color-link);
       transform: scaleX(0);
       transform-origin: bottom right;
