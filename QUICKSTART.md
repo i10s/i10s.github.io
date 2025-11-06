@@ -52,7 +52,7 @@ git commit -m "feat: comprehensive performance and UX optimizations
 git push origin main
 ```
 
-GitHub Pages will publish automatically after the push (typically within 30–120 seconds). Check under Repository → Settings → Pages or load https://ifuentes.net.
+GitHub Pages will publish automatically after the push (typically within 30–120 seconds). Check under Repository → Settings → Pages or load <https://ifuentes.net>.
 
 ## 📊 Test Your Site
 

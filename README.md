@@ -163,7 +163,7 @@ npx serve .
 php -S localhost:8000
 ```
 
-Then visit: http://localhost:8000
+Then visit: <http://localhost:8000>
 
 ### Continuous Integration
 
@@ -187,7 +187,7 @@ This is a personal website, but suggestions are welcome! Feel free to open an is
 
 ## 📞 Contact
 
-- **Email**: inaki@ifuentes.net
+- **Email**: <inaki@ifuentes.net>
 - **LinkedIn**: [inakifuentes](https://www.linkedin.com/in/inakifuentes/)
 - **Twitter**: [@ifuentes](https://twitter.com/ifuentes)
 - **GitHub**: [@i10s](https://github.com/i10s)
