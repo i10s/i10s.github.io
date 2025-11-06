@@ -1,1 +1,16 @@
 .DS_Store
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Test reports
+lighthouse-report.html
+test-results/
+*.log
+
+# Node modules
+node_modules/
+
+# Generated files
+*.cache

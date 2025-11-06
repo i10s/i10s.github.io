@@ -110,6 +110,46 @@ This site is deployed on **GitHub Pages**:
 
 ## 🧪 Testing
 
+Comprehensive test suite ensures quality, accessibility, SEO, and performance standards.
+
+### Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Run all tests
+npm test
+
+# Run specific test suites
+npm run test:html          # HTML structure
+npm run test:sw            # Service Worker
+npm run test:manifest      # PWA manifest
+npm run test:a11y          # Accessibility
+npm run test:seo           # SEO & performance
+
+# Run tests in watch mode
+npm run test:watch
+
+# Generate coverage report
+npm run test:coverage
+```
+
+### Test Coverage
+
+- **HTML Tests**: Structure, metadata, semantic correctness (~40 assertions)
+- **Service Worker Tests**: Caching, offline support, version management (~20 assertions)
+- **Manifest Tests**: PWA completeness, icon requirements (~25 assertions)
+- **Accessibility Tests**: WCAG 2.1 AA compliance, ARIA, keyboard navigation (~50 assertions)
+- **SEO/Performance Tests**: Meta tags, optimization, structured data (~45 assertions)
+- **Responsive Tests**: Viewport, dark mode, reduced motion (~20 assertions)
+
+**Total: ~200 automated tests** ensuring professional quality standards.
+
+See [tests/README.md](tests/README.md) for detailed documentation.
+
+### Local Testing
+
 To test the site locally:
 
 ```bash
@@ -124,6 +164,10 @@ php -S localhost:8000
 ```
 
 Then visit: http://localhost:8000
+
+### Continuous Integration
+
+GitHub Actions automatically runs tests on every push and pull request. See `.github/workflows/test.yml`.
 
 ## ✅ Browser Support
 

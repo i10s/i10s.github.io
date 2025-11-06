@@ -1,0 +1,49 @@
+{
+  "name": "ifuentes-website-tests",
+  "version": "1.0.0",
+  "description": "Test suite for ifuentes.net static website",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/**/*.test.js --timeout 5000",
+    "test:watch": "mocha tests/**/*.test.js --watch",
+    "test:html": "mocha tests/html.test.js",
+    "test:sw": "mocha tests/sw.test.js",
+    "test:manifest": "mocha tests/manifest.test.js",
+    "test:a11y": "mocha tests/accessibility.test.js",
+    "test:seo": "mocha tests/seo-performance.test.js",
+    "test:coverage": "nyc mocha tests/**/*.test.js",
+    "lint": "eslint tests/**/*.js",
+    "validate:html": "html-validate index.html",
+    "validate:json": "jsonlint site.webmanifest",
+    "audit": "lighthouse https://ifuentes.net --output=html --output-path=./lighthouse-report.html"
+  },
+  "keywords": [
+    "testing",
+    "static-site",
+    "pwa",
+    "accessibility",
+    "seo"
+  ],
+  "author": "Iñaki Fuentes",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "eslint": "^8.56.0",
+    "html-validate": "^8.9.1",
+    "jsdom": "^23.2.0",
+    "jsonlint": "^1.6.3",
+    "lighthouse": "^11.4.0",
+    "mocha": "^10.2.0",
+    "nyc": "^15.1.0"
+  },
+  "nyc": {
+    "reporter": [
+      "html",
+      "text"
+    ],
+    "exclude": [
+      "tests/**",
+      "node_modules/**"
+    ]
+  }
+}
