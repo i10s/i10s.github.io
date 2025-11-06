@@ -33,7 +33,7 @@
     "html-validate": "^8.9.1",
     "jsdom": "^23.2.0",
     "jsonlint": "^1.6.3",
-    "lighthouse": "^11.4.0",
+    "lighthouse": "^12.2.1",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0"
   },
