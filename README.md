@@ -7,19 +7,23 @@ Personal website for Iñaki Fuentes. A minimal, fast, and accessible landing pag
 ## 🚀 Features
 
 - **Lightweight**: < 10KB total page weight (HTML + CSS)
-- **Fast**: No external dependencies, inline critical CSS
+- **Blazing Fast**: DNS prefetch, preconnect, optimized loading
 - **Accessible**: WCAG 2.1 AA compliant, semantic HTML
 - **Responsive**: Mobile-first design that works on all devices
 - **Dark Mode**: Automatic dark mode based on system preferences
-- **SEO Optimized**: Structured data, Open Graph, Twitter Cards
-- **PWA Ready**: Web manifest for installation on mobile devices
+- **SEO Optimized**: Enhanced Open Graph, Twitter Cards, structured data
+- **PWA Ready**: Service Worker, offline support, installable
+- **Secure**: security.txt, CSP headers, HTTPS enforcement
+- **Standards**: humans.txt, proper meta tags, modern web APIs
 
 ## 🛠️ Tech Stack
 
 - Pure HTML5
 - CSS3 with CSS Variables for theming
+- Vanilla JavaScript (Service Worker only)
 - Semantic markup
 - JSON-LD structured data
+- Progressive Web App (PWA)
 
 ## 📊 Performance
 
@@ -40,11 +44,15 @@ Personal website for Iñaki Fuentes. A minimal, fast, and accessible landing pag
 ```
 .
 ├── index.html           # Main landing page (optimized)
-├── site.webmanifest     # PWA manifest
+├── sw.js               # Service Worker for PWA
+├── site.webmanifest     # PWA manifest with shortcuts
+├── humans.txt          # Credits and tech colophon
 ├── .htaccess           # Server configuration (caching, security)
 ├── robots.txt          # Search engine instructions
 ├── sitemap.xml         # Site structure for SEO
 ├── budget.json         # Performance budget
+├── .well-known/
+│   └── security.txt    # Security vulnerability reporting
 └── assets/
     ├── images/         # Optimized images
     └── css/            # Legacy CSS (not used in main page)
@@ -55,10 +63,20 @@ Personal website for Iñaki Fuentes. A minimal, fast, and accessible landing pag
 ### Performance
 
 - Inline critical CSS (eliminates render-blocking)
-- No JavaScript dependencies
+- DNS prefetch and preconnect for external domains
+- No JavaScript dependencies (except Service Worker)
 - Optimized images with proper formats
 - Browser caching configured via .htaccess
 - Compression enabled for all text assets
+- `will-change` hints for smooth animations
+
+### PWA Features
+
+- Service Worker with cache-first strategy
+- Offline functionality
+- Installable on mobile devices
+- App shortcuts in manifest
+- Background updates
 
 ### Accessibility
 

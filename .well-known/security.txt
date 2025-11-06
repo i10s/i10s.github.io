@@ -1,0 +1,10 @@
+Contact: mailto:inaki@ifuentes.net
+Expires: 2026-12-31T23:59:59.000Z
+Preferred-Languages: en, es
+Canonical: https://ifuentes.net/.well-known/security.txt
+Policy: https://ifuentes.net/security-policy
+Acknowledgments: https://ifuentes.net/security-acknowledgments
+
+# Security Contact Information
+# Report security vulnerabilities to the email above
+# PGP Key available at: https://keybase.io/ifuentes

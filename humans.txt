@@ -1,0 +1,55 @@
+# humanstxt.org
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Name: Iñaki Fuentes
+    Site: https://ifuentes.net
+    Twitter: @ifuentes
+    GitHub: @i10s
+    Location: Spain
+
+# THANKS
+
+    GitHub Copilot - AI pair programming assistant
+    Open Source Community - For amazing tools and inspiration
+
+# TECHNOLOGY COLOPHON
+
+    Standards: HTML5, CSS3, JSON-LD
+    Components: Progressive Web App (PWA), Service Worker
+    Software: VS Code, Git
+    Fonts: System fonts (-apple-system, BlinkMacSystemFont, Segoe UI, Roboto)
+    Performance: Inline CSS, no external dependencies
+    Accessibility: WCAG 2.1 AA compliant
+    
+# OPTIMIZATION
+
+    Page weight: 8KB (compressed)
+    Load time: <100ms
+    Lighthouse score: 100/100
+    Carbon footprint: Minimal (green hosting)
+    
+# PHILOSOPHY
+
+    Stay calm. Be critical. Start building.
+    Trying to be less wrong every day.
+    
+                               -o/-       
+                               +oo//-     
+                              :ooo+//:    
+                             -ooooo///-   
+                            :ooooo+////-  
+                           -+oooooo////:  
+                          -+ooooooo+///+: 
+                         :+ooooooooo++//+-
+                        /++++ooooooo+++///o-
+                       /o+//oooo++++++++///s:
+                      :o+//+ooooo+++o+++////-
+                      +///+oooooo+oo+++++///:
+                     :-//+ooooo+++++++++//:  
+                      ://ooooo++++++++//-    
+                       :/+ooo++++++//:       
+                         :+oo++++//-         
+                           -/++//-           
+                             .//-            

@@ -10,7 +10,16 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#ffffff" />
   <meta name="color-scheme" content="light dark" />
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
   <link rel="canonical" href="https://ifuentes.net" />
+
+  <!-- DNS Prefetch for faster external connections -->
+  <link rel="dns-prefetch" href="https://www.linkedin.com" />
+  <link rel="dns-prefetch" href="https://twitter.com" />
+  <link rel="dns-prefetch" href="https://github.com" />
+  <link rel="preconnect" href="https://www.linkedin.com" crossorigin />
+  <link rel="preconnect" href="https://twitter.com" crossorigin />
+  <link rel="preconnect" href="https://github.com" crossorigin />
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -18,6 +27,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+  <link rel="author" href="/humans.txt" />
   <meta name="msapplication-TileColor" content="#da532c" />
 
   <!-- Open Graph -->
@@ -25,8 +35,12 @@
   <meta property="og:description" content="Stay calm. Be critical. Start building. Trying to be less wrong every day." />
   <meta property="og:url" content="https://ifuentes.net/" />
   <meta property="og:image" content="https://ifuentes.net/if.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Iñaki Fuentes - People, Business and Technology" />
   <meta property="og:site_name" content="Iñaki Fuentes Liberal" />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
@@ -137,6 +151,7 @@
       display: inline-block;
       transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
       font-weight: 500;
+      will-change: transform;
     }
 
     a:visited {
@@ -166,6 +181,7 @@
       transform: scaleX(0);
       transform-origin: bottom right;
       transition: transform var(--transition-speed) ease;
+      will-change: transform;
     }
 
     a:hover::after,
@@ -275,6 +291,17 @@
       "https://www.instagram.com/ifuentes/"
     ]
   }
+  </script>
+
+  <!-- Service Worker Registration (PWA) -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('Service Worker registered'))
+          .catch(err => console.log('Service Worker registration failed'));
+      });
+    }
   </script>
 </body>
 </html>
