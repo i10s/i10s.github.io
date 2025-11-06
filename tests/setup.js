@@ -45,24 +45,5 @@ global.testUtils = {
   }
 };
 
-// Console output control
-const originalConsole = { ...console };
-
-before(() => {
-  // Reduce noise in test output
-  if (process.env.SILENT_TESTS === 'true') {
-    global.console = {
-      ...console,
-      log: () => {},
-      warn: () => {},
-      info: () => {}
-    };
-  }
-});
-
-after(() => {
-  // Restore console
-  if (process.env.SILENT_TESTS === 'true') {
-    global.console = originalConsole;
-  }
-});
+// Export for use in tests if needed
+module.exports = global.testUtils;
