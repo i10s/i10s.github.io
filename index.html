@@ -29,9 +29,8 @@
   <link rel="preconnect" href="https://twitter.com" crossorigin />
   <link rel="preconnect" href="https://github.com" crossorigin />
 
-  <!-- Preload critical resources -->
+  <!-- Preload critical Service Worker -->
   <link rel="preload" as="script" href="/sw.js" fetchpriority="high" />
-  <link rel="preload" as="fetch" href="/site.webmanifest" crossorigin fetchpriority="low" />
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -360,19 +359,7 @@
 
   <!-- Service Worker Registration (PWA) -->
   <script>
-    // Speculation Rules: hint browser to prerender external blog for instant navigation
-    try {
-      const rules = {
-        prerender: [
-          { source: "list", urls: ["https://inaki.bearblog.dev/blog/"] }
-        ]
-      };
-      const el = document.createElement('script');
-      el.type = 'speculationrules';
-      el.textContent = JSON.stringify(rules);
-      document.head.appendChild(el);
-    } catch (e) { /* ignore unsupported browsers */ }
-
+    // Service Worker for offline support and caching
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
