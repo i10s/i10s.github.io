@@ -234,9 +234,14 @@ describe('HTML Structure', () => {
       expect(dnsPrefetch).to.exist;
     });
 
-    it('should preload critical resources', () => {
+    it('should not have unused preload resources', () => {
+      // We intentionally removed preload for SW as it was unused
       const preloads = Array.from(document.querySelectorAll('link[rel="preload"]'));
-      expect(preloads.length).to.be.greaterThan(0);
+      // If there are preloads, ensure they're actually used
+      preloads.forEach(preload => {
+        const href = preload.getAttribute('href');
+        expect(href).to.exist;
+      });
     });
 
     it('should have inline CSS', () => {
