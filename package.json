@@ -15,6 +15,7 @@
     "lint": "eslint tests/**/*.js",
     "validate:html": "html-validate index.html",
     "validate:json": "jsonlint site.webmanifest",
+    "fix:html": "node scripts/fix-html.js",
     "audit": "lighthouse https://ifuentes.net --output=html --output-path=./lighthouse-report.html"
   },
   "keywords": [
