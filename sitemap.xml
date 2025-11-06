@@ -7,14 +7,23 @@
 
 <url>
   <loc>https://ifuentes.net/</loc>
-  <lastmod>2020-01-07T16:00:41+00:00</lastmod>
+  <lastmod>2025-11-06T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
   <priority>1.00</priority>
 </url>
+
 <url>
   <loc>https://ifuentes.net/resume.html</loc>
-  <lastmod>2020-01-07T21:13:35+00:00</lastmod>
+  <lastmod>2025-11-06T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
   <priority>0.80</priority>
 </url>
 
+<url>
+  <loc>https://inaki.bearblog.dev/blog/</loc>
+  <lastmod>2025-11-06T00:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.70</priority>
+</url>
 
 </urlset>

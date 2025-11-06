@@ -7,7 +7,11 @@
   <!-- SEO -->
   <title>Iñaki Fuentes | People, Business and Technology</title>
   <meta name="description" content="Stay calm. Be critical. Start building. Trying to be less wrong every day." />
+  <meta name="author" content="Iñaki Fuentes" />
+  <meta name="keywords" content="COO, Travelgate, travel marketplace, technology leadership, startup advisor, AI automation, business strategy, operations, innovation" />
+  <meta name="abstract" content="Currently COO at Travelgate, leading operations and strategy to grow the world's largest travel marketplace. Focused on innovation, partnerships, and scalability, ensuring our partners thrive in an ever-changing industry. Also advising and investing in startups, helping founders define business models, scale operations, and secure funding. Developing AI-driven automation solutions focused on improving efficiency and simplifying processes within the travel ecosystem." />
   <meta name="robots" content="index, follow" />
+  <meta name="generator" content="Hand-crafted with care" />
   <meta name="theme-color" content="#ffffff" />
   <meta name="color-scheme" content="light dark" />
   <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)" />
@@ -32,7 +36,7 @@
 
   <!-- Open Graph -->
   <meta property="og:title" content="Iñaki Fuentes Liberal" />
-  <meta property="og:description" content="Stay calm. Be critical. Start building. Trying to be less wrong every day." />
+  <meta property="og:description" content="COO at Travelgate. Leading operations and strategy for the world's largest travel marketplace. Startup advisor and investor. Building AI-driven automation for the travel industry." />
   <meta property="og:url" content="https://ifuentes.net/" />
   <meta property="og:image" content="https://ifuentes.net/if.png" />
   <meta property="og:image:width" content="1200" />
@@ -47,7 +51,7 @@
   <meta name="twitter:site" content="@ifuentes" />
   <meta name="twitter:creator" content="@ifuentes" />
   <meta name="twitter:title" content="Iñaki Fuentes Liberal" />
-  <meta name="twitter:description" content="Stay calm. Be critical. Start building. Trying to be less wrong every day." />
+  <meta name="twitter:description" content="COO at Travelgate. Leading operations and strategy for the world's largest travel marketplace. Startup advisor and investor. Building AI-driven automation for the travel industry." />
   <meta name="twitter:image" content="https://ifuentes.net/if.png" />
 
   <!-- Styles -->
@@ -94,6 +98,18 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
+    /* Page load animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     body {
       margin: 0 auto;
       padding: var(--spacing-unit);
@@ -103,6 +119,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      animation: fadeIn 0.5s ease-out;
     }
 
     /* Typography */
@@ -125,11 +142,13 @@
       margin-bottom: 2rem;
       padding-bottom: 1.5rem;
       border-bottom: 2px solid var(--color-border);
+      animation: fadeIn 0.6s ease-out 0.1s both;
     }
 
     /* Navigation */
     nav {
       flex: 1;
+      animation: fadeIn 0.7s ease-out 0.2s both;
     }
 
     nav ul {
@@ -273,7 +292,15 @@
     "@type": "Person",
     "givenName": "Iñaki",
     "familyName": "Fuentes",
+    "name": "Iñaki Fuentes Liberal",
     "email": "inaki@ifuentes.net",
+    "jobTitle": "Chief Operating Officer",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Travelgate",
+      "url": "https://www.travelgate.com"
+    },
+    "description": "Currently COO at Travelgate, leading operations and strategy to grow the world's largest travel marketplace. Focused on innovation, partnerships, and scalability. Also advising and investing in startups, helping founders define business models, scale operations, and secure funding. Developing AI-driven automation solutions for the travel ecosystem.",
     "alumniOf": {
       "@type": "EducationalOrganization",
       "name": "Northumbria University",

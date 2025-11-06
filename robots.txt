@@ -1,4 +1,18 @@
-Sitemap: https://ifuentes.net/sitemap.xml
+# robots.txt for https://ifuentes.net
+# Updated: November 2025
+
 User-Agent: *
+Allow: /
 Disallow: /es/
 Disallow: /amazon/
+Disallow: /archive/
+
+# Sitemaps
+Sitemap: https://ifuentes.net/sitemap.xml
+
+# Security
+# For security vulnerability reporting, see:
+# https://ifuentes.net/.well-known/security.txt
+
+# Crawl-delay (optional, adjust as needed)
+# Crawl-delay: 1
