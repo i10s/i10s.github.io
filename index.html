@@ -36,37 +36,199 @@
   <meta name="twitter:description" content="Stay calm. Be critical. Start building. Trying to be less wrong every day." />
   <meta name="twitter:image" content="https://ifuentes.net/if.png" />
 
-  <!-- Font Awesome (for icons, if needed) -->
-  <script src="https://kit.fontawesome.com/0025fa325d.js" crossorigin="anonymous" defer></script>
-
   <!-- Styles -->
   <style>
+    /* CSS Variables for theming */
     :root {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --color-bg: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-secondary: #4a4a4a;
+      --color-link: #0066cc;
+      --color-link-hover: #0052a3;
+      --color-link-visited: #551a8b;
+      --color-border: #e0e0e0;
+      --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --spacing-unit: 1rem;
+      --max-width: 720px;
+      --transition-speed: 0.2s;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #0d1117;
+        --color-text: #e6edf3;
+        --color-text-secondary: #8b949e;
+        --color-link: #58a6ff;
+        --color-link-hover: #79c0ff;
+        --color-link-visited: #bc8cff;
+        --color-border: #30363d;
+      }
+    }
+
+    /* Reset and Base Styles */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: var(--font-system);
       line-height: 1.6;
       color-scheme: light dark;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
+
     body {
       margin: 0 auto;
-      padding: 1rem;
-      max-width: 720px;
-      background: #fff;
-      color: #000;
+      padding: var(--spacing-unit);
+      max-width: var(--max-width);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: #1c1c1c;
-        color: #f5f5f5;
-      }
-      a { color: #61dafb; }
-      a:visited { color: #e18cf7; }
+
+    /* Typography */
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
     }
+
+    p {
+      color: var(--color-text-secondary);
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+    }
+
+    /* Header */
+    header {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 2px solid var(--color-border);
+    }
+
+    /* Navigation */
+    nav {
+      flex: 1;
+    }
+
     nav ul {
       list-style: none;
       padding: 0;
+      display: grid;
+      gap: 0.75rem;
     }
+
     nav li {
-      margin-bottom: 0.5rem;
+      margin: 0;
+    }
+
+    /* Links */
+    a {
+      color: var(--color-link);
+      text-decoration: none;
+      position: relative;
+      display: inline-block;
+      transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
+      font-weight: 500;
+    }
+
+    a:visited {
+      color: var(--color-link-visited);
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--color-link-hover);
+      transform: translateX(4px);
+    }
+
+    a:focus {
+      outline: 2px solid var(--color-link);
+      outline-offset: 4px;
+      border-radius: 2px;
+    }
+
+    a::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: -2px;
+      left: 0;
+      background-color: var(--color-link);
+      transform: scaleX(0);
+      transform-origin: bottom right;
+      transition: transform var(--transition-speed) ease;
+    }
+
+    a:hover::after,
+    a:focus::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+
+    /* External link indicator */
+    nav a[href^="http"]::before {
+      content: "→ ";
+      opacity: 0.5;
+      margin-right: 0.25rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    /* Reduced Motion Support */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: white;
+        color: black;
+      }
+
+      a {
+        text-decoration: underline;
+        color: black;
+      }
+
+      a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+      }
+    }
+
+    /* Focus visible for better keyboard navigation */
+    :focus-visible {
+      outline: 2px solid var(--color-link);
+      outline-offset: 4px;
     }
   </style>
 </head>
@@ -77,15 +239,15 @@
     <p>Stay calm. Be critical. Start building.<br>Trying to be less wrong every day.</p>
   </header>
 
-  <nav>
+  <nav aria-label="Social media and professional links">
     <ul>
-      <li><a href="https://www.linkedin.com/in/inakifuentes/" rel="me noopener noreferrer">LinkedIn</a></li>
-      <li><a href="https://twitter.com/ifuentes" rel="me noopener noreferrer">Twitter</a></li>
-      <li><a href="https://github.com/i10s" rel="me noopener noreferrer">GitHub</a></li>
-      <li><a href="https://www.strava.com/athletes/1980963" rel="noopener noreferrer">Strava</a></li>
-      <li><a href="https://discordapp.com/users/i10s#1599" rel="noopener noreferrer">Discord</a></li>
-      <li><a href="https://inaki.bearblog.dev/blog/" rel="noopener noreferrer">Blog</a></li>
-      <li><a href="https://keybase.io/ifuentes" rel="noopener noreferrer">Keybase</a></li>
+      <li><a href="https://www.linkedin.com/in/inakifuentes/" rel="me noopener noreferrer" target="_blank" aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a></li>
+      <li><a href="https://twitter.com/ifuentes" rel="me noopener noreferrer" target="_blank" aria-label="Twitter profile (opens in new tab)">Twitter</a></li>
+      <li><a href="https://github.com/i10s" rel="me noopener noreferrer" target="_blank" aria-label="GitHub profile (opens in new tab)">GitHub</a></li>
+      <li><a href="https://www.strava.com/athletes/1980963" rel="noopener noreferrer" target="_blank" aria-label="Strava profile (opens in new tab)">Strava</a></li>
+      <li><a href="https://discordapp.com/users/i10s#1599" rel="noopener noreferrer" target="_blank" aria-label="Discord profile (opens in new tab)">Discord</a></li>
+      <li><a href="https://inaki.bearblog.dev/blog/" rel="noopener noreferrer" target="_blank" aria-label="Personal blog (opens in new tab)">Blog</a></li>
+      <li><a href="https://keybase.io/ifuentes" rel="noopener noreferrer" target="_blank" aria-label="Keybase profile (opens in new tab)">Keybase</a></li>
     </ul>
   </nav>
 
