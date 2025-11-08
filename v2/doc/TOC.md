@@ -1,4 +1,8 @@
+# Documentation Table of Contents (Legacy)
+
 [HTML5 Boilerplate homepage](https://html5boilerplate.com/)
+
+> Note: Files in `v2/doc/` are an upstream HTML5 Boilerplate snapshot preserved for reference. They are not part of the active production site (`ifuentes.net`) and remain in original language/style.
 
 ## Getting started
 

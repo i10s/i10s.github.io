@@ -28,10 +28,11 @@
     
 # OPTIMIZATION
 
-    Page weight: <15KB (compressed)
+    Page weight budget: ≤35KB total (HTML+CSS+JS+critical images)
     Load time: <500ms (LCP)
     Lighthouse score: 100/100 (all categories)
     Carbon footprint: Minimal (green hosting, static site)
+    Hosting: GitHub Pages (global CDN, static caching)
     Security: Zero vulnerabilities, CSP headers, HTTPS only
     
 # ARCHITECTURE

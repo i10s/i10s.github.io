@@ -2,11 +2,11 @@
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-deployed-success?logo=github)](https://ifuentes.net)
 
-Personal website for Iñaki Fuentes. A minimal, fast, and accessible landing page showcasing professional links and social profiles.
+Personal website for Iñaki Fuentes. A minimal, fast, and accessible landing page showcasing professional links and social profiles. Built for clarity, low maintenance and strong defaults (performance, accessibility, PWA, SEO).
 
 ## 🚀 Features
 
-- **Lightweight**: < 10KB total page weight (HTML + CSS)
+- **Lightweight**: Strict performance budget (Document ≤22KB, Total ≤35KB per page)
 - **Blazing Fast**: DNS prefetch, preconnect, optimized loading
 - **Accessible**: WCAG 2.1 AA compliant, semantic HTML
 - **Responsive**: Mobile-first design with fluid typography and grid layouts
@@ -29,12 +29,27 @@ Personal website for Iñaki Fuentes. A minimal, fast, and accessible landing pag
 - JSON-LD structured data
 - Progressive Web App (PWA)
 
-## 📊 Performance
+## 📊 Performance Targets & Budgets
 
-- **Lighthouse Score**: 100/100 across all categories
-- **First Contentful Paint**: < 0.5s
-- **Time to Interactive**: < 1s
-- **Total Bundle Size**: ~8KB (uncompressed)
+Actual numbers vary by change; a lightweight baseline is enforced via automated checks.
+
+### Budgets (validated in pre-commit via `scripts/check-budget.js`)
+
+| Category      | Limit per page |
+| ------------- | -------------- |
+| Document HTML | 22KB           |
+| CSS           | 8KB            |
+| JavaScript    | 10KB           |
+| Images        | 5KB inline/critical |
+| Total         | 35KB           |
+
+### Targets
+
+- Lighthouse: Aim for 95–100 in Performance, Accessibility, Best Practices, SEO
+- First Contentful Paint: < 0.8s on median broadband
+- Time To Interactive: < 1.2s
+- Layout Shift (CLS): ~0 (no unexpected shifts)
+- Zero 3rd-party blocking scripts (except optional analytics when added)
 
 ## 🎨 Design Principles
 
@@ -110,14 +125,16 @@ This site is deployed on **GitHub Pages**:
 - **Auto-deploy**: Pushes to `main` branch trigger deployment
 - **Build time**: ~1-2 minutes
 
-## 📈 Monitoring
+## 📈 Monitoring & Tooling
 
-- **GitHub Actions**: Build and deployment logs
-- **Performance**: Lighthouse CI recommended
+- **GitHub Actions**: CI runs test + validation suite on every push
+- **Pre-commit Hooks**: Husky runs HTML validation, performance budgets and tests locally (commit blocked on failure)
+- **Web Vitals**: Optional collection via `web-vitals.js` (dev mode)
+- **Manual Audits**: Lighthouse CI or local Chrome DevTools when making larger UI changes
 
 ## 🧪 Testing
 
-Comprehensive test suite ensures quality, accessibility, SEO, and performance standards.
+Comprehensive test suite (≈200 assertions) covers structure, accessibility, SEO, PWA and performance heuristics.
 
 ### Quick Start
 
@@ -142,22 +159,20 @@ npm run test:watch
 npm run test:coverage
 ```
 
-### Test Coverage
+### Test Categories (Summary)
 
-- **HTML Tests**: Structure, metadata, semantic correctness (~40 assertions)
-- **Service Worker Tests**: Caching, offline support, version management (~20 assertions)
-- **Manifest Tests**: PWA completeness, icon requirements (~25 assertions)
-- **Accessibility Tests**: WCAG 2.1 AA compliance, ARIA, keyboard navigation (~50 assertions)
-- **SEO/Performance Tests**: Meta tags, optimization, structured data (~45 assertions)
-- **Responsive Tests**: Viewport, dark mode, reduced motion (~20 assertions)
-
-**Total: ~200 automated tests** ensuring professional quality standards.
+- HTML structure & semantics
+- Accessibility (WCAG 2.1 AA + dark/high contrast support)
+- SEO & Metadata (Open Graph, Twitter, JSON-LD)
+- Performance heuristics (inline critical CSS, budgets, service worker caching)
+- PWA (manifest fields, service worker lifecycle)
+- Responsive & preference media queries (viewport, reduced motion, color scheme)
 
 See [tests/README.md](tests/README.md) for detailed documentation.
 
-### Local Testing
+### Local Development & Testing
 
-To test the site locally:
+To work locally:
 
 ```bash
 # Development server with live reload (recommended)
@@ -181,11 +196,9 @@ GitHub Actions automatically runs tests on every push and pull request. See `.gi
 
 ## ✅ Browser Support
 
-- Chrome/Edge: Latest 2 versions
-- Firefox: Latest 2 versions
-- Safari: Latest 2 versions
-- iOS Safari: Latest 2 versions
-- Android Chrome: Latest 2 versions
+Optimized for evergreen browsers (latest 2 versions): Chromium (Chrome/Edge), Firefox, Safari (desktop & iOS), Android Chrome. Graceful fallback: older browsers still render core content without enhancements.
+
+Progressive enhancement approach avoids hard dependency on JS for primary content.
 
 ## 📝 License
 
@@ -193,7 +206,33 @@ Copyright © 2025 Iñaki Fuentes. All rights reserved.
 
 ## 🤝 Contributing
 
-This is a personal website, but suggestions are welcome! Feel free to open an issue.
+While this is a personal site, suggestions are welcome. If proposing changes:
+
+1. Fork & clone repository
+2. Create a branch (`feat/short-description`)
+3. Run `npm install`
+4. Make changes (avoid adding heavy dependencies)
+5. Run `npm test` (ensure all suites pass)
+6. Commit (pre-commit hook will validate budgets + tests)
+7. Open a Pull Request
+
+### Adding a New Page Checklist
+
+| Step | Action |
+|------|--------|
+| 1 | Create `yourpage.html` with semantic structure & `lang="en"` |
+| 2 | Add to `sitemap.xml` (keep ordering logical) |
+| 3 | Reference in `robots.txt` if needed (ensure not disallowed) |
+| 4 | Add link (if appropriate) to `index.html` nav or footer |
+| 5 | Ensure meta description & unique title |
+| 6 | Run `npm test` and ensure budgets are within limits |
+| 7 | Commit and push |
+
+Keep page HTML lean: inline critical CSS only if necessary; reuse existing patterns.
+
+### Style & Tone
+
+English B2 level, concise sentences, active voice, no marketing fluff.
 
 ## 📞 Contact
 
@@ -205,3 +244,5 @@ This is a personal website, but suggestions are welcome! Feel free to open an is
 ---
 
 **Stay calm. Be critical. Start building.**
+
+_Trying to be less wrong every day._
