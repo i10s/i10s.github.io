@@ -7,21 +7,35 @@
 
 <url>
   <loc>https://ifuentes.net/</loc>
-  <lastmod>2025-11-06T00:00:00+00:00</lastmod>
+  <lastmod>2025-11-08T00:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>1.00</priority>
 </url>
 
 <url>
   <loc>https://ifuentes.net/resume.html</loc>
-  <lastmod>2025-11-06T00:00:00+00:00</lastmod>
+  <lastmod>2025-11-08T00:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.80</priority>
 </url>
 
 <url>
+  <loc>https://ifuentes.net/now.html</loc>
+  <lastmod>2025-11-08T00:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
+</url>
+
+<url>
+  <loc>https://ifuentes.net/feed.xml</loc>
+  <lastmod>2025-11-08T00:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
   <loc>https://inaki.bearblog.dev/blog/</loc>
-  <lastmod>2025-11-06T00:00:00+00:00</lastmod>
+  <lastmod>2025-11-08T00:00:00+00:00</lastmod>
   <changefreq>weekly</changefreq>
   <priority>0.70</priority>
 </url>

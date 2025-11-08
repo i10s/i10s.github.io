@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run HTML validation
+npm run validate:html
+
+# Check performance budget
+npm run validate:budget
+
+# Run tests
+npm test

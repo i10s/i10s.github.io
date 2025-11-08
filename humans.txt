@@ -16,24 +16,45 @@
 
 # TECHNOLOGY COLOPHON
 
-    Standards: HTML5, CSS3, JSON-LD
-    Components: Progressive Web App (PWA), Service Worker
-    Software: VS Code, Git
+    Standards: HTML5, CSS3, JSON-LD, RSS 2.0
+    Components: Progressive Web App (PWA), Service Worker, Web Vitals
+    Testing: Mocha, Chai, JSDOM, html-validate (199 automated tests)
+    CI/CD: GitHub Actions, Lighthouse CI
+    Software: VS Code, Git, Node.js
     Fonts: System fonts (-apple-system, BlinkMacSystemFont, Segoe UI, Roboto)
-    Performance: Inline CSS, no external dependencies
-    Accessibility: WCAG 2.1 AA compliant
+    Performance: Inline CSS, zero runtime dependencies
+    Accessibility: WCAG 2.1 AA + AAA (high contrast) compliant
+    Development: Live reload dev server, pre-commit validation
     
 # OPTIMIZATION
 
-    Page weight: 8KB (compressed)
-    Load time: <100ms
-    Lighthouse score: 100/100
-    Carbon footprint: Minimal (green hosting)
+    Page weight: <15KB (compressed)
+    Load time: <500ms (LCP)
+    Lighthouse score: 100/100 (all categories)
+    Carbon footprint: Minimal (green hosting, static site)
+    Security: Zero vulnerabilities, CSP headers, HTTPS only
+    
+# ARCHITECTURE
+
+    Responsive: Mobile-first, fluid typography with clamp()
+    Dark Mode: Automatic via prefers-color-scheme
+    High Contrast: WCAG AAA via prefers-contrast
+    Offline: Service Worker with cache-first strategy
+    Monitoring: Real-time Web Vitals (CLS, LCP, FID, INP, FCP, TTFB)
+    
+# PAGES
+
+    / - Main landing page
+    /resume.html - Professional experience
+    /now.html - Current focus (nownownow.com)
+    /feed.xml - RSS feed
+    /404.html - Custom error page
     
 # PHILOSOPHY
 
     Stay calm. Be critical. Start building.
     Trying to be less wrong every day.
+    Quality over quantity. Standards over shortcuts.
     
                                -o/-       
                                +oo//-     

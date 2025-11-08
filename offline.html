@@ -27,6 +27,28 @@
       }
     }
 
+    @media (prefers-contrast: more) {
+      :root {
+        --color-bg: #ffffff;
+        --color-text: #000000;
+        --color-text-secondary: #1a1a1a;
+        --color-link: #0000ee;
+        --color-link-hover: #0000cc;
+        --color-border: #000000;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+      :root {
+        --color-bg: #000000;
+        --color-text: #ffffff;
+        --color-text-secondary: #e5e5e5;
+        --color-link: #4dabf7;
+        --color-link-hover: #74c0fc;
+        --color-border: #ffffff;
+      }
+    }
+
     * {
       box-sizing: border-box;
     }

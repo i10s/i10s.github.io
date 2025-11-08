@@ -30,6 +30,30 @@
       }
     }
 
+    @media (prefers-contrast: more) {
+      :root {
+        --color-bg: #ffffff;
+        --color-text: #000000;
+        --color-text-secondary: #1a1a1a;
+        --color-link: #0000ee;
+        --color-link-hover: #0000cc;
+        --color-border: #000000;
+        --color-code-bg: #f0f0f0;
+      }
+    }
+
+    @media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+      :root {
+        --color-bg: #000000;
+        --color-text: #ffffff;
+        --color-text-secondary: #e5e5e5;
+        --color-link: #4dabf7;
+        --color-link-hover: #74c0fc;
+        --color-border: #ffffff;
+        --color-code-bg: #1a1a1a;
+      }
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;

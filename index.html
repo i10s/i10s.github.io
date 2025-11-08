@@ -417,6 +417,113 @@
   <!-- Web Vitals Tracking (dev mode only) -->
   <script src="/web-vitals.js" defer></script>
 
+  <!-- Easter Eggs: Console Art & Konami Code -->
+  <script>
+    // Console ASCII Art - Displayed on page load
+    console.log('%c', 'font-size: 1px; padding: 100px 150px; background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIj48dGV4dCB4PSIxNTAiIHk9IjEwMCIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzNiODJmNiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+aWZ1ZW50ZXMubmV0PC90ZXh0Pjwvc3ZnPg==) no-repeat;');
+    console.log('%c👋 Hello, curious developer!', 'font-size: 16px; font-weight: bold; color: #3b82f6;');
+    console.log('%cWelcome to ifuentes.net', 'font-size: 14px; color: #10b981;');
+    console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #6b7280;');
+    console.log('%c🔍 Tech Stack:', 'font-weight: bold; color: #f59e0b;');
+    console.log('%c  • HTML5 + CSS3 (no frameworks!)', 'color: #9ca3af;');
+    console.log('%c  • Progressive Web App (PWA)', 'color: #9ca3af;');
+    console.log('%c  • Web Vitals monitoring', 'color: #9ca3af;');
+    console.log('%c  • Service Worker caching', 'color: #9ca3af;');
+    console.log('%c  • Dark mode + High contrast', 'color: #9ca3af;');
+    console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #6b7280;');
+    console.log('%c🎮 Easter Egg: Try the Konami Code!', 'font-size: 12px; color: #a855f7; font-style: italic;');
+    console.log('%c   (↑ ↑ ↓ ↓ ← → ← → B A)', 'font-size: 11px; color: #9ca3af;');
+    console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #6b7280;');
+    console.log('%c📬 Get in touch: https://ifuentes.net', 'color: #3b82f6;');
+    console.log(' ');
+
+    // Konami Code Easter Egg
+    (function() {
+      const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+      let konamiIndex = 0;
+
+      document.addEventListener('keydown', function(e) {
+        const key = e.key.toLowerCase();
+
+        if (key === konamiCode[konamiIndex] || e.code === konamiCode[konamiIndex]) {
+          konamiIndex++;
+
+          if (konamiIndex === konamiCode.length) {
+            activateKonamiMode();
+            konamiIndex = 0;
+          }
+        } else {
+          konamiIndex = 0;
+        }
+      });
+
+      function activateKonamiMode() {
+        console.clear();
+        console.log('%c🎉 KONAMI CODE ACTIVATED! 🎉', 'font-size: 24px; font-weight: bold; color: #10b981; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);');
+        console.log('%c', 'font-size: 1px; padding: 150px 200px; background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIj48dGV4dCB4PSIyMDAiIHk9IjE1MCIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIzMiIgZmlsbD0iIzEwYjk4MSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC13ZWlnaHQ9ImJvbGQiPuKcqCBZb3UgZm91bmQgaXQhPC90ZXh0Pjwvc3ZnPg==); background-repeat: no-repeat;');
+        console.log('%cYou unlocked the secret developer achievement!', 'font-size: 16px; color: #a855f7;');
+        console.log('%c', 'font-size: 1px;');
+        console.log(`%c
+                     ___ _____ _   _ _____ _   _ _____ _____ ____
+                    |_ _|  ___| | | | ____| \\ | |_   _| ____/ ___|
+                     | || |_  | | | |  _| |  \\| | | | |  _| \\___ \\
+                     | ||  _| | |_| | |___| |\\  | | | | |___ ___) |
+                    |___|_|    \\___/|_____|_| \\_| |_| |_____|____/
+
+                           ✨ Thanks for exploring! ✨
+        `, 'font-family: monospace; color: #3b82f6; font-size: 10px;');
+
+        // Visual feedback
+        document.body.style.animation = 'konami-pulse 0.5s ease-in-out';
+        setTimeout(() => document.body.style.animation = '', 500);
+
+        // Add a celebratory message to the page
+        const message = document.createElement('div');
+        message.innerHTML = '🎮 Konami Code Activated! Check the console →';
+        message.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: linear-gradient(135deg, #10b981, #3b82f6);
+          color: white;
+          padding: 1rem 1.5rem;
+          border-radius: 8px;
+          font-weight: 600;
+          box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+          z-index: 10000;
+          animation: slideIn 0.5s ease-out;
+        `;
+        document.body.appendChild(message);
+
+        setTimeout(() => {
+          message.style.animation = 'slideOut 0.5s ease-in';
+          setTimeout(() => message.remove(), 500);
+        }, 5000);
+      }
+
+      // Animation styles
+      if (!document.getElementById('konami-styles')) {
+        const style = document.createElement('style');
+        style.id = 'konami-styles';
+        style.textContent = `
+          @keyframes konami-pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.01); }
+          }
+          @keyframes slideIn {
+            from { transform: translateX(400px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+          }
+          @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(400px); opacity: 0; }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+    })();
+  </script>
+
   <!-- Service Worker Registration (PWA) -->
   <script>
     // Service Worker for offline support and caching

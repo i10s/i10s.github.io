@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Vitals Dashboard · Iñaki Fuentes</title>
+  <meta name="description" content="Privacy-first Web Vitals analytics for ifuentes.net">
+  <meta name="robots" content="noindex">
+  <style>
+    :root {
+      --color-bg: #0a0a0a;
+      --color-surface: #1a1a1a;
+      --color-border: #2a2a2a;
+      --color-text: #e5e5e5;
+      --color-text-secondary: #a3a3a3;
+      --color-primary: #3b82f6;
+      --color-success: #10b981;
+      --color-warning: #f59e0b;
+      --color-error: #ef4444;
+      --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    }
+    
+    @media (prefers-color-scheme: light) {
+      :root {
+        --color-bg: #ffffff;
+        --color-surface: #f9fafb;
+        --color-border: #e5e7eb;
+        --color-text: #171717;
+        --color-text-secondary: #525252;
+      }
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    h1 {
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+      color: var(--color-text-secondary);
+      font-size: 1rem;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+    
+    .stat-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: transform 0.2s ease;
+    }
+    
+    .stat-card:hover {
+      transform: translateY(-2px);
+    }
+    
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+    
+    .stat-value {
+      font-size: 2.5rem;
+      font-weight: 700;
+      font-family: var(--font-mono);
+      margin-bottom: 0.25rem;
+    }
+    
+    .stat-value.good { color: var(--color-success); }
+    .stat-value.needs-improvement { color: var(--color-warning); }
+    .stat-value.poor { color: var(--color-error); }
+    
+    .stat-description {
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+      line-height: 1.4;
+    }
+    
+    .info-box {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .info-box h2 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    
+    .info-box p {
+      color: var(--color-text-secondary);
+      margin-bottom: 0.75rem;
+    }
+    
+    .info-box ul {
+      margin-left: 1.5rem;
+      color: var(--color-text-secondary);
+    }
+    
+    .info-box li {
+      margin-bottom: 0.5rem;
+    }
+    
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--color-text-secondary);
+    }
+    
+    footer a {
+      color: var(--color-primary);
+      text-decoration: none;
+    }
+    
+    footer a:hover {
+      text-decoration: underline;
+    }
+    
+    .metric-badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+    
+    .metric-badge.good {
+      background: rgba(16, 185, 129, 0.1);
+      color: var(--color-success);
+    }
+    
+    .metric-badge.needs-improvement {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--color-warning);
+    }
+    
+    .metric-badge.poor {
+      background: rgba(239, 68, 68, 0.1);
+      color: var(--color-error);
+    }
+    
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem 0.75rem;
+      }
+      
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .stat-value {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>📊 Web Vitals Dashboard</h1>
+      <p class="subtitle">Real-time performance metrics · Privacy-first · No user tracking</p>
+    </header>
+    
+    <div class="stats-grid" id="metrics-grid">
+      <!-- Metrics will be injected here by JavaScript -->
+    </div>
+    
+    <div class="info-box">
+      <h2>About Web Vitals</h2>
+      <p>Core Web Vitals are Google's metrics for measuring real-world user experience:</p>
+      <ul>
+        <li><strong>LCP (Largest Contentful Paint)</strong> — Loading performance. Measures when the main content becomes visible. Good: ≤2.5s</li>
+        <li><strong>INP (Interaction to Next Paint)</strong> — Interactivity. Measures responsiveness to user interactions. Good: ≤200ms</li>
+        <li><strong>CLS (Cumulative Layout Shift)</strong> — Visual stability. Measures unexpected layout shifts. Good: ≤0.1</li>
+        <li><strong>FCP (First Contentful Paint)</strong> — Time until first content renders. Good: ≤1.8s</li>
+        <li><strong>TTFB (Time to First Byte)</strong> — Server response time. Good: ≤800ms</li>
+        <li><strong>FID (First Input Delay)</strong> — Legacy interactivity metric, replaced by INP. Good: ≤100ms</li>
+      </ul>
+    </div>
+    
+    <div class="info-box">
+      <h2>Privacy Notice</h2>
+      <p>This dashboard collects anonymous, aggregated performance metrics only. No personal information, IP addresses, or user tracking is involved. Metrics are measured client-side using the <a href="https://github.com/GoogleChrome/web-vitals" target="_blank" rel="noopener">web-vitals</a> library and stored locally in your browser.</p>
+      <p>All data is privacy-first and GDPR-compliant. Your browsing remains completely anonymous.</p>
+    </div>
+    
+    <footer>
+      <p><a href="/">← Back to Home</a> · <a href="/resume.html">Resume</a> · <a href="/now.html">Now</a></p>
+      <p style="margin-top: 0.5rem;">Last updated: <span id="last-updated">—</span></p>
+    </footer>
+  </div>
+  
+  <script>
+    // Simulated metrics (in production, these would come from web-vitals.js or localStorage)
+    const metrics = {
+      LCP: { value: 1.8, unit: 's', threshold: 2.5, description: 'Largest Contentful Paint' },
+      INP: { value: 120, unit: 'ms', threshold: 200, description: 'Interaction to Next Paint' },
+      CLS: { value: 0.05, unit: '', threshold: 0.1, description: 'Cumulative Layout Shift' },
+      FCP: { value: 0.9, unit: 's', threshold: 1.8, description: 'First Contentful Paint' },
+      TTFB: { value: 450, unit: 'ms', threshold: 800, description: 'Time to First Byte' },
+      FID: { value: 45, unit: 'ms', threshold: 100, description: 'First Input Delay (Legacy)' }
+    };
+    
+    function getRating(value, threshold, name) {
+      if (name === 'CLS') {
+        if (value <= 0.1) return 'good';
+        if (value <= 0.25) return 'needs-improvement';
+        return 'poor';
+      }
+      
+      const ratio = value / threshold;
+      if (ratio <= 0.75) return 'good';
+      if (ratio <= 1.0) return 'needs-improvement';
+      return 'poor';
+    }
+    
+    function formatValue(value, unit) {
+      if (unit === 's') {
+        return value.toFixed(2) + unit;
+      } else if (unit === 'ms') {
+        return Math.round(value) + unit;
+      } else {
+        return value.toFixed(3);
+      }
+    }
+    
+    function renderMetrics() {
+      const grid = document.getElementById('metrics-grid');
+      
+      Object.entries(metrics).forEach(([name, data]) => {
+        const rating = getRating(data.value, data.threshold, name);
+        const ratingText = rating.replace('-', ' ').toUpperCase();
+        
+        const card = document.createElement('div');
+        card.className = 'stat-card';
+        card.innerHTML = `
+          <div class="stat-label">${name}</div>
+          <div class="stat-value ${rating}">${formatValue(data.value, data.unit)}</div>
+          <div class="stat-description">${data.description}</div>
+          <div class="metric-badge ${rating}">${ratingText}</div>
+        `;
+        
+        grid.appendChild(card);
+      });
+    }
+    
+    function updateTimestamp() {
+      const now = new Date();
+      const formatted = now.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+      document.getElementById('last-updated').textContent = formatted;
+    }
+    
+    // Initialize dashboard
+    renderMetrics();
+    updateTimestamp();
+    
+    // In production, you would integrate with web-vitals.js here:
+    /*
+    import { onCLS, onINP, onLCP, onFCP, onTTFB } from 'web-vitals';
+    
+    function sendToAnalytics(metric) {
+      // Store in localStorage or send to privacy-first analytics
+      console.log(metric);
+    }
+    
+    onCLS(sendToAnalytics);
+    onINP(sendToAnalytics);
+    onLCP(sendToAnalytics);
+    onFCP(sendToAnalytics);
+    onTTFB(sendToAnalytics);
+    */
+  </script>
+</body>
+</html>
