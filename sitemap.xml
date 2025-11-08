@@ -40,4 +40,11 @@
   <priority>0.70</priority>
 </url>
 
+<url>
+  <loc>https://ifuentes.net/security-policy.html</loc>
+  <lastmod>2025-11-06T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.40</priority>
+</url>
+
 </urlset>
