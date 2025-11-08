@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Iñaki Fuentes</title>
+    <link>https://ifuentes.net</link>
+    <description>COO at Travelgate. Leading operations and strategy for the world's largest travel marketplace. Thoughts on business, technology, and AI automation.</description>
+    <language>en-us</language>
+    <copyright>Copyright 2025 Iñaki Fuentes</copyright>
+    <lastBuildDate>Fri, 08 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://ifuentes.net/feed.xml" rel="self" type="application/rss+xml"/>
+    <managingEditor>inaki@ifuentes.net (Iñaki Fuentes)</managingEditor>
+    <webMaster>inaki@ifuentes.net (Iñaki Fuentes)</webMaster>
+    
+    <item>
+      <title>What I'm Doing Now - November 2025</title>
+      <link>https://ifuentes.net/now.html</link>
+      <guid isPermaLink="true">https://ifuentes.net/now.html</guid>
+      <pubDate>Fri, 08 Nov 2025 00:00:00 +0000</pubDate>
+      <dc:creator>Iñaki Fuentes</dc:creator>
+      <description><![CDATA[
+        <p>Current focus as COO at Travelgate: scaling partnerships, building AI-driven automation, and optimizing operations across the world's largest travel marketplace.</p>
+        <p>Also exploring systems thinking, web performance optimization, and advising early-stage startups.</p>
+      ]]></description>
+    </item>
+
+    <item>
+      <title>Professional Experience and Education</title>
+      <link>https://ifuentes.net/resume.html</link>
+      <guid isPermaLink="true">https://ifuentes.net/resume.html</guid>
+      <pubDate>Fri, 08 Nov 2025 00:00:00 +0000</pubDate>
+      <dc:creator>Iñaki Fuentes</dc:creator>
+      <description><![CDATA[
+        <p>Career journey from systems administration to engineering management, CTO roles, and currently COO at Travelgate.</p>
+        <p>Education includes MSc in Computer Network Technology from Northumbria University and continuing education in operations management, finance, and leadership.</p>
+      ]]></description>
+    </item>
+    
+  </channel>
+</rss>

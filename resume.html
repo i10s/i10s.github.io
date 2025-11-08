@@ -1,162 +1,365 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Iñaki Fuentes | A Résumé</title>
-    <link rel="alternate" href="https://ifuentes.net/resume.html" hreflang="x-default" />
-    <meta name="description" content="The Résumé of Iñaki Fuentes.">
-    <link href='resume.css' media='screen,print' rel='stylesheet' type='text/css' />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-44506111-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iñaki Fuentes | Résumé</title>
+  <meta name="description" content="COO at Travelgate. Engineering leader, startup advisor, and investor focused on operations, strategy, and AI automation in travel tech.">
+  <link rel="canonical" href="https://ifuentes.net/resume.html">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
 
-  gtag('config', 'UA-44506111-1');
-</script>
+  <style>
+    /* CSS Variables matching index.html design system */
+    :root {
+      --color-bg: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-secondary: #4a4a4a;
+      --color-text-muted: #6a6a6a;
+      --color-link: #0066cc;
+      --color-link-hover: #0052a3;
+      --color-border: #e0e0e0;
+      --color-accent: #0066cc;
+      --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --space-1: clamp(0.5rem, 0.4rem + 0.6vw, 0.75rem);
+      --space-2: clamp(0.75rem, 0.6rem + 0.8vw, 1.125rem);
+      --space-3: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+      --space-4: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+      --space-5: clamp(2rem, 1.6rem + 1.5vw, 3rem);
+      --max-width: 800px;
+    }
 
-  </head>
-  <body>
-    <div class='content'>
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #0d1117;
+        --color-text: #e6edf3;
+        --color-text-secondary: #8b949e;
+        --color-text-muted: #6e7681;
+        --color-link: #58a6ff;
+        --color-link-hover: #79c0ff;
+        --color-border: #30363d;
+        --color-accent: #58a6ff;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: var(--font-system);
+      line-height: 1.6;
+      color-scheme: light dark;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      margin: 0 auto;
+      padding: var(--space-4) var(--space-3);
+      max-width: var(--max-width);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+      color: var(--color-text);
+      line-height: 1.2;
+    }
+
+    h1 small {
+      display: block;
+      font-size: 0.5em;
+      font-weight: 400;
+      color: var(--color-text-secondary);
+      margin-top: var(--space-1);
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 1.75rem);
+      font-weight: 600;
+      margin: var(--space-5) 0 var(--space-3) 0;
+      color: var(--color-text);
+      border-bottom: 2px solid var(--color-border);
+      padding-bottom: var(--space-1);
+    }
+
+    h3 {
+      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+      font-weight: 600;
+      margin: var(--space-4) 0 var(--space-2) 0;
+      color: var(--color-text);
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: var(--space-3) 0 var(--space-2) 0;
+      color: var(--color-text-secondary);
+    }
+
+    p {
+      margin-bottom: var(--space-2);
+      color: var(--color-text-secondary);
+    }
+
+    a {
+      color: var(--color-link);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--color-link-hover);
+      text-decoration: underline;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(-120%);
+      background: var(--color-link);
+      color: #fff;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0 0 6px 0;
+      font-weight: 600;
+      transition: transform 0.2s ease;
+      z-index: 1000;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    header {
+      margin-bottom: var(--space-5);
+    }
+
+    .synopsis {
+      background: var(--color-bg);
+      border-left: 3px solid var(--color-accent);
+      padding: var(--space-3);
+      margin: var(--space-3) 0;
+      font-size: 1.1em;
+      line-height: 1.7;
+      color: var(--color-text-secondary);
+    }
+
+    .position, .education, .internship {
+      margin-bottom: var(--space-4);
+      padding-left: var(--space-2);
+      border-left: 2px solid var(--color-border);
+    }
+
+    .position .title, .education .title, .internship .title {
+      display: block;
+      font-weight: 600;
+      font-size: 1.1em;
+      color: var(--color-text);
+      margin-bottom: var(--space-1);
+    }
+
+    .time-period {
+      display: block;
+      font-size: 0.9em;
+      color: var(--color-text-muted);
+      font-style: italic;
+      margin-bottom: var(--space-1);
+    }
+
+    .supplemental {
+      display: block;
+      color: var(--color-text-secondary);
+      font-size: 0.95em;
+      margin-bottom: 0.25rem;
+    }
+
+    footer {
+      margin-top: var(--space-5);
+      padding-top: var(--space-3);
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-size: 0.9em;
+      color: var(--color-text-muted);
+    }
+
+    @media print {
+      body { 
+        background: white; 
+        color: black;
+        font-size: 11pt;
+      }
+      a { color: black; text-decoration: underline; }
+      .skip-link { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#content" class="skip-link">Skip to content</a>
+  <main id="content">
+    <header>
       <h1>
         Iñaki Fuentes
-        <small>A Résumé of Sorts</small>
+        <small>Professional Experience & Education</small>
       </h1>
-      <h3>Synopsis</h3>
-      <div class='synopsis'>
-        <span class='title'>
-          Assertive and optimistic team leader with demonstrated ability to transform the efficiency, profitability, and safety of diverse business solutions together with highly motivated people and cutting-edge technology.
-        </span>
+    </header>
+
+    <section>
+      <h2>Synopsis</h2>
+      <div class="synopsis">
+        Assertive and optimistic team leader with demonstrated ability to transform the efficiency, profitability, and scalability of diverse business solutions together with highly motivated people and cutting-edge technology. Currently leading operations and strategy at the world's largest travel marketplace.
+      </div>
+    </section>
+
+    <section>
+      <h2>Career History</h2>
+
+      <div class="position">
+        <span class="title">Chief Operating Officer (COO) — Travelgate</span>
+        <span class="time-period">2024 to Present</span>
+        <span class="supplemental">Leading operations and strategy to grow the world's largest travel marketplace. Focused on innovation, partnerships, and scalability across the global travel ecosystem.</span>
       </div>
 
-      <h3>Career History</h3>
-
-      <div class='position'>
-        <span class='title'>CEO — Bluekiri (Part of Logitravel Group)</span>
-        <span class='time-period'>September 2017 to Present</span>
+      <div class="position">
+        <span class="title">CEO — Bluekiri (Part of Logitravel Group)</span>
+        <span class="time-period">September 2017 to 2024</span>
+        <span class="supplemental">Led technology development and innovation for travel booking platform.</span>
       </div>
 
-      <div class='position'>
-        <span class='title'>CIO & CTO — Logitravel Group</span>
-        <span class='time-period'>October 2015 to Present</span>
+      <div class="position">
+        <span class="title">CIO & CTO — Logitravel Group</span>
+        <span class="time-period">October 2015 to September 2017</span>
+        <span class="supplemental">Directed technology strategy and infrastructure for leading European travel company.</span>
       </div>
 
-      <div class='position'>
-        <span class='title'>Member of The Management Board — Turistec</span>
-        <span class='time-period'>March 2019 to Present</span>
+      <div class="position">
+        <span class="title">Member of The Management Board — Turistec</span>
+        <span class="time-period">March 2019 to 2023</span>
       </div>
 
-      <div class='position'>
-        <span class='title'>Mentor — Conector Startup Accelerator</span>
-        <span class='time-period'>November 2018 to February 2020</span>
+      <div class="position">
+        <span class="title">Member of The Management Board — Turistec</span>
+        <span class="time-period">March 2019 to 2023</span>
       </div>
 
-      <div class='position'>
-        <span class='title'>CTO — Ace Sticker</span>
-        <span class='time-period'>January 2015 to October 2016</span>
+      <div class="position">
+        <span class="title">Mentor — Conector Startup Accelerator</span>
+        <span class="time-period">November 2018 to February 2020</span>
       </div>
 
-      <div class='position'>
-        <span class='title'>Ride Leader  — Global Cycle Rides</span>
-        <span class='time-period'>June 2015 to October 2015</span>
+      <div class="position">
+        <span class="title">CTO — Ace Sticker</span>
+        <span class="time-period">January 2015 to October 2016</span>
       </div>
 
-      <div class='position'>
-        <span class='title'>Engineering Manager — NTT Europe Ltd.</span>
-        <span class='supplemental'>Clients: European Datawarehouse, Wolters Kluwer, Bank Alkhair, Arkadin</span>
-        <span class='time-period'>June 2011 to October 2015</span>
+      <div class="position">
+        <span class="title">Engineering Manager — NTT Europe Ltd.</span>
+        <span class="supplemental">Clients: European Datawarehouse, Wolters Kluwer, Bank Alkhair, Arkadin</span>
+        <span class="time-period">June 2011 to October 2015</span>
       </div>
 
-      <div class='position'>
-        <span class='title'>Microsoft Systems Engineer — Atlas IT</span>
-        <span class='time-period'>April 2009 to March 2011</span>
+      <div class="position">
+        <span class="title">Microsoft Systems Engineer — Atlas IT</span>
+        <span class="time-period">April 2009 to March 2011</span>
       </div>
 
-      <div class='position'>
-        <span class='title'>System Administrator — Dana Corporation</span>
-        <span class='time-period'>March 2008 to April 2009</span>
+      <h4>Earlier Roles</h4>
+
+      <div class="position">
+        <span class="title">System Administrator — Dana Corporation</span>
+        <span class="time-period">March 2008 to April 2009</span>
       </div>
 
-      <div class='position'>
-        <span class='title'>System Administrator — Lever Consulting, S.L.L.</span>
-        <span class='time-period'>April 2006 to September 2006</span>
+      <div class="position">
+        <span class="title">System Administrator — Lever Consulting, S.L.L.</span>
+        <span class="time-period">April 2006 to September 2006</span>
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+
+      <div class="education">
+        <span class="title">Northumbria University</span>
+        <span class="supplemental">BSc (Hons), Applied Computing — Distance Learning</span>
+        <span class="time-period">2009–2011</span>
       </div>
 
-      <h4>Internships</h4>
-
-      <div class='internship'>
-        <span class='title'>System Administrator — M.Torres Diseños Industriales</span>
-        <span class='time-period'>June 2005 to August 2006</span>
-      </div>  
-
-      <h3>Education</h3>
-
-      <div class='education'>
-        <span class='title'>University of Pennsylvania — The Wharton School</span>
-        <span class='supplemental'>Introduction to Operations Management (on Coursera)</span>
-        <span class='time-period'>2016-2016</span>
+      <div class="education">
+        <span class="title">Northumbria University</span>
+        <span class="supplemental">MSc, Computer Network Technology</span>
+        <span class="time-period">2007–2008</span>
       </div>
 
-      <div class='education'>
-        <span class='title'>IESE Business School</span>
-        <span class='supplemental'>Corporate Finance Essentials (on Coursera)</span>
-        <span class='time-period'>2015-2015</span>
+      <div class="education">
+        <span class="title">Foro Europeo — Escuela de Negocios de Navarra</span>
+        <span class="supplemental">Master, Information Technology Executive (MTI-E)</span>
+        <span class="time-period">2005–2006</span>
       </div>
 
-      <div class='education'>
-        <span class='title'>University of Pennsylvania — The Wharton School</span>
-        <span class='supplemental'>Gamification (on Coursera)</span>
-        <span class='time-period'>2015-2015</span>
+      <div class="education">
+        <span class="title">Escuela Superior Informática de Navarra</span>
+        <span class="supplemental">Higher National Diploma in Computing</span>
+        <span class="time-period">2002–2005</span>
       </div>
 
-      <div class='education'>
-        <span class='title'>Case Western Reserve University</span>
-        <span class='supplemental'>Inspiring Leadership through Emotional Intelligence (on Coursera)</span>
-        <span class='time-period'>2014-2014</span>
+      <h3>Continuing Education</h3>
+
+      <div class="education">
+        <span class="title">University of Pennsylvania — The Wharton School</span>
+        <span class="supplemental">Introduction to Operations Management (Coursera)</span>
+        <span class="time-period">2016</span>
       </div>
 
-      <div class='education'>
-        <span class='title'>Columbia University in the City of New York</span>
-        <span class='supplemental'>Financial Engineering and Risk Management (on Coursera)</span>
-        <span class='time-period'>2014-2014</span>
+      <div class="education">
+        <span class="title">IESE Business School</span>
+        <span class="supplemental">Corporate Finance Essentials (Coursera)</span>
+        <span class="time-period">2015</span>
       </div>
 
-
-      <div class='education'>
-        <span class='title'>Northumbria University</span>
-        <span class='supplemental'>BSc (Hons), Applied Computing — Distance Learning</span>
-        <span class='time-period'>2009-2011</span>
+      <div class="education">
+        <span class="title">University of Pennsylvania — The Wharton School</span>
+        <span class="supplemental">Gamification (Coursera)</span>
+        <span class="time-period">2015</span>
       </div>
 
-
-      <div class='education'>
-        <span class='title'>Northumbria University</span>
-        <span class='supplemental'>MSc, Computer Network Technology</span>
-        <span class='time-period'>2007-2008</span>
+      <div class="education">
+        <span class="title">Case Western Reserve University</span>
+        <span class="supplemental">Inspiring Leadership through Emotional Intelligence (Coursera)</span>
+        <span class="time-period">2014</span>
       </div>
 
-
-      <div class='education'>
-        <span class='title'>Foro Europeo — Escuela de Negocios de Navarra</span>
-        <span class='supplemental'>Master, Information Technology Exective (MTI-E)</span>
-        <span class='time-period'>2005-2006</span>
+      <div class="education">
+        <span class="title">Columbia University in the City of New York</span>
+        <span class="supplemental">Financial Engineering and Risk Management (Coursera)</span>
+        <span class="time-period">2014</span>
       </div>
+    </section>
+  </main>
 
-
-      <div class='education'>
-        <span class='title'>Escuela superior Informatica de Navarra</span>
-        <span class='supplemental'>Higher National Diploma in Computing</span>
-        <span class='time-period'>2002-2005</span>
-      </div>
-
-    </div>
-  </body>
+  <footer>
+    <p><a href="/">← Back to home</a> · <a href="/privacy.html">Privacy</a> · Last updated November 2025</p>
+  </footer>
+</body>
 </html>

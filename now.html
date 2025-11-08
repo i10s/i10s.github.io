@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What I'm Doing Now | Iñaki Fuentes</title>
+  <meta name="description" content="What Iñaki Fuentes is focused on right now - current projects, learning, and interests.">
+  <link rel="canonical" href="https://ifuentes.net/now.html">
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
+
+  <style>
+    :root {
+      --color-bg: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-secondary: #4a4a4a;
+      --color-link: #0066cc;
+      --color-link-hover: #0052a3;
+      --color-border: #e0e0e0;
+      --color-accent: #0066cc;
+      --color-highlight: #f6f8fa;
+      --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --space-1: clamp(0.5rem, 0.4rem + 0.6vw, 0.75rem);
+      --space-2: clamp(0.75rem, 0.6rem + 0.8vw, 1.125rem);
+      --space-3: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+      --space-4: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+      --space-5: clamp(2rem, 1.6rem + 1.5vw, 3rem);
+      --max-width: 720px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #0d1117;
+        --color-text: #e6edf3;
+        --color-text-secondary: #8b949e;
+        --color-link: #58a6ff;
+        --color-link-hover: #79c0ff;
+        --color-border: #30363d;
+        --color-accent: #58a6ff;
+        --color-highlight: #161b22;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-family: var(--font-system);
+      line-height: 1.6;
+      color-scheme: light dark;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      margin: 0 auto;
+      padding: var(--space-4) var(--space-3);
+      max-width: var(--max-width);
+      background-color: var(--color-bg);
+      color: var(--color-text);
+      font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+    }
+
+    .skip-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(-120%);
+      background: var(--color-link);
+      color: #fff;
+      padding: 0.5rem 0.75rem;
+      border-radius: 0 0 6px 0;
+      font-weight: 600;
+      transition: transform 0.2s ease;
+      z-index: 1000;
+    }
+    .skip-link:focus { transform: translateY(0); }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 3vw, 1.75rem);
+      font-weight: 600;
+      margin: var(--space-4) 0 var(--space-2) 0;
+      color: var(--color-text);
+    }
+
+    h2::before {
+      content: "→ ";
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    p {
+      margin-bottom: var(--space-2);
+      color: var(--color-text-secondary);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--color-link);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    a:hover {
+      color: var(--color-link-hover);
+      border-bottom-color: var(--color-link-hover);
+    }
+
+    ul {
+      list-style: none;
+      margin: var(--space-3) 0;
+      padding: 0;
+    }
+
+    li {
+      padding: var(--space-2) 0;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+    }
+
+    li:last-child {
+      border-bottom: none;
+    }
+
+    li::before {
+      content: "•";
+      color: var(--color-accent);
+      font-weight: bold;
+      display: inline-block;
+      width: 1.5em;
+    }
+
+    .card {
+      background: var(--color-highlight);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: var(--space-3);
+      margin: var(--space-3) 0;
+    }
+
+    .card h3 {
+      font-size: 1.1em;
+      margin-bottom: var(--space-2);
+      color: var(--color-accent);
+    }
+
+    .metadata {
+      font-size: 0.9em;
+      color: var(--color-text-secondary);
+      font-style: italic;
+      margin-top: var(--space-4);
+      padding-top: var(--space-3);
+      border-top: 1px solid var(--color-border);
+    }
+
+    footer {
+      margin-top: var(--space-5);
+      padding-top: var(--space-3);
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+    footer a {
+      margin: 0 var(--space-1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#content" class="skip-link">Skip to content</a>
+  <main id="content">
+    <header>
+      <h1>What I'm Doing Now</h1>
+      <p>This is a <a href="https://nownownow.com/about" target="_blank" rel="noopener">now page</a>, inspired by Derek Sivers. It's a snapshot of what I'm currently focused on.</p>
+    </header>
+
+    <section>
+      <h2>Work & Projects</h2>
+      <p>I'm currently serving as <strong>COO at Travelgate</strong>, where I'm leading operations and strategy to grow the world's largest travel marketplace. My focus is on:</p>
+      <ul>
+        <li>Scaling partnerships and expanding our supplier network globally</li>
+        <li>Building AI-driven automation to improve efficiency across the platform</li>
+        <li>Optimizing operations to ensure our partners thrive in a rapidly changing industry</li>
+        <li>Defining strategic initiatives for long-term sustainable growth</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Learning & Exploration</h2>
+      <div class="card">
+        <h3>AI & Automation</h3>
+        <p>Deeply exploring how AI can transform travel operations - from booking flows to customer support. Experimenting with LLMs, agent frameworks, and automation workflows.</p>
+      </div>
+      <div class="card">
+        <h3>Systems Thinking</h3>
+        <p>Reading about complex adaptive systems, organizational design, and how to build resilient business models in uncertain environments.</p>
+      </div>
+      <div class="card">
+        <h3>Web Performance</h3>
+        <p>Obsessing over Core Web Vitals, progressive web apps, and modern web standards. This site is my playground for best practices.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Personal</h2>
+      <p>Outside of work, I'm:</p>
+      <ul>
+        <li>Training regularly and tracking progress on <a href="https://www.strava.com/athletes/1980963" target="_blank" rel="noopener">Strava</a></li>
+        <li>Reading both fiction and non-fiction (currently rotating between sci-fi and business strategy)</li>
+        <li>Writing occasionally on my <a href="https://inaki.bearblog.dev/blog/" target="_blank" rel="noopener">blog</a></li>
+        <li>Advising early-stage startups on business models and scaling operations</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Current Priorities</h2>
+      <ol style="list-style: decimal; padding-left: 2rem; color: var(--color-text-secondary);">
+        <li style="border: none; padding: 0.5rem 0;">Family & health (non-negotiable foundation)</li>
+        <li style="border: none; padding: 0.5rem 0;">Travelgate growth and operational excellence</li>
+        <li style="border: none; padding: 0.5rem 0;">Building AI automation tools for travel industry</li>
+        <li style="border: none; padding: 0.5rem 0;">Staying curious and learning constantly</li>
+      </ol>
+    </section>
+
+    <div class="metadata">
+      <p>This page was last updated on <strong>November 8, 2025</strong>.<br>
+      Inspired by the <a href="https://nownownow.com/" target="_blank" rel="noopener">/now movement</a>.</p>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      <a href="/">← Home</a> ·
+      <a href="/resume.html">Résumé</a> ·
+      <a href="https://inaki.bearblog.dev/blog/" target="_blank" rel="noopener">Blog</a>
+    </p>
+  </footer>
+</body>
+</html>

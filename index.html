@@ -6,6 +6,7 @@
 
   <!-- Performance: Early resource hints -->
   <link rel="preconnect" href="https://ifuentes.net">
+  <link rel="alternate" type="application/rss+xml" title="Iñaki Fuentes RSS Feed" href="https://ifuentes.net/feed.xml">
   <link rel="alternate" type="application/atom+xml" title="Iñaki Fuentes Blog Feed" href="https://inaki.bearblog.dev/feed/">
 
   <!-- SEO -->
@@ -90,6 +91,31 @@
         --color-link-hover: #79c0ff;
         --color-link-visited: #bc8cff;
         --color-border: #30363d;
+      }
+    }
+
+    /* High contrast mode (WCAG AAA) */
+    @media (prefers-contrast: more) {
+      :root {
+        --color-bg: #ffffff;
+        --color-text: #000000;
+        --color-text-secondary: #000000;
+        --color-link: #0000ee;
+        --color-link-hover: #0000aa;
+        --color-link-visited: #551a8b;
+        --color-border: #000000;
+      }
+    }
+
+    @media (prefers-contrast: more) and (prefers-color-scheme: dark) {
+      :root {
+        --color-bg: #000000;
+        --color-text: #ffffff;
+        --color-text-secondary: #ffffff;
+        --color-link: #ffff00;
+        --color-link-hover: #ffff99;
+        --color-link-visited: #ff99ff;
+        --color-border: #ffffff;
       }
     }
 
@@ -387,6 +413,9 @@
     ]
   }
   </script>
+
+  <!-- Web Vitals Tracking (dev mode only) -->
+  <script src="/web-vitals.js" defer></script>
 
   <!-- Service Worker Registration (PWA) -->
   <script>

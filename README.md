@@ -9,12 +9,16 @@ Personal website for Iñaki Fuentes. A minimal, fast, and accessible landing pag
 - **Lightweight**: < 10KB total page weight (HTML + CSS)
 - **Blazing Fast**: DNS prefetch, preconnect, optimized loading
 - **Accessible**: WCAG 2.1 AA compliant, semantic HTML
-- **Responsive**: Mobile-first design that works on all devices
+- **Responsive**: Mobile-first design with fluid typography and grid layouts
 - **Dark Mode**: Automatic dark mode based on system preferences
+- **High Contrast Mode**: WCAG AAA support for prefers-contrast: more
 - **SEO Optimized**: Enhanced Open Graph, Twitter Cards, structured data
 - **PWA Ready**: Service Worker, offline support, installable
 - **Secure**: security.txt, CSP headers, HTTPS enforcement
 - **Standards**: humans.txt, proper meta tags, modern web APIs
+- **Web Vitals**: Real-time performance monitoring (CLS, LCP, FID, INP)
+- **RSS Feed**: Subscribe to updates via feed.xml
+- **Now Page**: Current focus following nownownow.com standard
 
 ## 🛠️ Tech Stack
 
@@ -41,21 +45,23 @@ Personal website for Iñaki Fuentes. A minimal, fast, and accessible landing pag
 
 ## 📁 Project Structure
 
-```
+```text
 .
 ├── index.html           # Main landing page (optimized)
-├── sw.js               # Service Worker for PWA
-├── site.webmanifest     # PWA manifest with shortcuts
-├── humans.txt          # Credits and tech colophon
-├── .htaccess           # Server configuration (caching, security)
-├── robots.txt          # Search engine instructions
-├── sitemap.xml         # Site structure for SEO
-├── budget.json         # Performance budget
-├── .well-known/
-│   └── security.txt    # Security vulnerability reporting
-└── assets/
-    ├── images/         # Optimized images
-    └── css/            # Legacy CSS (not used in main page)
+├── resume.html          # Professional experience & education
+├── now.html             # Current focus (/now page)
+├── sw.js                # Service Worker for PWA
+├── web-vitals.js        # Performance monitoring script
+├── site.webmanifest     # PWA manifest
+├── feed.xml             # RSS/Atom feed
+├── humans.txt           # Credits and tech colophon
+├── robots.txt           # Search engine instructions
+├── sitemap.xml          # Site structure for SEO
+├── scripts/
+│   ├── dev-server.js    # Local development server with live reload
+│   └── fix-html.js      # HTML validation fixer
+├── tests/               # Comprehensive test suite (199 tests)
+└── .github/workflows/   # CI/CD automation
 ```
 
 ## 🔧 Optimization Techniques
@@ -99,7 +105,8 @@ Personal website for Iñaki Fuentes. A minimal, fast, and accessible landing pag
 ## 🚀 Deployment
 
 This site is deployed on **GitHub Pages**:
-- **Production URL**: https://ifuentes.net
+
+- **Production URL**: <https://ifuentes.net>
 - **Auto-deploy**: Pushes to `main` branch trigger deployment
 - **Build time**: ~1-2 minutes
 
@@ -153,7 +160,10 @@ See [tests/README.md](tests/README.md) for detailed documentation.
 To test the site locally:
 
 ```bash
-# Simple HTTP server
+# Development server with live reload (recommended)
+npm run dev
+
+# Or simple HTTP server
 python3 -m http.server 8000
 
 # Or with Node.js

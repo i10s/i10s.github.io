@@ -4,6 +4,7 @@
   "description": "Test suite for ifuentes.net static website",
   "main": "index.js",
   "scripts": {
+    "dev": "node scripts/dev-server.js",
     "test": "mocha tests/**/*.test.js --timeout 5000",
     "test:watch": "mocha tests/**/*.test.js --watch",
     "test:html": "mocha tests/html.test.js",
@@ -13,7 +14,7 @@
     "test:seo": "mocha tests/seo-performance.test.js",
     "test:coverage": "nyc mocha tests/**/*.test.js",
     "lint": "eslint tests/**/*.js",
-    "validate:html": "html-validate index.html",
+    "validate:html": "html-validate index.html resume.html now.html",
     "validate:json": "jsonlint site.webmanifest",
     "fix:html": "node scripts/fix-html.js",
     "audit": "lighthouse https://ifuentes.net --output=html --output-path=./lighthouse-report.html"
