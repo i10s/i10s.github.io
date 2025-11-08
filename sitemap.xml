@@ -33,12 +33,6 @@
   <priority>0.70</priority>
 </url>
 
-<url>
-  <loc>https://inaki.bearblog.dev/blog/</loc>
-  <lastmod>2025-11-08T00:00:00+00:00</lastmod>
-  <changefreq>weekly</changefreq>
-  <priority>0.70</priority>
-</url>
 
 <url>
   <loc>https://ifuentes.net/security-policy.html</loc>
