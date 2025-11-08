@@ -353,6 +353,11 @@
       z-index: 1000;
     }
     .skip-link:focus { transform: translateY(0); }
+
+    /* Current Focus snippet */
+    .current-focus { margin-top: var(--space-3); }
+    .current-focus h2 { font-size:1rem; letter-spacing:0.02em; text-transform:uppercase; margin:0 0 .25rem; color: var(--color-text-secondary); }
+    .current-focus p { margin:0; font-size:0.95rem; line-height:1.5; max-width:46ch; }
   </style>
 </head>
 
@@ -363,6 +368,12 @@
     <h1>Iñaki Fuentes</h1>
     <p>Stay calm. Be critical. Start building.<br>Trying to be less wrong every day.</p>
     <p><a href="/now.html" aria-label="What I am focused on now">What I'm doing now →</a></p>
+    <section aria-labelledby="current-focus-heading" class="current-focus">
+      <h2 id="current-focus-heading">Current Focus</h2>
+      <p>
+        Driving marketplace scale at Travelgate, advising early-stage founders on growth &amp; product, and exploring practical AI automation for operations. <a href="/now.html" aria-label="Read the full now page">Read the full now page</a>.
+      </p>
+    </section>
   </header>
 
   <nav aria-label="Social media and professional links">
@@ -374,7 +385,6 @@
       <li><a href="https://discordapp.com/users/i10s#1599" rel="noopener noreferrer" target="_blank" aria-label="Discord profile (opens in new tab)">Discord</a></li>
       <li><a href="https://inaki.bearblog.dev/blog/" rel="noopener noreferrer" target="_blank" aria-label="Personal blog (opens in new tab)">Blog</a></li>
       <li><a href="https://keybase.io/ifuentes" rel="noopener noreferrer" target="_blank" aria-label="Keybase profile (opens in new tab)">Keybase</a></li>
-      <li><a href="/now.html" aria-label="Current focus and priorities">Now Page</a></li>
     </ul>
   </nav>
   </main>
@@ -422,21 +432,11 @@
   <!-- Easter Eggs: Console Art & Konami Code -->
   <script>
     // Console ASCII Art - Displayed on page load
-    console.log('%c', 'font-size: 1px; padding: 100px 150px; background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIj48dGV4dCB4PSIxNTAiIHk9IjEwMCIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzNiODJmNiIgdGV4dC1hbmNob3I9Im1pZGRsZSI+aWZ1ZW50ZXMubmV0PC90ZXh0Pjwvc3ZnPg==) no-repeat;');
     console.log('%c👋 Hello, curious developer!', 'font-size: 16px; font-weight: bold; color: #3b82f6;');
     console.log('%cWelcome to ifuentes.net', 'font-size: 14px; color: #10b981;');
-    console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #6b7280;');
-    console.log('%c🔍 Tech Stack:', 'font-weight: bold; color: #f59e0b;');
-    console.log('%c  • HTML5 + CSS3 (no frameworks!)', 'color: #9ca3af;');
-    console.log('%c  • Progressive Web App (PWA)', 'color: #9ca3af;');
-    console.log('%c  • Web Vitals monitoring', 'color: #9ca3af;');
-    console.log('%c  • Service Worker caching', 'color: #9ca3af;');
-    console.log('%c  • Dark mode + High contrast', 'color: #9ca3af;');
-    console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #6b7280;');
-    console.log('%c🎮 Easter Egg: Try the Konami Code!', 'font-size: 12px; color: #a855f7; font-style: italic;');
-    console.log('%c   (↑ ↑ ↓ ↓ ← → ← → B A)', 'font-size: 11px; color: #9ca3af;');
-    console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #6b7280;');
-    console.log('%c📬 Get in touch: https://ifuentes.net', 'color: #3b82f6;');
+  console.log('%cifuentes.net', 'font-size:14px;font-weight:bold;color:#3b82f6;');
+  console.log('%cKonami: ↑↑↓↓←→←→BA', 'font-size:11px;color:#a855f7;');
+  console.log('%cContact: https://ifuentes.net', 'font-size:11px;color:#3b82f6;');
     console.log(' ');
 
     // Konami Code Easter Egg
