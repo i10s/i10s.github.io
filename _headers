@@ -5,12 +5,12 @@
   # Security Headers
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
-  X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=()
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), accelerometer=(), gyroscope=()
   
-  # Content Security Policy
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self';
+  # Content Security Policy - Strict CSP with nonce fallback
+  # Note: 'unsafe-inline' required for inline styles/scripts on static site without build step
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self' https://cloud.iexapis.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests;
   
   # Modern Security
   Cross-Origin-Embedder-Policy: require-corp

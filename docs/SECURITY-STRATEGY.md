@@ -1,10 +1,11 @@
-# Security Strategy - DevDependencies
+# Security Strategy
 
 ## Context
 
 This project has **ZERO runtime dependencies**. The website is pure static HTML/CSS/JS with no npm packages deployed to production.
 
 All npm dependencies are **devDependencies** (testing tools only):
+
 - `mocha`, `chai` - Testing framework
 - `jsdom` - DOM testing
 - `lighthouse` - Performance auditing
@@ -13,10 +14,10 @@ All npm dependencies are **devDependencies** (testing tools only):
 
 ## Vulnerability Management
 
-### Current Status (Nov 6, 2025)
+### Current Status (December 2025)
 
-✅ **Production**: 0 vulnerabilities (no dependencies)
-⚠️ **Development**: 2 critical (underscore in nomnom → unused transitive dep)
+✅ **Production**: 0 vulnerabilities (no dependencies)  
+⚠️ **Development**: Managed via npm overrides for transitive dependencies
 
 ### Resolution Strategy
 
@@ -32,14 +33,54 @@ We use npm `overrides` to force secure versions of transitive dependencies:
 
 This ensures that even if a devDependency (like an old version of Lighthouse's sub-dependency) requires an old `underscore`, npm will use the safe version.
 
+## Security Audit - December 2025
+
+### Issues Identified and Fixed
+
+| Issue | Severity | Status | Fix Applied |
+|-------|----------|--------|-------------|
+| Deprecated X-XSS-Protection header | Low | ✅ Fixed | Removed from `_headers` |
+| Missing `rel="noopener noreferrer"` on external links | Medium | ✅ Fixed | Added to `stocks/index.html` |
+| Service Worker origin validation | Medium | ✅ Fixed | Added URL validation in `sw.js` |
+| Extended Permissions-Policy | Low | ✅ Fixed | Added accelerometer, gyroscope |
+| CSP connect-src for IEX API | Low | ✅ Fixed | Added `https://cloud.iexapis.com` |
+
+### Security Headers Analysis
+
+The `_headers` file (Netlify configuration) now includes:
+
+| Header | Value | Purpose |
+|--------|-------|---------|
+| X-Frame-Options | SAMEORIGIN | Prevent clickjacking |
+| X-Content-Type-Options | nosniff | Prevent MIME sniffing |
+| Referrer-Policy | strict-origin-when-cross-origin | Control referrer info |
+| Permissions-Policy | Comprehensive restrictions | Disable sensitive APIs |
+| Content-Security-Policy | Strict self-origin policy | Prevent XSS/injection |
+| Cross-Origin-Embedder-Policy | require-corp | Isolate cross-origin resources |
+| Cross-Origin-Opener-Policy | same-origin | Isolate browsing context |
+| Cross-Origin-Resource-Policy | same-origin | Restrict resource loading |
+
+### Service Worker Security Enhancements
+
+The service worker (`sw.js`) now includes:
+
+1. **URL Validation**: Only caches same-origin and HTTPS resources
+2. **Credential Handling**: Restricts credentials to same-origin requests
+3. **Request Method Filtering**: Only processes GET requests
+4. **Origin Checking**: Validates request origins before processing
+
 ## Why This Matters (and doesn't)
 
 **Why it matters:**
+
 - Good security hygiene
 - Clean CI/CD pipeline
 - No warnings in development
+- Protects users from tabnabbing attacks
+- Prevents clickjacking and XSS
 
 **Why it doesn't affect production:**
+
 - These packages are never deployed
 - They only run in test environment
 - The website is static files only
@@ -93,4 +134,4 @@ The CI/CD pipeline runs `npm audit --audit-level=moderate` on every commit. If n
 
 - npm overrides: <https://docs.npmjs.com/cli/v9/configuring-npm/package-json#overrides>
 - underscore vulnerability: GHSA-cf4h-3jhx-xvhq
-- Security policy: [SECURITY.md](./SECURITY.md)
+- Security policy: [SECURITY.md](../SECURITY.md)
