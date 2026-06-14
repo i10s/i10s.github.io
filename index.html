@@ -61,6 +61,14 @@
 
   <!-- Styles -->
   <style>
+    /* Native cross-document view transitions (progressive enhancement) */
+    @view-transition { navigation: auto; }
+    @media (prefers-reduced-motion: reduce) {
+      ::view-transition-group(*),
+      ::view-transition-old(*),
+      ::view-transition-new(*) { animation: none !important; }
+    }
+
     /* CSS Variables for theming */
     :root {
       --color-bg: #ffffff;
@@ -369,6 +377,11 @@
     <p>Stay calm. Be critical. Start building.<br>Trying to be less wrong every day.</p>
     <p><a href="/now.html" aria-label="What I am focused on now">What I'm doing now →</a></p>
   </header>
+
+  <section class="current-focus" aria-label="Current focus">
+    <h2>Current focus</h2>
+    <p>Scaling Travelgate by putting partners first, and building AI-driven automation across the travel ecosystem.</p>
+  </section>
 
   <nav aria-label="Social media and professional links">
     <ul>

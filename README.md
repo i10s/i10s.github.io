@@ -14,6 +14,7 @@ Personal website for Iñaki Fuentes. A minimal, fast, and accessible landing pag
 - **High Contrast Mode**: WCAG AAA support for prefers-contrast: more
 - **SEO Optimized**: Enhanced Open Graph, Twitter Cards, structured data
 - **PWA Ready**: Service Worker, offline support, installable
+- **Smooth Navigation**: Native cross-document View Transitions (progressive enhancement)
 - **Secure**: security.txt, CSP headers, HTTPS enforcement
 - **Standards**: humans.txt, proper meta tags, modern web APIs
 - **Web Vitals**: Real-time performance monitoring (CLS, LCP, FID, INP)
@@ -74,7 +75,8 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 ├── sitemap.xml          # Site structure for SEO
 ├── scripts/
 │   ├── dev-server.js    # Local development server with live reload
-│   └── fix-html.js      # HTML validation fixer
+│   └── fix-html.js      # HTML validation fixer (all primary pages)
+├── docs/                # Extended documentation & notes
 ├── tests/               # Comprehensive test suite (199 tests)
 └── .github/workflows/   # CI/CD automation
 ```

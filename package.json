@@ -14,7 +14,7 @@
     "test:seo": "mocha tests/seo-performance.test.js",
     "test:coverage": "nyc mocha tests/**/*.test.js",
     "lint": "eslint tests/**/*.js",
-    "validate:html": "html-validate index.html resume.html now.html 404.html",
+    "validate:html": "html-validate index.html resume.html now.html 404.html offline.html privacy.html stats.html security-policy.html security-acknowledgments.html",
     "validate:json": "jsonlint site.webmanifest",
   "validate:budget": "node scripts/check-budget.js",
   "optimize:images": "node scripts/optimize-images.js",
@@ -32,6 +32,9 @@
   ],
   "author": "Iñaki Fuentes",
   "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
   "devDependencies": {
     "chai": "^4.3.10",
     "eslint": "^8.56.0",
@@ -40,7 +43,7 @@
     "jsdom": "^23.2.0",
     "jsonlint": "^1.6.3",
     "lighthouse": "^12.2.1",
-    "mocha": "^10.2.0",
+    "mocha": "^11.0.0",
     "nyc": "^15.1.0"
   },
   "overrides": {

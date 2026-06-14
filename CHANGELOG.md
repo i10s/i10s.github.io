@@ -15,6 +15,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Enhanced offline page with brand-consistent styling
 - Expanded structured data with complete social profile links
 - Privacy notice placeholder for future analytics
+- Native cross-document View Transitions across pages (progressive enhancement, reduced-motion safe)
+- Current focus section on the home page
+- `engines` field pinning Node >= 18
+
+### Changed (Unreleased)
+
+- Upgraded Mocha to v11 (fixes test runner under Node 22+/26)
+- CI Node matrix updated to 20.x and 22.x
+- Performance budget now enforced in CI test job
+- `validate:html` and `scripts/fix-html.js` now cover all 9 primary pages
+- Documentation consolidated into `docs/` (root kept lean)
+- Refreshed `sitemap.xml` (added stats page, updated lastmod)
+
+### Fixed (Unreleased)
+
+- HTML validation errors on offline, privacy, stats and security pages
+  (void-element style, raw `&`, missing `th[scope]`, inline styles)
+- Removed empty `lab/` placeholder page
 
 ## [2.0.0] - 2025-11-06
 

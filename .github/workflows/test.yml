@@ -16,7 +16,7 @@ jobs:
     
     strategy:
       matrix:
-        node-version: [18.x, 20.x]
+        node-version: [20.x, 22.x]
     
     steps:
     - name: Checkout repository
@@ -35,7 +35,10 @@ jobs:
       
     - name: Run HTML validation
       run: npm run validate:html
-      
+
+    - name: Check performance budget
+      run: npm run validate:budget
+
     - name: Run JSON validation
       run: npm run validate:json
       
