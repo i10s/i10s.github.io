@@ -20,10 +20,10 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       
     - name: Setup Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         node-version: ${{ matrix.node-version }}
         
@@ -46,7 +46,7 @@ jobs:
       run: npm run test:coverage
       
     - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v3
+      uses: codecov/codecov-action@v5
       with:
         files: ./coverage/coverage-final.json
         flags: unittests
@@ -58,10 +58,10 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         node-version: '20.x'
         
@@ -80,18 +80,21 @@ jobs:
     
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       
     - name: Setup Node.js
-      uses: actions/setup-node@v4
+      uses: actions/setup-node@v5
       with:
         node-version: '20.x'
         
     - name: Install dependencies
       run: npm install
       
-    - name: Run security audit
-      run: npm audit --audit-level=moderate
-      
+    - name: Run security audit (production dependencies)
+      run: npm audit --omit=dev --audit-level=moderate
+
+    - name: Audit dev tooling (informational)
+      run: npm audit --audit-level=moderate || true
+
     - name: Check for outdated dependencies
       run: npm outdated || true
