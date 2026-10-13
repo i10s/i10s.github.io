@@ -2,7 +2,19 @@
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-deployed-success?logo=github)](https://ifuentes.net)
 
-Personal website for Iñaki Fuentes. A minimal, fast, and accessible landing page showcasing professional links and social profiles. Built for clarity, low maintenance and strong defaults (performance, accessibility, PWA, SEO).
+Personal website for Iñaki Fuentes. Twenty years in travel tech, told as an airport split-flap board: **Departures** is what he does now, **Arrivals** is where he has been, and the contact card is a boarding pass. Built for clarity, low maintenance and strong defaults (performance, accessibility, PWA, SEO).
+
+## ✈️ Design: "Departures"
+
+- **Split-flap hero**: the name is a row of flap tiles that flip once on load
+- **Departures / Arrivals boards**: current roles and career history, with live Palma and UAE clocks
+- **Boarding pass**: contact card with passenger fields, links and a barcode stub
+- **Wayfinding palette**: airport signage yellow (`#ffcc00`), board black and warm paper; system UI and monospace fonts only
+- **Themed edge pages**: 404 is "Gate changed", offline is "Delayed"
+- **Print-ready résumé**: two A4 pages, black on white
+- **Easter egg**: Konami code on the home page (↑ ↑ ↓ ↓ ← → ← → B A)
+
+Motion is a single flap on load, never looping, and is disabled entirely with `prefers-reduced-motion`. The flapping happens in `aria-hidden` overlays, so screen readers and search engines always read the real text.
 
 ## 🚀 Features
 
@@ -25,7 +37,7 @@ Personal website for Iñaki Fuentes. A minimal, fast, and accessible landing pag
 
 - Pure HTML5
 - CSS3 with CSS Variables for theming
-- Vanilla JavaScript (Service Worker only)
+- Vanilla JavaScript: `flap.js` (~5KB, shared by all pages) and the Service Worker
 - Semantic markup
 - JSON-LD structured data
 - Progressive Web App (PWA)
@@ -39,10 +51,10 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 | Category      | Limit per page |
 | ------------- | -------------- |
 | Document HTML | 22KB           |
-| CSS           | 8KB            |
-| JavaScript    | 10KB           |
-| Images        | 5KB inline/critical |
-| Total         | 35KB           |
+| CSS           | 8KB (inline + same-origin external) |
+| JavaScript    | 10KB (inline + same-origin external) |
+| Images        | 5KB            |
+| Total         | 35KB (HTML + external JS/CSS + images, each byte counted once) |
 
 ### Targets
 
@@ -54,20 +66,26 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 
 ## 🎨 Design Principles
 
-1. **Minimalism**: Content-first approach, no unnecessary elements
-2. **Typography**: System fonts for zero load time
-3. **Color**: Automatic theming with CSS custom properties
-4. **Accessibility**: Keyboard navigation, screen reader support, sufficient contrast ratios
+1. **One idea, executed well**: the airport board metaphor, no other decoration
+2. **Typography**: System UI sans for reading, system monospace for the board; zero font downloads
+3. **Color**: Light (paper) and dark (night terminal) themes via CSS custom properties; the board stays dark in both
+4. **Accessibility**: Keyboard navigation, screen reader support, sufficient contrast ratios, reduced motion
+5. **Progressive enhancement**: every page is complete without JavaScript
 
 ## 📁 Project Structure
 
 ```text
 .
-├── index.html           # Main landing page (optimized)
-├── resume.html          # Professional experience & education
+├── index.html           # Home: split-flap hero, departures/arrivals boards, boarding pass
+├── resume.html          # Résumé ("flight log"), print-ready
 ├── now.html             # Current focus (/now page)
-├── sw.js                # Service Worker for PWA
-├── web-vitals.js        # Performance monitoring script
+├── 404.html             # "Gate changed" error page
+├── offline.html         # "Delayed" offline fallback
+├── flap.js              # Split-flap tiles, board flaps, clocks, Konami easter egg
+├── sw.js                # Service Worker (network-first pages, cached assets)
+├── favicon.svg          # Brand mark (PNG/ICO icons rendered from it)
+├── og.png, og-*.png     # Social cards (generated from cards/)
+├── web-vitals.js        # Performance monitoring (loaded on localhost or with ?vitals)
 ├── site.webmanifest     # PWA manifest
 ├── feed.xml             # RSS/Atom feed
 ├── humans.txt           # Credits and tech colophon
@@ -75,9 +93,11 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 ├── sitemap.xml          # Site structure for SEO
 ├── scripts/
 │   ├── dev-server.js    # Local development server with live reload
+│   ├── check-budget.js  # Performance budget check (pre-commit + CI)
+│   ├── generate-og-cards.js # Social card templates + PNG rendering
 │   └── fix-html.js      # HTML validation fixer (all primary pages)
 ├── docs/                # Extended documentation & notes
-├── tests/               # Comprehensive test suite (199 tests)
+├── tests/               # Comprehensive test suite (280 tests)
 └── .github/workflows/   # CI/CD automation
 ```
 
@@ -87,7 +107,7 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 
 - Inline critical CSS (eliminates render-blocking)
 - DNS prefetch and preconnect for external domains
-- No JavaScript dependencies (except Service Worker)
+- No JavaScript dependencies: one small shared script (`flap.js`, deferred) plus the Service Worker
 - Optimized images with proper formats
 - Browser caching configured via .htaccess
 - Compression enabled for all text assets
@@ -95,10 +115,10 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 
 ### PWA Features
 
-- Service Worker with cache-first strategy
+- Service Worker: network-first for pages (always fresh), stale-while-revalidate for assets
 - Offline functionality
 - Installable on mobile devices
-- App shortcuts in manifest
+- App shortcuts in manifest (Résumé, Now)
 - Background updates
 
 ### Accessibility
@@ -136,7 +156,7 @@ This site is deployed on **GitHub Pages**:
 
 ## 🧪 Testing
 
-Comprehensive test suite (≈200 assertions) covers structure, accessibility, SEO, PWA and performance heuristics.
+Comprehensive test suite (280 assertions) covers structure, accessibility, SEO, PWA and performance heuristics.
 
 ### Quick Start
 
@@ -204,7 +224,7 @@ Progressive enhancement approach avoids hard dependency on JS for primary conten
 
 ## 📝 License
 
-Copyright © 2025 Iñaki Fuentes. All rights reserved.
+Copyright © 2026 Iñaki Fuentes. All rights reserved.
 
 ## 🤝 Contributing
 
@@ -240,7 +260,7 @@ English B2 level, concise sentences, active voice, no marketing fluff.
 
 - **Email**: <inaki@ifuentes.net>
 - **LinkedIn**: [inakifuentes](https://www.linkedin.com/in/inakifuentes/)
-- **Twitter**: [@ifuentes](https://twitter.com/ifuentes)
+- **X**: [@ifuentes](https://x.com/ifuentes)
 - **GitHub**: [@i10s](https://github.com/i10s)
 
 ---

@@ -3,550 +3,271 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Performance: Early resource hints -->
-  <link rel="preconnect" href="https://ifuentes.net">
-  <link rel="alternate" type="application/rss+xml" title="Iñaki Fuentes RSS Feed" href="https://ifuentes.net/feed.xml">
-  <link rel="alternate" type="application/atom+xml" title="Iñaki Fuentes Blog Feed" href="https://inaki.bearblog.dev/feed/">
-
-  <!-- SEO -->
-  <title>Iñaki Fuentes | People, Business and Technology</title>
-  <meta name="description" content="COO at Travelgate. Leading operations and strategy to grow the world's largest travel marketplace. Advisor, investor & AI automation builder in travel tech.">
+  <title>Iñaki Fuentes — I build, scale and fix tech businesses</title>
+  <meta name="description" content="Partner &amp; CTO at eVoost AI, co-founder of Fliinow. Twenty years building, scaling and fixing tech businesses across AI, travel, startups and M&amp;A.">
   <meta name="author" content="Iñaki Fuentes">
-  <meta name="keywords" content="COO, Travelgate, travel marketplace, technology leadership, startup advisor, AI automation, business strategy, operations, innovation">
-  <meta name="abstract" content="Currently COO at Travelgate, leading operations and strategy to grow the world's largest travel marketplace. Focused on innovation, partnerships, and scalability, ensuring our partners thrive in an ever-changing industry. Also advising and investing in startups, helping founders define business models, scale operations, and secure funding. Developing AI-driven automation solutions focused on improving efficiency and simplifying processes within the travel ecosystem.">
+  <meta name="keywords" content="Iñaki Fuentes, CTO, co-founder, AI, LLM, travel technology, startups, operations, M&amp;A, eVoost AI, Fliinow, Palma de Mallorca">
   <meta name="robots" content="index, follow">
-  <meta name="generator" content="Hand-crafted with care">
-  <meta name="theme-color" content="#ffffff">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
-  <link rel="canonical" href="https://ifuentes.net">
-
-  <!-- DNS Prefetch for faster external connections -->
+  <meta name="theme-color" content="#f2efe7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0d0f" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://ifuentes.net/">
+  <link rel="alternate" type="application/rss+xml" title="Iñaki Fuentes" href="/feed.xml">
+  <link rel="alternate" type="application/atom+xml" title="Iñaki Fuentes · Blog" href="https://inaki.bearblog.dev/feed/">
   <link rel="dns-prefetch" href="https://www.linkedin.com">
-  <link rel="dns-prefetch" href="https://twitter.com">
-  <link rel="dns-prefetch" href="https://github.com">
-  <link rel="preconnect" href="https://www.linkedin.com" crossorigin>
-  <link rel="preconnect" href="https://twitter.com" crossorigin>
-  <link rel="preconnect" href="https://github.com" crossorigin>
-
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
   <link rel="author" href="/humans.txt">
-  <meta name="msapplication-TileColor" content="#da532c">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Iñaki Fuentes Liberal">
-  <meta property="og:description" content="COO at Travelgate. Leading operations and strategy for the world's largest travel marketplace. Startup advisor and investor. Building AI-driven automation for the travel industry.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Iñaki Fuentes">
+  <meta property="og:title" content="Iñaki Fuentes — Departures">
+  <meta property="og:description" content="I build, scale and fix tech businesses. AI, travel, startups, operations and M&amp;A. From infrastructure to boardroom, from idea to exit.">
   <meta property="og:url" content="https://ifuentes.net/">
-  <meta property="og:image" content="https://ifuentes.net/if.png">
+  <meta property="og:image" content="https://ifuentes.net/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Iñaki Fuentes - People, Business and Technology">
-  <meta property="og:site_name" content="Iñaki Fuentes Liberal">
-  <meta property="og:type" content="website">
+  <meta property="og:image:alt" content="A split-flap departures board spelling Iñaki Fuentes">
   <meta property="og:locale" content="en_US">
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@ifuentes">
-  <meta name="twitter:creator" content="@ifuentes">
-  <meta name="twitter:title" content="Iñaki Fuentes Liberal">
-  <meta name="twitter:description" content="COO at Travelgate. Leading operations and strategy for the world's largest travel marketplace. Startup advisor and investor. Building AI-driven automation for the travel industry.">
-  <meta name="twitter:image" content="https://ifuentes.net/if.png">
-
-  <!-- Styles -->
+  <meta name="twitter:title" content="Iñaki Fuentes">
+  <meta name="twitter:description" content="I build, scale and fix tech businesses. Less theatre. More execution.">
+  <meta name="twitter:image" content="https://ifuentes.net/ifuentes.jpg">
+  <script type="speculationrules">{"prerender":[{"urls":["/now.html","/resume.html"],"eagerness":"moderate"}]}</script>
   <style>
-    /* Native cross-document view transitions (progressive enhancement) */
-    @view-transition { navigation: auto; }
-    @media (prefers-reduced-motion: reduce) {
-      ::view-transition-group(*),
-      ::view-transition-old(*),
-      ::view-transition-new(*) { animation: none !important; }
-    }
-
-    /* CSS Variables for theming */
-    :root {
-      --color-bg: #ffffff;
-      --color-text: #1a1a1a;
-      --color-text-secondary: #4a4a4a;
-      --color-link: #0066cc;
-      --color-link-hover: #0052a3;
-      --color-link-visited: #551a8b;
-      --color-border: #e0e0e0;
-      --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --spacing-unit: 1rem;
-      --max-width: 720px;
-      --transition-speed: 0.2s;
-      /* Responsive spacing scale */
-      --space-1: clamp(0.5rem, 0.4rem + 0.6vw, 0.75rem);
-      --space-2: clamp(0.75rem, 0.6rem + 0.8vw, 1.125rem);
-      --space-3: clamp(1rem, 0.8rem + 1vw, 1.5rem);
-      --space-4: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
-      --space-5: clamp(2rem, 1.6rem + 1.5vw, 3rem);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --color-bg: #0d1117;
-        --color-text: #e6edf3;
-        --color-text-secondary: #8b949e;
-        --color-link: #58a6ff;
-        --color-link-hover: #79c0ff;
-        --color-link-visited: #bc8cff;
-        --color-border: #30363d;
-      }
-    }
-
-    /* High contrast mode (WCAG AAA) */
-    @media (prefers-contrast: more) {
-      :root {
-        --color-bg: #ffffff;
-        --color-text: #000000;
-        --color-text-secondary: #000000;
-        --color-link: #0000ee;
-        --color-link-hover: #0000aa;
-        --color-link-visited: #551a8b;
-        --color-border: #000000;
-      }
-    }
-
-    @media (prefers-contrast: more) and (prefers-color-scheme: dark) {
-      :root {
-        --color-bg: #000000;
-        --color-text: #ffffff;
-        --color-text-secondary: #ffffff;
-        --color-link: #ffff00;
-        --color-link-hover: #ffff99;
-        --color-link-visited: #ff99ff;
-        --color-border: #ffffff;
-      }
-    }
-
-    /* Reset and Base Styles */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      font-family: var(--font-system);
-      line-height: 1.6;
-      color-scheme: light dark;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* Page load animation */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    body {
-      margin: 0 auto;
-      padding: var(--space-3) var(--space-2);
-      max-width: var(--max-width);
-      background-color: var(--color-bg);
-      color: var(--color-text);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem); /* Fluid base font size */
-      animation: fadeIn 0.5s ease-out;
-    }
-
-    /* Typography */
-    h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-    }
-
-    p {
-      color: var(--color-text-secondary);
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
-    }
-
-    /* Header */
-    header {
-      margin-bottom: var(--space-4);
-      padding-bottom: var(--space-3);
-      border-bottom: 2px solid var(--color-border);
-      animation: fadeIn 0.6s ease-out 0.1s both;
-    }
-
-    /* Navigation */
-    nav {
-      flex: 1;
-      animation: fadeIn 0.7s ease-out 0.2s both;
-      content-visibility: auto;
-      contain-intrinsic-size: 0 480px;
-    }
-
-    nav ul {
-      list-style: none;
-      padding: 0;
-      display: grid;
-      gap: var(--space-2);
-      grid-template-columns: 1fr; /* Mobile first */
-    }
-
-    /* Progressive enhancement: nav columns scale with width */
-    @media (min-width: 480px) {
-      nav ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    }
-    @media (min-width: 640px) {
-      nav ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    }
-    @media (min-width: 960px) {
-      nav ul { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    }
-
-    nav li {
-      margin: 0;
-    }
-
-    main, footer {
-      content-visibility: auto;
-      contain-intrinsic-size: 0 600px;
-    }
-
-    /* Links */
-    a {
-      color: var(--color-link);
-      text-decoration: none;
-      position: relative;
-      display: inline-block;
-      transition: color var(--transition-speed) ease, transform var(--transition-speed) ease;
-      font-weight: 500;
-      will-change: transform;
-      padding: 0.55rem 0.75rem; /* Improve touch target size */
-      border-radius: 6px;
-      line-height: 1.3;
-    }
-
-    a:visited {
-      color: var(--color-link-visited);
-    }
-
-    a:hover,
-    a:focus {
-      color: var(--color-link-hover);
-      transform: translateX(4px);
-    }
-
-    a:focus {
-      outline: 2px solid var(--color-link);
-      outline-offset: 4px;
-      border-radius: 2px;
-    }
-
-    a::after {
-      content: '';
-      position: absolute;
-      width: calc(100% - 1.5rem); /* Account for horizontal padding */
-      height: 1px;
-      bottom: 0.4rem; /* Position above bottom padding */
-      left: 0.75rem; /* Align with horizontal padding */
-      background-color: var(--color-link);
-      transform: scaleX(0);
-      transform-origin: bottom right;
-      transition: transform var(--transition-speed) ease;
-      will-change: transform;
-    }
-
-    a:hover::after,
-    a:focus::after {
-      transform: scaleX(1);
-      transform-origin: bottom left;
-    }
-
-    /* External link indicator */
-    nav a[href^="http"]::before {
-      content: "→ ";
-      opacity: 0.5;
-      margin-right: 0.25rem;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-      body { padding: var(--space-3) var(--space-2); }
-      h1 { font-size: clamp(1.75rem, 6vw, 2.25rem); }
-      p { font-size: 1rem; }
-      a { padding: 0.5rem 0.65rem; }
-    }
-
-    /* Footer */
-    footer {
-      margin-top: var(--space-5);
-      padding-top: var(--space-3);
-      border-top: 1px solid var(--color-border);
-      text-align: center;
-      font-size: 0.85rem;
-    }
-
-    footer a {
-      color: var(--color-text-secondary);
-      font-weight: 400;
-      transition: color var(--transition-speed) ease;
-    }
-
-    footer a:hover {
-      color: var(--color-link);
-      transform: none;
-    }
-
-    /* Reduced Motion Support */
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-
-    /* Print Styles */
-    @media print {
-      body {
-        background: white;
-        color: black;
-      }
-
-      a {
-        text-decoration: underline;
-        color: black;
-      }
-
-      a[href^="http"]::after {
-        content: " (" attr(href) ")";
-        font-size: 0.8em;
-      }
-    }
-
-    /* Focus visible for better keyboard navigation */
-    :focus-visible {
-      outline: 2px solid var(--color-link);
-      outline-offset: 4px;
-    }
-
-    /* Accessible skip link */
-    .skip-link {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translateY(-120%);
-      background: var(--color-link);
-      color: #fff;
-      padding: 0.5rem 0.75rem;
-      border-radius: 0 0 6px 0;
-      font-weight: 600;
-      transition: transform var(--transition-speed) ease;
-      z-index: 1000;
-    }
-    .skip-link:focus { transform: translateY(0); }
-
-    /* Current Focus snippet */
-    .current-focus { margin-top: var(--space-3); }
-    .current-focus h2 { font-size:1rem; letter-spacing:0.02em; text-transform:uppercase; margin:0 0 .25rem; color: var(--color-text-secondary); }
-    .current-focus p { margin:0; font-size:0.95rem; line-height:1.5; max-width:46ch; }
+@view-transition{navigation:auto}
+:root{--color-bg:#f2efe7;--color-text:#141414;--paper:#fffdf8;--fg2:#45423c;--mute:#66635c;--line:#d9d3c5;--link:#141414;--mark:#ffcc00;--board:#111214;--hi:#26272c;--lo:#1d1e22;--ink:#f4f1e8;--amber:#ffb627;--green:#63e08f;--dim:#a7a49c;--edge:#2c2d32;--gap:clamp(3.5rem,9vw,7.5rem)}
+@media (prefers-color-scheme: dark){:root{--color-bg:#0c0d0f;--color-text:#f2efe8;--paper:#17181b;--fg2:#bdb9b0;--mute:#97938b;--line:#2c2d32;--link:#ffd447;--board:#151619}}
+@media (prefers-contrast: more){:root{--fg2:var(--color-text);--mute:var(--color-text);--dim:#e4e1da}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:light dark}
+body{background:var(--color-bg);color:var(--color-text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:clamp(1rem,.96rem + .2vw,1.125rem);line-height:1.6}
+a{color:var(--link);text-underline-offset:.22em}
+a:hover{text-decoration-color:var(--mark)}
+:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.wrap{width:min(100% - 2*clamp(1.1rem,4vw,2.5rem),1140px);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;left:.75rem;top:-5rem;z-index:9;padding:.6rem .9rem;background:var(--mark);color:#111;font-weight:700}
+.skip:focus{top:.75rem}
+.nav a,.eyebrow,.motto,h1,.board,.pt,.pf dt,.links a,.stub{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.1em}
+.brand,.tiles i,.pict,.sign::before{display:grid;place-items:center;border-radius:.22rem}
+.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.1rem}
+.brand{width:2.75rem;height:2.75rem;background:var(--mark);color:#111;font-weight:800;letter-spacing:-.05em;text-decoration:none;view-transition-name:brand}
+.nav{display:flex;flex-wrap:wrap;gap:.2rem}
+.nav a{padding:.6rem .75rem;border-radius:.3rem;color:var(--color-text);font-size:0.8rem;text-decoration:none}
+.nav a:hover{background:var(--mark);color:#111}
+.nav a[target]::after{content:" ↗"/""}
+.hero{padding-block:clamp(2.5rem,8vw,6rem) var(--gap)}
+.eyebrow,.motto{font-size:0.8rem;color:var(--mute)}
+.motto{color:var(--fg2)}
+h1{margin:1.4rem 0;font-size:clamp(2.4rem,12.5vw,5.75rem);line-height:1}
+.tiles{display:flex;flex-wrap:wrap;gap:.16em .4em}
+.w{display:flex;gap:.07em}
+.tiles i{position:relative;width:.84em;height:1.2em;border-radius:.09em;background:linear-gradient(var(--hi) 50%,var(--lo) 50%);color:var(--ink);font-style:normal;box-shadow:0 .06em .14em #0005}
+.tiles i::before,.tiles i::after,.row>span::after{content:"";position:absolute;inset:0 0 50%}
+.tiles i::after,.row>span::after{inset:calc(50% - .5px) 0 auto;height:1px;background:#0009}
+.tiles i::before{border-radius:inherit;background:var(--hi);transform:scaleY(0);transform-origin:bottom}
+.tiles .a::before{animation:fa 60ms ease-in}
+.tiles .b::before{animation:fb 60ms ease-in}
+@keyframes fa{from{transform:scaleY(1)}}
+@keyframes fb{from{transform:scaleY(1)}}
+.intro{display:grid;gap:1.25rem 4rem;align-items:end;margin-top:clamp(2rem,6vw,4rem)}
+.lede,.pass h2{font-weight:750;line-height:1.02;letter-spacing:-.035em}
+.lede{max-width:17ch;font-size:clamp(2rem,1.2rem + 3.6vw,4.25rem);text-wrap:balance}
+.sub{max-width:40ch;font-size:clamp(1.1rem,1rem + .5vw,1.35rem);line-height:1.5;color:var(--fg2)}
+.sign{display:inline-flex;align-items:center;gap:.65em;margin-top:1.5rem;padding:.5em 1em .5em .5em;border-radius:.35rem;background:var(--mark);color:#111;font-weight:700}
+.sign::before{content:"→"/"";width:1.7em;height:1.7em;background:#111;color:var(--mark)}
+.sec+.sec{margin-top:clamp(1.25rem,3vw,2rem)}
+.board{padding:clamp(.85rem,2.2vw,1.6rem);border:1px solid var(--edge);border-radius:clamp(.6rem,1.6vw,1.1rem);background:var(--board);color:var(--ink);font-size:clamp(0.78rem,.7rem + .35vw,0.95rem);letter-spacing:.06em;box-shadow:0 28px 60px -32px #0008}
+.bh,.bf{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 2rem}
+.bh{padding-bottom:1rem;margin-bottom:.6rem;border-bottom:1px solid var(--edge)}
+.bh h2{display:flex;align-items:center;gap:.7em;font-size:clamp(1.05rem,.85rem + 1vw,1.55rem)}
+.pict{width:1.75em;height:1.75em;background:var(--mark);color:#111}
+.clk{color:var(--amber)}
+.clk span{display:inline-block;min-width:5.5ch;margin:0 1em 0 .4em}
+.rows{list-style:none}
+.row{display:grid;grid-template-columns:7.6em minmax(0,.85fr) minmax(0,1.05fr) 5.4em minmax(0,1.3fr);gap:.3rem;margin-top:.3rem}
+.row>span{position:relative;padding:.5em .65em;border-radius:.2rem;background:linear-gradient(var(--hi) 50%,var(--lo) 50%)}
+.row>:first-child{color:var(--amber)}
+.hd>span{padding-block:0 .3em;background:none;color:var(--dim);font-size:0.8em}
+.hd>span::after,.row>.s::after{content:none}
+.row>.s{background:none;color:var(--dim)}
+.row>.ok,.row>.go{color:var(--green)}
+.row>.acq{color:var(--amber)}
+.s::before{content:"";display:inline-block;width:.55em;height:.55em;margin-right:.55em;border-radius:50%;background:currentColor}
+.go::before{animation:blink 1.2s steps(1) 4}
+@keyframes blink{50%{opacity:0}}
+.s small{font-size:1em;color:var(--dim);text-transform:none;letter-spacing:0}
+.fx{position:absolute;inset:0;padding:inherit;border-radius:inherit;background:inherit}
+.s .fx{background:var(--board)}
+.bf{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--edge);color:var(--dim)}
+.board a{color:var(--ink)}
+.board a:hover{color:var(--mark)}
+.board a::after{content:" →"/""}
+.pass{display:grid;grid-template-columns:minmax(0,1fr) auto;margin-top:var(--gap);border-radius:1rem;background:var(--paper);box-shadow:0 30px 60px -36px #0007;overflow:hidden}
+.pm{padding:clamp(1.25rem,4vw,2.75rem)}
+.ph{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
+.ph img{width:clamp(4rem,10vw,5.5rem);height:auto;border-radius:.5rem;filter:grayscale(1)}
+.pt,.pf dt{font-size:0.75rem;color:var(--mute)}
+.pass h2{margin-top:.35rem;font-size:clamp(2rem,1.3rem + 3vw,3.5rem)}
+.pf{display:grid;grid-template-columns:repeat(auto-fit,minmax(8.5rem,1fr));gap:1rem 1.5rem;margin:2rem 0}
+.pf dd{font-size:1.15rem;font-weight:700}
+.links{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none}
+.links a{display:block;padding:.7rem 1.05rem;border:2px solid;border-radius:2rem;color:var(--color-text);font-size:0.8rem;text-decoration:none;transition:background-color 150ms}
+.links a:hover{background:var(--color-text);color:var(--color-bg)}
+.stub{position:relative;display:grid;align-content:space-between;gap:1.5rem;padding:2rem 1.6rem;border-left:2px dashed var(--line);font-size:0.8rem;line-height:1.8}
+.stub::before,.stub::after{content:"";position:absolute;left:-.8rem;top:-.8rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--color-bg)}
+.stub::after{top:auto;bottom:-.8rem}
+.bar{height:4.5rem;min-width:8rem;background:repeating-linear-gradient(90deg,currentColor 0 2px,transparent 0 4px,currentColor 0 5px,transparent 0 9px)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 2rem;margin-top:var(--gap);padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mute);font-size:0.9rem}
+.foot a{color:inherit}
+@media (min-width: 900px){.intro{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}}
+@media (max-width: 760px){.board{padding:.6rem}.row{grid-template-columns:7em minmax(0,1fr) 8.4em;letter-spacing:.02em}.row>span{padding:.45em .5em}.row>:nth-child(3){grid-area:2/2}.row>:nth-child(4){grid-area:2/1}.row>:nth-child(5){grid-area:1/3/3}.s small{display:block}}
+@media (max-width: 600px){.pass{grid-template-columns:1fr}.stub{grid-template-columns:auto 1fr;align-items:center;border:0;border-top:2px dashed var(--line)}.stub::after{top:-.8rem;bottom:auto;left:auto;right:-.8rem}.bar{height:3rem}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
   </style>
 </head>
-
 <body>
-  <a href="#content" class="skip-link">Skip to content</a>
-  <main id="content">
-  <header>
-    <h1>Iñaki Fuentes</h1>
-    <p>Stay calm. Be critical. Start building.<br>Trying to be less wrong every day.</p>
-    <p><a href="/now.html" aria-label="What I am focused on now">What I'm doing now →</a></p>
-  </header>
-
-  <section class="current-focus" aria-label="Current focus">
-    <h2>Current focus</h2>
-    <p>Scaling Travelgate by putting partners first, and building AI-driven automation across the travel ecosystem.</p>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top wrap">
+  <a class="brand" href="/" aria-current="page" aria-label="Iñaki Fuentes, home">IF</a>
+  <nav class="nav" aria-label="Site">
+    <a href="/now.html">Now</a>
+    <a href="/resume.html">Résumé</a>
+    <a href="https://inaki.bearblog.dev/blog/" target="_blank" rel="noopener noreferrer" aria-label="Blog (opens in new tab)">Blog</a>
+  </nav>
+</header>
+<main id="content">
+  <section class="hero wrap" aria-labelledby="name">
+    <p class="eyebrow"><span lang="es">Salidas</span> · Departures · Palma de Mallorca</p>
+    <h1 id="name"><span class="sr">Iñaki Fuentes</span><span class="tiles" data-tiles="LESS WRONG|EVERY DAY" aria-hidden="true"><span class="w"><i>I</i><i>Ñ</i><i>A</i><i>K</i><i>I</i></span><span class="w"><i>F</i><i>U</i><i>E</i><i>N</i><i>T</i><i>E</i><i>S</i></span></span></h1>
+    <p class="motto">Trying to be less wrong every day.</p>
+    <div class="intro">
+      <p class="lede">I build, scale and fix tech businesses.</p>
+      <div>
+        <p class="sub">AI, travel, startups, operations and M&amp;A. From infrastructure to boardroom, from idea to exit.</p>
+        <p class="sign">Less theatre. More execution.</p>
+      </div>
+    </div>
   </section>
 
-  <nav aria-label="Social media and professional links">
-    <ul>
-      <li><a href="https://www.linkedin.com/in/inakifuentes/" rel="me noopener noreferrer" target="_blank" aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a></li>
-      <li><a href="https://twitter.com/ifuentes" rel="me noopener noreferrer" target="_blank" aria-label="Twitter profile (opens in new tab)">Twitter</a></li>
-      <li><a href="https://github.com/i10s" rel="me noopener noreferrer" target="_blank" aria-label="GitHub profile (opens in new tab)">GitHub</a></li>
-      <li><a href="https://www.strava.com/athletes/1980963" rel="noopener noreferrer" target="_blank" aria-label="Strava profile (opens in new tab)">Strava</a></li>
-      <li><a href="https://discordapp.com/users/i10s#1599" rel="noopener noreferrer" target="_blank" aria-label="Discord profile (opens in new tab)">Discord</a></li>
-      <li><a href="https://inaki.bearblog.dev/blog/" rel="noopener noreferrer" target="_blank" aria-label="Personal blog (opens in new tab)">Blog</a></li>
-      <li><a href="https://keybase.io/ifuentes" rel="noopener noreferrer" target="_blank" aria-label="Keybase profile (opens in new tab)">Keybase</a></li>
-    </ul>
-  </nav>
-  </main>
+  <section class="sec wrap" aria-labelledby="dep">
+    <div class="board" data-board>
+      <div class="bh">
+        <h2 id="dep"><span class="pict" aria-hidden="true">↗</span><span><span lang="es">Salidas</span> · Departures</span></h2>
+        <p class="clk">PMI<span data-tz="Europe/Madrid">--:--</span>UAE<span data-tz="Asia/Dubai">--:--</span></p>
+      </div>
+      <div class="row hd" aria-hidden="true"><span>Since</span><span>Destination</span><span>Flight</span><span>Gate</span><span>Remarks</span></div>
+      <ol class="rows">
+        <li class="row"><span>Oct 2026</span> <span>UEFA C diploma</span> <span>Football coaching</span> <span>Pitch</span> <span class="s go">Boarding</span></li>
+        <li class="row"><span>Jan 2026</span> <span>eVoost AI</span> <span>Partner &amp; CTO</span> <span>EU–UAE</span> <span class="s ok">In flight</span></li>
+        <li class="row"><span>Nov 2025</span> <span>Fliinow</span> <span>Co-founder</span> <span>PMI</span> <span class="s ok">In flight</span></li>
+        <li class="row"><span>Jan 2020</span> <span>Startups</span> <span>Advisor · mentor · partner</span> <span>PMI</span> <span class="s ok">In flight</span></li>
+      </ol>
+      <p class="bf"><span>Fliinow: buy now, pay later infrastructure for travel.</span> <a href="/now.html">What I'm doing now</a></p>
+    </div>
+  </section>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "givenName": "Iñaki",
-    "familyName": "Fuentes",
-    "name": "Iñaki Fuentes Liberal",
-    "email": "inaki@ifuentes.net",
-    "jobTitle": "Chief Operating Officer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Travelgate",
-      "url": "https://www.travelgate.com"
-    },
-    "description": "Currently COO at Travelgate, leading operations and strategy to grow the world's largest travel marketplace. Focused on innovation, partnerships, and scalability. Also advising and investing in startups, helping founders define business models, scale operations, and secure funding. Developing AI-driven automation solutions for the travel ecosystem.",
-    "alumniOf": {
-      "@type": "EducationalOrganization",
-      "name": "Northumbria University",
-      "url": "https://www.northumbria.ac.uk/"
-    },
-    "gender": "Male",
-    "sameAs": [
-      "https://www.linkedin.com/in/inakifuentes/",
-      "https://twitter.com/ifuentes",
-      "https://github.com/i10s",
-      "https://www.strava.com/athletes/1980963",
-      "https://discordapp.com/users/i10s#1599",
-      "https://inaki.bearblog.dev/blog/",
-      "https://keybase.io/ifuentes",
-      "https://t.me/ifuentes",
-      "https://www.facebook.com/inaki.fuentes",
-      "https://www.reddit.com/user/i10s",
-      "https://www.instagram.com/ifuentes/"
-    ]
-  }
-  </script>
+  <section class="sec wrap" aria-labelledby="arr">
+    <div class="board" data-board>
+      <div class="bh">
+        <h2 id="arr"><span class="pict" aria-hidden="true">↘</span><span><span lang="es">Llegadas</span> · Arrivals</span></h2>
+        <p class="clk">2005 → 2026</p>
+      </div>
+      <div class="row hd" aria-hidden="true"><span>Time</span><span>Origin</span><span>Flight</span><span>Gate</span><span>Remarks</span></div>
+      <ol class="rows">
+        <li class="row"><span>2023–2026</span> <span>Travelgate</span> <span>COO</span> <span>PMI</span> <span class="s acq">Acquired<small> by Travelsoft</small></span></li>
+        <li class="row"><span>2021–2023</span> <span>Quonversa</span> <span>Co-founder &amp; CEO</span> <span>PMI</span> <span class="s acq">Acquired<small> by Travelgate</small></span></li>
+        <li class="row"><span>2017–2021</span> <span>Bluekiri</span> <span>CEO</span> <span>PMI</span> <span class="s acq">Acquired<small> by El Corte Inglés</small></span></li>
+        <li class="row"><span>2015–2021</span> <span>Logitravel Group</span> <span>CIO</span> <span>PMI</span> <span class="s acq">Acquired<small> by El Corte Inglés</small></span></li>
+        <li class="row"><span>2015–2016</span> <span>Ace Sticker</span> <span>CTO</span> <span>BCN</span> <span class="s">Landed</span></li>
+        <li class="row"><span>2011–2015</span> <span>NTT Europe</span> <span>Engineering manager</span> <span>BCN</span> <span class="s">Landed</span></li>
+        <li class="row"><span>2009–2011</span> <span>Atlas IT</span> <span>Systems engineer</span> <span>BCN</span> <span class="s">Landed</span></li>
+        <li class="row"><span>2005–2009</span> <span>Dana · M. Torres</span> <span>Sysadmin</span> <span>PNA</span> <span class="s">Landed</span></li>
+      </ol>
+      <p class="bf"><span>20+ years · 4 acquisitions · Computerworld Award 2018</span> <a href="/resume.html">Full flight log (résumé)</a></p>
+    </div>
+  </section>
 
-  <!-- Web Vitals Tracking (dev mode only) -->
-  <script src="/web-vitals.js" defer></script>
-
-  <!-- Easter Eggs: Console Art & Konami Code -->
-  <script>
-    // Console ASCII Art - Displayed on page load
-    console.log('%c👋 Hello, curious developer!', 'font-size: 16px; font-weight: bold; color: #3b82f6;');
-    console.log('%cWelcome to ifuentes.net', 'font-size: 14px; color: #10b981;');
-  console.log('%cifuentes.net', 'font-size:14px;font-weight:bold;color:#3b82f6;');
-  console.log('%cKonami: ↑↑↓↓←→←→BA', 'font-size:11px;color:#a855f7;');
-  console.log('%cContact: inaki@ifuentes.net', 'font-size:11px;color:#3b82f6;');
-    console.log(' ');
-
-    // Konami Code Easter Egg
-    (function() {
-      const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-      let konamiIndex = 0;
-
-      document.addEventListener('keydown', function(e) {
-        const key = e.key.toLowerCase();
-
-        if (key === konamiCode[konamiIndex] || e.code === konamiCode[konamiIndex]) {
-          konamiIndex++;
-
-          if (konamiIndex === konamiCode.length) {
-            activateKonamiMode();
-            konamiIndex = 0;
-          }
-        } else {
-          konamiIndex = 0;
-        }
-      });
-
-      function activateKonamiMode() {
-        console.clear();
-        console.log('%c🎉 KONAMI CODE ACTIVATED! 🎉', 'font-size: 24px; font-weight: bold; color: #10b981; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);');
-        console.log('%c', 'font-size: 1px; padding: 150px 200px; background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIj48dGV4dCB4PSIyMDAiIHk9IjE1MCIgZm9udC1mYW1pbHk9Im1vbm9zcGFjZSIgZm9udC1zaXplPSIzMiIgZmlsbD0iIzEwYjk4MSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC13ZWlnaHQ9ImJvbGQiPuKcqCBZb3UgZm91bmQgaXQhPC90ZXh0Pjwvc3ZnPg==); background-repeat: no-repeat;');
-        console.log('%cYou unlocked the secret developer achievement!', 'font-size: 16px; color: #a855f7;');
-        console.log('%c', 'font-size: 1px;');
-        console.log(`%c
-                     ___ _____ _   _ _____ _   _ _____ _____ ____
-                    |_ _|  ___| | | | ____| \\ | |_   _| ____/ ___|
-                     | || |_  | | | |  _| |  \\| | | | |  _| \\___ \\
-                     | ||  _| | |_| | |___| |\\  | | | | |___ ___) |
-                    |___|_|    \\___/|_____|_| \\_| |_| |_____|____/
-
-                           ✨ Thanks for exploring! ✨
-        `, 'font-family: monospace; color: #3b82f6; font-size: 10px;');
-
-        // Visual feedback
-        document.body.style.animation = 'konami-pulse 0.5s ease-in-out';
-        setTimeout(() => document.body.style.animation = '', 500);
-
-        // Add a celebratory message to the page
-        const message = document.createElement('div');
-        message.innerHTML = '🎮 Konami Code Activated! Check the console →';
-        message.style.cssText = `
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          background: linear-gradient(135deg, #10b981, #3b82f6);
-          color: white;
-          padding: 1rem 1.5rem;
-          border-radius: 8px;
-          font-weight: 600;
-          box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-          z-index: 10000;
-          animation: slideIn 0.5s ease-out;
-        `;
-        document.body.appendChild(message);
-
-        setTimeout(() => {
-          message.style.animation = 'slideOut 0.5s ease-in';
-          setTimeout(() => message.remove(), 500);
-        }, 5000);
-      }
-
-      // Animation styles
-      if (!document.getElementById('konami-styles')) {
-        const style = document.createElement('style');
-        style.id = 'konami-styles';
-        style.textContent = `
-          @keyframes konami-pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.01); }
-          }
-          @keyframes slideIn {
-            from { transform: translateX(400px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-          }
-          @keyframes slideOut {
-            from { transform: translateX(0); opacity: 1; }
-            to { transform: translateX(400px); opacity: 0; }
-          }
-        `;
-        document.head.appendChild(style);
-      }
-    })();
-  </script>
-
-  <!-- Service Worker Registration (PWA) -->
-  <script>
-    // Service Worker for offline support and caching
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(reg => console.log('Service Worker registered'))
-          .catch(err => console.log('Service Worker registration failed'));
-      });
-    }
-  </script>
-
-  <footer>
-    <p><small><a href="/privacy.html" rel="noopener">Privacy</a> · <a href="/.well-known/security.txt" rel="noopener">Security</a> · <a href="/humans.txt" rel="noopener">Humans</a></small></p>
-  </footer>
+  <section class="wrap" aria-labelledby="talk">
+    <div class="pass">
+      <div class="pm">
+        <div class="ph">
+          <div>
+            <p class="pt">Boarding pass · ifuentes.net</p>
+            <h2 id="talk">Let's talk</h2>
+          </div>
+          <img src="/images/inaki.webp" width="88" height="88" alt="Portrait of Iñaki Fuentes" loading="lazy" decoding="async">
+        </div>
+        <dl class="pf">
+          <div><dt>Passenger</dt><dd>Fuentes / Iñaki</dd></div>
+          <div><dt>From</dt><dd>Palma (PMI)</dd></div>
+          <div><dt>To</dt><dd>Wherever you are</dd></div>
+          <div><dt>Class</dt><dd>Builder</dd></div>
+        </dl>
+        <nav aria-label="Social media and professional links">
+          <ul class="links">
+            <li><a href="mailto:inaki@ifuentes.net">Email</a></li>
+            <li><a href="https://www.linkedin.com/in/inakifuentes/" target="_blank" rel="me noopener noreferrer" aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a></li>
+            <li><a href="https://github.com/i10s" target="_blank" rel="me noopener noreferrer" aria-label="GitHub profile (opens in new tab)">GitHub</a></li>
+            <li><a href="https://x.com/ifuentes" target="_blank" rel="me noopener noreferrer" aria-label="X profile (opens in new tab)">X</a></li>
+            <li><a href="https://inaki.bearblog.dev/blog/" target="_blank" rel="noopener noreferrer" aria-label="Blog (opens in new tab)">Blog</a></li>
+            <li><a href="https://www.strava.com/athletes/1980963" target="_blank" rel="noopener noreferrer" aria-label="Strava profile (opens in new tab)">Strava</a></li>
+            <li><a href="https://keybase.io/ifuentes" target="_blank" rel="noopener noreferrer" aria-label="Keybase profile (opens in new tab)">Keybase</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="stub" aria-hidden="true">
+        <p>IF 2026<br>Seat 1A<br>Gate PMI</p>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="foot wrap">
+  <p>Stay calm. Be critical. Start building.</p>
+  <p><a href="/privacy.html">Privacy</a> · <a href="/.well-known/security.txt">Security</a> · <a href="/humans.txt">Humans</a> · <a href="/feed.xml">RSS</a></p>
+</footer>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Iñaki Fuentes",
+  "alternateName": "Iñaki Fuentes Liberal",
+  "url": "https://ifuentes.net/",
+  "image": "https://ifuentes.net/ifuentes.jpg",
+  "email": "mailto:inaki@ifuentes.net",
+  "jobTitle": "Partner & CTO",
+  "worksFor": [
+    { "@type": "Organization", "name": "eVoost AI" },
+    { "@type": "Organization", "name": "Fliinow", "url": "https://fliinow.com/" }
+  ],
+  "description": "I build, scale and fix tech businesses. AI, travel, startups, operations and M&A. From infrastructure to boardroom, from idea to exit.",
+  "homeLocation": { "@type": "Place", "name": "Palma de Mallorca, Spain" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Northumbria University" },
+  "award": ["Computerworld Award 2018, Innovation in Tourism", "Star Award"],
+  "knowsLanguage": ["es", "en", "fr"],
+  "knowsAbout": ["Startup leadership", "Large language models", "Travel technology", "Operations", "Mergers and acquisitions"],
+  "sameAs": [
+    "https://www.linkedin.com/in/inakifuentes/",
+    "https://github.com/i10s",
+    "https://x.com/ifuentes",
+    "https://inaki.bearblog.dev/",
+    "https://www.strava.com/athletes/1980963",
+    "https://keybase.io/ifuentes",
+    "https://t.me/ifuentes",
+    "https://www.instagram.com/ifuentes/",
+    "https://www.facebook.com/inaki.fuentes",
+    "https://www.reddit.com/user/i10s"
+  ]
+}
+</script>
+<script src="/flap.js" defer></script>
+<script>
+  if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
+  if (location.hostname === 'localhost' || /[?&]vitals\b/.test(location.search)) document.head.append(Object.assign(document.createElement('script'), { src: '/web-vitals.js' }));
+</script>
 </body>
 </html>

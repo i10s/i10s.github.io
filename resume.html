@@ -3,417 +3,304 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Iñaki Fuentes | Resume</title>
-  <meta name="description" content="COO at Travelgate. Engineering leader, startup advisor, and investor focused on operations, strategy, and AI automation in travel tech.">
-  <link rel="canonical" href="https://ifuentes.net/resume.html">
-
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
+  <title>Résumé · Iñaki Fuentes — CTO, co-founder, operator</title>
+  <meta name="description" content="Résumé of Iñaki Fuentes: Partner &amp; CTO at eVoost AI, co-founder of Fliinow, former COO of Travelgate and CEO of Quonversa and Bluekiri. 20+ years in tech.">
+  <meta name="author" content="Iñaki Fuentes">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
-
+  <meta name="theme-color" content="#f2efe7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0d0f" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://ifuentes.net/resume.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Iñaki Fuentes — Résumé">
+  <meta property="og:description" content="Twenty years from server rooms to boardrooms: CTO, COO, CEO and co-founder in AI and travel tech. Four acquisitions along the way.">
+  <meta property="og:url" content="https://ifuentes.net/resume.html">
+  <meta property="og:image" content="https://ifuentes.net/og-resume.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://ifuentes.net/ifuentes.jpg">
   <style>
-    /* Native cross-document view transitions (progressive enhancement) */
-    @view-transition { navigation: auto; }
-    @media (prefers-reduced-motion: reduce) {
-      ::view-transition-group(*),
-      ::view-transition-old(*),
-      ::view-transition-new(*) { animation: none !important; }
-    }
-
-    /* CSS Variables matching index.html design system */
-    :root {
-      --color-bg: #ffffff;
-      --color-text: #1a1a1a;
-      --color-text-secondary: #4a4a4a;
-      --color-text-muted: #6a6a6a;
-      --color-link: #0066cc;
-      --color-link-hover: #0052a3;
-      --color-border: #e0e0e0;
-      --color-accent: #0066cc;
-      --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --space-1: clamp(0.5rem, 0.4rem + 0.6vw, 0.75rem);
-      --space-2: clamp(0.75rem, 0.6rem + 0.8vw, 1.125rem);
-      --space-3: clamp(1rem, 0.8rem + 1vw, 1.5rem);
-      --space-4: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
-      --space-5: clamp(2rem, 1.6rem + 1.5vw, 3rem);
-      --max-width: 800px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --color-bg: #0d1117;
-        --color-text: #e6edf3;
-        --color-text-secondary: #8b949e;
-        --color-text-muted: #6e7681;
-        --color-link: #58a6ff;
-        --color-link-hover: #79c0ff;
-        --color-border: #30363d;
-        --color-accent: #58a6ff;
-      }
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      font-family: var(--font-system);
-      line-height: 1.6;
-      color-scheme: light dark;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      margin: 0 auto;
-      padding: var(--space-4) var(--space-3);
-      max-width: var(--max-width);
-      background-color: var(--color-bg);
-      color: var(--color-text);
-      font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
-    }
-
-    h1 {
-      font-size: clamp(2rem, 4vw, 2.5rem);
-      font-weight: 700;
-      margin-bottom: var(--space-2);
-      color: var(--color-text);
-      line-height: 1.2;
-    }
-
-    h1 small {
-      display: block;
-      font-size: 0.5em;
-      font-weight: 400;
-      color: var(--color-text-secondary);
-      margin-top: var(--space-1);
-    }
-
-    h2 {
-      font-size: clamp(1.5rem, 3vw, 1.75rem);
-      font-weight: 600;
-      margin: var(--space-5) 0 var(--space-3) 0;
-      color: var(--color-text);
-      border-bottom: 2px solid var(--color-border);
-      padding-bottom: var(--space-1);
-    }
-
-    h3 {
-      font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-      font-weight: 600;
-      margin: var(--space-4) 0 var(--space-2) 0;
-      color: var(--color-text);
-    }
-
-    h4 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin: var(--space-3) 0 var(--space-2) 0;
-      color: var(--color-text-secondary);
-    }
-
-    p {
-      margin-bottom: var(--space-2);
-      color: var(--color-text-secondary);
-    }
-
-    a {
-      color: var(--color-link);
-      text-decoration: none;
-      transition: color 0.2s ease;
-    }
-
-    a:hover {
-      color: var(--color-link-hover);
-      text-decoration: underline;
-    }
-
-    .skip-link {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translateY(-120%);
-      background: var(--color-link);
-      color: #fff;
-      padding: 0.5rem 0.75rem;
-      border-radius: 0 0 6px 0;
-      font-weight: 600;
-      transition: transform 0.2s ease;
-      z-index: 1000;
-    }
-    .skip-link:focus { transform: translateY(0); }
-
-    header {
-      margin-bottom: var(--space-5);
-    }
-
-    .synopsis {
-      background: var(--color-bg);
-      border-left: 3px solid var(--color-accent);
-      padding: var(--space-3);
-      margin: var(--space-3) 0;
-      font-size: 1.1em;
-      line-height: 1.7;
-      color: var(--color-text-secondary);
-    }
-
-    .position, .education, .internship {
-      margin-bottom: var(--space-4);
-      padding-left: var(--space-2);
-      border-left: 2px solid var(--color-border);
-    }
-
-    .position-inline {
-      border-left: 3px solid var(--color-border);
-      padding-left: var(--space-2);
-    }
-
-    .position .title, .education .title, .internship .title {
-      display: block;
-      font-weight: 600;
-      font-size: 1.1em;
-      color: var(--color-text);
-      margin-bottom: var(--space-1);
-    }
-
-    .time-period {
-      display: block;
-      font-size: 0.9em;
-      color: var(--color-text-muted);
-      font-style: italic;
-      margin-bottom: var(--space-1);
-    }
-
-    .supplemental {
-      display: block;
-      color: var(--color-text-secondary);
-      font-size: 0.95em;
-      margin-bottom: 0.25rem;
-    }
-
-    footer {
-      margin-top: var(--space-5);
-      padding-top: var(--space-3);
-      border-top: 1px solid var(--color-border);
-      text-align: center;
-      font-size: 0.9em;
-      color: var(--color-text-muted);
-    }
-
-    @media print {
-      body {
-        background: white;
-        color: black;
-        font-size: 11pt;
-      }
-      a { color: black; text-decoration: underline; }
-      .skip-link { display: none; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
+@view-transition{navigation:auto}
+:root{--color-bg:#f2efe7;--color-text:#141414;--paper:#fffdf8;--fg2:#45423c;--mute:#66635c;--line:#d9d3c5;--link:#141414;--mark:#ffcc00;--ok:#1d7343}
+@media (prefers-color-scheme: dark){:root{--color-bg:#0c0d0f;--color-text:#f2efe8;--paper:#17181b;--fg2:#bdb9b0;--mute:#97938b;--line:#2c2d32;--link:#ffd447}}
+@media (prefers-contrast: more){:root{--fg2:var(--color-text);--mute:var(--color-text)}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:light dark}
+body{background:var(--color-bg);color:var(--color-text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:clamp(1rem,.96rem + .2vw,1.1rem);line-height:1.6}
+a{color:var(--link);text-underline-offset:.22em}
+a:hover{text-decoration-color:var(--mark)}
+:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.wrap{width:min(100% - 2*clamp(1.1rem,4vw,2.5rem),1140px);margin-inline:auto}
+.skip{position:absolute;left:.75rem;top:-5rem;z-index:9;padding:.6rem .9rem;background:var(--mark);color:#111;font-weight:700}
+.skip:focus{top:.75rem}
+.nav a,.eyebrow,.motto,.when,.tag,.facts dt,.side h2,.print,.strip{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.1em}
+.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.1rem}
+.brand{display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:.22rem;background:var(--mark);color:#111;font-weight:800;letter-spacing:-.05em;text-decoration:none;view-transition-name:brand}
+.nav{display:flex;flex-wrap:wrap;gap:.2rem}
+.nav a{padding:.6rem .75rem;border-radius:.3rem;color:var(--color-text);font-size:0.8rem;text-decoration:none}
+.nav a:hover,.nav [aria-current]{background:var(--mark);color:#111}
+.nav a[target]::after{content:" ↗"/""}
+.head{padding-block:clamp(2.5rem,7vw,5rem) clamp(2rem,5vw,3.5rem);border-bottom:1px solid var(--line)}
+.eyebrow,.when,.facts dt{font-size:0.75rem;color:var(--mute)}
+h1{margin:.8rem 0 .4rem;font-size:clamp(2.6rem,1.6rem + 5vw,5.5rem);font-weight:750;line-height:1;letter-spacing:-.04em}
+.motto{font-size:0.85rem;color:var(--fg2)}
+.summary{max-width:46ch;margin-top:1.75rem;font-size:clamp(1.15rem,1rem + .7vw,1.5rem);line-height:1.45}
+.facts{display:flex;flex-wrap:wrap;gap:1.25rem 3rem;margin-top:2rem}
+.facts dd{font-weight:600}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));gap:.3rem;max-width:62rem;margin-top:2rem;padding:.4rem;border-radius:.6rem;background:#111214;list-style:none}
+.strip li{padding:.75rem 1rem;border-radius:.25rem;background:linear-gradient(#26272c 50%,#1d1e22 50%);color:#d8d5cd;font-size:0.85rem}
+.strip b{display:block;color:#ffb627;font-size:1.6rem;line-height:1.2}
+.print{margin-top:2rem;padding:.7rem 1.1rem;border:2px solid;border-radius:2rem;background:none;color:inherit;font-size:0.8rem;cursor:pointer}
+.print:hover{background:var(--color-text);color:var(--color-bg)}
+.cv{display:grid;gap:3rem;padding-block:clamp(2rem,5vw,3.5rem)}
+h2{font-size:clamp(1.4rem,1.1rem + 1vw,1.9rem);letter-spacing:-.02em;margin-bottom:.5rem}
+.job,.edu li{display:grid;grid-template-columns:10.5rem minmax(0,1fr);gap:.25rem 2rem;padding-block:1.35rem;border-top:1px solid var(--line)}
+.when{padding-top:.3rem}
+h3{font-size:1.15rem;line-height:1.35}
+h3 span,.org{font-weight:400;color:var(--fg2)}
+.job p:not(.when){max-width:68ch;color:var(--fg2)}
+.meta{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .75rem;margin:.2rem 0 .5rem;font-size:0.9rem}
+.tag{padding:.15em .6em;border-radius:1em;background:var(--line);color:var(--color-text);font-size:0.68rem;font-weight:700}
+.tag.acq{background:var(--mark);color:#111}
+.tag.ok{background:var(--ok);color:#fff}
+.edu{list-style:none}
+.school{margin-top:3rem}
+.side{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:2rem;align-content:start}
+.side h2{font-size:0.75rem;color:var(--mute);margin-bottom:.6rem}
+.side ul{list-style:none}
+.side li{padding:.45rem 0;border-top:1px solid var(--line)}
+.side small{display:block;color:var(--mute);font-size:0.85rem}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 2rem;padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mute);font-size:0.9rem}
+.foot a{color:inherit}
+@media (min-width: 1000px){.cv{grid-template-columns:minmax(0,1fr) 18rem;gap:4rem}.side{grid-template-columns:1fr;position:sticky;top:1.5rem}}
+@media (max-width: 640px){.job,.edu li{grid-template-columns:1fr}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
+@media print{@page{margin:10mm 12mm}:root{--color-bg:#fff;--color-text:#000;--fg2:#222;--mute:#444;--line:#bbb}body{font-size:8.6pt;line-height:1.35}.top,.skip,.print,.foot{display:none}.wrap{width:auto}.head{padding:0 0 .6rem}h1{margin-top:.4rem;font-size:22pt}.summary{max-width:none;margin-top:.6rem;font-size:10.5pt}.facts{gap:.4rem 2rem;margin-top:.8rem}.strip{grid-template-columns:repeat(4,1fr);margin-top:.6rem;padding:0;background:none}.strip li{padding:.35rem .6rem;font-size:7.5pt}.strip b{color:#000;font-size:12pt}.cv{grid-template-columns:1fr;gap:.6rem;padding-block:.6rem}.side{position:static;grid-template-columns:repeat(4,1fr);gap:1rem}h2{margin-bottom:.2rem;font-size:13pt}.job,.edu li{grid-template-columns:7.4rem minmax(0,1fr);gap:0 .9rem;padding-block:.28rem;break-inside:avoid}.edu li>div{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .6rem}.side li{padding:.2rem 0}h3{font-size:10pt}.meta{margin:0 0 .15rem;font-size:8.5pt}.when{padding-top:.1rem;font-size:7pt;letter-spacing:.03em}.tag{font-size:6.5pt}.side small{font-size:8pt}.school{margin-top:.6rem}.tag,.strip li{border:1px solid #000;background:none!important;color:#000!important}a{color:#000;text-decoration:none}}
   </style>
 </head>
-
 <body>
-  <a href="#content" class="skip-link">Skip to content</a>
-  <main id="content">
-    <header>
-      <h1>
-        Iñaki Fuentes
-        <small>Professional Experience &amp; Education</small>
-      </h1>
-    </header>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top wrap">
+  <a class="brand" href="/" aria-label="Iñaki Fuentes, home">IF</a>
+  <nav class="nav" aria-label="Site">
+    <a href="/now.html">Now</a>
+    <a href="/resume.html" aria-current="page">Résumé</a>
+    <a href="https://inaki.bearblog.dev/blog/" target="_blank" rel="noopener noreferrer" aria-label="Blog (opens in new tab)">Blog</a>
+  </nav>
+</header>
+<main id="content" class="wrap">
+  <header class="head">
+    <p class="eyebrow">Résumé · Flight log · Updated October 2026</p>
+    <h1>Iñaki Fuentes</h1>
+    <p class="motto">Trying to be less wrong every day</p>
+    <p class="summary">I build, scale and fix tech businesses. AI, travel, startups, operations and M&amp;A. From infrastructure to boardroom, from idea to exit. Less theatre. More execution.</p>
+    <dl class="facts">
+      <div><dt>Base</dt><dd>Palma de Mallorca, Spain</dd></div>
+      <div><dt>Email</dt><dd><a href="mailto:inaki@ifuentes.net">inaki@ifuentes.net</a></dd></div>
+      <div><dt>Profile</dt><dd><a href="https://www.linkedin.com/in/inakifuentes/" target="_blank" rel="me noopener noreferrer" aria-label="LinkedIn profile (opens in new tab)">linkedin.com/in/inakifuentes</a></dd></div>
+    </dl>
+    <ul class="strip">
+      <li><b>20+</b> years in tech</li>
+      <li><b>4</b> acquisitions</li>
+      <li><b>4</b> C-suite seats: CEO, CIO, COO, CTO</li>
+      <li><b>2018</b> Computerworld award</li>
+    </ul>
+    <button class="print" type="button" hidden>Print or save as PDF</button>
+  </header>
 
-    <section>
-      <h2>Snapshot</h2>
-      <div class="synopsis">
-        Mission: help shape the future of the travel marketplace by putting Partners first and helping their business grow every day. I apply leadership, strategy, change and technology to scale and operational excellence.
-      </div>
-  <div class="position position-inline">
-        <span class="title">Profile</span>
-        <span class="supplemental">COO · Advisor · Former CEO &amp; CIO/CTO · Focus on scale, innovation and transformation.</span>
-      </div>
-  <div class="position position-inline">
-        <span class="title">Top Skills</span>
-        <span class="supplemental">Leadership &amp; Management · Strategy &amp; Operations · Change Management</span>
-      </div>
-  <div class="position position-inline">
-        <span class="title">Languages</span>
-        <span class="supplemental">Spanish (Native) · English (Professional) · French (Basic)</span>
-      </div>
-  <div class="position position-inline">
-        <span class="title">Selected Certifications</span>
-        <span class="supplemental">Gamification · Inspiring Leadership · Generative AI for Software Development · Building a Service Company</span>
-      </div>
-  <div class="position position-inline">
-        <span class="title">Awards</span>
-        <span class="supplemental">Star Award · Computerworld 2018 (Tourism Innovation)</span>
-      </div>
-  <div class="position position-inline">
-        <span class="title">Key Experience</span>
-        <span class="supplemental">COO Travelgate (2023–Present) · Advisor/Mentor (2020–Present) · CEO Quonversa (exit) · CEO Bluekiri · CIO/CTO Logitravel Group</span>
-      </div>
-  <div class="position position-inline">
-        <span class="title">Education</span>
-        <span class="supplemental">MSc Computer Network Technology · BSc Applied Computing · Ongoing executive &amp; leadership education</span>
-      </div>
+  <div class="cv">
+    <div>
+    <section aria-labelledby="xp">
+      <h2 id="xp">Experience</h2>
+
+      <article class="job">
+        <p class="when">Jan 2026 – now</p>
+        <div>
+          <h3>Partner &amp; CTO <span>· eVoost AI</span></h3>
+          <p class="meta">EU – UAE <span class="tag ok">In flight</span></p>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">Nov 2025 – now</p>
+        <div>
+          <h3>Co-founder <span>· Fliinow</span></h3>
+          <p class="meta">Palma <span class="tag ok">In flight</span></p>
+          <p>Buy now, pay later infrastructure for the travel industry.</p>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">Jan 2020 – now</p>
+        <div>
+          <h3>Advisor, mentor &amp; partner <span>· Independent</span></h3>
+          <p class="meta">Tech and travel startups <span class="tag ok">In flight</span></p>
+          <p>Strategic guidance for founders: business strategy and scaling, fundraising and investment readiness, innovation and digital transformation.</p>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">Apr 2023 – Sep 2026</p>
+        <div>
+          <h3>Chief Operating Officer <span>· Travelgate</span></h3>
+          <p class="meta">Palma <span class="tag acq">Acquired by Travelsoft</span></p>
+          <p>Led operational strategy with a focus on innovation, partnership growth and service excellence. Put partner empowerment first to redefine the travel marketplace and drive sustainable growth across the industry.</p>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">May – Oct 2023</p>
+        <div>
+          <h3>Startup mentor <span>· <span lang="es">ENISA, emprendimiento innovador</span></span></h3>
+          <p class="meta">Palma</p>
+          <p>Helped founders with business plans, fundraising strategy and goal-setting, drawing on my own experience in tech and travel.</p>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">Feb 2021 – Oct 2023</p>
+        <div>
+          <h3>Co-founder &amp; CEO <span>· Quonversa</span></h3>
+          <p class="meta">Palma <span class="tag acq">Acquired by Travelgate</span></p>
+          <p>Mission: make talking to a business feel as easy and natural as talking to a friend. Built transactional solutions on conversational, AI-driven process automation, plus a data-led, customer-centric B2C strategy. Led product strategy and the team.</p>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">Jun 2017 – Sep 2021</p>
+        <div>
+          <h3>CEO <span>· Bluekiri</span></h3>
+          <p class="meta">Palma <span class="tag acq">Acquired by Viajes El Corte Inglés</span></p>
+          <p>Logitravel Group spin-off providing multi-cloud architecture and managed IT services for e-commerce, big data, transactional and online platforms. Full P&amp;L responsibility, strategic plan, teams, alliances and partnerships, product and clients.</p>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">Oct 2015 – Sep 2021</p>
+        <div>
+          <h3>CIO <span>· Logitravel Group</span></h3>
+          <p class="meta">Palma <span class="tag acq">Acquired by Viajes El Corte Inglés</span></p>
+          <p>Made the group's technology strategy serve its business strategy. Turned IT operations and core development into an enterprise-grade division and kept IT costs under control across every business area. Strategic plan, M&amp;A, post-merger integration, innovation and new revenue from business development.</p>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">Mar 2019 – Feb 2021</p>
+        <div>
+          <h3>Member of the management board <span>· Turistec</span></h3>
+          <p class="meta">Palma</p>
+          <p>Promoted digitalisation and innovation for cluster members, the tourism sector and ICT. Spotted new business models and funding lines, and matched members' needs with other members' solutions.</p>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">Nov 2018 – Feb 2020</p>
+        <div>
+          <h3>Mentor <span>· Conector Startup Accelerator</span></h3>
+          <p class="meta">Palma</p>
+          <p>Worked side by side with founders towards an investable project: finished product, proven business model, clear metrics with first results and a validated business plan, reviewed in monthly boards.</p>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">Jan 2015 – Oct 2016</p>
+        <div>
+          <h3>CTO <span>· Ace Sticker</span></h3>
+          <p class="meta">Barcelona</p>
+          <p>Owned the web presence and technology: shaped the service as a web-based business, led web application delivery and planned for risk and growth.</p>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">Jun – Oct 2015</p>
+        <div>
+          <h3>Ride leader <span>· Global Cycle Rides</span></h3>
+          <p class="meta">Barcelona</p>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">Jan 2011 – Oct 2015</p>
+        <div>
+          <h3>Engineering manager <span>· NTT Europe</span></h3>
+          <p class="meta">Barcelona</p>
+          <p>Led a multinational team of senior and entry-level engineers. Owned customer technical management: project manager during service setup, then operations manager for my customers' platforms.</p>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">Apr 2009 – Mar 2011</p>
+        <div>
+          <h3>Microsoft systems engineer <span>· Atlas IT</span></h3>
+          <p class="meta">Barcelona</p>
+          <p>Third-line Microsoft support (Windows Server, IIS, Exchange, SQL Server, Active Directory) and project work: building systems to client specifications, then fixing them in production.</p>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">Mar 2008 – Apr 2009</p>
+        <div>
+          <h3>System administrator <span>· Dana Corporation</span></h3>
+          <p class="meta">Pamplona</p>
+          <p>IT infrastructure (PCs, servers and communications), security audit reports and real-time production software.</p>
+        </div>
+      </article>
+
+      <article class="job">
+        <p class="when">Jun 2005 – Aug 2006</p>
+        <div>
+          <h3>System administrator <span>· M. Torres Diseños Industriales</span></h3>
+          <p class="meta">Pamplona</p>
+          <p>Technical support, corporate intranet, data-centre migration (servers, clusters, EVA, Windows Server 2003) and the Windows 2000 to XP upgrade.</p>
+        </div>
+      </article>
+
     </section>
 
-    <section>
-      <h2>Career History</h2>
-
-      <div class="position">
-        <span class="title">Chief Operating Officer (COO) — Travelgate</span>
-        <span class="time-period">2024 to Present</span>
-        <span class="supplemental">Leading operations and strategy to grow the world's largest travel marketplace. Focused on innovation, partnerships, and scalability across the global travel ecosystem.</span>
-      </div>
-
-      <div class="position">
-        <span class="title">Advisor / Mentor / Partner — Freelance (Startups)</span>
-        <span class="time-period">January 2020 to Present</span>
-        <span class="supplemental">Strategic guidance for tech &amp; travel startups: growth, scaling, fundraising, product focus, execution support.</span>
-      </div>
-
-      <div class="position">
-        <span class="title">CEO — Quonversa (Acquired by Travelgate)</span>
-        <span class="time-period">February 2021 to October 2023</span>
-        <span class="supplemental">Built conversational AI automation platform; led product, data and go-to-market; scaled team until acquisition.</span>
-      </div>
-
-      <div class="position">
-        <span class="title">Startup Mentor — ENISA Innovative Entrepreneurship</span>
-        <span class="time-period">May 2023 to October 2023</span>
-        <span class="supplemental">Mentored early-stage founders on plans, funding and goals leveraging travel tech experience.</span>
-      </div>
-
-      <div class="position">
-        <span class="title">CEO — Bluekiri (Part of Logitravel Group)</span>
-        <span class="time-period">September 2017 to 2024</span>
-        <span class="supplemental">Led technology development and innovation for travel booking platform.</span>
-      </div>
-
-      <div class="position">
-        <span class="title">CIO &amp; CTO — Logitravel Group</span>
-        <span class="time-period">October 2015 to September 2017</span>
-        <span class="supplemental">Directed technology strategy and infrastructure for leading European travel company.</span>
-      </div>
-
-      <div class="position">
-        <span class="title">Member of The Management Board — Turistec</span>
-        <span class="time-period">March 2019 to 2023</span>
-      </div>
-
-      <div class="position">
-        <span class="title">Mentor — Conector Startup Accelerator</span>
-        <span class="time-period">November 2018 to February 2020</span>
-      </div>
-
-      <div class="position">
-        <span class="title">CTO — Ace Sticker</span>
-        <span class="time-period">January 2015 to October 2016</span>
-      </div>
-
-      <div class="position">
-        <span class="title">Engineering Manager — NTT Europe Ltd.</span>
-        <span class="supplemental">Clients: European Datawarehouse, Wolters Kluwer, Bank Alkhair, Arkadin</span>
-        <span class="time-period">June 2011 to October 2015</span>
-      </div>
-
-      <div class="position">
-        <span class="title">Microsoft Systems Engineer — Atlas IT</span>
-        <span class="time-period">April 2009 to March 2011</span>
-      </div>
-
-      <h4>Earlier Roles</h4>
-
-      <div class="position">
-        <span class="title">System Administrator — Dana Corporation</span>
-        <span class="time-period">March 2008 to April 2009</span>
-      </div>
-
-      <div class="position">
-        <span class="title">System Administrator — Lever Consulting, S.L.L.</span>
-        <span class="time-period">April 2006 to September 2006</span>
-      </div>
+    <section class="school" aria-labelledby="edu">
+      <h2 id="edu">Education</h2>
+      <ul class="edu">
+        <li><p class="when">Oct 2026 – Mar 2027</p><div><h3>UEFA C Diploma <span>· UEFA Academy</span></h3><p class="meta"><span class="tag ok">In progress</span></p></div></li>
+        <li><p class="when">2009 – 2011</p><div><h3>BSc (Hons) Applied Computing <span>· Northumbria University</span></h3><p class="meta">Distance learning</p></div></li>
+        <li><p class="when">2007 – 2008</p><div><h3>MSc Computer Network Technology <span>· Northumbria University</span></h3></div></li>
+        <li><p class="when">2016</p><div><h3>Introduction to Operations Management <span>· The Wharton School</span></h3><p class="meta">University of Pennsylvania, on Coursera</p></div></li>
+        <li><p class="when">2015</p><div><h3>Corporate Finance Essentials <span>· IESE Business School</span></h3><p class="meta">On Coursera</p></div></li>
+      </ul>
     </section>
+    </div>
 
-    <section>
-      <h2>Education</h2>
-
-      <div class="education">
-        <span class="title">Northumbria University</span>
-        <span class="supplemental">BSc (Hons), Applied Computing — Distance Learning</span>
-        <span class="time-period">2009–2011</span>
-      </div>
-
-      <div class="education">
-        <span class="title">Northumbria University</span>
-        <span class="supplemental">MSc, Computer Network Technology</span>
-        <span class="time-period">2007–2008</span>
-      </div>
-
-      <div class="education">
-        <span class="title">Foro Europeo — Escuela de Negocios de Navarra</span>
-        <span class="supplemental">Master, Information Technology Executive (MTI-E)</span>
-        <span class="time-period">2005–2006</span>
-      </div>
-
-      <div class="education">
-        <span class="title">Escuela Superior Informática de Navarra</span>
-        <span class="supplemental">Higher National Diploma in Computing</span>
-        <span class="time-period">2002–2005</span>
-      </div>
-
-      <h3>Continuing Education</h3>
-
-      <div class="education">
-        <span class="title">University of Pennsylvania — The Wharton School</span>
-        <span class="supplemental">Introduction to Operations Management (Coursera)</span>
-        <span class="time-period">2016</span>
-      </div>
-
-      <div class="education">
-        <span class="title">IESE Business School</span>
-        <span class="supplemental">Corporate Finance Essentials (Coursera)</span>
-        <span class="time-period">2015</span>
-      </div>
-
-      <div class="education">
-        <span class="title">University of Pennsylvania — The Wharton School</span>
-        <span class="supplemental">Gamification (Coursera)</span>
-        <span class="time-period">2015</span>
-      </div>
-
-      <div class="education">
-        <span class="title">Case Western Reserve University</span>
-        <span class="supplemental">Inspiring Leadership through Emotional Intelligence (Coursera)</span>
-        <span class="time-period">2014</span>
-      </div>
-
-      <div class="education">
-        <span class="title">Columbia University in the City of New York</span>
-        <span class="supplemental">Financial Engineering and Risk Management (Coursera)</span>
-        <span class="time-period">2014</span>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p><a href="/">← Home</a> · <a href="/now.html">Now</a> · <a href="/privacy.html">Privacy</a> · Last updated November 2025</p>
-  </footer>
+    <aside class="side" aria-label="Skills, languages, certifications and awards">
+      <section aria-labelledby="sk">
+        <h2 id="sk">Top skills</h2>
+        <ul><li>Start-up leadership</li><li>Co-creation</li><li>Large language models (LLM)</li></ul>
+      </section>
+      <section aria-labelledby="lang">
+        <h2 id="lang">Languages</h2>
+        <ul><li>Spanish <small>Native or bilingual</small></li><li>English <small>Full professional</small></li><li>French <small>Elementary</small></li></ul>
+      </section>
+      <section aria-labelledby="cert">
+        <h2 id="cert">Certifications</h2>
+        <ul><li>AI for Research and Insights</li><li>Google AI</li><li>Gamification</li><li>Inspiring Leadership through Emotional Intelligence</li><li lang="es">¿Qué hacen los buenos directivos? Prioridades de la Alta Dirección</li></ul>
+      </section>
+      <section aria-labelledby="hon">
+        <h2 id="hon">Honours &amp; awards</h2>
+        <ul><li>Computerworld Awards 2018 <small>Innovation in tourism</small></li><li>Star Award</li></ul>
+      </section>
+    </aside>
+  </div>
+</main>
+<footer class="foot wrap">
+  <p>Stay calm. Be critical. Start building.</p>
+  <p><a href="/">Home</a> · <a href="/now.html">Now</a> · <a href="/privacy.html">Privacy</a> · Updated October 2026</p>
+</footer>
+<script>
+  const printButton = document.querySelector('.print');
+  printButton.hidden = false;
+  printButton.addEventListener('click', () => print());
+</script>
 </body>
 </html>

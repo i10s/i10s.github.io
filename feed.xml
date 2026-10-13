@@ -3,37 +3,46 @@
   <channel>
     <title>Iñaki Fuentes</title>
     <link>https://ifuentes.net</link>
-    <description>COO at Travelgate. Leading operations and strategy for the world's largest travel marketplace. Thoughts on business, technology, and AI automation.</description>
+    <description>I build, scale and fix tech businesses. AI, travel, startups, operations and M&amp;A.</description>
     <language>en-us</language>
-    <copyright>Copyright 2025 Iñaki Fuentes</copyright>
-    <lastBuildDate>Fri, 08 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <copyright>Copyright 2026 Iñaki Fuentes</copyright>
+    <lastBuildDate>Tue, 13 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ifuentes.net/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>inaki@ifuentes.net (Iñaki Fuentes)</managingEditor>
     <webMaster>inaki@ifuentes.net (Iñaki Fuentes)</webMaster>
-    
+
     <item>
-      <title>What I'm Doing Now - November 2025</title>
+      <title>Now boarding: October 2026</title>
       <link>https://ifuentes.net/now.html</link>
-      <guid isPermaLink="true">https://ifuentes.net/now.html</guid>
-      <pubDate>Fri, 08 Nov 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">https://ifuentes.net/now.html#2026-10</guid>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 +0000</pubDate>
       <dc:creator>Iñaki Fuentes</dc:creator>
       <description><![CDATA[
-        <p>Current focus as COO at Travelgate: scaling partnerships, building AI-driven automation, and optimizing operations across the world's largest travel marketplace.</p>
-        <p>Also exploring systems thinking, web performance optimization, and advising early-stage startups.</p>
+        <p>Partner &amp; CTO at eVoost AI, co-founder of Fliinow, advising founders, and studying for the UEFA C coaching diploma.</p>
+        <p>Just landed: three and a half years as COO of Travelgate, now part of Travelsoft.</p>
       ]]></description>
     </item>
 
     <item>
-      <title>Professional Experience and Education</title>
+      <title>New site and updated résumé</title>
       <link>https://ifuentes.net/resume.html</link>
-      <guid isPermaLink="true">https://ifuentes.net/resume.html</guid>
-      <pubDate>Fri, 08 Nov 2025 00:00:00 +0000</pubDate>
+      <guid isPermaLink="false">https://ifuentes.net/resume.html#2026-10</guid>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 +0000</pubDate>
       <dc:creator>Iñaki Fuentes</dc:creator>
       <description><![CDATA[
-        <p>Career journey from systems administration to engineering management, CTO roles, and currently COO at Travelgate.</p>
-        <p>Education includes MSc in Computer Network Technology from Northumbria University and continuing education in operations management, finance, and leadership.</p>
+        <p>ifuentes.net is now a split-flap departures board. The résumé is a full flight log: twenty years from server rooms to boardrooms, four acquisitions along the way.</p>
       ]]></description>
     </item>
-    
+
+    <item>
+      <title>What I'm Doing Now - November 2025</title>
+      <link>https://ifuentes.net/now.html</link>
+      <guid isPermaLink="true">https://ifuentes.net/now.html</guid>
+      <pubDate>Sat, 08 Nov 2025 00:00:00 +0000</pubDate>
+      <dc:creator>Iñaki Fuentes</dc:creator>
+      <description><![CDATA[
+        <p>Current focus as COO at Travelgate: scaling partnerships, building AI-driven automation, and optimizing operations across the world's largest travel marketplace.</p>
+      ]]></description>
+    </item>
   </channel>
 </rss>

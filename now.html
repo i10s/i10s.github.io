@@ -3,276 +3,164 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>What I'm Doing Now | Iñaki Fuentes</title>
-  <meta name="description" content="What Iñaki Fuentes is focused on right now - current projects, learning, and interests.">
-  <link rel="canonical" href="https://ifuentes.net/now.html">
-
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
+  <title>Now · Iñaki Fuentes</title>
+  <meta name="description" content="What Iñaki Fuentes is focused on right now: eVoost AI, Fliinow, advising founders and a UEFA C coaching diploma. Updated October 2026.">
+  <meta name="author" content="Iñaki Fuentes">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
-
+  <meta name="theme-color" content="#f2efe7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0d0f" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://ifuentes.net/now.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Now boarding · Iñaki Fuentes">
+  <meta property="og:description" content="What I'm focused on right now: eVoost AI, Fliinow, founders and football coaching.">
+  <meta property="og:url" content="https://ifuentes.net/now.html">
+  <meta property="og:image" content="https://ifuentes.net/og-now.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:image" content="https://ifuentes.net/ifuentes.jpg">
   <style>
-    /* Native cross-document view transitions (progressive enhancement) */
-    @view-transition { navigation: auto; }
-    @media (prefers-reduced-motion: reduce) {
-      ::view-transition-group(*),
-      ::view-transition-old(*),
-      ::view-transition-new(*) { animation: none !important; }
-    }
-
-    :root {
-      --color-bg: #ffffff;
-      --color-text: #1a1a1a;
-      --color-text-secondary: #4a4a4a;
-      --color-link: #0066cc;
-      --color-link-hover: #0052a3;
-      --color-border: #e0e0e0;
-      --color-accent: #0066cc;
-      --color-highlight: #f6f8fa;
-      --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --space-1: clamp(0.5rem, 0.4rem + 0.6vw, 0.75rem);
-      --space-2: clamp(0.75rem, 0.6rem + 0.8vw, 1.125rem);
-      --space-3: clamp(1rem, 0.8rem + 1vw, 1.5rem);
-      --space-4: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
-      --space-5: clamp(2rem, 1.6rem + 1.5vw, 3rem);
-      --max-width: 720px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --color-bg: #0d1117;
-        --color-text: #e6edf3;
-        --color-text-secondary: #8b949e;
-        --color-link: #58a6ff;
-        --color-link-hover: #79c0ff;
-        --color-border: #30363d;
-        --color-accent: #58a6ff;
-        --color-highlight: #161b22;
-      }
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      font-family: var(--font-system);
-      line-height: 1.6;
-      color-scheme: light dark;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      margin: 0 auto;
-      padding: var(--space-4) var(--space-3);
-      max-width: var(--max-width);
-      background-color: var(--color-bg);
-      color: var(--color-text);
-      font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
-    }
-
-    .skip-link {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translateY(-120%);
-      background: var(--color-link);
-      color: #fff;
-      padding: 0.5rem 0.75rem;
-      border-radius: 0 0 6px 0;
-      font-weight: 600;
-      transition: transform 0.2s ease;
-      z-index: 1000;
-    }
-    .skip-link:focus { transform: translateY(0); }
-
-    h1 {
-      font-size: clamp(2rem, 5vw, 2.75rem);
-      font-weight: 700;
-      margin-bottom: var(--space-2);
-      line-height: 1.2;
-    }
-
-    h2 {
-      font-size: clamp(1.5rem, 3vw, 1.75rem);
-      font-weight: 600;
-      margin: var(--space-4) 0 var(--space-2) 0;
-      color: var(--color-text);
-    }
-
-    h2::before {
-      content: "→ ";
-      color: var(--color-accent);
-      font-weight: 700;
-    }
-
-    p {
-      margin-bottom: var(--space-2);
-      color: var(--color-text-secondary);
-      line-height: 1.7;
-    }
-
-    a {
-      color: var(--color-link);
-      text-decoration: none;
-      transition: color 0.2s ease;
-      border-bottom: 1px solid transparent;
-    }
-
-    a:hover {
-      color: var(--color-link-hover);
-      border-bottom-color: var(--color-link-hover);
-    }
-
-    ul {
-      list-style: none;
-      margin: var(--space-3) 0;
-      padding: 0;
-    }
-
-    li {
-      padding: var(--space-2) 0;
-      border-bottom: 1px solid var(--color-border);
-      color: var(--color-text-secondary);
-    }
-
-    li:last-child {
-      border-bottom: none;
-    }
-
-    li::before {
-      content: "•";
-      color: var(--color-accent);
-      font-weight: bold;
-      display: inline-block;
-      width: 1.5em;
-    }
-
-    .card {
-      background: var(--color-highlight);
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      padding: var(--space-3);
-      margin: var(--space-3) 0;
-    }
-
-    .card h3 {
-      font-size: 1.1em;
-      margin-bottom: var(--space-2);
-      color: var(--color-accent);
-    }
-
-    .metadata {
-      font-size: 0.9em;
-      color: var(--color-text-secondary);
-      font-style: italic;
-      margin-top: var(--space-4);
-      padding-top: var(--space-3);
-      border-top: 1px solid var(--color-border);
-    }
-
-    footer {
-      margin-top: var(--space-5);
-      padding-top: var(--space-3);
-      border-top: 1px solid var(--color-border);
-      text-align: center;
-      font-size: 0.9em;
-    }
-
-    footer a {
-      margin: 0 var(--space-1);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-
-    .priority-list {
-      list-style: decimal;
-      padding-left: 2rem;
-      color: var(--color-text-secondary);
-    }
-
-    .priority-list li {
-      border: none;
-      padding: 0.5rem 0;
-    }
-
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
+@view-transition{navigation:auto}
+:root{--color-bg:#f2efe7;--color-text:#141414;--fg2:#45423c;--mute:#66635c;--line:#d9d3c5;--link:#141414;--mark:#ffcc00;--board:#111214;--hi:#26272c;--lo:#1d1e22;--ink:#f4f1e8;--green:#63e08f;--dim:#a7a49c}
+@media (prefers-color-scheme: dark){:root{--color-bg:#0c0d0f;--color-text:#f2efe8;--fg2:#bdb9b0;--mute:#97938b;--line:#2c2d32;--link:#ffd447;--board:#151619}}
+@media (prefers-contrast: more){:root{--fg2:var(--color-text);--mute:var(--color-text);--dim:#e4e1da}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:light dark}
+body{background:var(--color-bg);color:var(--color-text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:clamp(1rem,.96rem + .2vw,1.125rem);line-height:1.6}
+a{color:var(--link);text-underline-offset:.22em}
+a:hover{text-decoration-color:var(--mark)}
+:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.wrap{width:min(100% - 2*clamp(1.1rem,4vw,2.5rem),1140px);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;left:.75rem;top:-5rem;z-index:9;padding:.6rem .9rem;background:var(--mark);color:#111;font-weight:700}
+.skip:focus{top:.75rem}
+.nav a,.eyebrow,h1,.card header,.k,.meta{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.1em}
+.brand,.tiles i{display:grid;place-items:center;border-radius:.22rem}
+.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.1rem}
+.brand{width:2.75rem;height:2.75rem;background:var(--mark);color:#111;font-weight:800;letter-spacing:-.05em;text-decoration:none;view-transition-name:brand}
+.nav{display:flex;flex-wrap:wrap;gap:.2rem}
+.nav a{padding:.6rem .75rem;border-radius:.3rem;color:var(--color-text);font-size:0.8rem;text-decoration:none}
+.nav a:hover,.nav [aria-current]{background:var(--mark);color:#111}
+.nav a[target]::after{content:" ↗"/""}
+.hero{padding-block:clamp(2.5rem,8vw,5.5rem) clamp(2.5rem,6vw,4.5rem)}
+.eyebrow,.k,.meta{font-size:0.78rem;color:var(--mute)}
+h1{margin:1.2rem 0 1.6rem;font-size:clamp(3.2rem,16vw,7rem);line-height:1}
+.tiles,.w{display:flex;gap:.07em}
+.tiles i{position:relative;width:.84em;height:1.2em;border-radius:.09em;background:linear-gradient(var(--hi) 50%,var(--lo) 50%);color:var(--ink);font-style:normal;box-shadow:0 .06em .14em #0005}
+.tiles i::before,.tiles i::after{content:"";position:absolute;inset:0 0 50%}
+.tiles i::after{inset:calc(50% - .5px) 0 auto;height:1px;background:#0009}
+.tiles i::before{border-radius:inherit;background:var(--hi);transform:scaleY(0);transform-origin:bottom}
+.tiles .a::before{animation:fa 60ms ease-in}
+.tiles .b::before{animation:fb 60ms ease-in}
+@keyframes fa{from{transform:scaleY(1)}}
+@keyframes fb{from{transform:scaleY(1)}}
+.lede{max-width:34ch;font-size:clamp(1.3rem,1.05rem + 1.2vw,2rem);font-weight:650;line-height:1.3;letter-spacing:-.02em}
+section{padding-block:clamp(2rem,5vw,3.25rem);border-top:1px solid var(--line)}
+h2{margin-bottom:1.25rem;font-size:clamp(1.4rem,1.1rem + 1vw,1.9rem);letter-spacing:-.02em}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr));gap:1rem}
+.card{display:flex;flex-direction:column;gap:.6rem;padding:1.4rem;border-radius:.8rem;background:var(--board);color:var(--ink)}
+.card header{display:flex;justify-content:space-between;gap:1rem;font-size:0.75rem;color:var(--dim)}
+.card header b{color:var(--green)}
+.card header b::before{content:"";display:inline-block;width:.55em;height:.55em;margin-right:.5em;border-radius:50%;background:currentColor}
+.card h3{font-size:1.35rem;line-height:1.2}
+.card p{color:#d8d5cd}
+.rows{list-style:none}
+.rows li{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:.25rem 2rem;padding-block:1rem;border-top:1px solid var(--line)}
+.rows li:first-child{border-top:0}
+.k{padding-top:.25rem}
+.rows p{max-width:62ch;color:var(--fg2)}
+ol.rows{counter-reset:p}
+ol.rows .k::before{counter-increment:p;content:"0" counter(p) " "}
+.meta{padding-block:2rem;border-top:1px solid var(--line)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 2rem;padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mute);font-size:0.9rem}
+.foot a{color:inherit}
+@media (max-width: 640px){.rows li{grid-template-columns:1fr}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
   </style>
 </head>
-
 <body>
-  <a href="#content" class="skip-link">Skip to content</a>
-  <main id="content">
-    <header>
-  <h1>Now</h1>
-  <p><a href="https://nownownow.com/about" target="_blank" rel="noopener">/now</a> page: quick snapshot of current focus. Mission: scale Travelgate by putting Partners first.</p>
-    </header>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top wrap">
+  <a class="brand" href="/" aria-label="Iñaki Fuentes, home">IF</a>
+  <nav class="nav" aria-label="Site">
+    <a href="/now.html" aria-current="page">Now</a>
+    <a href="/resume.html">Résumé</a>
+    <a href="https://inaki.bearblog.dev/blog/" target="_blank" rel="noopener noreferrer" aria-label="Blog (opens in new tab)">Blog</a>
+  </nav>
+</header>
+<main id="content" class="wrap">
+  <div class="hero">
+    <p class="eyebrow">Now boarding · Updated 13 October 2026 · Palma de Mallorca</p>
+    <h1><span class="sr">What I'm doing now</span><span class="tiles" data-tiles aria-hidden="true"><span class="w"><i>N</i><i>O</i><i>W</i></span></span></h1>
+    <p class="lede">A snapshot of what has my attention at this point in my life. Inspired by the <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer" aria-label="About the /now page movement (opens in new tab)">/now movement</a>.</p>
+  </div>
 
-    <section>
-      <h2>Work &amp; Focus</h2>
-      <p><strong>COO Travelgate</strong> (travel marketplace). Current priorities:</p>
-      <ul>
-        <li>Partner Growth: more value per integration, simple success metrics</li>
-        <li>Operations: efficiency + service quality, clear processes</li>
-        <li>AI Automation: cut repetitive tasks, faster time‑to‑value</li>
-        <li>Strategy: sustainable initiatives, frictionless scale</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Learning</h2>
-  <div class="card"><h3>AI</h3><p>Practical LLM &amp; agent use for support, pricing and transactional flow.</p></div>
-      <div class="card"><h3>Systems</h3><p>Simplify structures, align teams, reduce operational debt.</p></div>
-  <div class="card"><h3>Product &amp; Performance</h3><p>Continuous iteration: experience, speed, reliability.</p></div>
-    </section>
-
-    <section>
-      <h2>Personal</h2>
-      <ul>
-  <li>Health &amp; training: consistency &gt; intensity (Strava)</li>
-        <li>Reading: mix of sci‑fi, strategy, leadership</li>
-        <li>Writing: occasional blog + private notes</li>
-        <li>Mentoring: early stage startups (model, focus, priorities)</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Current Priorities</h2>
-      <ol class="priority-list">
-        <li>Family &amp; health (non-negotiable foundation)</li>
-        <li>Travelgate growth and operational excellence</li>
-        <li>Building AI automation tools for travel industry</li>
-        <li>Staying curious and learning constantly</li>
-      </ol>
-    </section>
-
-    <div class="metadata">
-      <p>This page was last updated on <strong>November 8, 2025</strong>.<br>
-      Inspired by the <a href="https://nownownow.com/" target="_blank" rel="noopener">/now movement</a>.</p>
+  <section aria-labelledby="work">
+    <h2 id="work">In flight</h2>
+    <div class="cards">
+      <article class="card">
+        <header><span>Since Jan 2026 · EU–UAE</span><b>In flight</b></header>
+        <h3>eVoost AI</h3>
+        <p>Partner and CTO, working between the European Union and the United Arab Emirates.</p>
+      </article>
+      <article class="card">
+        <header><span>Since Nov 2025 · Palma</span><b>In flight</b></header>
+        <h3>Fliinow</h3>
+        <p>Co-founder. Buy now, pay later infrastructure for the travel industry: one integration, every travel BNPL provider.</p>
+      </article>
+      <article class="card">
+        <header><span>Since 2020</span><b>In flight</b></header>
+        <h3>Founders</h3>
+        <p>Advisor, mentor and partner for tech and travel startups: strategy, scaling and fundraising.</p>
+      </article>
     </div>
-  </main>
+  </section>
 
-  <footer>
-    <p>
-      <a href="/">← Home</a> ·
-      <a href="/resume.html">Resume</a> ·
-      <a href="https://inaki.bearblog.dev/blog/" target="_blank" rel="noopener">Blog</a> ·
-      <a href="/feed.xml">RSS</a>
-    </p>
-  </footer>
+  <section aria-labelledby="landed">
+    <h2 id="landed">Just landed</h2>
+    <ul class="rows">
+      <li><p class="k">Apr 2023 – Sep 2026</p><p>Three and a half years as COO of Travelgate, which is now part of Travelsoft. Quonversa, the company I co-founded, had joined Travelgate in 2023.</p></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="learning">
+    <h2 id="learning">Learning</h2>
+    <ul class="rows">
+      <li><p class="k">UEFA C</p><p>Back to school, on the pitch: the UEFA C coaching diploma, October 2026 to March 2027.</p></li>
+      <li><p class="k">AI</p><p>Practical LLM and agent use for support, pricing and transactional flows.</p></li>
+      <li><p class="k">Systems</p><p>Simplify structures, align teams, reduce operational debt.</p></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="off">
+    <h2 id="off">Off duty</h2>
+    <ul class="rows">
+      <li><p class="k">Training</p><p>Consistency over intensity, logged on <a href="https://www.strava.com/athletes/1980963" target="_blank" rel="noopener noreferrer" aria-label="Strava profile (opens in new tab)">Strava</a>.</p></li>
+      <li><p class="k">Reading</p><p>A mix of sci-fi, strategy and leadership.</p></li>
+      <li><p class="k">Writing</p><p>Occasional <a href="https://inaki.bearblog.dev/blog/" target="_blank" rel="noopener noreferrer" aria-label="Blog posts (opens in new tab)">blog posts</a> and private notes.</p></li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="prio">
+    <h2 id="prio">Priorities</h2>
+    <ol class="rows">
+      <li><p class="k">Foundation</p><p>Family and health: the non-negotiable foundation.</p></li>
+      <li><p class="k">Build</p><p>Build eVoost AI and Fliinow: ship, learn, scale.</p></li>
+      <li><p class="k">Founders</p><p>Be useful to the founders I work with. Less theatre, more execution.</p></li>
+      <li><p class="k">Curiosity</p><p>Stay curious and keep learning.</p></li>
+    </ol>
+  </section>
+
+  <p class="meta">Last updated 13 October 2026 · Full history in the <a href="/resume.html">résumé</a></p>
+</main>
+<footer class="foot wrap">
+  <p>Stay calm. Be critical. Start building.</p>
+  <p><a href="/">Home</a> · <a href="/resume.html">Résumé</a> · <a href="/feed.xml">RSS</a></p>
+</footer>
+<script src="/flap.js" defer></script>
 </body>
 </html>

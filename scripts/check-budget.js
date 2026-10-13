@@ -58,17 +58,27 @@ function analyzePage(filePath, budget) {
   // Calculate document size (HTML)
   const documentSize = getFileSize(filePath);
   
-  // Count inline scripts (approximation)
+  // Same-origin external files referenced by the page (absolute paths or relative URLs)
+  const externalSize = (regex) => (content.match(regex) || []).reduce((total, tag) => {
+    const url = tag.match(/(?:src|href)=["']([^"']+)["']/)[1];
+    if (/^(https?:)?\/\//.test(url) || url.startsWith('data:')) return total;
+    return total + parseFloat(getFileSize(path.join(__dirname, '..', url.split(/[?#]/)[0])));
+  }, 0);
+  const externalScripts = externalSize(/<script[^>]+src=["'][^"']+["'][^>]*>/gi);
+  const externalStyles = externalSize(/<link[^>]+rel=["']stylesheet["'][^>]*>/gi);
+
+  // Inline scripts and styles (already part of the document size)
   const scriptMatches = content.match(/<script[^>]*>[\s\S]*?<\/script>/gi) || [];
-  const scriptSize = scriptMatches.reduce((total, script) => {
+  const inlineScripts = scriptMatches.reduce((total, script) => {
     return total + (script.length / 1024);
-  }, 0).toFixed(2);
-  
-  // Count inline styles (approximation)
+  }, 0);
+  const scriptSize = (inlineScripts + externalScripts).toFixed(2);
+
   const styleMatches = content.match(/<style[^>]*>[\s\S]*?<\/style>/gi) || [];
-  const styleSize = styleMatches.reduce((total, style) => {
+  const inlineStyles = styleMatches.reduce((total, style) => {
     return total + (style.length / 1024);
-  }, 0).toFixed(2);
+  }, 0);
+  const styleSize = (inlineStyles + externalStyles).toFixed(2);
   
   // Count images (external references only, not inline)
   const imageMatches = content.match(/<img[^>]+src=["']([^"']+)["']/gi) || [];
@@ -81,7 +91,8 @@ function analyzePage(filePath, budget) {
     return total;
   }, 0).toFixed(2);
   
-  const totalSize = (parseFloat(documentSize) + parseFloat(scriptSize) + parseFloat(styleSize) + parseFloat(imageSize)).toFixed(2);
+  // Every byte counted once: HTML (incl. inline CSS/JS) + external same-origin JS/CSS + images
+  const totalSize = (parseFloat(documentSize) + externalScripts + externalStyles + parseFloat(imageSize)).toFixed(2);
   
   return {
     fileName,
@@ -121,7 +132,7 @@ function main() {
   console.log(`\n${colors.bold}${colors.cyan}Performance Budget Monitor${colors.reset}\n`);
   
   const budget = loadBudget();
-  const pages = ['index.html', 'resume.html', 'now.html', '404.html'];
+  const pages = ['index.html', 'resume.html', 'now.html', '404.html', 'offline.html'];
   
   let allPassed = true;
   const results = [];

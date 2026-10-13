@@ -1,5 +1,5 @@
 # robots.txt for https://ifuentes.net
-# Updated: November 2025
+# Updated: October 2026
 
 User-Agent: *
 Allow: /

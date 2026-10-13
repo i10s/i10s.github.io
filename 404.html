@@ -3,228 +3,84 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>404 - Page Not Found | Iñaki Fuentes</title>
-  <meta name="description" content="The page you're looking for doesn't exist. Let's get you back on track.">
+  <title>Gate changed (404) · Iñaki Fuentes</title>
+  <meta name="description" content="This page has moved, been cancelled or never existed. Head back to the home page, the résumé or the now page.">
   <meta name="robots" content="noindex">
-
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#0d1117" media="(prefers-color-scheme: dark)">
-
+  <meta name="theme-color" content="#f2efe7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0d0f" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
   <style>
-    /* Native cross-document view transitions (progressive enhancement) */
-    @view-transition { navigation: auto; }
-    @media (prefers-reduced-motion: reduce) {
-      ::view-transition-group(*),
-      ::view-transition-old(*),
-      ::view-transition-new(*) { animation: none !important; }
-    }
-
-    :root {
-      --color-bg: #ffffff;
-      --color-text: #1a1a1a;
-      --color-text-secondary: #4a4a4a;
-      --color-link: #0066cc;
-      --color-link-hover: #0052a3;
-      --color-border: #e0e0e0;
-      --color-error: #d73a49;
-      --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --space-3: clamp(1rem, 0.8rem + 1vw, 1.5rem);
-      --space-4: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
-      --space-5: clamp(2rem, 1.6rem + 1.5vw, 3rem);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --color-bg: #0d1117;
-        --color-text: #e6edf3;
-        --color-text-secondary: #8b949e;
-        --color-link: #58a6ff;
-        --color-link-hover: #79c0ff;
-        --color-border: #30363d;
-        --color-error: #f85149;
-      }
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      font-family: var(--font-system);
-      line-height: 1.6;
-      color-scheme: light dark;
-    }
-
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      background-color: var(--color-bg);
-      color: var(--color-text);
-      padding: var(--space-3);
-      font-size: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
-    }
-
-    main {
-      max-width: 600px;
-      text-align: center;
-    }
-
-    .error-code {
-      font-size: clamp(4rem, 10vw, 8rem);
-      font-weight: 700;
-      color: var(--color-error);
-      line-height: 1;
-      margin-bottom: var(--space-3);
-      text-shadow: 2px 2px 0 var(--color-border);
-    }
-
-    h1 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      margin-bottom: var(--space-3);
-      color: var(--color-text);
-    }
-
-    p {
-      color: var(--color-text-secondary);
-      margin-bottom: var(--space-4);
-      line-height: 1.7;
-    }
-
-    .actions {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin: var(--space-4) auto;
-      max-width: 400px;
-    }
-
-    @media (min-width: 480px) {
-      .actions {
-        flex-direction: row;
-        justify-content: center;
-      }
-    }
-
-    a {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: var(--color-link);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    a:hover {
-      background: var(--color-link-hover);
-      transform: translateY(-2px);
-    }
-
-    a.secondary {
-      background: transparent;
-      color: var(--color-link);
-      border: 2px solid var(--color-link);
-    }
-
-    a.secondary:hover {
-      background: var(--color-link);
-      color: #fff;
-    }
-
-    .suggestions {
-      margin-top: var(--space-5);
-      padding-top: var(--space-4);
-      border-top: 1px solid var(--color-border);
-      text-align: left;
-    }
-
-    .suggestions h2 {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
-      color: var(--color-text);
-    }
-
-    .suggestions ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .suggestions li {
-      margin: 0.5rem 0;
-    }
-
-    .suggestions a {
-      background: none;
-      color: var(--color-link);
-      padding: 0.25rem 0;
-      font-weight: 400;
-      text-decoration: underline;
-    }
-
-    .suggestions a:hover {
-      color: var(--color-link-hover);
-      transform: none;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
+@view-transition{navigation:auto}
+:root{--color-bg:#f2efe7;--color-text:#141414;--fg2:#45423c;--mute:#66635c;--line:#d9d3c5;--link:#141414;--mark:#ffcc00;--board:#111214;--hi:#26272c;--lo:#1d1e22;--ink:#f4f1e8;--amber:#ffb627;--dim:#a7a49c}
+@media (prefers-color-scheme: dark){:root{--color-bg:#0c0d0f;--color-text:#f2efe8;--fg2:#bdb9b0;--mute:#97938b;--line:#2c2d32;--link:#ffd447;--board:#151619}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:light dark}
+body{display:flex;flex-direction:column;min-height:100vh;background:var(--color-bg);color:var(--color-text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:clamp(1rem,.96rem + .2vw,1.125rem);line-height:1.6}
+a{color:var(--link);text-underline-offset:.22em}
+:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.wrap{width:min(100% - 2*clamp(1.1rem,4vw,2.5rem),1140px);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;left:.75rem;top:-5rem;z-index:9;padding:.6rem .9rem;background:var(--mark);color:#111;font-weight:700}
+.skip:focus{top:.75rem}
+.nav a,.eyebrow,h1,.gates{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.1em}
+.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.1rem}
+.brand{display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:.22rem;background:var(--mark);color:#111;font-weight:800;letter-spacing:-.05em;text-decoration:none;view-transition-name:brand}
+.nav{display:flex;flex-wrap:wrap;gap:.2rem}
+.nav a{padding:.6rem .75rem;border-radius:.3rem;color:var(--color-text);font-size:0.8rem;text-decoration:none}
+.nav a:hover{background:var(--mark);color:#111}
+main{flex:1;padding-block:clamp(2.5rem,8vw,6rem)}
+.eyebrow{font-size:0.8rem;color:var(--mute)}
+h1{margin:1.3rem 0 1.8rem;font-size:clamp(2.4rem,12.5vw,5.75rem);line-height:1}
+.tiles,.w{display:flex;flex-wrap:wrap;gap:.16em .4em}
+.w{flex-wrap:nowrap;gap:.07em}
+.tiles i{position:relative;display:grid;place-items:center;width:.84em;height:1.2em;border-radius:.09em;background:linear-gradient(var(--hi) 50%,var(--lo) 50%);color:var(--ink);font-style:normal;box-shadow:0 .06em .14em #0005}
+.tiles i::before,.tiles i::after{content:"";position:absolute;inset:0 0 50%}
+.tiles i::after{inset:calc(50% - .5px) 0 auto;height:1px;background:#0009}
+.tiles i::before{border-radius:inherit;background:var(--hi);transform:scaleY(0);transform-origin:bottom}
+.tiles .a::before{animation:fa 60ms ease-in}
+.tiles .b::before{animation:fb 60ms ease-in}
+@keyframes fa{from{transform:scaleY(1)}}
+@keyframes fb{from{transform:scaleY(1)}}
+.lede{max-width:30ch;margin-bottom:2.5rem;font-size:clamp(1.3rem,1.05rem + 1.2vw,2rem);font-weight:650;line-height:1.3;letter-spacing:-.02em}
+.gates{display:grid;gap:.3rem;max-width:44rem;padding:.6rem;border-radius:.9rem;background:var(--board);list-style:none;font-size:clamp(0.8rem,.75rem + .3vw,0.95rem)}
+.gates a{display:grid;grid-template-columns:4em minmax(0,1fr) auto;align-items:center;gap:1rem;padding:.85rem 1rem;border-radius:.3rem;background:linear-gradient(var(--hi) 50%,var(--lo) 50%);color:var(--ink);text-decoration:none}
+.gates a:hover{outline:2px solid var(--mark)}
+.gates b{color:var(--amber)}
+.gates small{color:var(--dim);font-size:0.75em}
+.foot{padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mute);font-size:0.9rem}
+@media (max-width: 520px){.gates a{grid-template-columns:3em minmax(0,1fr)}.gates small{grid-column:2}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
   </style>
 </head>
-
 <body>
-  <main>
-    <div class="error-code">404</div>
-    <h1>Page Not Found</h1>
-    <p>
-      The page you're looking for doesn't exist or has been moved.
-      This could be a typo in the URL, an outdated link, or the page might have been removed.
-    </p>
-
-    <div class="actions">
-      <a href="/">Go Home</a>
-      <a href="/now.html" class="secondary">What I'm Doing Now</a>
-    </div>
-
-    <div class="suggestions">
-      <h2>You might be looking for:</h2>
-      <ul>
-        <li><a href="/">Home</a> - Main landing page</li>
-        <li><a href="/resume.html">Resume</a> - Professional experience</li>
-        <li><a href="/now.html">Now</a> - Current focus</li>
-        <li><a href="https://inaki.bearblog.dev/blog/" target="_blank" rel="noopener">Blog</a> - Latest articles</li>
-        <li><a href="/feed.xml">RSS Feed</a> - Subscribe to updates</li>
-      </ul>
-    </div>
-  </main>
-
-  <script>
-    // Log 404 to console for debugging
-    console.log('404 Error - Page not found:', window.location.href);
-
-    // Optional: Report 404 to analytics
-    if (window.gtag) {
-      gtag('event', 'page_not_found', {
-        page_location: window.location.href,
-        page_referrer: document.referrer
-      });
-    }
-  </script>
+<a class="skip" href="#content">Skip to content</a>
+<header class="top wrap">
+  <a class="brand" href="/" aria-label="Iñaki Fuentes, home">IF</a>
+  <nav class="nav" aria-label="Site">
+    <a href="/now.html">Now</a>
+    <a href="/resume.html">Résumé</a>
+  </nav>
+</header>
+<main id="content" class="wrap">
+  <p class="eyebrow">Error 404 · Page not found</p>
+  <h1><span class="sr">Gate changed: page not found</span><span class="tiles" data-tiles aria-hidden="true"><span class="w"><i>G</i><i>A</i><i>T</i><i>E</i></span><span class="w"><i>C</i><i>H</i><i>A</i><i>N</i><i>G</i><i>E</i><i>D</i></span></span></h1>
+  <p class="lede">This page has moved, been cancelled or never existed. No drama: pick a new gate.</p>
+  <nav aria-label="Where to go next">
+    <ul class="gates">
+      <li><a href="/"><b aria-hidden="true">A1</b> Home <small>Departures and arrivals</small></a></li>
+      <li><a href="/resume.html"><b aria-hidden="true">A2</b> Résumé <small>The full flight log</small></a></li>
+      <li><a href="/now.html"><b aria-hidden="true">A3</b> Now <small>What I'm focused on</small></a></li>
+      <li><a href="https://inaki.bearblog.dev/blog/" target="_blank" rel="noopener noreferrer" aria-label="Blog (opens in new tab)"><b aria-hidden="true">B1</b> Blog <small>Notes and posts</small></a></li>
+    </ul>
+  </nav>
+</main>
+<footer class="foot wrap">
+  <p>Stay calm. Be critical. Start building.</p>
+</footer>
+<script src="/flap.js" defer></script>
 </body>
 </html>

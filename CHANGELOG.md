@@ -5,6 +5,37 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2026-10-13
+
+"Departures": full redesign and content update from the October 2026 CV.
+
+### Added (3.0.0)
+
+- Split-flap hero, Departures (current roles) and Arrivals (career history) boards with live PMI/UAE clocks
+- Boarding-pass contact card with portrait (3KB WebP)
+- `flap.js`: shared progressive-enhancement script (tiles, board flaps in `aria-hidden` overlays, clocks, Konami easter egg); reduced-motion and prerender aware
+- Themed 404 ("Gate changed") and offline ("Delayed") pages
+- New brand mark: `favicon.svg` plus regenerated PNG/ICO icons (maskable-safe)
+- Open Graph cards per page (`og.png`, `og-resume.png`, `og-now.png`) and a generator that renders them with local Chrome
+- Speculation Rules prerendering for `/now.html` and `/resume.html`
+- Manifest shortcuts (Résumé, Now)
+- `tests/pages.test.js`: 81 checks across all pages (structure, a11y, links, assets, SW precache integrity)
+
+### Changed (3.0.0)
+
+- Content: Partner & CTO at eVoost AI, co-founder of Fliinow; Travelgate (acquired by Travelsoft) moved to history; full career, education, certifications and awards from the new CV
+- Résumé rebuilt as a print-ready "flight log" (two A4 pages)
+- Now page rewritten for October 2026
+- Service Worker 1.1.0: network-first pages, stale-while-revalidate assets, precache bypasses the HTTP cache
+- Budget check counts same-origin external JS/CSS and no longer double-counts inline code in the total; covers `offline.html`
+- Web Vitals logging only on localhost or with `?vitals`
+- Privacy page aligned with the new palette; `security.txt` expiry extended to 2027-10-13
+
+### Removed (3.0.0)
+
+- Discord link (legacy `name#1234` URL no longer resolves)
+- Résumé entries not present in the new CV (Lever Consulting, Foro Europeo MTI-E, ESIN HND, Columbia course)
+
 ## [Unreleased]
 
 ### Added (Unreleased)

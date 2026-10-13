@@ -1,15 +1,17 @@
 # Architecture Overview
 
 ## High-Level
-Static site served via GitHub Pages (global CDN). No build/transpile pipeline; all assets are hand-authored. Critical CSS is inline, minimal JS (Service Worker + optional Web Vitals). Speculation Rules removed from current root (legacy reference lives in docs).
+Static site served via GitHub Pages (global CDN). No build/transpile pipeline; all assets are hand-authored. Critical CSS is inline per page. JavaScript is one shared, deferred file (`flap.js`) plus the Service Worker; Web Vitals logging loads only on localhost or with `?vitals`. Speculation Rules prerender `/now.html` and `/resume.html` on hover.
 
 ## File Roles
-- `index.html`: Main landing page, includes SEO, structured data, performance hints.
-- `sw.js`: Cache-first PWA logic for core assets.
+- `index.html`: Home. Split-flap hero, Departures (now) and Arrivals (career) boards, boarding-pass contact card, SEO and structured data.
+- `flap.js`: Progressive enhancement for `[data-tiles]` (flap tiles) and `[data-board]` (board rows flap once when scrolled into view), `[data-tz]` clocks and the Konami easter egg. Animations run in `aria-hidden` overlays, respect `prefers-reduced-motion` and wait for prerender activation.
+- `sw.js`: PWA logic. Network-first for pages, stale-while-revalidate for same-origin assets.
 - `site.webmanifest`: PWA metadata (icons, shortcuts).
 - `robots.txt` / `sitemap.xml`: Search engine crawling & indexing directives.
 - `.well-known/security.txt`: Vulnerability disclosure contact.
-- `resume.html`: Secondary static page.
+- `resume.html`: Résumé ("flight log"), print stylesheet fits two A4 pages.
+- `now.html`, `404.html`, `offline.html`: Now page, "Gate changed" and "Delayed" pages.
 - `humans.txt`: Credits and tech stack.
 
 ## Performance Strategies
@@ -43,13 +45,13 @@ No dynamic backend (static only). Main vectors: external links and supply-chain 
 
 ## PWA Scope
 
-Cached: shell assets (root HTML, manifest, key icons, offline page). Strategy: cache-first with network fallback; offline navigation returns `offline.html`. Cache names include semantic version for controlled invalidation.
+Precached: home, résumé, now, `flap.js`, favicon, portrait, manifest and the offline page. Pages are network-first (fresh after every deploy) with a cache fallback; unknown pages offline return `offline.html`. Assets are stale-while-revalidate. Cache names include the semantic version for controlled invalidation.
 
 ### Service Worker Lifecycle
 
 - Install: pre-cache essentials, `skipWaiting`
 - Activate: cleanup old caches, `clients.claim`
-- Fetch: cache-first, fallback to network; offline fallback for navigations
+- Fetch: same-origin GET only; network-first navigations with offline fallback; cached assets refreshed in the background
 
 ## Future Extensions (Optional)
 

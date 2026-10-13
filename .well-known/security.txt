@@ -1,5 +1,5 @@
 Contact: mailto:inaki@ifuentes.net
-Expires: 2026-12-31T23:59:59.000Z
+Expires: 2027-10-13T00:00:00.000Z
 Preferred-Languages: en, es
 Canonical: https://ifuentes.net/.well-known/security.txt
 Policy: https://ifuentes.net/security-policy

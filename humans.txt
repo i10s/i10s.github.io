@@ -5,14 +5,24 @@
 
     Name: Iñaki Fuentes
     Site: https://ifuentes.net
-    Twitter: @ifuentes
+    Role: Partner & CTO at eVoost AI, co-founder of Fliinow
+    X: @ifuentes
     GitHub: @i10s
-    Location: Spain
+    Location: Palma de Mallorca, Spain
 
 # THANKS
 
     GitHub Copilot - AI pair programming assistant
     Open Source Community - For amazing tools and inspiration
+
+# DESIGN
+
+    Concept: "Departures". A split-flap airport board for a career in travel tech.
+    Departures = what I do now. Arrivals = where I have been.
+    Palette: airport signage yellow (#ffcc00), board black, paper.
+    Type: system UI sans + system monospace. No web fonts.
+    Motion: one flap on load, nothing looping. Off with prefers-reduced-motion.
+    Easter egg: try the Konami code on the home page.
 
 # TECHNOLOGY COLOPHON
 
@@ -21,14 +31,14 @@
     Testing: Mocha, Chai, JSDOM, html-validate (199 automated tests)
     CI/CD: GitHub Actions, Lighthouse CI
     Software: VS Code, Git, Node.js
-    Fonts: System fonts (-apple-system, BlinkMacSystemFont, Segoe UI, Roboto)
-    Performance: Inline CSS, zero runtime dependencies
+    Fonts: System fonts (system-ui, ui-monospace)
+    Performance: Inline CSS, one shared 5KB script (flap.js), zero dependencies
     Accessibility: WCAG 2.1 AA + AAA (high contrast) compliant
     Development: Live reload dev server, pre-commit validation
     
 # OPTIMIZATION
 
-    Page weight budget: ≤35KB total (HTML+CSS+JS+critical images)
+    Page weight budget: ≤35KB total per page (HTML + same-origin JS/CSS + images)
     Load time: <500ms (LCP)
     Lighthouse score: 100/100 (all categories)
     Carbon footprint: Minimal (green hosting, static site)
@@ -49,7 +59,8 @@
     /resume.html - Professional experience
     /now.html - Current focus (nownownow.com)
     /feed.xml - RSS feed
-    /404.html - Custom error page
+    /404.html - Gate changed (custom error page)
+    /offline.html - Delayed (offline fallback)
     
 # PHILOSOPHY
 
