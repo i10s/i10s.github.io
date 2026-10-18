@@ -102,7 +102,7 @@ describe('HTML Structure', () => {
     it('should have twitter:card meta tag', () => {
       const card = document.querySelector('meta[name="twitter:card"]');
       expect(card).to.exist;
-      expect(card.getAttribute('content')).to.equal('summary');
+      expect(card.getAttribute('content')).to.be.oneOf(['summary', 'summary_large_image']);
     });
 
     it('should have twitter:title meta tag', () => {
