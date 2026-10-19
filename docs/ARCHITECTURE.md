@@ -63,7 +63,7 @@ A Cloudflare Worker (`worker/`, deployed with wrangler) runs on four paths only;
 - `/`: home page from the origin plus discovery `Link` headers; `passThroughOnException` keeps the page up if the Worker fails.
 - `/.well-known/api-catalog`: origin file with the RFC 9727 content type.
 
-The Worker fetches `llms.txt`, `resume.md` and `now.md` from the site at request time (5-minute cache), so the HTML stays the only source of facts. Static discovery files (`.well-known/agent-card.json`, `.well-known/mcp/server-card.json`, `.well-known/agent-skills/`, `.well-known/api-catalog`, `auth.md`, `webmcp.js`) and the Worker config are generated together from `scripts/agent-config.js`.
+The Worker fetches `llms.txt`, `resume.md` and `now.md` from the site at request time (5-minute cache), so the HTML stays the only source of facts. Static discovery files (`.well-known/agent-card.json`, `.well-known/mcp/server-card.json`, `.well-known/agent-skills/`, `.well-known/api-catalog`, `.well-known/ard.json`, `.well-known/poppy.json`, `auth.md`, `webmcp.js`) and the Worker config are generated together from `scripts/agent-config.js`.
 
 ## PWA Scope
 

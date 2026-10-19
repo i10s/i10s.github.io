@@ -9,6 +9,8 @@
  *   .well-known/mcp/server-card.json, mcp.json         MCP Server Card (SEP-1649)
  *   .well-known/agent-card.json                        A2A Agent Card
  *   .well-known/api-catalog                            API catalog (RFC 9727 linkset)
+ *   .well-known/ard.json, ai-catalog.json              Agentic Resource Discovery manifest
+ *   .well-known/poppy.json                             Personal Agent Protocol (website only)
  *   auth.md                                            "No authentication" notice for agents
  *   webmcp.js                                          WebMCP tools for in-browser agents
  *   worker/src/config.json                             Config for the Cloudflare Worker (MCP, A2A)
@@ -396,6 +398,65 @@ function buildWebMcp() {
 `;
 }
 
+function buildArd() {
+  const urn = name => `urn:air:ifuentes.net:${name}`;
+  const queries = DOCUMENTS.flatMap(d => d.examples).slice(0, 5);
+  return json({
+    specVersion: '1.0',
+    host: { displayName: NAME, identifier: 'did:web:ifuentes.net', documentationUrl: `${SITE}/llms.txt` },
+    entries: [
+      {
+        identifier: urn('mcp:profile'),
+        displayName: `${NAME} MCP server`,
+        type: 'application/mcp-server-card+json',
+        url: SERVER_CARD,
+        description: `Read-only MCP server with first-party, current information about ${NAME}. No authentication.`,
+        tags: ['mcp', 'profile', 'resume'],
+        capabilities: DOCUMENTS.map(d => d.tool),
+        representativeQueries: queries
+      },
+      {
+        identifier: urn('agent:profile'),
+        displayName: `${NAME} profile agent`,
+        type: 'application/a2a-agent-card+json',
+        url: AGENT_CARD,
+        description: `A2A agent that answers with ${NAME}'s published profile, résumé or Now page, verbatim. No authentication.`,
+        tags: ['a2a', 'profile', 'resume'],
+        capabilities: DOCUMENTS.map(d => d.id),
+        representativeQueries: queries
+      },
+      {
+        identifier: urn('skills:index'),
+        displayName: `${NAME} Agent Skills`,
+        type: 'application/agent-skills+json',
+        url: `${SITE}/.well-known/agent-skills/index.json`,
+        description: SKILL_DESCRIPTION,
+        tags: ['agent-skills', 'profile'],
+        representativeQueries: ['How should an agent answer questions about Iñaki Fuentes?', 'Where is first-party information about Iñaki Fuentes?']
+      },
+      {
+        identifier: urn('docs:llms-txt'),
+        displayName: `${NAME} (llms.txt)`,
+        type: 'text/markdown',
+        url: `${SITE}/llms.txt`,
+        description: `Markdown summary for AI systems: who ${NAME} is, current roles, agent endpoints and contact.`,
+        tags: ['llms.txt', 'profile'],
+        representativeQueries: ['Who is Iñaki Fuentes?', 'What does Iñaki Fuentes do?']
+      }
+    ]
+  });
+}
+
+// Personal Agent Protocol (Poppy) 0.2: website-only declaration. There are no accounts or sessions,
+// so personal agents browse the site as ordinary signed-out visitors and no auth block is needed.
+function buildPoppy() {
+  return json({
+    protocol_version: '0.2',
+    organization: { name: NAME, domain: new URL(SITE).hostname },
+    web: {}
+  });
+}
+
 function buildWorkerConfig() {
   return json({
     site: SITE,
@@ -411,7 +472,8 @@ function buildWorkerConfig() {
       '</.well-known/mcp/server-card.json>; rel="service-desc"; type="application/json"',
       '</.well-known/agent-card.json>; rel="service-desc"; type="application/json"',
       '</.well-known/agent-skills/index.json>; rel="describedby"; type="application/json"',
-      '</llms.txt>; rel="describedby"; type="text/markdown"'
+      '</llms.txt>; rel="describedby"; type="text/markdown"',
+      '</.well-known/ard.json>; rel="ard"; type="application/json"'
     ].join(', ')
   });
 }
@@ -424,6 +486,7 @@ function build() {
   const nowMd = buildNow(now);
   const skillMd = buildSkill(home, now);
   const serverCard = buildServerCard();
+  const ard = buildArd();
   return {
     'resume.md': resumeMd,
     'now.md': nowMd,
@@ -435,6 +498,9 @@ function build() {
     '.well-known/mcp.json': serverCard,
     '.well-known/agent-card.json': buildAgentCard(),
     '.well-known/api-catalog': buildApiCatalog(),
+    '.well-known/ard.json': ard,
+    '.well-known/ai-catalog.json': ard,
+    '.well-known/poppy.json': buildPoppy(),
     'auth.md': buildAuthMd(),
     'webmcp.js': buildWebMcp(),
     'worker/src/config.json': buildWorkerConfig()

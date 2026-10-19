@@ -16,6 +16,7 @@ Agent-ready: from level 1 to level 4–5 on Cloudflare's agent-readiness scan, w
 - MCP Server Card (`/.well-known/mcp/server-card.json`, `/.well-known/mcp.json`), A2A Agent Card (`/.well-known/agent-card.json`), API catalog (`/.well-known/api-catalog`, RFC 9727) and `auth.md` (no authentication needed)
 - Agent Skills index (`/.well-known/agent-skills/index.json`, v0.2.0) with the `inaki-fuentes` skill, generated from the Now page
 - WebMCP tools (`get_profile`, `get_resume`, `get_now`) registered by `webmcp.js` on the content pages
+- ARD manifest (`/.well-known/ard.json`, legacy `/.well-known/ai-catalog.json`) and a website-only Personal Agent Protocol declaration (`/.well-known/poppy.json`)
 - Discovery `Link` headers on the home page; Markdown negotiation keeps working through the Worker
 - `scripts/agent-config.js` as the single source for tools and endpoints; `tests/worker.test.js` and new checks in `tests/ai.test.js`
 

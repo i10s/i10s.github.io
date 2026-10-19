@@ -1,0 +1,88 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "Iñaki Fuentes",
+    "identifier": "did:web:ifuentes.net",
+    "documentationUrl": "https://ifuentes.net/llms.txt"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:ifuentes.net:mcp:profile",
+      "displayName": "Iñaki Fuentes MCP server",
+      "type": "application/mcp-server-card+json",
+      "url": "https://ifuentes.net/.well-known/mcp/server-card.json",
+      "description": "Read-only MCP server with first-party, current information about Iñaki Fuentes. No authentication.",
+      "tags": [
+        "mcp",
+        "profile",
+        "resume"
+      ],
+      "capabilities": [
+        "get_profile",
+        "get_resume",
+        "get_now"
+      ],
+      "representativeQueries": [
+        "Who is Iñaki Fuentes?",
+        "What is Iñaki Fuentes's current role?",
+        "How can I contact Iñaki Fuentes?",
+        "Summarise Iñaki Fuentes's career.",
+        "Where did Iñaki Fuentes study?"
+      ]
+    },
+    {
+      "identifier": "urn:air:ifuentes.net:agent:profile",
+      "displayName": "Iñaki Fuentes profile agent",
+      "type": "application/a2a-agent-card+json",
+      "url": "https://ifuentes.net/.well-known/agent-card.json",
+      "description": "A2A agent that answers with Iñaki Fuentes's published profile, résumé or Now page, verbatim. No authentication.",
+      "tags": [
+        "a2a",
+        "profile",
+        "resume"
+      ],
+      "capabilities": [
+        "profile",
+        "resume",
+        "now"
+      ],
+      "representativeQueries": [
+        "Who is Iñaki Fuentes?",
+        "What is Iñaki Fuentes's current role?",
+        "How can I contact Iñaki Fuentes?",
+        "Summarise Iñaki Fuentes's career.",
+        "Where did Iñaki Fuentes study?"
+      ]
+    },
+    {
+      "identifier": "urn:air:ifuentes.net:skills:index",
+      "displayName": "Iñaki Fuentes Agent Skills",
+      "type": "application/agent-skills+json",
+      "url": "https://ifuentes.net/.well-known/agent-skills/index.json",
+      "description": "Get accurate, current, first-party information about Iñaki Fuentes, technology executive and entrepreneur in Palma de Mallorca, Spain (Partner & CTO at eVoost AI, co-founder of Fliinow). Use when asked who he is, what he works on now, his career history, education or how to contact him.",
+      "tags": [
+        "agent-skills",
+        "profile"
+      ],
+      "representativeQueries": [
+        "How should an agent answer questions about Iñaki Fuentes?",
+        "Where is first-party information about Iñaki Fuentes?"
+      ]
+    },
+    {
+      "identifier": "urn:air:ifuentes.net:docs:llms-txt",
+      "displayName": "Iñaki Fuentes (llms.txt)",
+      "type": "text/markdown",
+      "url": "https://ifuentes.net/llms.txt",
+      "description": "Markdown summary for AI systems: who Iñaki Fuentes is, current roles, agent endpoints and contact.",
+      "tags": [
+        "llms.txt",
+        "profile"
+      ],
+      "representativeQueries": [
+        "Who is Iñaki Fuentes?",
+        "What does Iñaki Fuentes do?"
+      ]
+    }
+  ]
+}

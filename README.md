@@ -169,11 +169,13 @@ Everything below is generated from `scripts/agent-config.js` and the HTML (`npm 
 | Agent Skills | [`/.well-known/agent-skills/index.json`](https://ifuentes.net/.well-known/agent-skills/index.json) (v0.2.0) with the `inaki-fuentes` skill: how to answer questions about him from first-party sources |
 | WebMCP | `webmcp.js` registers `get_profile`, `get_resume` and `get_now` with `document.modelContext` on the content pages |
 | API Catalog | [`/.well-known/api-catalog`](https://ifuentes.net/.well-known/api-catalog) (RFC 9727 linkset) |
-| Auth.md | [`/auth.md`](https://ifuentes.net/auth.md): no authentication is needed |
-| Link headers | The Worker adds `Link` headers (`api-catalog`, `service-desc`, `describedby`) to the home page |
+| Auth.md | [`/auth.md`](https://ifuentes.net/auth.md): no authentication is needed (the scan expects a registration flow, which a site without accounts does not have) |
+| ARD | [`/.well-known/ard.json`](https://ifuentes.net/.well-known/ard.json) (and legacy `ai-catalog.json`): Agentic Resource Discovery manifest of the MCP server, A2A agent, skills and llms.txt |
+| Personal Agent Protocol | [`/.well-known/poppy.json`](https://ifuentes.net/.well-known/poppy.json): website-only declaration (agents browse as ordinary visitors) |
+| Link headers | The Worker adds `Link` headers (`api-catalog`, `service-desc`, `describedby`, `ard`) to the home page |
 | Markdown negotiation | Cloudflare *Markdown for Agents* answers `Accept: text/markdown`; the Worker falls back to `llms.txt` |
 
-The MCP server and the A2A agent run on a small Cloudflare Worker ([`worker/`](worker/README.md)) on four paths only; they read the published Markdown at request time and never hold their own copy of the facts. OAuth, Web Bot Auth and the commerce checks do not apply to a site without logins, bots or payments.
+The MCP server and the A2A agent run on a small Cloudflare Worker ([`worker/`](worker/README.md)) on four paths only; they read the published Markdown at request time and never hold their own copy of the facts. OAuth, Web Bot Auth and the commerce checks do not apply to a site without logins, bots or payments. DNS-AID needs one DNS record (see [worker/README.md](worker/README.md#optional-dns-for-ai-discovery-dns-aid)).
 
 ## 🚀 Deployment
 

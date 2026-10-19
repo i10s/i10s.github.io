@@ -289,4 +289,27 @@ describe('Agent discovery (Cloudflare agent-readiness checks)', () => {
     expect(llms).to.match(/^## Agent endpoints$/m);
     [agent.MCP_URL, agent.A2A_URL, '/.well-known/api-catalog', '/.well-known/agent-skills/', '/auth.md'].forEach(url => expect(llms).to.include(url));
   });
+
+  it('publishes an ARD manifest (ard.json and the legacy ai-catalog.json) pointing at real files', () => {
+    expect(read('.well-known/ai-catalog.json')).to.equal(read('.well-known/ard.json'));
+    const ard = readJson('.well-known/ard.json');
+    expect(ard.host.identifier).to.equal('did:web:ifuentes.net');
+    ard.entries.forEach(entry => {
+      expect(entry.identifier).to.match(/^urn:air:ifuentes\.net:[a-z0-9-]+(:[a-z0-9-]+)*$/);
+      expect(entry.displayName).to.be.a('string');
+      expect(entry.type).to.match(/^[a-z]+\/[a-z0-9.+-]+$/);
+      expect(entry.representativeQueries).to.have.length.within(2, 5);
+      const local = entry.url.replace(agent.SITE, '');
+      expect(fs.existsSync(path.join(root, local)), entry.url).to.be.true;
+    });
+    expect(ard.entries.map(e => e.type)).to.include.members(['application/mcp-server-card+json', 'application/a2a-agent-card+json']);
+  });
+
+  it('publishes a website-only Personal Agent Protocol declaration without fake auth', () => {
+    const poppy = readJson('.well-known/poppy.json');
+    expect(poppy.protocol_version).to.match(/^\d+\.\d+$/);
+    expect(poppy.organization).to.deep.equal({ name: agent.NAME, domain: 'ifuentes.net' });
+    expect(poppy).to.have.property('web');
+    ['agent', 'apis', 'auth', 'feedback'].forEach(key => expect(poppy).to.not.have.property(key));
+  });
 });
