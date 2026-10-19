@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.2.0] - 2026-10-19
+
+Agent-ready: from level 1 to level 4–5 on Cloudflare's agent-readiness scan, without faking any endpoint.
+
+### Added (3.2.0)
+
+- Content Signals in `robots.txt`: `search=yes, ai-input=yes, ai-train=yes`
+- Read-only MCP server at `/mcp` and A2A agent at `/a2a` on a Cloudflare Worker (`worker/`); both return the published Markdown verbatim, with no generative AI
+- MCP Server Card (`/.well-known/mcp/server-card.json`, `/.well-known/mcp.json`), A2A Agent Card (`/.well-known/agent-card.json`), API catalog (`/.well-known/api-catalog`, RFC 9727) and `auth.md` (no authentication needed)
+- Agent Skills index (`/.well-known/agent-skills/index.json`, v0.2.0) with the `inaki-fuentes` skill, generated from the Now page
+- WebMCP tools (`get_profile`, `get_resume`, `get_now`) registered by `webmcp.js` on the content pages
+- Discovery `Link` headers on the home page; Markdown negotiation keeps working through the Worker
+- `scripts/agent-config.js` as the single source for tools and endpoints; `tests/worker.test.js` and new checks in `tests/ai.test.js`
+
+### Changed (3.2.0)
+
+- `scripts/generate-llms.js` is now `scripts/generate-agent-files.js` (`npm run generate:agents`)
+- `stamp-assets.js` hashes every script (`flap.js`, `webmcp.js`); Service Worker 1.3.0
+- The budget check counts only executable JavaScript as script; JSON-LD stays in the document size
+- Lighthouse 13.5 (accepts `Content-Signal`); Node 22 baseline, CI on Node 22 and 24 (Node 20 is end of life)
+
 ## [3.1.0] - 2026-10-19
 
 AI engines: one current, machine-readable version of the site.

@@ -14,3 +14,7 @@ node_modules/
 
 # Generated files
 *.cache
+
+# Cloudflare Worker local state and build output
+worker/.wrangler/
+worker/dist/

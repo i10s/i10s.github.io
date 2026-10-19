@@ -1,0 +1,102 @@
+{
+  "protocolVersion": "0.3.0",
+  "name": "Iñaki Fuentes profile agent",
+  "description": "Answers questions about Iñaki Fuentes with first-party, current information from ifuentes.net: profile, résumé and what he is doing now. It returns his published texts verbatim (no generative AI), so it never invents facts. Public, no authentication.",
+  "url": "https://ifuentes.net/a2a",
+  "preferredTransport": "JSONRPC",
+  "supportedInterfaces": [
+    {
+      "url": "https://ifuentes.net/a2a",
+      "protocolBinding": "JSONRPC",
+      "protocolVersion": "0.3.0"
+    }
+  ],
+  "additionalInterfaces": [
+    {
+      "url": "https://ifuentes.net/a2a",
+      "transport": "JSONRPC"
+    }
+  ],
+  "provider": {
+    "organization": "Iñaki Fuentes",
+    "url": "https://ifuentes.net/"
+  },
+  "version": "1.0.0",
+  "documentationUrl": "https://ifuentes.net/llms.txt",
+  "iconUrl": "https://ifuentes.net/android-chrome-192x192.png",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": [
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "text/markdown",
+    "text/plain"
+  ],
+  "skills": [
+    {
+      "id": "profile",
+      "name": "Profile",
+      "description": "Who Iñaki Fuentes is: current roles, short bio, career highlights and contact links. First-party Markdown from ifuentes.net.",
+      "tags": [
+        "profile",
+        "bio",
+        "contact"
+      ],
+      "examples": [
+        "Who is Iñaki Fuentes?",
+        "What is Iñaki Fuentes's current role?",
+        "How can I contact Iñaki Fuentes?"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/markdown"
+      ]
+    },
+    {
+      "id": "resume",
+      "name": "Résumé",
+      "description": "Iñaki Fuentes's full résumé: every role with dates and acquisitions, education, certifications, languages and awards. First-party Markdown.",
+      "tags": [
+        "resume",
+        "career",
+        "education"
+      ],
+      "examples": [
+        "Summarise Iñaki Fuentes's career.",
+        "Where did Iñaki Fuentes study?"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/markdown"
+      ]
+    },
+    {
+      "id": "now",
+      "name": "Now",
+      "description": "What Iñaki Fuentes is focused on right now: roles in flight, what just ended, learning and priorities, with the last-updated date. First-party Markdown.",
+      "tags": [
+        "now",
+        "current-roles",
+        "priorities"
+      ],
+      "examples": [
+        "What is Iñaki Fuentes working on now?",
+        "Is Iñaki Fuentes still at Travelgate?"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/markdown"
+      ]
+    }
+  ]
+}

@@ -83,6 +83,8 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 ├── offline.html         # "Delayed" offline fallback
 ├── flap.js              # Split-flap tiles, board flaps, clocks, Konami easter egg
 ├── llms.txt, llms-full.txt, resume.md, now.md # Generated for AI engines (do not edit by hand)
+├── webmcp.js, auth.md, .well-known/ # Generated agent discovery files (do not edit by hand)
+├── worker/              # Cloudflare Worker: MCP server, A2A agent, Link headers
 ├── sw.js                # Service Worker (network-first pages, cached assets)
 ├── favicon.svg          # Brand mark (PNG/ICO icons rendered from it)
 ├── og.png, og-*.png     # Social cards (generated from cards/)
@@ -96,12 +98,13 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 │   ├── dev-server.js    # Local development server with live reload
 │   ├── check-budget.js  # Performance budget check (pre-commit + CI)
 │   ├── generate-og-cards.js # Social card templates + PNG rendering
-│   ├── generate-llms.js # llms.txt, llms-full.txt, resume.md, now.md from the HTML
-│   ├── stamp-assets.js  # Content hash for /flap.js?v=… in pages and the service worker
+│   ├── agent-config.js  # Single source for agent tools, skills and endpoints
+│   ├── generate-agent-files.js # llms.txt, Markdown, cards, catalog, skill, webmcp.js from HTML + config
+│   ├── stamp-assets.js  # Content hash for /flap.js?v=… and /webmcp.js?v=… in pages and the service worker
 │   ├── indexnow.js      # Ping IndexNow (Bing, Yandex…) with the sitemap URLs
 │   └── fix-html.js      # HTML validation fixer (all primary pages)
 ├── docs/                # Extended documentation & notes
-├── tests/               # Comprehensive test suite (300 tests)
+├── tests/               # Comprehensive test suite (320+ tests)
 └── .github/workflows/   # CI/CD automation
 ```
 
@@ -147,13 +150,30 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 
 Most AI crawlers and assistants read raw HTML without running JavaScript, so every page is complete as plain HTML and the site speaks their formats:
 
-- **Crawl access**: `robots.txt` welcomes all crawlers and names the main AI agents (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-User, PerplexityBot, Google-Extended, Applebot-Extended, CCBot…). Search, AI answers and training are allowed. Legacy snapshots (`/archive/`, `/v2/`) and developer files are excluded and marked `noindex`, so there is one current version.
-- **[llms.txt](https://ifuentes.net/llms.txt)** ([llmstxt.org](https://llmstxt.org)), **llms-full.txt**, **resume.md** and **now.md**: Markdown versions generated from the HTML (`npm run generate:llms`), linked with `<link rel="alternate" type="text/markdown">`.
+- **Crawl access**: `robots.txt` welcomes all crawlers and names the main AI agents (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-User, PerplexityBot, Google-Extended, Applebot-Extended, CCBot…). Search, AI answers and training are allowed and declared with [Content Signals](https://contentsignals.org) (`search=yes, ai-input=yes, ai-train=yes`). Legacy snapshots (`/archive/`, `/v2/`) and developer files are excluded and marked `noindex`, so there is one current version.
+- **[llms.txt](https://ifuentes.net/llms.txt)** ([llmstxt.org](https://llmstxt.org)), **llms-full.txt**, **resume.md** and **now.md**: Markdown versions generated from the HTML (`npm run generate:agents`), linked with `<link rel="alternate" type="text/markdown">`.
 - **Plain-prose bio** on the home page and **JSON-LD**: `Person` (one `@id` across pages), `ProfilePage` with `dateModified`, résumé roles as `EmployeeRole` and credentials as `EducationalOccupationalCredential`.
 - **Clean text**: split-flap animations only change `data-*` attributes rendered by CSS, so the DOM text is never scrambled.
 - **Cloudflare-safe markup**: `<!--email_off-->` around emails and `data-cfasync="false"` on scripts, so Email Obfuscation and Rocket Loader do not rewrite what bots read.
 - **Freshness**: sitemap `lastmod`, JSON-LD `dateModified` and visible dates agree (tested). After a deploy, `npm run indexnow` pings Bing (which feeds ChatGPT search, Copilot and DuckDuckGo), Yandex, Seznam and Naver through [IndexNow](https://www.indexnow.org).
 - **Single source of truth**: `tests/ai.test.js` fails if any summary (meta tags, manifest, humans.txt, llms.txt, feed) presents a past job as current or if derived files drift from the HTML.
+
+### Agent endpoints (Cloudflare agent-readiness, level 4–5)
+
+Everything below is generated from `scripts/agent-config.js` and the HTML (`npm run generate:agents`), so names, descriptions and URLs always match:
+
+| Check | What the site publishes |
+| --- | --- |
+| MCP Server Card | [`/.well-known/mcp/server-card.json`](https://ifuentes.net/.well-known/mcp/server-card.json) (also `/.well-known/mcp.json`) for the read-only MCP server at `/mcp` |
+| A2A Agent Card | [`/.well-known/agent-card.json`](https://ifuentes.net/.well-known/agent-card.json) for the A2A agent at `/a2a` |
+| Agent Skills | [`/.well-known/agent-skills/index.json`](https://ifuentes.net/.well-known/agent-skills/index.json) (v0.2.0) with the `inaki-fuentes` skill: how to answer questions about him from first-party sources |
+| WebMCP | `webmcp.js` registers `get_profile`, `get_resume` and `get_now` with `document.modelContext` on the content pages |
+| API Catalog | [`/.well-known/api-catalog`](https://ifuentes.net/.well-known/api-catalog) (RFC 9727 linkset) |
+| Auth.md | [`/auth.md`](https://ifuentes.net/auth.md): no authentication is needed |
+| Link headers | The Worker adds `Link` headers (`api-catalog`, `service-desc`, `describedby`) to the home page |
+| Markdown negotiation | Cloudflare *Markdown for Agents* answers `Accept: text/markdown`; the Worker falls back to `llms.txt` |
+
+The MCP server and the A2A agent run on a small Cloudflare Worker ([`worker/`](worker/README.md)) on four paths only; they read the published Markdown at request time and never hold their own copy of the facts. OAuth, Web Bot Auth and the commerce checks do not apply to a site without logins, bots or payments.
 
 ## 🚀 Deployment
 
@@ -162,6 +182,7 @@ This site is deployed on **GitHub Pages**:
 - **Production URL**: <https://ifuentes.net>
 - **Auto-deploy**: Pushes to `main` branch trigger deployment
 - **Build time**: ~1-2 minutes
+- **Agent endpoints**: after the Pages deploy, `cd worker && npm run deploy` (Cloudflare Worker, see [worker/README.md](worker/README.md))
 - **After deploy**: `npm run indexnow` to ask search and AI engines to recrawl the sitemap URLs
 
 ## 📈 Monitoring & Tooling
@@ -173,7 +194,7 @@ This site is deployed on **GitHub Pages**:
 
 ## 🧪 Testing
 
-Comprehensive test suite (300 assertions) covers structure, accessibility, SEO, AI readiness, PWA and performance heuristics.
+Comprehensive test suite (320+ assertions) covers structure, accessibility, SEO, AI readiness, PWA and performance heuristics.
 
 ### Quick Start
 
@@ -264,7 +285,7 @@ While this is a personal site, suggestions are welcome. If proposing changes:
 | 3 | Reference in `robots.txt` if needed (ensure not disallowed) |
 | 4 | Add link (if appropriate) to `index.html` nav or footer |
 | 5 | Ensure meta description & unique title |
-| 6 | If you edit `index.html`, `resume.html`, `now.html` or `flap.js`, run `npm run build` (regenerates llms.txt, Markdown versions and the flap.js hash) |
+| 6 | If you edit `index.html`, `resume.html`, `now.html`, `flap.js` or `scripts/agent-config.js`, run `npm run build` (regenerates llms.txt, Markdown, agent cards and script hashes) |
 | 7 | Run `npm test` and ensure budgets are within limits |
 | 8 | Commit, push, then `npm run indexnow` once the deploy is live |
 

@@ -1,10 +1,10 @@
 // Service Worker for ifuentes.net
-// Version 1.2.0
+// Version 1.3.0
 // Strategy: network-first for pages (fresh content, offline fallback),
-// stale-while-revalidate for same-origin static assets (flap.js is content-hashed).
+// stale-while-revalidate for same-origin static assets (scripts are content-hashed).
 // Security: same-origin GET requests only.
 
-const VERSION = '1.2.0';
+const VERSION = '1.3.0';
 const CACHE_NAME = `ifuentes-v${VERSION}`;
 const OFFLINE_URL = '/offline.html';
 
@@ -14,6 +14,7 @@ const urlsToCache = [
   '/resume.html',
   '/now.html',
   '/flap.js?v=741e445e',
+  '/webmcp.js?v=a490fdcd',
   '/favicon.svg',
   '/images/inaki.webp',
   '/site.webmanifest',

@@ -1,0 +1,66 @@
+{
+  "site": "https://ifuentes.net",
+  "name": "Iñaki Fuentes",
+  "version": "1.0.0",
+  "mcpUrl": "https://ifuentes.net/mcp",
+  "a2aUrl": "https://ifuentes.net/a2a",
+  "agentCard": "https://ifuentes.net/.well-known/agent-card.json",
+  "serverCard": "https://ifuentes.net/.well-known/mcp/server-card.json",
+  "documents": [
+    {
+      "id": "profile",
+      "tool": "get_profile",
+      "title": "Profile",
+      "path": "/llms.txt",
+      "html": "/",
+      "description": "Who Iñaki Fuentes is: current roles, short bio, career highlights and contact links. First-party Markdown from ifuentes.net.",
+      "keywords": []
+    },
+    {
+      "id": "resume",
+      "tool": "get_resume",
+      "title": "Résumé",
+      "path": "/resume.md",
+      "html": "/resume.html",
+      "description": "Iñaki Fuentes's full résumé: every role with dates and acquisitions, education, certifications, languages and awards. First-party Markdown.",
+      "keywords": [
+        "resume",
+        "résumé",
+        "cv",
+        "career",
+        "experience",
+        "history",
+        "education",
+        "degree",
+        "certification",
+        "award",
+        "trayectoria",
+        "experiencia",
+        "formación",
+        "estudios"
+      ]
+    },
+    {
+      "id": "now",
+      "tool": "get_now",
+      "title": "Now",
+      "path": "/now.md",
+      "html": "/now.html",
+      "description": "What Iñaki Fuentes is focused on right now: roles in flight, what just ended, learning and priorities, with the last-updated date. First-party Markdown.",
+      "keywords": [
+        "now",
+        "current",
+        "currently",
+        "today",
+        "working on",
+        "focus",
+        "still",
+        "ahora",
+        "actual",
+        "actualmente",
+        "hoy"
+      ]
+    }
+  ],
+  "linkHeader": "</.well-known/api-catalog>; rel=\"api-catalog\", </.well-known/mcp/server-card.json>; rel=\"service-desc\"; type=\"application/json\", </.well-known/agent-card.json>; rel=\"service-desc\"; type=\"application/json\", </.well-known/agent-skills/index.json>; rel=\"describedby\"; type=\"application/json\", </llms.txt>; rel=\"describedby\"; type=\"text/markdown\""
+}

@@ -1,0 +1,25 @@
+{
+  "name": "ifuentes-agents",
+  "private": true,
+  "description": "Cloudflare Worker for ifuentes.net: read-only MCP server (/mcp), A2A agent (/a2a) and agent discovery headers",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "check": "wrangler deploy --dry-run --outdir dist",
+    "deploy": "wrangler deploy",
+    "tail": "wrangler tail"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.3.1",
+    "agents": "0.28.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "wrangler": "4.151.2"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "workerd@1.20261019.1": true,
+    "core-js-pure": false
+  }
+}

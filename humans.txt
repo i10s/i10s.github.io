@@ -10,6 +10,7 @@
     GitHub: @i10s
     Location: Palma de Mallorca, Spain
     For AI assistants: https://ifuentes.net/llms.txt
+    For AI agents: MCP https://ifuentes.net/mcp · A2A https://ifuentes.net/a2a
 
 # THANKS
 
@@ -27,10 +28,11 @@
 
 # TECHNOLOGY COLOPHON
 
-    Standards: HTML5, CSS3, JSON-LD (schema.org), RSS 2.0, llms.txt, IndexNow
+    Standards: HTML5, CSS3, JSON-LD (schema.org), RSS 2.0, llms.txt, IndexNow, Content Signals,
+               MCP, A2A, WebMCP, Agent Skills, RFC 9727 API catalog
     Components: Progressive Web App (PWA), Service Worker, Web Vitals
     Testing: Mocha, Chai, JSDOM, html-validate (300+ automated tests)
-    CI/CD: GitHub Actions, Lighthouse CI
+    CI/CD: GitHub Actions, Lighthouse CI, Cloudflare Workers (wrangler)
     Software: VS Code, Git, Node.js
     Fonts: System fonts (system-ui, ui-monospace)
     Performance: Inline CSS, one shared 5KB script (flap.js), zero dependencies

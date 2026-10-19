@@ -48,9 +48,19 @@ describe('AI readiness: crawl access', () => {
   });
 
   it('only uses directives Lighthouse and search engines understand', () => {
-    const known = ['user-agent', 'allow', 'disallow', 'sitemap', 'crawl-delay'];
+    const known = ['user-agent', 'allow', 'disallow', 'sitemap', 'crawl-delay', 'content-signal'];
     robots.split('\n').map(l => l.replace(/#.*/, '').trim()).filter(Boolean).forEach(line => {
       expect(known, line).to.include(line.split(':')[0].toLowerCase());
+    });
+  });
+
+  it('declares Content Signals allowing search, AI input and AI training in every group', () => {
+    const groups = robots.split(/\n\s*\n/).filter(g => /user-agent:/i.test(g));
+    groups.forEach(group => {
+      const signal = group.match(/^Content-Signal: (.*)$/m);
+      expect(signal, group.slice(0, 60)).to.exist;
+      const values = Object.fromEntries(signal[1].split(',').map(p => p.trim().split('=')));
+      expect(values).to.deep.equal({ search: 'yes', 'ai-input': 'yes', 'ai-train': 'yes' });
     });
   });
 
@@ -84,14 +94,14 @@ describe('AI readiness: machine-readable content', () => {
     expect(llms).to.include('https://ifuentes.net/now.md');
   });
 
-  it('keeps llms.txt, llms-full.txt and the Markdown pages in sync with the HTML', () => {
-    const { build } = require('../scripts/generate-llms');
+  it('keeps every generated agent file in sync with the HTML and the agent config', () => {
+    const { build } = require('../scripts/generate-agent-files');
     Object.entries(build()).forEach(([file, content]) => {
-      expect(read(file), `${file} is stale: run npm run generate:llms`).to.equal(content);
+      expect(read(file), `${file} is stale: run npm run generate:agents`).to.equal(content);
     });
   });
 
-  it('keeps the hashed flap.js URL in sync with the file', () => {
+  it('keeps the hashed script URLs in sync with the files', () => {
     const { stamp } = require('../scripts/stamp-assets');
     expect(stamp(true).stale, 'run npm run stamp').to.deep.equal([]);
   });
@@ -194,5 +204,89 @@ describe('Single source of truth: current role and dates', () => {
     const [y, m, d] = now.dateModified.split('-').map(Number);
     const visible = new Date(Date.UTC(y, m - 1, d)).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
     expect(dom('now.html').querySelector('.eyebrow').textContent).to.include(`Updated ${visible}`);
+  });
+});
+
+describe('Agent discovery (Cloudflare agent-readiness checks)', () => {
+  const agent = require('../scripts/agent-config');
+  const tools = agent.DOCUMENTS.map(d => d.tool);
+  const readJson = file => JSON.parse(read(file));
+
+  it('publishes an Agent Skills index (v0.2.0) whose digest matches the skill', () => {
+    const index = readJson('.well-known/agent-skills/index.json');
+    expect(index.$schema).to.equal('https://schemas.agentskills.io/discovery/0.2.0/schema.json');
+    expect(index.skills).to.have.length.greaterThan(0);
+    index.skills.forEach(skill => {
+      expect(skill.name).to.match(/^[a-z0-9]+(-[a-z0-9]+)*$/);
+      expect(skill.type).to.equal('skill-md');
+      expect(skill.description.length).to.be.within(20, 1024);
+      const body = fs.readFileSync(path.join(root, skill.url));
+      const digest = require('crypto').createHash('sha256').update(body).digest('hex');
+      expect(skill.digest).to.equal(`sha256:${digest}`);
+      const front = body.toString('utf8').match(/^---\nname: (.+)\ndescription: (.+)\n---\n/);
+      expect(front, 'SKILL.md frontmatter').to.exist;
+      expect(front[1]).to.equal(skill.name);
+      expect(JSON.parse(front[2])).to.equal(skill.description);
+    });
+  });
+
+  it('publishes the same MCP server card at both well-known paths', () => {
+    const card = readJson('.well-known/mcp/server-card.json');
+    expect(read('.well-known/mcp.json')).to.equal(read('.well-known/mcp/server-card.json'));
+    expect(card.serverInfo).to.include.keys('name', 'version');
+    expect(card.url).to.equal(agent.MCP_URL);
+    expect(card.transport.type).to.equal('streamable-http');
+    expect(card.capabilities.tools).to.equal(true);
+    expect(card.tools.map(t => t.name)).to.deep.equal(tools);
+  });
+
+  it('publishes an A2A agent card with a JSON-RPC interface and one skill per document', () => {
+    const card = readJson('.well-known/agent-card.json');
+    ['name', 'description', 'version', 'url', 'capabilities', 'skills', 'defaultInputModes', 'defaultOutputModes'].forEach(key => expect(card).to.have.property(key));
+    expect(card.url).to.equal(agent.A2A_URL);
+    expect(card.supportedInterfaces[0]).to.include({ url: agent.A2A_URL, protocolBinding: 'JSONRPC' });
+    expect(card.skills.map(s => s.id)).to.deep.equal(agent.DOCUMENTS.map(d => d.id));
+    card.skills.forEach(skill => expect(skill).to.include.keys('id', 'name', 'description'));
+  });
+
+  it('lists the MCP server and the A2A agent in the RFC 9727 API catalog', () => {
+    const catalog = readJson('.well-known/api-catalog');
+    const anchors = catalog.linkset.map(entry => entry.anchor);
+    expect(anchors).to.include.members([agent.MCP_URL, agent.A2A_URL]);
+    catalog.linkset.forEach(entry => expect(Object.keys(entry).some(k => ['service-desc', 'service-doc'].includes(k)), entry.anchor).to.be.true);
+  });
+
+  it('tells agents in auth.md that no authentication is needed', () => {
+    const auth = read('auth.md');
+    expect(auth).to.match(/^# auth\.md\n\nYou are an agent\./);
+    expect(auth).to.include('does not use authentication');
+    [agent.MCP_URL, agent.A2A_URL].forEach(url => expect(auth).to.include(url));
+  });
+
+  it('registers the same read-only tools with WebMCP on the content pages', () => {
+    const script = read('webmcp.js');
+    expect(script).to.match(/document\.modelContext \|\| navigator\.modelContext/);
+    expect(script).to.include('registerTool(');
+    expect(script).to.include('readOnlyHint: true');
+    agent.DOCUMENTS.forEach(d => {
+      expect(script).to.include(`"name": "${d.tool}"`);
+      expect(fs.existsSync(path.join(root, d.path)), d.path).to.be.true;
+    });
+    ['index.html', 'resume.html', 'now.html'].forEach(page => {
+      expect(dom(page).querySelector('script[src^="/webmcp.js?v="][defer]'), page).to.exist;
+    });
+  });
+
+  it('gives the Worker the same tools and endpoints', () => {
+    const workerConfig = readJson('worker/src/config.json');
+    expect(workerConfig.documents.map(d => d.tool)).to.deep.equal(tools);
+    expect(workerConfig.mcpUrl).to.equal(agent.MCP_URL);
+    expect(workerConfig.a2aUrl).to.equal(agent.A2A_URL);
+  });
+
+  it('lists the agent endpoints in llms.txt', () => {
+    const llms = read('llms.txt');
+    expect(llms).to.match(/^## Agent endpoints$/m);
+    [agent.MCP_URL, agent.A2A_URL, '/.well-known/api-catalog', '/.well-known/agent-skills/', '/auth.md'].forEach(url => expect(llms).to.include(url));
   });
 });

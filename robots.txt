@@ -2,14 +2,17 @@
 # Updated: October 2026
 #
 # Everyone is welcome: search engines, AI assistants, AI search and research crawlers.
-# Search, AI answers (RAG/grounding) and AI training are all allowed.
+# Search, AI answers (RAG/grounding) and AI training are all allowed, declared with
+# Content Signals (https://contentsignals.org): search=yes, ai-input=yes, ai-train=yes.
 # Only legacy snapshots and developer files are excluded, so crawlers see one current version.
 #
 # LLM-friendly summary: https://ifuentes.net/llms.txt
 # Full text for LLMs:   https://ifuentes.net/llms-full.txt
 # Humans TXT:           https://ifuentes.net/humans.txt
+# Agent endpoints:      https://ifuentes.net/.well-known/api-catalog
 
 User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 Disallow: /archive/
 Disallow: /v2/
@@ -17,6 +20,7 @@ Disallow: /docs/
 Disallow: /cards/
 Disallow: /scripts/
 Disallow: /tests/
+Disallow: /worker/
 
 # AI crawlers, AI search engines and assistants: explicitly welcome, same rules.
 # OpenAI
@@ -55,6 +59,7 @@ User-agent: PetalBot
 User-agent: CCBot
 User-agent: Diffbot
 User-agent: AI2Bot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 Disallow: /archive/
 Disallow: /v2/
@@ -62,6 +67,7 @@ Disallow: /docs/
 Disallow: /cards/
 Disallow: /scripts/
 Disallow: /tests/
+Disallow: /worker/
 
 Sitemap: https://ifuentes.net/sitemap.xml
 

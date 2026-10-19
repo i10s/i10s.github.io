@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "inaki-fuentes",
+      "type": "skill-md",
+      "description": "Get accurate, current, first-party information about Iñaki Fuentes, technology executive and entrepreneur in Palma de Mallorca, Spain (Partner & CTO at eVoost AI, co-founder of Fliinow). Use when asked who he is, what he works on now, his career history, education or how to contact him.",
+      "url": "/.well-known/agent-skills/inaki-fuentes/SKILL.md",
+      "digest": "sha256:4618f5c95e85d11ce3bda4daa6c4dba7f4cd810cc5b38aaa098fb16c1d895072"
+    }
+  ]
+}

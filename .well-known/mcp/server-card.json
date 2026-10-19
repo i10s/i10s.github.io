@@ -1,0 +1,43 @@
+{
+  "serverInfo": {
+    "name": "ifuentes-net",
+    "title": "Iñaki Fuentes",
+    "version": "1.0.0"
+  },
+  "description": "Read-only MCP server with first-party, current information about Iñaki Fuentes: profile, résumé and what he is doing now. Public, no authentication.",
+  "url": "https://ifuentes.net/mcp",
+  "transport": {
+    "type": "streamable-http"
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": true
+  },
+  "tools": [
+    {
+      "name": "get_profile",
+      "title": "Profile",
+      "description": "Who Iñaki Fuentes is: current roles, short bio, career highlights and contact links. First-party Markdown from ifuentes.net.",
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_resume",
+      "title": "Résumé",
+      "description": "Iñaki Fuentes's full résumé: every role with dates and acquisitions, education, certifications, languages and awards. First-party Markdown.",
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_now",
+      "title": "Now",
+      "description": "What Iñaki Fuentes is focused on right now: roles in flight, what just ended, learning and priorities, with the last-updated date. First-party Markdown.",
+      "annotations": {
+        "readOnlyHint": true
+      }
+    }
+  ],
+  "documentationUrl": "https://ifuentes.net/llms.txt"
+}

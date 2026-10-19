@@ -1,0 +1,58 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://ifuentes.net/mcp",
+      "service-desc": [
+        {
+          "href": "https://ifuentes.net/.well-known/mcp/server-card.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://ifuentes.net/llms.txt",
+          "type": "text/markdown"
+        }
+      ]
+    },
+    {
+      "anchor": "https://ifuentes.net/a2a",
+      "service-desc": [
+        {
+          "href": "https://ifuentes.net/.well-known/agent-card.json",
+          "type": "application/json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://ifuentes.net/llms.txt",
+          "type": "text/markdown"
+        }
+      ]
+    },
+    {
+      "anchor": "https://ifuentes.net/llms.txt",
+      "service-doc": [
+        {
+          "href": "https://llmstxt.org/",
+          "type": "text/html"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://ifuentes.net/.well-known/agent-skills/index.json",
+          "type": "application/json"
+        }
+      ]
+    },
+    {
+      "anchor": "https://ifuentes.net/feed.xml",
+      "service-doc": [
+        {
+          "href": "https://www.rssboard.org/rss-specification",
+          "type": "text/html"
+        }
+      ]
+    }
+  ]
+}

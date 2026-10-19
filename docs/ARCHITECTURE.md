@@ -9,7 +9,7 @@ Static site served via GitHub Pages (global CDN). No build/transpile pipeline; a
 - `sw.js`: PWA logic. Network-first for pages, stale-while-revalidate for same-origin assets.
 - `site.webmanifest`: PWA metadata (icons, shortcuts).
 - `robots.txt` / `sitemap.xml`: Crawling and indexing. All crawlers, including AI crawlers, are allowed; legacy snapshots and developer folders are excluded. Sitemap `lastmod` matches each page's JSON-LD `dateModified`.
-- `llms.txt`, `llms-full.txt`, `resume.md`, `now.md`: Markdown for AI engines, generated from the HTML by `scripts/generate-llms.js`.
+- `llms.txt`, `llms-full.txt`, `resume.md`, `now.md`: Markdown for AI engines, generated from the HTML by `scripts/generate-agent-files.js`.
 - `<key>.txt`: IndexNow key; `scripts/indexnow.js` submits the sitemap URLs after a deploy.
 - `.well-known/security.txt`: Vulnerability disclosure contact.
 - `resume.html`: Résumé ("flight log"), print stylesheet fits two A4 pages.
@@ -49,14 +49,25 @@ No dynamic backend (static only). Main vectors: external links and supply-chain 
 
 The HTML pages are the only hand-edited source. Everything derived from them is generated and checked in pre-commit and CI (`npm run validate:generated`):
 
-- Markdown versions and llms.txt (`npm run generate:llms`)
+- Markdown versions and llms.txt (`npm run generate:agents`)
 - The flap.js content hash in pages and the service worker (`npm run stamp`)
 
 `tests/ai.test.js` checks crawl access, llms.txt format, Markdown alternates, Cloudflare-safe markup (`<!--email_off-->`, `data-cfasync="false"`), one `Person` `@id` across pages, that every "now" summary (meta tags, manifest, humans.txt, llms.txt, feed) agrees on the current role, and that sitemap, JSON-LD and visible dates match.
 
+## Agent Endpoints (Cloudflare Worker)
+
+A Cloudflare Worker (`worker/`, deployed with wrangler) runs on four paths only; GitHub Pages serves everything else:
+
+- `/mcp`: read-only MCP server (Streamable HTTP, stateless, `createMcpHandler` from the Agents SDK). Tools and resources come from `worker/src/config.json`.
+- `/a2a`: A2A JSON-RPC agent. Deterministic: returns the published Markdown verbatim.
+- `/`: home page from the origin plus discovery `Link` headers; `passThroughOnException` keeps the page up if the Worker fails.
+- `/.well-known/api-catalog`: origin file with the RFC 9727 content type.
+
+The Worker fetches `llms.txt`, `resume.md` and `now.md` from the site at request time (5-minute cache), so the HTML stays the only source of facts. Static discovery files (`.well-known/agent-card.json`, `.well-known/mcp/server-card.json`, `.well-known/agent-skills/`, `.well-known/api-catalog`, `auth.md`, `webmcp.js`) and the Worker config are generated together from `scripts/agent-config.js`.
+
 ## PWA Scope
 
-Precached: home, résumé, now, hashed `flap.js`, favicon, portrait, manifest and the offline page. Pages are network-first (fresh after every deploy) with a cache fallback; unknown pages offline return `offline.html`. Assets are stale-while-revalidate. Cache names include the semantic version for controlled invalidation.
+Precached: home, résumé, now, hashed `flap.js` and `webmcp.js`, favicon, portrait, manifest and the offline page. Pages are network-first (fresh after every deploy) with a cache fallback; unknown pages offline return `offline.html`. Assets are stale-while-revalidate. Cache names include the semantic version for controlled invalidation.
 
 ### Service Worker Lifecycle
 

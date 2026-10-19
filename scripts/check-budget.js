@@ -76,8 +76,9 @@ function analyzePage(filePath, budget) {
   const externalScripts = externalSize(/<script[^>]+src=["'][^"']+["'][^>]*>/gi);
   const externalStyles = externalSize(/<link[^>]+rel=["']stylesheet["'][^>]*>/gi);
 
-  // Inline scripts and styles (already part of the document size)
-  const scriptMatches = content.match(/<script[^>]*>[\s\S]*?<\/script>/gi) || [];
+  // Inline scripts and styles (already part of the document size).
+  // JSON-LD and speculation rules are data, not JavaScript, so they only count as document.
+  const scriptMatches = content.match(/<script(?![^>]*\btype=["'](?:application\/ld\+json|speculationrules)["'])[^>]*>[\s\S]*?<\/script>/gi) || [];
   const inlineScripts = scriptMatches.reduce((total, script) => {
     return total + (script.length / 1024);
   }, 0);

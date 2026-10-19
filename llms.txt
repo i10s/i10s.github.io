@@ -25,6 +25,16 @@ Last updated: 13 October 2026.
 - [Keybase](https://keybase.io/ifuentes)
 - [Instagram](https://www.instagram.com/ifuentes/)
 
+## Agent endpoints
+
+Public and read-only. No authentication, registration or API keys ([auth.md](https://ifuentes.net/auth.md)).
+
+- [MCP server](https://ifuentes.net/mcp): Streamable HTTP. Tools: `get_profile`, `get_resume`, `get_now`. Server card: https://ifuentes.net/.well-known/mcp/server-card.json
+- [A2A agent](https://ifuentes.net/a2a): JSON-RPC 2.0, `message/send`. Returns his published texts verbatim. Agent card: https://ifuentes.net/.well-known/agent-card.json
+- [Agent Skill](https://ifuentes.net/.well-known/agent-skills/inaki-fuentes/SKILL.md): how to answer questions about him from first-party sources
+- [API catalog](https://ifuentes.net/.well-known/api-catalog): RFC 9727 list of the endpoints above
+- WebMCP: the same tools are registered in the browser on https://ifuentes.net/
+
 ## Optional
 
 - [Full text](https://ifuentes.net/llms-full.txt): Bio, résumé and now page in a single file
