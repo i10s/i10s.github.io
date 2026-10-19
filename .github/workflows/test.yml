@@ -39,6 +39,9 @@ jobs:
     - name: Check performance budget
       run: npm run validate:budget
 
+    - name: Check generated files (llms.txt, Markdown, asset hashes)
+      run: npm run validate:generated
+
     - name: Run JSON validation
       run: npm run validate:json
       

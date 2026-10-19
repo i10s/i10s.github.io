@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] - 2026-10-19
+
+AI engines: one current, machine-readable version of the site.
+
+### Added (3.1.0)
+
+- `llms.txt`, `llms-full.txt`, `resume.md` and `now.md`, generated from the HTML (`npm run generate:llms`) and linked as `text/markdown` alternates
+- Plain-prose "About Iñaki Fuentes" bio on the home page
+- JSON-LD: one `Person` `@id` across pages, `WebSite` + `ProfilePage` (with `dateModified`) on the home page, résumé roles as `EmployeeRole` and credentials as `EducationalOccupationalCredential`, `WebPage` on Now
+- `robots.txt` names the main AI crawlers and assistants (OpenAI, Anthropic, Perplexity, Google, Apple, Meta, Amazon, Common Crawl…)
+- IndexNow key and `npm run indexnow` to ask Bing, Yandex, Seznam and Naver to recrawl after a deploy
+- `scripts/stamp-assets.js`: content-hashed `/flap.js?v=…` in pages and the service worker
+- `npm run validate:generated` in pre-commit and CI; `tests/ai.test.js` (crawl access, llms.txt, Cloudflare-safe markup, current role and dates agree everywhere)
+- `max-snippet:-1, max-image-preview:large` robots meta on content pages
+
+### Changed (3.1.0)
+
+- `flap.js` animates `data-*` attributes rendered with CSS `content: attr()`, so the DOM text crawlers and screen readers read is never scrambled
+- Emails wrapped in `<!--email_off-->` and scripts marked `data-cfasync="false"` so Cloudflare Email Obfuscation and Rocket Loader leave them alone
+- Service Worker 1.2.0 precaches the hashed script
+- Merged PR #1 (WebSite JSON-LD, large social cards, `rel=me` links) with the new structured data
+- Budgets support per-path entries (home document 24KB, résumé 26KB); the checker applies the matching entry
+
+### Removed (3.1.0)
+
+- November 2025 feed item that still presented Travelgate as the current focus
+- `stats.html` from the sitemap (it is `noindex`)
+- Legacy snapshots (`/archive/`, `/v2/`) and developer folders from crawling; legacy pages are now `noindex`
+
 ## [3.0.0] - 2026-10-13
 
 "Departures": full redesign and content update from the October 2026 CV.

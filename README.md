@@ -50,7 +50,7 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 
 | Category      | Limit per page |
 | ------------- | -------------- |
-| Document HTML | 22KB           |
+| Document HTML | 22KB (home 24KB, résumé 26KB: bio, structured data) |
 | CSS           | 8KB (inline + same-origin external) |
 | JavaScript    | 10KB (inline + same-origin external) |
 | Images        | 5KB            |
@@ -82,6 +82,7 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 ├── 404.html             # "Gate changed" error page
 ├── offline.html         # "Delayed" offline fallback
 ├── flap.js              # Split-flap tiles, board flaps, clocks, Konami easter egg
+├── llms.txt, llms-full.txt, resume.md, now.md # Generated for AI engines (do not edit by hand)
 ├── sw.js                # Service Worker (network-first pages, cached assets)
 ├── favicon.svg          # Brand mark (PNG/ICO icons rendered from it)
 ├── og.png, og-*.png     # Social cards (generated from cards/)
@@ -95,9 +96,12 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 │   ├── dev-server.js    # Local development server with live reload
 │   ├── check-budget.js  # Performance budget check (pre-commit + CI)
 │   ├── generate-og-cards.js # Social card templates + PNG rendering
+│   ├── generate-llms.js # llms.txt, llms-full.txt, resume.md, now.md from the HTML
+│   ├── stamp-assets.js  # Content hash for /flap.js?v=… in pages and the service worker
+│   ├── indexnow.js      # Ping IndexNow (Bing, Yandex…) with the sitemap URLs
 │   └── fix-html.js      # HTML validation fixer (all primary pages)
 ├── docs/                # Extended documentation & notes
-├── tests/               # Comprehensive test suite (280 tests)
+├── tests/               # Comprehensive test suite (300 tests)
 └── .github/workflows/   # CI/CD automation
 ```
 
@@ -139,6 +143,18 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 - Descriptive meta descriptions
 - Proper title tags
 
+## 🤖 AI Engines (ChatGPT, Claude, Perplexity, Gemini, Copilot…)
+
+Most AI crawlers and assistants read raw HTML without running JavaScript, so every page is complete as plain HTML and the site speaks their formats:
+
+- **Crawl access**: `robots.txt` welcomes all crawlers and names the main AI agents (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-User, PerplexityBot, Google-Extended, Applebot-Extended, CCBot…). Search, AI answers and training are allowed. Legacy snapshots (`/archive/`, `/v2/`) and developer files are excluded and marked `noindex`, so there is one current version.
+- **[llms.txt](https://ifuentes.net/llms.txt)** ([llmstxt.org](https://llmstxt.org)), **llms-full.txt**, **resume.md** and **now.md**: Markdown versions generated from the HTML (`npm run generate:llms`), linked with `<link rel="alternate" type="text/markdown">`.
+- **Plain-prose bio** on the home page and **JSON-LD**: `Person` (one `@id` across pages), `ProfilePage` with `dateModified`, résumé roles as `EmployeeRole` and credentials as `EducationalOccupationalCredential`.
+- **Clean text**: split-flap animations only change `data-*` attributes rendered by CSS, so the DOM text is never scrambled.
+- **Cloudflare-safe markup**: `<!--email_off-->` around emails and `data-cfasync="false"` on scripts, so Email Obfuscation and Rocket Loader do not rewrite what bots read.
+- **Freshness**: sitemap `lastmod`, JSON-LD `dateModified` and visible dates agree (tested). After a deploy, `npm run indexnow` pings Bing (which feeds ChatGPT search, Copilot and DuckDuckGo), Yandex, Seznam and Naver through [IndexNow](https://www.indexnow.org).
+- **Single source of truth**: `tests/ai.test.js` fails if any summary (meta tags, manifest, humans.txt, llms.txt, feed) presents a past job as current or if derived files drift from the HTML.
+
 ## 🚀 Deployment
 
 This site is deployed on **GitHub Pages**:
@@ -146,17 +162,18 @@ This site is deployed on **GitHub Pages**:
 - **Production URL**: <https://ifuentes.net>
 - **Auto-deploy**: Pushes to `main` branch trigger deployment
 - **Build time**: ~1-2 minutes
+- **After deploy**: `npm run indexnow` to ask search and AI engines to recrawl the sitemap URLs
 
 ## 📈 Monitoring & Tooling
 
 - **GitHub Actions**: CI runs test + validation suite on every push
-- **Pre-commit Hooks**: Husky runs HTML validation, performance budgets and tests locally (commit blocked on failure)
+- **Pre-commit Hooks**: Husky runs HTML validation, performance budgets, generated-file checks and tests locally (commit blocked on failure)
 - **Web Vitals**: Optional collection via `web-vitals.js` (dev mode)
 - **Manual Audits**: Lighthouse CI or local Chrome DevTools when making larger UI changes
 
 ## 🧪 Testing
 
-Comprehensive test suite (280 assertions) covers structure, accessibility, SEO, PWA and performance heuristics.
+Comprehensive test suite (300 assertions) covers structure, accessibility, SEO, AI readiness, PWA and performance heuristics.
 
 ### Quick Start
 
@@ -243,12 +260,13 @@ While this is a personal site, suggestions are welcome. If proposing changes:
 | Step | Action |
 |------|--------|
 | 1 | Create `yourpage.html` with semantic structure & `lang="en"` |
-| 2 | Add to `sitemap.xml` (keep ordering logical) |
+| 2 | Add to `sitemap.xml` (keep ordering logical; `lastmod` must match the page's JSON-LD `dateModified`) |
 | 3 | Reference in `robots.txt` if needed (ensure not disallowed) |
 | 4 | Add link (if appropriate) to `index.html` nav or footer |
 | 5 | Ensure meta description & unique title |
-| 6 | Run `npm test` and ensure budgets are within limits |
-| 7 | Commit and push |
+| 6 | If you edit `index.html`, `resume.html`, `now.html` or `flap.js`, run `npm run build` (regenerates llms.txt, Markdown versions and the flap.js hash) |
+| 7 | Run `npm test` and ensure budgets are within limits |
+| 8 | Commit, push, then `npm run indexnow` once the deploy is live |
 
 Keep page HTML lean: inline critical CSS only if necessary; reuse existing patterns.
 

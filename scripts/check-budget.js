@@ -20,20 +20,29 @@ const colors = {
 };
 
 /**
- * Load budget.json configuration
+ * Load budget.json (Lighthouse format). Entries may have a "path";
+ * like Lighthouse, the last entry whose path matches the page wins.
  */
-function loadBudget() {
+function loadBudgets() {
   const budgetPath = path.join(__dirname, '..', 'budget.json');
   try {
-    const budgetData = JSON.parse(fs.readFileSync(budgetPath, 'utf8'));
-    return budgetData[0].resourceSizes.reduce((acc, item) => {
-      acc[item.resourceType] = item.budget;
-      return acc;
-    }, {});
+    return JSON.parse(fs.readFileSync(budgetPath, 'utf8'));
   } catch (error) {
     console.error(`${colors.red}Error loading budget.json:${colors.reset}`, error.message);
     process.exit(1);
   }
+}
+
+function budgetFor(budgets, page) {
+  const urlPath = '/' + page;
+  const matches = budgets.filter(b => {
+    const p = b.path || '/*';
+    return p.endsWith('*') ? urlPath.startsWith(p.slice(0, -1)) : urlPath === p;
+  });
+  return (matches[matches.length - 1] || budgets[0]).resourceSizes.reduce((acc, item) => {
+    acc[item.resourceType] = item.budget;
+    return acc;
+  }, {});
 }
 
 /**
@@ -131,7 +140,7 @@ function checkBudget(size, budget, resourceType) {
 function main() {
   console.log(`\n${colors.bold}${colors.cyan}Performance Budget Monitor${colors.reset}\n`);
   
-  const budget = loadBudget();
+  const budgets = loadBudgets();
   const pages = ['index.html', 'resume.html', 'now.html', '404.html', 'offline.html'];
   
   let allPassed = true;
@@ -146,6 +155,7 @@ function main() {
     }
     
     console.log(`${colors.bold}${page}${colors.reset}`);
+    const budget = budgetFor(budgets, page);
     const analysis = analyzePage(pagePath, budget);
     
     const checks = [

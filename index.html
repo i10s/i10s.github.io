@@ -7,12 +7,13 @@
   <meta name="description" content="Partner &amp; CTO at eVoost AI, co-founder of Fliinow. Twenty years building, scaling and fixing tech businesses across AI, travel, startups and M&amp;A.">
   <meta name="author" content="Iñaki Fuentes">
   <meta name="keywords" content="Iñaki Fuentes, CTO, co-founder, AI, LLM, travel technology, startups, operations, M&amp;A, eVoost AI, Fliinow, Palma de Mallorca">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f2efe7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0c0d0f" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://ifuentes.net/">
   <link rel="alternate" type="application/rss+xml" title="Iñaki Fuentes" href="/feed.xml">
+  <link rel="alternate" type="text/markdown" title="Iñaki Fuentes for LLMs" href="/llms.txt">
   <link rel="alternate" type="application/atom+xml" title="Iñaki Fuentes · Blog" href="https://inaki.bearblog.dev/feed/">
   <link rel="dns-prefetch" href="https://www.linkedin.com">
   <link rel="preconnect" href="https://www.linkedin.com">
@@ -60,7 +61,8 @@ a:hover{text-decoration-color:var(--mark)}
 .skip:focus{top:.75rem}
 .nav a,.eyebrow,.motto,h1,.board,.pt,.pf dt,.links a,.stub{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.1em}
 .brand,.tiles i,.pict,.sign::before{display:grid;place-items:center;border-radius:.22rem}
-.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.1rem}
+.top,.bh,.bf,.foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 2rem}
+.top{padding-block:1.1rem}
 .brand{width:2.75rem;height:2.75rem;background:var(--mark);color:#111;font-weight:800;letter-spacing:-.05em;text-decoration:none;view-transition-name:brand}
 .nav{display:flex;flex-wrap:wrap;gap:.2rem}
 .nav a{padding:.6rem .75rem;border-radius:.3rem;color:var(--color-text);font-size:0.8rem;text-decoration:none}
@@ -73,13 +75,12 @@ h1{margin:1.4rem 0;font-size:clamp(2.4rem,12.5vw,5.75rem);line-height:1}
 .tiles{display:flex;flex-wrap:wrap;gap:.16em .4em}
 .w{display:flex;gap:.07em}
 .tiles i{position:relative;width:.84em;height:1.2em;border-radius:.09em;background:linear-gradient(var(--hi) 50%,var(--lo) 50%);color:var(--ink);font-style:normal;box-shadow:0 .06em .14em #0005}
-.tiles i::before,.tiles i::after,.row>span::after{content:"";position:absolute;inset:0 0 50%}
-.tiles i::after,.row>span::after{inset:calc(50% - .5px) 0 auto;height:1px;background:#0009}
-.tiles i::before{border-radius:inherit;background:var(--hi);transform:scaleY(0);transform-origin:bottom}
+.tiles i::before{content:attr(data-c)}
+.tiles i::after,.row>span::after{content:"";position:absolute;inset:calc(50% - .5px) 0 auto;height:1px;background:#0009}
 .tiles .a::before{animation:fa 60ms ease-in}
 .tiles .b::before{animation:fb 60ms ease-in}
-@keyframes fa{from{transform:scaleY(1)}}
-@keyframes fb{from{transform:scaleY(1)}}
+@keyframes fa{from{transform:rotateX(90deg)}}
+@keyframes fb{from{transform:rotateX(90deg)}}
 .intro{display:grid;gap:1.25rem 4rem;align-items:end;margin-top:clamp(2rem,6vw,4rem)}
 .lede,.pass h2{font-weight:750;line-height:1.02;letter-spacing:-.035em}
 .lede{max-width:17ch;font-size:clamp(2rem,1.2rem + 3.6vw,4.25rem);text-wrap:balance}
@@ -88,9 +89,9 @@ h1{margin:1.4rem 0;font-size:clamp(2.4rem,12.5vw,5.75rem);line-height:1}
 .sign::before{content:"→"/"";width:1.7em;height:1.7em;background:#111;color:var(--mark)}
 .sec+.sec{margin-top:clamp(1.25rem,3vw,2rem)}
 .board{padding:clamp(.85rem,2.2vw,1.6rem);border:1px solid var(--edge);border-radius:clamp(.6rem,1.6vw,1.1rem);background:var(--board);color:var(--ink);font-size:clamp(0.78rem,.7rem + .35vw,0.95rem);letter-spacing:.06em;box-shadow:0 28px 60px -32px #0008}
-.bh,.bf{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.75rem 2rem}
 .bh{padding-bottom:1rem;margin-bottom:.6rem;border-bottom:1px solid var(--edge)}
-.bh h2{display:flex;align-items:center;gap:.7em;font-size:clamp(1.05rem,.85rem + 1vw,1.55rem)}
+.bh h2,.info h2{display:flex;align-items:center;gap:.65em}
+.bh h2{font-size:clamp(1.05rem,.85rem + 1vw,1.55rem)}
 .pict{width:1.75em;height:1.75em;background:var(--mark);color:#111}
 .clk{color:var(--amber)}
 .clk span{display:inline-block;min-width:5.5ch;margin:0 1em 0 .4em}
@@ -107,12 +108,14 @@ h1{margin:1.4rem 0;font-size:clamp(2.4rem,12.5vw,5.75rem);line-height:1}
 .go::before{animation:blink 1.2s steps(1) 4}
 @keyframes blink{50%{opacity:0}}
 .s small{font-size:1em;color:var(--dim);text-transform:none;letter-spacing:0}
-.fx{position:absolute;inset:0;padding:inherit;border-radius:inherit;background:inherit}
-.s .fx{background:var(--board)}
+.row>[data-fx]::before{content:attr(data-fx)/"";position:absolute;inset:0;padding:inherit;border-radius:inherit;background:inherit}
 .bf{margin-top:1rem;padding-top:1rem;border-top:1px solid var(--edge);color:var(--dim)}
 .board a{color:var(--ink)}
 .board a:hover{color:var(--mark)}
 .board a::after{content:" →"/""}
+.info{display:grid;gap:1rem;margin-top:var(--gap)}
+.info h2{font-size:clamp(1.5rem,1.1rem + 1.6vw,2.4rem);letter-spacing:-.03em}
+.info h2~p{max-width:68ch;color:var(--fg2)}
 .pass{display:grid;grid-template-columns:minmax(0,1fr) auto;margin-top:var(--gap);border-radius:1rem;background:var(--paper);box-shadow:0 30px 60px -36px #0007;overflow:hidden}
 .pm{padding:clamp(1.25rem,4vw,2.75rem)}
 .ph{display:flex;justify-content:space-between;align-items:flex-start;gap:1rem}
@@ -128,7 +131,7 @@ h1{margin:1.4rem 0;font-size:clamp(2.4rem,12.5vw,5.75rem);line-height:1}
 .stub::before,.stub::after{content:"";position:absolute;left:-.8rem;top:-.8rem;width:1.6rem;height:1.6rem;border-radius:50%;background:var(--color-bg)}
 .stub::after{top:auto;bottom:-.8rem}
 .bar{height:4.5rem;min-width:8rem;background:repeating-linear-gradient(90deg,currentColor 0 2px,transparent 0 4px,currentColor 0 5px,transparent 0 9px)}
-.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 2rem;margin-top:var(--gap);padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mute);font-size:0.9rem}
+.foot{margin-top:var(--gap);padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mute);font-size:0.9rem}
 .foot a{color:inherit}
 @media (min-width: 900px){.intro{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}}
 @media (max-width: 760px){.board{padding:.6rem}.row{grid-template-columns:7em minmax(0,1fr) 8.4em;letter-spacing:.02em}.row>span{padding:.45em .5em}.row>:nth-child(3){grid-area:2/2}.row>:nth-child(4){grid-area:2/1}.row>:nth-child(5){grid-area:1/3/3}.s small{display:block}}
@@ -149,7 +152,7 @@ h1{margin:1.4rem 0;font-size:clamp(2.4rem,12.5vw,5.75rem);line-height:1}
 <main id="content">
   <section class="hero wrap" aria-labelledby="name">
     <p class="eyebrow"><span lang="es">Salidas</span> · Departures · Palma de Mallorca</p>
-    <h1 id="name"><span class="sr">Iñaki Fuentes</span><span class="tiles" data-tiles="LESS WRONG|EVERY DAY" aria-hidden="true"><span class="w"><i>I</i><i>Ñ</i><i>A</i><i>K</i><i>I</i></span><span class="w"><i>F</i><i>U</i><i>E</i><i>N</i><i>T</i><i>E</i><i>S</i></span></span></h1>
+    <h1 id="name"><span class="sr">Iñaki Fuentes</span><span class="tiles" data-tiles="LESS WRONG|EVERY DAY" aria-hidden="true"><span class="w"><i data-c="I"></i><i data-c="Ñ"></i><i data-c="A"></i><i data-c="K"></i><i data-c="I"></i></span><span class="w"><i data-c="F"></i><i data-c="U"></i><i data-c="E"></i><i data-c="N"></i><i data-c="T"></i><i data-c="E"></i><i data-c="S"></i></span></span></h1>
     <p class="motto">Trying to be less wrong every day.</p>
     <div class="intro">
       <p class="lede">I build, scale and fix tech businesses.</p>
@@ -198,6 +201,13 @@ h1{margin:1.4rem 0;font-size:clamp(2.4rem,12.5vw,5.75rem);line-height:1}
     </div>
   </section>
 
+  <section class="info wrap" aria-labelledby="bio">
+    <p class="eyebrow">Passenger information</p>
+    <h2 id="bio"><span class="pict" aria-hidden="true">i</span>About Iñaki Fuentes</h2>
+    <p>Iñaki Fuentes is a technology executive and entrepreneur based in Palma de Mallorca, Spain. He is Partner &amp; CTO at eVoost AI and co-founder of Fliinow, buy now, pay later infrastructure for the travel industry, and he advises tech and travel startups on strategy, scaling and fundraising.</p>
+    <p>Previously he was COO of Travelgate (acquired by Travelsoft), co-founder and CEO of Quonversa (acquired by Travelgate), CEO of Bluekiri and CIO of Logitravel Group (both acquired by Viajes El Corte Inglés). He started in infrastructure as a systems administrator and engineering manager, and holds an MSc in Computer Network Technology from Northumbria University. His work was recognised with a Computerworld 2018 award for innovation in tourism.</p>
+  </section>
+
   <section class="wrap" aria-labelledby="talk">
     <div class="pass">
       <div class="pm">
@@ -216,7 +226,7 @@ h1{margin:1.4rem 0;font-size:clamp(2.4rem,12.5vw,5.75rem);line-height:1}
         </dl>
         <nav aria-label="Social media and professional links">
           <ul class="links">
-            <li><a href="mailto:inaki@ifuentes.net">Email</a></li>
+            <li><!--email_off--><a href="mailto:inaki@ifuentes.net">Email</a><!--/email_off--></li>
             <li><a href="https://www.linkedin.com/in/inakifuentes/" target="_blank" rel="me noopener noreferrer" aria-label="LinkedIn profile (opens in new tab)">LinkedIn</a></li>
             <li><a href="https://github.com/i10s" target="_blank" rel="me noopener noreferrer" aria-label="GitHub profile (opens in new tab)">GitHub</a></li>
             <li><a href="https://x.com/ifuentes" target="_blank" rel="me noopener noreferrer" aria-label="X profile (opens in new tab)">X</a></li>
@@ -238,53 +248,10 @@ h1{margin:1.4rem 0;font-size:clamp(2.4rem,12.5vw,5.75rem);line-height:1}
   <p>Stay calm. Be critical. Start building.</p>
   <p><a href="/privacy.html">Privacy</a> · <a href="/.well-known/security.txt">Security</a> · <a href="/humans.txt">Humans</a> · <a href="/feed.xml">RSS</a></p>
 </footer>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Iñaki Fuentes",
-  "alternateName": "Iñaki Fuentes Liberal",
-  "url": "https://ifuentes.net/",
-  "image": "https://ifuentes.net/ifuentes.jpg",
-  "email": "mailto:inaki@ifuentes.net",
-  "jobTitle": "Partner & CTO",
-  "worksFor": [
-    { "@type": "Organization", "name": "eVoost AI" },
-    { "@type": "Organization", "name": "Fliinow", "url": "https://fliinow.com/" }
-  ],
-  "description": "I build, scale and fix tech businesses. AI, travel, startups, operations and M&A. From infrastructure to boardroom, from idea to exit.",
-  "homeLocation": { "@type": "Place", "name": "Palma de Mallorca, Spain" },
-  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Northumbria University" },
-  "award": ["Computerworld Award 2018, Innovation in Tourism", "Star Award"],
-  "knowsLanguage": ["es", "en", "fr"],
-  "knowsAbout": ["Startup leadership", "Large language models", "Travel technology", "Operations", "Mergers and acquisitions"],
-  "sameAs": [
-    "https://www.linkedin.com/in/inakifuentes/",
-    "https://github.com/i10s",
-    "https://x.com/ifuentes",
-    "https://inaki.bearblog.dev/",
-    "https://www.strava.com/athletes/1980963",
-    "https://keybase.io/ifuentes",
-    "https://t.me/ifuentes",
-    "https://www.instagram.com/ifuentes/",
-    "https://www.facebook.com/inaki.fuentes",
-    "https://www.reddit.com/user/i10s"
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Iñaki Fuentes",
-  "alternateName": "ifuentes.net",
-  "url": "https://ifuentes.net/",
-  "inLanguage": "en",
-  "publisher": { "@type": "Person", "name": "Iñaki Fuentes", "url": "https://ifuentes.net/" }
-}
-</script>
-<script src="/flap.js" defer></script>
-<script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","@id":"https://ifuentes.net/#person","name":"Iñaki Fuentes","alternateName":["Iñaki Fuentes Liberal","Inaki Fuentes"],"givenName":"Iñaki","familyName":"Fuentes","url":"https://ifuentes.net/","image":"https://ifuentes.net/ifuentes.jpg","email":"mailto:inaki@ifuentes.net","jobTitle":"Partner & CTO","description":"Technology executive and entrepreneur based in Palma de Mallorca, Spain. Builds, scales and fixes tech businesses across AI, travel, startups, operations and M&A.","worksFor":[{"@type":"Organization","name":"eVoost AI"},{"@type":"Organization","name":"Fliinow","url":"https://fliinow.com/"}],"address":{"@type":"PostalAddress","addressLocality":"Palma","addressRegion":"Balearic Islands","addressCountry":"ES"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Northumbria University","url":"https://www.northumbria.ac.uk/"},"award":["Computerworld Award 2018, Innovation in Tourism","Star Award"],"knowsLanguage":[{"@type":"Language","name":"Spanish","alternateName":"es"},{"@type":"Language","name":"English","alternateName":"en"},{"@type":"Language","name":"French","alternateName":"fr"}],"knowsAbout":["Artificial intelligence","Large language models","Travel technology","Startup leadership","Co-creation","Operations","Mergers and acquisitions","Cloud infrastructure"],"sameAs":["https://www.linkedin.com/in/inakifuentes/","https://github.com/i10s","https://x.com/ifuentes","https://inaki.bearblog.dev/","https://www.strava.com/athletes/1980963","https://keybase.io/ifuentes","https://t.me/ifuentes","https://www.instagram.com/ifuentes/","https://www.facebook.com/inaki.fuentes","https://www.reddit.com/user/i10s"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://ifuentes.net/#website","url":"https://ifuentes.net/","name":"Iñaki Fuentes","alternateName":"ifuentes.net","inLanguage":"en","publisher":{"@id":"https://ifuentes.net/#person"}},{"@type":"ProfilePage","@id":"https://ifuentes.net/#profilepage","url":"https://ifuentes.net/","name":"Iñaki Fuentes — I build, scale and fix tech businesses","inLanguage":"en","dateModified":"2026-10-19","isPartOf":{"@id":"https://ifuentes.net/#website"},"mainEntity":{"@id":"https://ifuentes.net/#person"}}]}</script>
+<script src="/flap.js?v=741e445e" defer data-cfasync="false"></script>
+<script data-cfasync="false">
   if ('serviceWorker' in navigator) addEventListener('load', () => navigator.serviceWorker.register('/sw.js'));
   if (location.hostname === 'localhost' || /[?&]vitals\b/.test(location.search)) document.head.append(Object.assign(document.createElement('script'), { src: '/web-vitals.js' }));
 </script>

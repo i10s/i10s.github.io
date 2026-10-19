@@ -2,6 +2,8 @@
 (() => {
   'use strict';
 
+  // Animations only touch data-* attributes rendered by CSS (content: attr(...) / ""),
+  // so page text never changes: crawlers, AI agents and screen readers always read clean text.
   const d = document;
   const calm = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const GLYPHS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
@@ -9,13 +11,13 @@
   const pick = () => GLYPHS[(Math.random() * GLYPHS.length) | 0];
   const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-  // Tiles: every <i> inside [data-tiles] .w shows one character.
+  // Tiles: every <i data-c="X"> inside [data-tiles] .w shows one character.
   const groups = () => [...d.querySelectorAll('[data-tiles] .w')];
-  const read = () => groups().map(g => [...g.children].map(t => t.textContent).join(''));
+  const read = () => groups().map(g => [...g.children].map(t => t.dataset.c || ' ').join(''));
 
   const spin = (tile, to, turns) => new Promise(resolve => {
     if (calm) {
-      tile.textContent = to;
+      tile.dataset.c = to;
       return resolve();
     }
     let k = 0;
@@ -23,10 +25,10 @@
       tile.className = k % 2 ? 'b' : 'a';
       if (++k > turns) {
         clearInterval(id);
-        tile.textContent = to;
+        tile.dataset.c = to;
         resolve();
       } else {
-        tile.textContent = pick();
+        tile.dataset.c = pick();
       }
     }, 60);
   });
@@ -35,21 +37,16 @@
     [...g.children].map((tile, i) => spin(tile, [...(words[w] || '')][i] || ' ', 3 + i + 2 * w + ((Math.random() * 4) | 0)))
   ));
 
-  // Boards: rows in [data-board] flap once when they scroll into view.
-  // An aria-hidden overlay does the flapping, so assistive tech always reads the real text.
+  // Boards: cells in [data-board] rows flap once when they scroll into view.
   const scramble = board => {
     const jobs = [];
     board.querySelectorAll('li').forEach((row, r) => {
       [...row.children].forEach((cell, c) => {
         const node = cell.firstChild;
-        const chars = node && node.nodeType === 3 ? [...node.nodeValue] : [];
-        if (!chars.length) return;
-        const fx = d.createElement('span');
-        fx.className = 'fx';
-        fx.setAttribute('aria-hidden', 'true');
-        fx.textContent = chars.map(ch => (ALNUM.test(ch) ? pick() : ch)).join('');
-        cell.append(fx);
-        jobs.push({ fx, chars, at: r * 2 + c });
+        if (cell.classList.contains('s') || !node || node.nodeType !== 3) return;
+        const chars = [...node.nodeValue];
+        cell.dataset.fx = chars.map(ch => (ALNUM.test(ch) ? pick() : ch)).join('');
+        jobs.push({ cell, chars, at: r * 2 + c, done: false });
       });
     });
     let tick = 0;
@@ -57,15 +54,15 @@
       tick++;
       let live = 0;
       for (const job of jobs) {
-        if (!job.fx) continue;
+        if (job.done) continue;
         const settled = tick - job.at;
         if (settled > job.chars.length) {
-          job.fx.remove();
-          job.fx = null;
+          delete job.cell.dataset.fx;
+          job.done = true;
           continue;
         }
         live++;
-        job.fx.textContent = job.chars.map((ch, k) => (k < settled || !ALNUM.test(ch) ? ch : pick())).join('');
+        job.cell.dataset.fx = job.chars.map((ch, k) => (k < settled || !ALNUM.test(ch) ? ch : pick())).join('');
       }
       if (!live) clearInterval(id);
     }, 45);
@@ -101,7 +98,7 @@
   const toast = message => {
     const el = d.createElement('p');
     el.setAttribute('role', 'status');
-    el.textContent = message;
+    el.append(message);
     el.style.cssText = 'position:fixed;left:50%;bottom:1.5rem;z-index:99;transform:translateX(-50%);margin:0;padding:.8rem 1.1rem;border-radius:.4rem;background:#ffcc00;color:#111;font:700 .85rem/1.3 ui-monospace,monospace;box-shadow:0 12px 32px rgba(0,0,0,.35)';
     d.body.append(el);
     setTimeout(() => el.remove(), 4500);

@@ -1,1 +1,38 @@
-[{"resourceSizes":[{"resourceType":"document","budget":22},{"resourceType":"script","budget":10},{"resourceType":"image","budget":5},{"resourceType":"stylesheet","budget":8},{"resourceType":"media","budget":0},{"resourceType":"font","budget":0},{"resourceType":"total","budget":35}]}]
+[
+  {
+    "path": "/*",
+    "resourceSizes": [
+      { "resourceType": "document", "budget": 22 },
+      { "resourceType": "script", "budget": 10 },
+      { "resourceType": "image", "budget": 5 },
+      { "resourceType": "stylesheet", "budget": 8 },
+      { "resourceType": "media", "budget": 0 },
+      { "resourceType": "font", "budget": 0 },
+      { "resourceType": "total", "budget": 35 }
+    ]
+  },
+  {
+    "path": "/index.html",
+    "resourceSizes": [
+      { "resourceType": "document", "budget": 24 },
+      { "resourceType": "script", "budget": 10 },
+      { "resourceType": "image", "budget": 5 },
+      { "resourceType": "stylesheet", "budget": 8 },
+      { "resourceType": "media", "budget": 0 },
+      { "resourceType": "font", "budget": 0 },
+      { "resourceType": "total", "budget": 35 }
+    ]
+  },
+  {
+    "path": "/resume.html",
+    "resourceSizes": [
+      { "resourceType": "document", "budget": 26 },
+      { "resourceType": "script", "budget": 10 },
+      { "resourceType": "image", "budget": 5 },
+      { "resourceType": "stylesheet", "budget": 8 },
+      { "resourceType": "media", "budget": 0 },
+      { "resourceType": "font", "budget": 0 },
+      { "resourceType": "total", "budget": 35 }
+    ]
+  }
+]

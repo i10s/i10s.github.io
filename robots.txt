@@ -1,17 +1,68 @@
 # robots.txt for https://ifuentes.net
 # Updated: October 2026
+#
+# Everyone is welcome: search engines, AI assistants, AI search and research crawlers.
+# Search, AI answers (RAG/grounding) and AI training are all allowed.
+# Only legacy snapshots and developer files are excluded, so crawlers see one current version.
+#
+# LLM-friendly summary: https://ifuentes.net/llms.txt
+# Full text for LLMs:   https://ifuentes.net/llms-full.txt
+# Humans TXT:           https://ifuentes.net/humans.txt
 
-User-Agent: *
+User-agent: *
 Allow: /
+Disallow: /archive/
+Disallow: /v2/
+Disallow: /docs/
+Disallow: /cards/
+Disallow: /scripts/
+Disallow: /tests/
 
-# Humans TXT: https://ifuentes.net/humans.txt
+# AI crawlers, AI search engines and assistants: explicitly welcome, same rules.
+# OpenAI
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+# Anthropic
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: anthropic-ai
+# Perplexity
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+# Google (Gemini, AI Overviews, Vertex AI) and Microsoft (Bing, Copilot)
+User-agent: Googlebot
+User-agent: Google-Extended
+User-agent: GoogleOther
+User-agent: Google-CloudVertexBot
+User-agent: Bingbot
+# Apple, Meta, Amazon, DuckDuckGo
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+User-agent: meta-externalfetcher
+User-agent: FacebookBot
+User-agent: Amazonbot
+User-agent: DuckAssistBot
+# Mistral, Cohere, You.com, ByteDance, Huawei, Common Crawl and research crawlers
+User-agent: MistralAI-User
+User-agent: cohere-ai
+User-agent: cohere-training-data-crawler
+User-agent: YouBot
+User-agent: Bytespider
+User-agent: PetalBot
+User-agent: CCBot
+User-agent: Diffbot
+User-agent: AI2Bot
+Allow: /
+Disallow: /archive/
+Disallow: /v2/
+Disallow: /docs/
+Disallow: /cards/
+Disallow: /scripts/
+Disallow: /tests/
 
-# Sitemaps
 Sitemap: https://ifuentes.net/sitemap.xml
 
-# Security
-# For security vulnerability reporting, see:
-# https://ifuentes.net/.well-known/security.txt
-
-# Crawl-delay (optional, adjust as needed)
-# Crawl-delay: 1
+# Security: https://ifuentes.net/.well-known/security.txt

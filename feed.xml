@@ -6,7 +6,7 @@
     <description>I build, scale and fix tech businesses. AI, travel, startups, operations and M&amp;A.</description>
     <language>en-us</language>
     <copyright>Copyright 2026 Iñaki Fuentes</copyright>
-    <lastBuildDate>Tue, 13 Oct 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://ifuentes.net/feed.xml" rel="self" type="application/rss+xml"/>
     <managingEditor>inaki@ifuentes.net (Iñaki Fuentes)</managingEditor>
     <webMaster>inaki@ifuentes.net (Iñaki Fuentes)</webMaster>
@@ -31,17 +31,6 @@
       <dc:creator>Iñaki Fuentes</dc:creator>
       <description><![CDATA[
         <p>ifuentes.net is now a split-flap departures board. The résumé is a full flight log: twenty years from server rooms to boardrooms, four acquisitions along the way.</p>
-      ]]></description>
-    </item>
-
-    <item>
-      <title>What I'm Doing Now - November 2025</title>
-      <link>https://ifuentes.net/now.html</link>
-      <guid isPermaLink="true">https://ifuentes.net/now.html</guid>
-      <pubDate>Sat, 08 Nov 2025 00:00:00 +0000</pubDate>
-      <dc:creator>Iñaki Fuentes</dc:creator>
-      <description><![CDATA[
-        <p>Current focus as COO at Travelgate: scaling partnerships, building AI-driven automation, and optimizing operations across the world's largest travel marketplace.</p>
       ]]></description>
     </item>
   </channel>

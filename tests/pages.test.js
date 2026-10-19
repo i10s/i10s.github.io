@@ -73,7 +73,7 @@ pages.forEach(page => {
 
     it('loads flap.js when it shows split-flap tiles or boards', () => {
       if (document.querySelector('[data-tiles], [data-board]')) {
-        expect(document.querySelector('script[src="/flap.js"][defer]')).to.exist;
+        expect(document.querySelector('script[src^="/flap.js?v="][defer]')).to.exist;
       }
     });
 
@@ -198,8 +198,13 @@ describe('flap.js', () => {
     expect(code).to.include('prerendering');
   });
 
-  it('animates through aria-hidden overlays so real text never changes', () => {
-    expect(code).to.include("setAttribute('aria-hidden', 'true')");
+  it('animates through data attributes so page text never changes', () => {
+    expect(code).to.include('dataset.c');
+    expect(code).to.include('dataset.fx');
+    expect(code).to.not.match(/(tile|cell)\.textContent\s*=/);
+    const css = read('index.html').match(/<style>([\s\S]*?)<\/style>/)[1];
+    expect(css).to.include('content:attr(data-c)');
+    expect(css).to.match(/content:attr\(data-fx\)\/""/);
   });
 
   it('has no external dependencies', () => {
@@ -212,7 +217,7 @@ describe('Assets and offline support', () => {
     const sw = read('sw.js');
     const list = sw.match(/const urlsToCache = \[([\s\S]*?)\];/)[1];
     const urls = (list.match(/'([^']+)'/g) || []).map(s => s.slice(1, -1));
-    expect(urls).to.include('/flap.js');
+    expect(urls.some(url => url.startsWith('/flap.js?v='))).to.be.true;
     urls.forEach(url => expect(fs.existsSync(toFile(url)), url).to.be.true);
   });
 

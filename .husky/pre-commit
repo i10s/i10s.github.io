@@ -4,5 +4,8 @@ npm run validate:html
 # Check performance budget
 npm run validate:budget
 
+# Check generated files (llms.txt, Markdown versions, asset hashes) match the HTML
+npm run validate:generated
+
 # Run tests
 npm test

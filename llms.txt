@@ -1,0 +1,32 @@
+# Iñaki Fuentes
+
+> Iñaki Fuentes is a technology executive and entrepreneur based in Palma de Mallorca, Spain. He is Partner & CTO at eVoost AI and co-founder of Fliinow, buy now, pay later infrastructure for the travel industry, and he advises tech and travel startups on strategy, scaling and fundraising.
+
+Previously he was COO of Travelgate (acquired by Travelsoft), co-founder and CEO of Quonversa (acquired by Travelgate), CEO of Bluekiri and CIO of Logitravel Group (both acquired by Viajes El Corte Inglés). He started in infrastructure as a systems administrator and engineering manager, and holds an MSc in Computer Network Technology from Northumbria University. His work was recognised with a Computerworld 2018 award for innovation in tourism.
+
+In his own words: "I build, scale and fix tech businesses. AI, travel, startups, operations and M&A. From infrastructure to boardroom, from idea to exit. Less theatre. More execution."
+
+Last updated: 13 October 2026.
+
+## Main pages
+
+- [Résumé](https://ifuentes.net/resume.md): Full career history with dates, acquisitions, education, certifications, languages and awards (HTML: https://ifuentes.net/resume.html)
+- [Now](https://ifuentes.net/now.md): What he is focused on right now (HTML: https://ifuentes.net/now.html)
+- [Home](https://ifuentes.net/): Current roles, career highlights and contact
+
+## Contact and profiles
+
+- [Email](mailto:inaki@ifuentes.net): inaki@ifuentes.net
+- [LinkedIn](https://www.linkedin.com/in/inakifuentes/)
+- [GitHub](https://github.com/i10s)
+- [X](https://x.com/ifuentes)
+- [Blog](https://inaki.bearblog.dev/blog/)
+- [Strava](https://www.strava.com/athletes/1980963)
+- [Keybase](https://keybase.io/ifuentes)
+- [Instagram](https://www.instagram.com/ifuentes/)
+
+## Optional
+
+- [Full text](https://ifuentes.net/llms-full.txt): Bio, résumé and now page in a single file
+- [RSS feed](https://ifuentes.net/feed.xml): Updates
+- [humans.txt](https://ifuentes.net/humans.txt): Credits and colophon

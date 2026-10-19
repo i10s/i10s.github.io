@@ -1,0 +1,213 @@
+# Iñaki Fuentes
+
+Iñaki Fuentes is a technology executive and entrepreneur based in Palma de Mallorca, Spain. He is Partner & CTO at eVoost AI and co-founder of Fliinow, buy now, pay later infrastructure for the travel industry, and he advises tech and travel startups on strategy, scaling and fundraising.
+
+Previously he was COO of Travelgate (acquired by Travelsoft), co-founder and CEO of Quonversa (acquired by Travelgate), CEO of Bluekiri and CIO of Logitravel Group (both acquired by Viajes El Corte Inglés). He started in infrastructure as a systems administrator and engineering manager, and holds an MSc in Computer Network Technology from Northumbria University. His work was recognised with a Computerworld 2018 award for innovation in tourism.
+
+In his own words: "I build, scale and fix tech businesses. AI, travel, startups, operations and M&A. From infrastructure to boardroom, from idea to exit. Less theatre. More execution."
+
+Website: https://ifuentes.net/ · Last updated: 13 October 2026
+
+## Contact and profiles
+
+- Email: inaki@ifuentes.net
+- LinkedIn: https://www.linkedin.com/in/inakifuentes/
+- GitHub: https://github.com/i10s
+- X: https://x.com/ifuentes
+- Blog: https://inaki.bearblog.dev/blog/
+- Strava: https://www.strava.com/athletes/1980963
+- Keybase: https://keybase.io/ifuentes
+- Instagram: https://www.instagram.com/ifuentes/
+
+## Iñaki Fuentes: résumé
+
+> Trying to be less wrong every day
+
+I build, scale and fix tech businesses. AI, travel, startups, operations and M&A. From infrastructure to boardroom, from idea to exit. Less theatre. More execution.
+
+- Base: Palma de Mallorca, Spain
+- Email: [inaki@ifuentes.net](mailto:inaki@ifuentes.net)
+- Profile: [linkedin.com/in/inakifuentes](https://www.linkedin.com/in/inakifuentes/)
+- At a glance: 20+ years in tech · 4 acquisitions · 4 C-suite seats: CEO, CIO, COO, CTO · 2018 Computerworld award
+- Last updated: October 2026
+- HTML version: https://ifuentes.net/resume.html
+
+### Experience
+
+#### Partner & CTO, eVoost AI
+
+Jan 2026 – now · EU – UAE · In flight
+
+#### Co-founder, Fliinow
+
+Nov 2025 – now · Palma · In flight
+
+Buy now, pay later infrastructure for the travel industry.
+
+#### Advisor, mentor & partner, Independent
+
+Jan 2020 – now · Tech and travel startups · In flight
+
+Strategic guidance for founders: business strategy and scaling, fundraising and investment readiness, innovation and digital transformation.
+
+#### Chief Operating Officer, Travelgate
+
+Apr 2023 – Sep 2026 · Palma · Acquired by Travelsoft
+
+Led operational strategy with a focus on innovation, partnership growth and service excellence. Put partner empowerment first to redefine the travel marketplace and drive sustainable growth across the industry.
+
+#### Startup mentor, ENISA, emprendimiento innovador
+
+May – Oct 2023 · Palma
+
+Helped founders with business plans, fundraising strategy and goal-setting, drawing on my own experience in tech and travel.
+
+#### Co-founder & CEO, Quonversa
+
+Feb 2021 – Oct 2023 · Palma · Acquired by Travelgate
+
+Mission: make talking to a business feel as easy and natural as talking to a friend. Built transactional solutions on conversational, AI-driven process automation, plus a data-led, customer-centric B2C strategy. Led product strategy and the team.
+
+#### CEO, Bluekiri
+
+Jun 2017 – Sep 2021 · Palma · Acquired by Viajes El Corte Inglés
+
+Logitravel Group spin-off providing multi-cloud architecture and managed IT services for e-commerce, big data, transactional and online platforms. Full P&L responsibility, strategic plan, teams, alliances and partnerships, product and clients.
+
+#### CIO, Logitravel Group
+
+Oct 2015 – Sep 2021 · Palma · Acquired by Viajes El Corte Inglés
+
+Made the group's technology strategy serve its business strategy. Turned IT operations and core development into an enterprise-grade division and kept IT costs under control across every business area. Strategic plan, M&A, post-merger integration, innovation and new revenue from business development.
+
+#### Member of the management board, Turistec
+
+Mar 2019 – Feb 2021 · Palma
+
+Promoted digitalisation and innovation for cluster members, the tourism sector and ICT. Spotted new business models and funding lines, and matched members' needs with other members' solutions.
+
+#### Mentor, Conector Startup Accelerator
+
+Nov 2018 – Feb 2020 · Palma
+
+Worked side by side with founders towards an investable project: finished product, proven business model, clear metrics with first results and a validated business plan, reviewed in monthly boards.
+
+#### CTO, Ace Sticker
+
+Jan 2015 – Oct 2016 · Barcelona
+
+Owned the web presence and technology: shaped the service as a web-based business, led web application delivery and planned for risk and growth.
+
+#### Ride leader, Global Cycle Rides
+
+Jun – Oct 2015 · Barcelona
+
+#### Engineering manager, NTT Europe
+
+Jan 2011 – Oct 2015 · Barcelona
+
+Led a multinational team of senior and entry-level engineers. Owned customer technical management: project manager during service setup, then operations manager for my customers' platforms.
+
+#### Microsoft systems engineer, Atlas IT
+
+Apr 2009 – Mar 2011 · Barcelona
+
+Third-line Microsoft support (Windows Server, IIS, Exchange, SQL Server, Active Directory) and project work: building systems to client specifications, then fixing them in production.
+
+#### System administrator, Dana Corporation
+
+Mar 2008 – Apr 2009 · Pamplona
+
+IT infrastructure (PCs, servers and communications), security audit reports and real-time production software.
+
+#### System administrator, M. Torres Diseños Industriales
+
+Jun 2005 – Aug 2006 · Pamplona
+
+Technical support, corporate intranet, data-centre migration (servers, clusters, EVA, Windows Server 2003) and the Windows 2000 to XP upgrade.
+
+### Education
+
+- **UEFA C Diploma**, UEFA Academy (Oct 2026 – Mar 2027). In progress.
+- **BSc (Hons) Applied Computing**, Northumbria University (2009 – 2011). Distance learning.
+- **MSc Computer Network Technology**, Northumbria University (2007 – 2008).
+- **Introduction to Operations Management**, The Wharton School (2016). University of Pennsylvania, on Coursera.
+- **Corporate Finance Essentials**, IESE Business School (2015). On Coursera.
+
+### Top skills
+
+- Start-up leadership
+- Co-creation
+- Large language models (LLM)
+
+### Languages
+
+- Spanish: Native or bilingual
+- English: Full professional
+- French: Elementary
+
+### Certifications
+
+- AI for Research and Insights
+- Google AI
+- Gamification
+- Inspiring Leadership through Emotional Intelligence
+- ¿Qué hacen los buenos directivos? Prioridades de la Alta Dirección
+
+### Honours & awards
+
+- Computerworld Awards 2018: Innovation in tourism
+- Star Award
+
+## What I'm doing now: Iñaki Fuentes
+
+> Now boarding · Updated 13 October 2026 · Palma de Mallorca
+
+A snapshot of what has my attention at this point in my life. Inspired by the [/now movement](https://nownownow.com/about).
+
+### In flight
+
+#### eVoost AI
+
+Since Jan 2026 · EU–UAE · In flight
+
+Partner and CTO, working between the European Union and the United Arab Emirates.
+
+#### Fliinow
+
+Since Nov 2025 · Palma · In flight
+
+Co-founder. Buy now, pay later infrastructure for the travel industry: one integration, every travel BNPL provider.
+
+#### Founders
+
+Since 2020 · In flight
+
+Advisor, mentor and partner for tech and travel startups: strategy, scaling and fundraising.
+
+### Just landed
+
+- **Apr 2023 – Sep 2026**: Three and a half years as COO of Travelgate, which is now part of Travelsoft. Quonversa, the company I co-founded, had joined Travelgate in 2023.
+
+### Learning
+
+- **UEFA C**: Back to school, on the pitch: the UEFA C coaching diploma, October 2026 to March 2027.
+- **AI**: Practical LLM and agent use for support, pricing and transactional flows.
+- **Systems**: Simplify structures, align teams, reduce operational debt.
+
+### Off duty
+
+- **Training**: Consistency over intensity, logged on [Strava](https://www.strava.com/athletes/1980963).
+- **Reading**: A mix of sci-fi, strategy and leadership.
+- **Writing**: Occasional [blog posts](https://inaki.bearblog.dev/blog/) and private notes.
+
+### Priorities
+
+1. **Foundation**: Family and health: the non-negotiable foundation.
+2. **Build**: Build eVoost AI and Fliinow: ship, learn, scale.
+3. **Founders**: Be useful to the founders I work with. Less theatre, more execution.
+4. **Curiosity**: Stay curious and keep learning.
+
+Last updated 13 October 2026 · Full history in the [résumé](https://ifuentes.net/resume.html)
+
+HTML version: https://ifuentes.net/now.html

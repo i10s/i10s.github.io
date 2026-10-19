@@ -5,10 +5,12 @@ Static site served via GitHub Pages (global CDN). No build/transpile pipeline; a
 
 ## File Roles
 - `index.html`: Home. Split-flap hero, Departures (now) and Arrivals (career) boards, boarding-pass contact card, SEO and structured data.
-- `flap.js`: Progressive enhancement for `[data-tiles]` (flap tiles) and `[data-board]` (board rows flap once when scrolled into view), `[data-tz]` clocks and the Konami easter egg. Animations run in `aria-hidden` overlays, respect `prefers-reduced-motion` and wait for prerender activation.
+- `flap.js`: Progressive enhancement for `[data-tiles]` (flap tiles) and `[data-board]` (board rows flap once when scrolled into view), `[data-tz]` clocks and the Konami easter egg. Animations only change `data-c` / `data-fx` attributes rendered by CSS `content: attr()`, so DOM text (what crawlers, AI agents and screen readers read) never changes. They respect `prefers-reduced-motion` and wait for prerender activation. Pages load it as `/flap.js?v=<hash>` (see `scripts/stamp-assets.js`).
 - `sw.js`: PWA logic. Network-first for pages, stale-while-revalidate for same-origin assets.
 - `site.webmanifest`: PWA metadata (icons, shortcuts).
-- `robots.txt` / `sitemap.xml`: Search engine crawling & indexing directives.
+- `robots.txt` / `sitemap.xml`: Crawling and indexing. All crawlers, including AI crawlers, are allowed; legacy snapshots and developer folders are excluded. Sitemap `lastmod` matches each page's JSON-LD `dateModified`.
+- `llms.txt`, `llms-full.txt`, `resume.md`, `now.md`: Markdown for AI engines, generated from the HTML by `scripts/generate-llms.js`.
+- `<key>.txt`: IndexNow key; `scripts/indexnow.js` submits the sitemap URLs after a deploy.
 - `.well-known/security.txt`: Vulnerability disclosure contact.
 - `resume.html`: Résumé ("flight log"), print stylesheet fits two A4 pages.
 - `now.html`, `404.html`, `offline.html`: Now page, "Gate changed" and "Delayed" pages.
@@ -43,9 +45,18 @@ No dynamic backend (static only). Main vectors: external links and supply-chain 
 - Cache versioning via `VERSION` constant
 - No user data collection (privacy by design)
 
+## AI Engines and Single Source of Truth
+
+The HTML pages are the only hand-edited source. Everything derived from them is generated and checked in pre-commit and CI (`npm run validate:generated`):
+
+- Markdown versions and llms.txt (`npm run generate:llms`)
+- The flap.js content hash in pages and the service worker (`npm run stamp`)
+
+`tests/ai.test.js` checks crawl access, llms.txt format, Markdown alternates, Cloudflare-safe markup (`<!--email_off-->`, `data-cfasync="false"`), one `Person` `@id` across pages, that every "now" summary (meta tags, manifest, humans.txt, llms.txt, feed) agrees on the current role, and that sitemap, JSON-LD and visible dates match.
+
 ## PWA Scope
 
-Precached: home, résumé, now, `flap.js`, favicon, portrait, manifest and the offline page. Pages are network-first (fresh after every deploy) with a cache fallback; unknown pages offline return `offline.html`. Assets are stale-while-revalidate. Cache names include the semantic version for controlled invalidation.
+Precached: home, résumé, now, hashed `flap.js`, favicon, portrait, manifest and the offline page. Pages are network-first (fresh after every deploy) with a cache fallback; unknown pages offline return `offline.html`. Assets are stale-while-revalidate. Cache names include the semantic version for controlled invalidation.
 
 ### Service Worker Lifecycle
 

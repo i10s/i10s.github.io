@@ -6,10 +6,12 @@
   <title>Now · Iñaki Fuentes</title>
   <meta name="description" content="What Iñaki Fuentes is focused on right now: eVoost AI, Fliinow, advising founders and a UEFA C coaching diploma. Updated October 2026.">
   <meta name="author" content="Iñaki Fuentes">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#f2efe7" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0c0d0f" media="(prefers-color-scheme: dark)">
   <link rel="canonical" href="https://ifuentes.net/now.html">
+  <link rel="alternate" type="text/markdown" title="Now (Markdown)" href="/now.md">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -51,13 +53,12 @@ a:hover{text-decoration-color:var(--mark)}
 h1{margin:1.2rem 0 1.6rem;font-size:clamp(3.2rem,16vw,7rem);line-height:1}
 .tiles,.w{display:flex;gap:.07em}
 .tiles i{position:relative;width:.84em;height:1.2em;border-radius:.09em;background:linear-gradient(var(--hi) 50%,var(--lo) 50%);color:var(--ink);font-style:normal;box-shadow:0 .06em .14em #0005}
-.tiles i::before,.tiles i::after{content:"";position:absolute;inset:0 0 50%}
-.tiles i::after{inset:calc(50% - .5px) 0 auto;height:1px;background:#0009}
-.tiles i::before{border-radius:inherit;background:var(--hi);transform:scaleY(0);transform-origin:bottom}
+.tiles i::before{content:attr(data-c)}
+.tiles i::after{content:"";position:absolute;inset:calc(50% - .5px) 0 auto;height:1px;background:#0009}
 .tiles .a::before{animation:fa 60ms ease-in}
 .tiles .b::before{animation:fb 60ms ease-in}
-@keyframes fa{from{transform:scaleY(1)}}
-@keyframes fb{from{transform:scaleY(1)}}
+@keyframes fa{from{transform:rotateX(90deg)}}
+@keyframes fb{from{transform:rotateX(90deg)}}
 .lede{max-width:34ch;font-size:clamp(1.3rem,1.05rem + 1.2vw,2rem);font-weight:650;line-height:1.3;letter-spacing:-.02em}
 section{padding-block:clamp(2rem,5vw,3.25rem);border-top:1px solid var(--line)}
 h2{margin-bottom:1.25rem;font-size:clamp(1.4rem,1.1rem + 1vw,1.9rem);letter-spacing:-.02em}
@@ -95,7 +96,7 @@ ol.rows .k::before{counter-increment:p;content:"0" counter(p) " "}
 <main id="content" class="wrap">
   <div class="hero">
     <p class="eyebrow">Now boarding · Updated 13 October 2026 · Palma de Mallorca</p>
-    <h1><span class="sr">What I'm doing now</span><span class="tiles" data-tiles aria-hidden="true"><span class="w"><i>N</i><i>O</i><i>W</i></span></span></h1>
+    <h1><span class="sr">What I'm doing now</span><span class="tiles" data-tiles aria-hidden="true"><span class="w"><i data-c="N"></i><i data-c="O"></i><i data-c="W"></i></span></span></h1>
     <p class="lede">A snapshot of what has my attention at this point in my life. Inspired by the <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer" aria-label="About the /now page movement (opens in new tab)">/now movement</a>.</p>
   </div>
 
@@ -161,6 +162,7 @@ ol.rows .k::before{counter-increment:p;content:"0" counter(p) " "}
   <p>Stay calm. Be critical. Start building.</p>
   <p><a href="/">Home</a> · <a href="/resume.html">Résumé</a> · <a href="/feed.xml">RSS</a></p>
 </footer>
-<script src="/flap.js" defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://ifuentes.net/now.html","url":"https://ifuentes.net/now.html","name":"Now · Iñaki Fuentes","inLanguage":"en","dateModified":"2026-10-13","about":{"@id":"https://ifuentes.net/#person"},"author":{"@type":"Person","@id":"https://ifuentes.net/#person","name":"Iñaki Fuentes","url":"https://ifuentes.net/"}}</script>
+<script src="/flap.js?v=741e445e" defer data-cfasync="false"></script>
 </body>
 </html>

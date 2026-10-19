@@ -38,13 +38,12 @@ h1{margin:1.3rem 0 1.8rem;font-size:clamp(2.4rem,12.5vw,5.75rem);line-height:1}
 .tiles,.w{display:flex;flex-wrap:wrap;gap:.16em .4em}
 .w{flex-wrap:nowrap;gap:.07em}
 .tiles i{position:relative;display:grid;place-items:center;width:.84em;height:1.2em;border-radius:.09em;background:linear-gradient(var(--hi) 50%,var(--lo) 50%);color:var(--ink);font-style:normal;box-shadow:0 .06em .14em #0005}
-.tiles i::before,.tiles i::after{content:"";position:absolute;inset:0 0 50%}
-.tiles i::after{inset:calc(50% - .5px) 0 auto;height:1px;background:#0009}
-.tiles i::before{border-radius:inherit;background:var(--hi);transform:scaleY(0);transform-origin:bottom}
+.tiles i::before{content:attr(data-c)}
+.tiles i::after{content:"";position:absolute;inset:calc(50% - .5px) 0 auto;height:1px;background:#0009}
 .tiles .a::before{animation:fa 60ms ease-in}
 .tiles .b::before{animation:fb 60ms ease-in}
-@keyframes fa{from{transform:scaleY(1)}}
-@keyframes fb{from{transform:scaleY(1)}}
+@keyframes fa{from{transform:rotateX(90deg)}}
+@keyframes fb{from{transform:rotateX(90deg)}}
 .lede{max-width:30ch;margin-bottom:2.5rem;font-size:clamp(1.3rem,1.05rem + 1.2vw,2rem);font-weight:650;line-height:1.3;letter-spacing:-.02em}
 .gates{display:grid;gap:.3rem;max-width:44rem;padding:.6rem;border-radius:.9rem;background:var(--board);list-style:none;font-size:clamp(0.8rem,.75rem + .3vw,0.95rem)}
 .gates a{display:grid;grid-template-columns:4em minmax(0,1fr) auto;align-items:center;gap:1rem;padding:.85rem 1rem;border-radius:.3rem;background:linear-gradient(var(--hi) 50%,var(--lo) 50%);color:var(--ink);text-decoration:none}
@@ -67,7 +66,7 @@ h1{margin:1.3rem 0 1.8rem;font-size:clamp(2.4rem,12.5vw,5.75rem);line-height:1}
 </header>
 <main id="content" class="wrap">
   <p class="eyebrow">Error 404 · Page not found</p>
-  <h1><span class="sr">Gate changed: page not found</span><span class="tiles" data-tiles aria-hidden="true"><span class="w"><i>G</i><i>A</i><i>T</i><i>E</i></span><span class="w"><i>C</i><i>H</i><i>A</i><i>N</i><i>G</i><i>E</i><i>D</i></span></span></h1>
+  <h1><span class="sr">Gate changed: page not found</span><span class="tiles" data-tiles aria-hidden="true"><span class="w"><i data-c="G"></i><i data-c="A"></i><i data-c="T"></i><i data-c="E"></i></span><span class="w"><i data-c="C"></i><i data-c="H"></i><i data-c="A"></i><i data-c="N"></i><i data-c="G"></i><i data-c="E"></i><i data-c="D"></i></span></span></h1>
   <p class="lede">This page has moved, been cancelled or never existed. No drama: pick a new gate.</p>
   <nav aria-label="Where to go next">
     <ul class="gates">
@@ -81,6 +80,6 @@ h1{margin:1.3rem 0 1.8rem;font-size:clamp(2.4rem,12.5vw,5.75rem);line-height:1}
 <footer class="foot wrap">
   <p>Stay calm. Be critical. Start building.</p>
 </footer>
-<script src="/flap.js" defer></script>
+<script src="/flap.js?v=741e445e" defer data-cfasync="false"></script>
 </body>
 </html>

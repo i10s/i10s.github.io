@@ -26,13 +26,12 @@ h1{margin:1.2rem 0 1.6rem;font-size:clamp(2.4rem,11vw,4.5rem);line-height:1}
 .tiles,.w{display:flex;flex-wrap:wrap;gap:.16em .4em}
 .w{flex-wrap:nowrap;gap:.07em}
 .tiles i{position:relative;display:grid;place-items:center;width:.84em;height:1.2em;border-radius:.09em;background:linear-gradient(var(--hi) 50%,var(--lo) 50%);color:var(--ink);font-style:normal;box-shadow:0 .06em .14em #0005}
-.tiles i::before,.tiles i::after{content:"";position:absolute;inset:0 0 50%}
-.tiles i::after{inset:calc(50% - .5px) 0 auto;height:1px;background:#0009}
-.tiles i::before{border-radius:inherit;background:var(--hi);transform:scaleY(0);transform-origin:bottom}
+.tiles i::before{content:attr(data-c)}
+.tiles i::after{content:"";position:absolute;inset:calc(50% - .5px) 0 auto;height:1px;background:#0009}
 .tiles .a::before{animation:fa 60ms ease-in}
 .tiles .b::before{animation:fb 60ms ease-in}
-@keyframes fa{from{transform:scaleY(1)}}
-@keyframes fb{from{transform:scaleY(1)}}
+@keyframes fa{from{transform:rotateX(90deg)}}
+@keyframes fb{from{transform:rotateX(90deg)}}
 .lede{font-size:clamp(1.3rem,1.05rem + 1.2vw,1.9rem);font-weight:650;line-height:1.3;letter-spacing:-.02em}
 p+p{margin-top:1rem;color:var(--fg2)}
 small{display:block;margin-top:2.5rem}
@@ -42,11 +41,11 @@ small{display:block;margin-top:2.5rem}
 <body>
 <main>
   <p class="eyebrow">No connection</p>
-  <h1><span class="sr">You're offline</span><span class="tiles" data-tiles aria-hidden="true"><span class="w"><i>D</i><i>E</i><i>L</i><i>A</i><i>Y</i><i>E</i><i>D</i></span></span></h1>
+  <h1><span class="sr">You're offline</span><span class="tiles" data-tiles aria-hidden="true"><span class="w"><i data-c="D"></i><i data-c="E"></i><i data-c="L"></i><i data-c="A"></i><i data-c="Y"></i><i data-c="E"></i><i data-c="D"></i></span></span></h1>
   <p class="lede">You're offline, so this flight is delayed, not cancelled.</p>
   <p>Pages you have already visited still work. Once you're back online, <a href="/">return to the home page</a>.</p>
   <small>Built to degrade gracefully. No trackers. Fast by design.</small>
 </main>
-<script src="/flap.js" defer></script>
+<script src="/flap.js?v=741e445e" defer data-cfasync="false"></script>
 </body>
 </html>

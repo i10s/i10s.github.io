@@ -9,6 +9,7 @@
     X: @ifuentes
     GitHub: @i10s
     Location: Palma de Mallorca, Spain
+    For AI assistants: https://ifuentes.net/llms.txt
 
 # THANKS
 
@@ -26,9 +27,9 @@
 
 # TECHNOLOGY COLOPHON
 
-    Standards: HTML5, CSS3, JSON-LD, RSS 2.0
+    Standards: HTML5, CSS3, JSON-LD (schema.org), RSS 2.0, llms.txt, IndexNow
     Components: Progressive Web App (PWA), Service Worker, Web Vitals
-    Testing: Mocha, Chai, JSDOM, html-validate (199 automated tests)
+    Testing: Mocha, Chai, JSDOM, html-validate (300+ automated tests)
     CI/CD: GitHub Actions, Lighthouse CI
     Software: VS Code, Git, Node.js
     Fonts: System fonts (system-ui, ui-monospace)
