@@ -7,7 +7,7 @@ const os = require('os');
 const path = require('path');
 const { execFileSync } = require('child_process');
 const { JSDOM } = require('jsdom');
-const { markdown, inline, TOPICS } = require('../scripts/generate-blog');
+const { markdown, inline, TOPICS, longDate } = require('../scripts/generate-blog');
 
 const root = path.join(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
@@ -34,6 +34,12 @@ describe('Blog generator: Markdown', () => {
 
   it('has the five agreed topics', () => {
     expect(Object.keys(TOPICS)).to.have.members(['personal', 'liderazgo', 'tecnologia', 'evoost', 'fliinow']);
+  });
+
+  it('writes the article date in the language of the post', () => {
+    const d = new Date('2026-10-22T00:00:00Z');
+    expect(longDate(d)).to.equal('22 de octubre de 2026');
+    expect(longDate(d, 'en')).to.equal('22 October 2026');
   });
 });
 

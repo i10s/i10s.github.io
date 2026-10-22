@@ -48,6 +48,7 @@ const TOPICS = {
 const MONTHS = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
 const MON = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'];
 const RFC_DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+const RFC_MON_LONG = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 const RFC_MON = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 // ── helpers ───────────────────────────────────────────────────────────────────────────────────────
@@ -57,7 +58,9 @@ const parseDate = s => {
   const d = new Date(`${s}T00:00:00Z`);
   return Number.isNaN(d.getTime()) || d.toISOString().slice(0, 10) !== s ? null : d;
 };
-const longDate = d => `${d.getUTCDate()} de ${MONTHS[d.getUTCMonth()]} de ${d.getUTCFullYear()}`;
+const longDate = (d, lang = 'es') => (lang === 'en'
+  ? `${d.getUTCDate()} ${RFC_MON_LONG[d.getUTCMonth()]} ${d.getUTCFullYear()}`
+  : `${d.getUTCDate()} de ${MONTHS[d.getUTCMonth()]} de ${d.getUTCFullYear()}`);
 const boardDate = d => `${String(d.getUTCDate()).padStart(2, '0')} ${MON[d.getUTCMonth()]} ${d.getUTCFullYear()}`;
 const rfc822 = d => `${RFC_DAYS[d.getUTCDay()]}, ${String(d.getUTCDate()).padStart(2, '0')} ${RFC_MON[d.getUTCMonth()]} ${d.getUTCFullYear()} 00:00:00 +0000`;
 const jsonLd = obj => JSON.stringify(obj).replace(/</g, '\\u003c');
@@ -343,7 +346,7 @@ function postPage(p, newer, older) {
     newer ? `<a href="/blog/${newer.slug}/" rel="next">${esc(newer.meta.title)} →</a>` : ''].filter(Boolean).join('\n    ');
   const body = `<main id="content" class="wrap">
   <article class="post">
-    <p class="eyebrow"><a href="/blog/tema/${p.meta.topic}/">${t.name}</a> · <time datetime="${iso}">${longDate(p.date)}</time> · ${p.minutes} min</p>
+    <p class="eyebrow"><a href="/blog/tema/${p.meta.topic}/">${t.name}</a> · <time datetime="${iso}">${longDate(p.date, p.lang)}</time> · ${p.minutes} min</p>
     <h1>${esc(p.meta.title)}</h1>
     <div class="prose">
 ${p.html}
@@ -492,4 +495,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { markdown, inline, readPosts, build, TOPICS };
+module.exports = { markdown, inline, readPosts, build, TOPICS, longDate };
