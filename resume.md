@@ -1,3 +1,12 @@
+---
+title: "Résumé · Iñaki Fuentes — CTO, co-founder, operator"
+description: "Résumé of Iñaki Fuentes: Partner & CTO at eVoost AI, co-founder of Fliinow, former COO of Travelgate and CEO of Quonversa and Bluekiri. 20+ years in tech."
+canonical: "https://ifuentes.net/resume.html"
+author: "Iñaki Fuentes"
+lang: "en"
+last_updated: "2026-10-19"
+---
+
 # Iñaki Fuentes: résumé
 
 > Trying to be less wrong every day

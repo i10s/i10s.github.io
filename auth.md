@@ -6,9 +6,11 @@ You are an agent. ifuentes.net does not use authentication: there are no account
 
 | Resource | Endpoint | Protocol |
 | --- | --- | --- |
-| MCP server | https://ifuentes.net/mcp | MCP Streamable HTTP. Tools: `get_profile`, `get_resume`, `get_now` |
+| REST API | https://ifuentes.net/api | JSON over HTTPS GET. OpenAPI: https://ifuentes.net/openapi.json |
+| MCP server | https://ifuentes.net/mcp | MCP Streamable HTTP. Tools: `get_profile`, `get_resume`, `get_now`, `get_blog_posts`, `get_blog_post` |
 | A2A agent | https://ifuentes.net/a2a | A2A JSON-RPC 2.0, `message/send` |
-| Markdown | https://ifuentes.net/llms.txt, https://ifuentes.net/llms-full.txt, https://ifuentes.net/resume.md, https://ifuentes.net/now.md | HTTPS GET |
+| NLWeb | https://ifuentes.net/ask | NLWeb `/ask`, GET or POST, optional server-sent events |
+| Markdown | https://ifuentes.net/llms.txt, https://ifuentes.net/llms-full.txt, https://ifuentes.net/index.md, https://ifuentes.net/resume.md, https://ifuentes.net/now.md, https://ifuentes.net/blog/llms.txt | HTTPS GET |
 | API catalog | https://ifuentes.net/.well-known/api-catalog | RFC 9727 linkset |
 
 ## Rules

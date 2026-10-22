@@ -14,7 +14,7 @@ const urlsToCache = [
   '/resume.html',
   '/now.html',
   '/flap.js?v=741e445e',
-  '/webmcp.js?v=a490fdcd',
+  '/webmcp.js?v=9df2ede6',
   '/favicon.svg',
   '/images/inaki.webp',
   '/site.webmanifest',

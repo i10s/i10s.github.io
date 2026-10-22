@@ -1,0 +1,865 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Iñaki Fuentes · ifuentes.net API",
+    "version": "1.1.0",
+    "summary": "Read-only JSON API with first-party information about Iñaki Fuentes.",
+    "description": "Public, read-only API over the same documents published on https://ifuentes.net: profile, résumé, Now page and blog. No authentication, API keys or rate-limit tiers. Content is fetched from the published site at request time and cached for five minutes. Errors are RFC 9457 problem details.",
+    "contact": {
+      "name": "Iñaki Fuentes",
+      "email": "inaki@ifuentes.net",
+      "url": "https://ifuentes.net/developers/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://ifuentes.net",
+      "description": "Production"
+    }
+  ],
+  "externalDocs": {
+    "description": "Developer page",
+    "url": "https://ifuentes.net/developers/"
+  },
+  "security": [],
+  "tags": [
+    {
+      "name": "API",
+      "description": "Discovery"
+    },
+    {
+      "name": "Documents",
+      "description": "The profile, résumé and Now page, as JSON with their Markdown text"
+    },
+    {
+      "name": "Blog",
+      "description": "Long-form articles, mostly in Spanish"
+    },
+    {
+      "name": "NLWeb",
+      "description": "Natural-language queries (NLWeb protocol)"
+    }
+  ],
+  "paths": {
+    "/api": {
+      "get": {
+        "operationId": "getApiIndex",
+        "tags": [
+          "API"
+        ],
+        "summary": "Index of the API",
+        "description": "Index of the API: every endpoint and the related agent interfaces.",
+        "responses": {
+          "200": {
+            "description": "Endpoints and related interfaces",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiIndex"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/api/profile": {
+      "get": {
+        "operationId": "getProfile",
+        "tags": [
+          "Documents"
+        ],
+        "summary": "Get the Profile document",
+        "description": "Who Iñaki Fuentes is: current roles, short bio, career highlights and contact links. JSON with the Markdown text and its last-updated date.",
+        "responses": {
+          "200": {
+            "description": "The Profile document (https://ifuentes.net/index.md)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              }
+            }
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGateway"
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/api/resume": {
+      "get": {
+        "operationId": "getResume",
+        "tags": [
+          "Documents"
+        ],
+        "summary": "Get the Résumé document",
+        "description": "Iñaki Fuentes's full résumé: every role with dates and acquisitions, education, certifications, languages and awards. JSON with the Markdown text and its last-updated date.",
+        "responses": {
+          "200": {
+            "description": "The Résumé document (https://ifuentes.net/resume.md)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              }
+            }
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGateway"
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/api/now": {
+      "get": {
+        "operationId": "getNow",
+        "tags": [
+          "Documents"
+        ],
+        "summary": "Get the Now document",
+        "description": "What Iñaki Fuentes is focused on right now: roles in flight, what just ended, learning and priorities, with the last-updated date. JSON with the Markdown text and its last-updated date.",
+        "responses": {
+          "200": {
+            "description": "The Now document (https://ifuentes.net/now.md)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Document"
+                }
+              }
+            }
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGateway"
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/api/posts": {
+      "get": {
+        "operationId": "listBlogPosts",
+        "tags": [
+          "Blog"
+        ],
+        "summary": "List blog posts",
+        "description": "Blog posts, newest first: title, summary, date, topic, language and links. Filters: topic, lang, limit.",
+        "parameters": [
+          {
+            "name": "topic",
+            "in": "query",
+            "required": false,
+            "description": "Only posts on this topic",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "liderazgo",
+                "tecnologia",
+                "evoost",
+                "fliinow",
+                "personal"
+              ]
+            }
+          },
+          {
+            "name": "lang",
+            "in": "query",
+            "required": false,
+            "description": "Only posts in this language (ISO 639-1)",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z]{2}$",
+              "examples": [
+                "es",
+                "en"
+              ]
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of posts, newest first",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Blog posts, newest first",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PostList"
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGateway"
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/api/posts/{slug}": {
+      "get": {
+        "operationId": "getBlogPost",
+        "tags": [
+          "Blog"
+        ],
+        "summary": "Get a blog post",
+        "description": "One blog post: its metadata and the full text as Markdown.",
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "description": "Post slug, as listed by listBlogPosts",
+            "schema": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The post, with its full text as Markdown",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Post"
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "502": {
+            "$ref": "#/components/responses/BadGateway"
+          },
+          "default": {
+            "$ref": "#/components/responses/Error"
+          }
+        }
+      }
+    },
+    "/ask": {
+      "get": {
+        "operationId": "ask",
+        "tags": [
+          "NLWeb"
+        ],
+        "summary": "Ask in natural language (NLWeb)",
+        "description": "NLWeb endpoint (list mode). Ranks the published pages and blog posts against the query with fixed keyword rules (no generative AI) and returns them with their schema.org data.",
+        "parameters": [
+          {
+            "name": "query",
+            "in": "query",
+            "required": true,
+            "description": "The question, in natural language",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            }
+          },
+          {
+            "name": "streaming",
+            "in": "query",
+            "required": false,
+            "description": "Return server-sent events instead of one JSON document",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "mode",
+            "in": "query",
+            "required": false,
+            "description": "NLWeb mode. Only list is served; other values fall back to list",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "list",
+                "summarize",
+                "generate"
+              ],
+              "default": "list"
+            }
+          },
+          {
+            "name": "site",
+            "in": "query",
+            "required": false,
+            "description": "NLWeb site token. There is one site: ifuentes.net",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ranked results. With streaming, server-sent events: `start`, one `result` per item and `complete`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AskResponse"
+                }
+              },
+              "text/event-stream": {
+                "schema": {
+                  "type": "string",
+                  "description": "NLWeb v0.55 event stream"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AskFailure"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "operationId": "askPost",
+        "tags": [
+          "NLWeb"
+        ],
+        "summary": "Ask in natural language (NLWeb v0.55 request)",
+        "description": "NLWeb endpoint (list mode). Ranks the published pages and blog posts against the query with fixed keyword rules (no generative AI) and returns them with their schema.org data.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AskRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ranked results. With streaming, server-sent events: `start`, one `result` per item and `complete`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AskResponse"
+                }
+              },
+              "text/event-stream": {
+                "schema": {
+                  "type": "string",
+                  "description": "NLWeb v0.55 event stream"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or invalid query",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AskFailure"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiIndex": {
+        "type": "object",
+        "required": [
+          "name",
+          "version",
+          "endpoints"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "documentation": {
+            "type": "string",
+            "format": "uri",
+            "description": "Developer page"
+          },
+          "openapi": {
+            "type": "string",
+            "format": "uri",
+            "description": "This OpenAPI description"
+          },
+          "endpoints": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "method",
+                "path"
+              ],
+              "properties": {
+                "method": {
+                  "type": "string"
+                },
+                "path": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string",
+                  "format": "uri",
+                  "description": "Absolute URL, when the path has no parameters"
+                },
+                "summary": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "related": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "MCP, A2A, NLWeb and discovery URLs"
+          }
+        }
+      },
+      "Document": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "url",
+          "html_url",
+          "content_type",
+          "content"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "enum": [
+              "profile",
+              "resume",
+              "now"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Markdown source"
+          },
+          "html_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "HTML page"
+          },
+          "updated": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date",
+            "description": "Last updated, from the document front matter"
+          },
+          "content_type": {
+            "type": "string",
+            "const": "text/markdown"
+          },
+          "content": {
+            "type": "string",
+            "description": "The document as Markdown, without front matter"
+          }
+        }
+      },
+      "PostSummary": {
+        "type": "object",
+        "required": [
+          "slug",
+          "title",
+          "description",
+          "url",
+          "markdown_url",
+          "date",
+          "topic",
+          "lang"
+        ],
+        "properties": {
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string",
+            "description": "One or two sentences"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "HTML page"
+          },
+          "markdown_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Markdown version, with front matter"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date"
+          },
+          "topic": {
+            "type": "string",
+            "enum": [
+              "liderazgo",
+              "tecnologia",
+              "evoost",
+              "fliinow",
+              "personal"
+            ]
+          },
+          "topic_name": {
+            "type": "string"
+          },
+          "lang": {
+            "type": "string",
+            "description": "ISO 639-1"
+          },
+          "minutes": {
+            "type": "integer",
+            "description": "Reading time"
+          }
+        }
+      },
+      "PostList": {
+        "type": "object",
+        "required": [
+          "count",
+          "posts"
+        ],
+        "properties": {
+          "count": {
+            "type": "integer"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date"
+          },
+          "posts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PostSummary"
+            }
+          }
+        }
+      },
+      "Post": {
+        "allOf": [
+          {
+            "$ref": "#/components/schemas/PostSummary"
+          },
+          {
+            "type": "object",
+            "required": [
+              "content_type",
+              "content"
+            ],
+            "properties": {
+              "content_type": {
+                "type": "string",
+                "const": "text/markdown"
+              },
+              "content": {
+                "type": "string",
+                "description": "Full text as Markdown, without front matter"
+              }
+            }
+          }
+        ]
+      },
+      "Problem": {
+        "type": "object",
+        "description": "RFC 9457 problem details",
+        "required": [
+          "type",
+          "title",
+          "status"
+        ],
+        "properties": {
+          "type": {
+            "type": "string",
+            "format": "uri-reference"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string",
+            "format": "uri-reference"
+          }
+        }
+      },
+      "AskRequest": {
+        "type": "object",
+        "required": [
+          "query"
+        ],
+        "properties": {
+          "query": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object",
+                "required": [
+                  "text"
+                ],
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "site": {
+                    "type": "string"
+                  }
+                }
+              }
+            ]
+          },
+          "prefer": {
+            "type": "object",
+            "properties": {
+              "streaming": {
+                "type": "boolean"
+              },
+              "mode": {
+                "type": "string"
+              },
+              "response_format": {
+                "type": "string"
+              }
+            }
+          },
+          "context": {
+            "type": "object"
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "version": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "AskResult": {
+        "type": "object",
+        "required": [
+          "url",
+          "name",
+          "site",
+          "score",
+          "description",
+          "schema_object"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "HTML page"
+          },
+          "name": {
+            "type": "string"
+          },
+          "site": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "description": {
+            "type": "string",
+            "description": "Published description (not generated)"
+          },
+          "schema_object": {
+            "type": "object",
+            "description": "schema.org JSON-LD of the result"
+          }
+        }
+      },
+      "AskResponse": {
+        "type": "object",
+        "required": [
+          "_meta",
+          "results"
+        ],
+        "properties": {
+          "_meta": {
+            "type": "object",
+            "properties": {
+              "response_type": {
+                "type": "string",
+                "const": "answer"
+              },
+              "response_format": {
+                "type": "string"
+              },
+              "version": {
+                "type": "string"
+              },
+              "mode": {
+                "type": "string"
+              }
+            }
+          },
+          "query_id": {
+            "type": "string"
+          },
+          "query": {
+            "type": "string"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AskResult"
+            }
+          }
+        }
+      },
+      "AskFailure": {
+        "type": "object",
+        "required": [
+          "_meta",
+          "error"
+        ],
+        "properties": {
+          "_meta": {
+            "type": "object",
+            "properties": {
+              "response_type": {
+                "type": "string",
+                "const": "failure"
+              },
+              "version": {
+                "type": "string"
+              }
+            }
+          },
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "Invalid query parameter",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "No such resource",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            }
+          }
+        }
+      },
+      "BadGateway": {
+        "description": "The published site could not be read",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            }
+          }
+        }
+      },
+      "Error": {
+        "description": "Unexpected error",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            }
+          }
+        }
+      }
+    }
+  }
+}

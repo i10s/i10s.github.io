@@ -18,7 +18,7 @@ const root = path.join(__dirname, '..');
 
 // asset → files that reference it
 const ASSETS = {
-  'flap.js': ['index.html', 'now.html', '404.html', 'offline.html', 'blog/index.html', 'sw.js'],
+  'flap.js': ['index.html', 'now.html', '404.html', 'offline.html', 'blog/index.html', 'about.html', 'contact.html', 'developers/index.html', 'sw.js'],
   'webmcp.js': ['index.html', 'resume.html', 'now.html', 'sw.js']
 };
 

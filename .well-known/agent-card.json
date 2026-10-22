@@ -1,7 +1,7 @@
 {
   "protocolVersion": "0.3.0",
   "name": "Iñaki Fuentes profile agent",
-  "description": "Answers questions about Iñaki Fuentes with first-party, current information from ifuentes.net: profile, résumé and what he is doing now. It returns his published texts verbatim (no generative AI), so it never invents facts. Public, no authentication.",
+  "description": "Answers questions about Iñaki Fuentes with first-party, current information from ifuentes.net: profile, résumé, what he is doing now and his blog. It returns his published texts verbatim (no generative AI), so it never invents facts. Public, no authentication.",
   "url": "https://ifuentes.net/a2a",
   "preferredTransport": "JSONRPC",
   "supportedInterfaces": [
@@ -21,7 +21,7 @@
     "organization": "Iñaki Fuentes",
     "url": "https://ifuentes.net/"
   },
-  "version": "1.0.0",
+  "version": "1.1.0",
   "documentationUrl": "https://ifuentes.net/llms.txt",
   "iconUrl": "https://ifuentes.net/android-chrome-192x192.png",
   "capabilities": {
@@ -90,6 +90,26 @@
       "examples": [
         "What is Iñaki Fuentes working on now?",
         "Is Iñaki Fuentes still at Travelgate?"
+      ],
+      "inputModes": [
+        "text/plain"
+      ],
+      "outputModes": [
+        "text/markdown"
+      ]
+    },
+    {
+      "id": "blog",
+      "name": "Blog",
+      "description": "Every article on Iñaki Fuentes's blog, newest first: title, date, topic, summary and a link to its Markdown version. Mostly in Spanish. First-party Markdown.",
+      "tags": [
+        "blog",
+        "articles",
+        "writing"
+      ],
+      "examples": [
+        "What has Iñaki Fuentes written about?",
+        "¿Qué ha publicado Iñaki Fuentes en su blog?"
       ],
       "inputModes": [
         "text/plain"

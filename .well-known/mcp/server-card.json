@@ -1,10 +1,37 @@
 {
+  "name": "net.ifuentes/profile",
+  "title": "Iñaki Fuentes",
+  "version": "1.1.0",
+  "description": "Read-only MCP server with first-party, current information about Iñaki Fuentes: profile, résumé, what he is doing now and his blog. Public, no authentication.",
+  "serverUrl": "https://ifuentes.net/mcp",
+  "websiteUrl": "https://ifuentes.net/",
+  "icons": [
+    {
+      "src": "https://ifuentes.net/android-chrome-512x512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    },
+    {
+      "src": "https://ifuentes.net/favicon.svg",
+      "mimeType": "image/svg+xml",
+      "sizes": [
+        "any"
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://ifuentes.net/mcp"
+    }
+  ],
   "serverInfo": {
     "name": "ifuentes-net",
     "title": "Iñaki Fuentes",
-    "version": "1.0.0"
+    "version": "1.1.0"
   },
-  "description": "Read-only MCP server with first-party, current information about Iñaki Fuentes: profile, résumé and what he is doing now. Public, no authentication.",
   "url": "https://ifuentes.net/mcp",
   "transport": {
     "type": "streamable-http"
@@ -18,6 +45,11 @@
       "name": "get_profile",
       "title": "Profile",
       "description": "Who Iñaki Fuentes is: current roles, short bio, career highlights and contact links. First-party Markdown from ifuentes.net.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
       "annotations": {
         "readOnlyHint": true
       }
@@ -26,6 +58,11 @@
       "name": "get_resume",
       "title": "Résumé",
       "description": "Iñaki Fuentes's full résumé: every role with dates and acquisitions, education, certifications, languages and awards. First-party Markdown.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
       "annotations": {
         "readOnlyHint": true
       }
@@ -34,10 +71,50 @@
       "name": "get_now",
       "title": "Now",
       "description": "What Iñaki Fuentes is focused on right now: roles in flight, what just ended, learning and priorities, with the last-updated date. First-party Markdown.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_blog_posts",
+      "title": "Blog",
+      "description": "Every article on Iñaki Fuentes's blog, newest first: title, date, topic, summary and a link to its Markdown version. Mostly in Spanish. First-party Markdown.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true
+      }
+    },
+    {
+      "name": "get_blog_post",
+      "title": "Blog post",
+      "description": "One article from Iñaki Fuentes's blog as Markdown, by slug (list them with get_blog_posts). Mostly in Spanish. First-party Markdown.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+            "description": "Post slug, as listed by get_blog_posts"
+          }
+        },
+        "required": [
+          "slug"
+        ],
+        "additionalProperties": false
+      },
       "annotations": {
         "readOnlyHint": true
       }
     }
   ],
-  "documentationUrl": "https://ifuentes.net/llms.txt"
+  "documentationUrl": "https://ifuentes.net/developers/"
 }

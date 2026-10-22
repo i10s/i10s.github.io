@@ -1,0 +1,58 @@
+---
+title: "Iñaki Fuentes — I build, scale and fix tech businesses"
+description: "Partner & CTO at eVoost AI, co-founder of Fliinow. Twenty years building, scaling and fixing tech businesses across AI, travel, startups and M&A."
+canonical: "https://ifuentes.net/"
+author: "Iñaki Fuentes"
+lang: "en"
+last_updated: "2026-10-19"
+---
+
+# Iñaki Fuentes
+
+> Iñaki Fuentes is a technology executive and entrepreneur based in Palma de Mallorca, Spain. He is Partner & CTO at eVoost AI and co-founder of Fliinow, buy now, pay later infrastructure for the travel industry, and he advises tech and travel startups on strategy, scaling and fundraising.
+
+Previously he was COO of Travelgate (acquired by Travelsoft), co-founder and CEO of Quonversa (acquired by Travelgate), CEO of Bluekiri and CIO of Logitravel Group (both acquired by Viajes El Corte Inglés). He started in infrastructure as a systems administrator and engineering manager, and holds an MSc in Computer Network Technology from Northumbria University. His work was recognised with a Computerworld 2018 award for innovation in tourism.
+
+In his own words: "I build, scale and fix tech businesses. AI, travel, startups, operations and M&A. From infrastructure to boardroom, from idea to exit. Less theatre. More execution."
+
+Last updated: 13 October 2026.
+
+## Main pages
+
+- [Résumé](https://ifuentes.net/resume.md): Full career history with dates, acquisitions, education, certifications, languages and awards (HTML: https://ifuentes.net/resume.html)
+- [Now](https://ifuentes.net/now.md): What he is focused on right now (HTML: https://ifuentes.net/now.html)
+- [Blog](https://ifuentes.net/blog/llms.txt): His long-form articles, mostly in Spanish, each with a Markdown version (HTML: https://ifuentes.net/blog/)
+- [Home](https://ifuentes.net/index.md): Current roles, career highlights and contact (HTML: https://ifuentes.net/)
+- [About](https://ifuentes.net/about.html): Short bio, current roles and track record
+
+## Contact and profiles
+
+- [Email](mailto:inaki@ifuentes.net): inaki@ifuentes.net
+- [LinkedIn](https://www.linkedin.com/in/inakifuentes/)
+- [GitHub](https://github.com/i10s)
+- [X](https://x.com/ifuentes)
+- [Blog](https://ifuentes.net/blog/)
+- [Strava](https://www.strava.com/athletes/1980963)
+- [Keybase](https://keybase.io/ifuentes)
+- [Instagram](https://www.instagram.com/ifuentes/)
+- [Contact page](https://ifuentes.net/contact.html)
+
+## Agent endpoints
+
+Public and read-only. No authentication, registration or API keys ([auth.md](https://ifuentes.net/auth.md)).
+
+- [Developers](https://ifuentes.net/developers/llms.txt): Every interface below, with examples (HTML: https://ifuentes.net/developers/)
+- [REST API](https://ifuentes.net/api): JSON, `GET` only. OpenAPI 3.1: https://ifuentes.net/openapi.json
+- [MCP server](https://ifuentes.net/mcp): Streamable HTTP. Tools: `get_profile`, `get_resume`, `get_now`, `get_blog_posts`, `get_blog_post`. Server card: https://ifuentes.net/.well-known/mcp/server-card.json
+- [A2A agent](https://ifuentes.net/a2a): JSON-RPC 2.0, `message/send`. Returns his published texts verbatim. Agent card: https://ifuentes.net/.well-known/agent-card.json
+- [NLWeb](https://ifuentes.net/ask): `/ask?query=`, list mode, optional server-sent events. Ranks his pages and posts without generative AI
+- [Agent Skill](https://ifuentes.net/.well-known/agent-skills/inaki-fuentes/SKILL.md): how to answer questions about him from first-party sources
+- [API catalog](https://ifuentes.net/.well-known/api-catalog): RFC 9727 list of the endpoints above
+- WebMCP: the same tools are registered in the browser on https://ifuentes.net/
+
+## Optional
+
+- [Full text](https://ifuentes.net/llms-full.txt): Bio, résumé and now page in a single file
+- [RSS feed](https://ifuentes.net/feed.xml): Updates
+- [Schema Map](https://ifuentes.net/schemamap.xml): Every schema.org node on the site in one JSON Lines feed
+- [humans.txt](https://ifuentes.net/humans.txt): Credits and colophon
