@@ -49,6 +49,20 @@
 </url>
 
 <url>
+  <loc>https://ifuentes.net/blog/tema/liderazgo/</loc>
+  <lastmod>2026-10-22T00:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.50</priority>
+</url>
+
+<url>
+  <loc>https://ifuentes.net/blog/tema/tecnologia/</loc>
+  <lastmod>2026-10-22T00:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.50</priority>
+</url>
+
+<url>
   <loc>https://ifuentes.net/blog/tema/evoost/</loc>
   <lastmod>2026-10-22T00:00:00+00:00</lastmod>
   <changefreq>weekly</changefreq>
@@ -56,7 +70,70 @@
 </url>
 
 <url>
+  <loc>https://ifuentes.net/blog/tema/personal/</loc>
+  <lastmod>2026-10-22T00:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.50</priority>
+</url>
+
+<url>
   <loc>https://ifuentes.net/blog/un-sistema-no-aprende-porque-recuerde-lo-que-paso/</loc>
+  <lastmod>2026-10-22T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://ifuentes.net/blog/esforzarse-no-basta/</loc>
+  <lastmod>2026-10-22T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://ifuentes.net/blog/actuar-para-aprender/</loc>
+  <lastmod>2026-10-22T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://ifuentes.net/blog/legacy-no-significa-viejo/</loc>
+  <lastmod>2026-10-22T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://ifuentes.net/blog/los-problemas-entre-socios-no-se-arreglan-con-cervezas/</loc>
+  <lastmod>2026-10-22T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://ifuentes.net/blog/los-jefes-que-no-estorban/</loc>
+  <lastmod>2026-10-22T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://ifuentes.net/blog/el-reconocimiento-mas-valioso-del-mundo/</loc>
+  <lastmod>2026-10-22T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://ifuentes.net/blog/si-tu-idea-no-soporta-ser-discutida/</loc>
+  <lastmod>2026-10-22T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
+
+<url>
+  <loc>https://ifuentes.net/blog/el-lujo-de-escribir-despacio/</loc>
   <lastmod>2026-10-22T00:00:00+00:00</lastmod>
   <changefreq>monthly</changefreq>
   <priority>0.70</priority>
