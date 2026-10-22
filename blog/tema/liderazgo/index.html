@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Liderazgo · Blog · Iñaki Fuentes</title>
+  <meta name="description" content="Equipos, decisiones y cómo se construye una empresa desde dentro.">
+  <meta name="author" content="Iñaki Fuentes">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f2efe7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0d0f" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://ifuentes.net/blog/tema/liderazgo/">
+  <link rel="alternate" type="application/rss+xml" title="Iñaki Fuentes · Blog" href="/blog/feed.xml">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Iñaki Fuentes">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Liderazgo · Blog · Iñaki Fuentes">
+  <meta property="og:description" content="Equipos, decisiones y cómo se construye una empresa desde dentro.">
+  <meta property="og:url" content="https://ifuentes.net/blog/tema/liderazgo/">
+  <meta property="og:image" content="https://ifuentes.net/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ifuentes">
+  <style>
+@view-transition{navigation:auto}
+:root{--bg:#f2efe7;--fg:#141414;--fg2:#45423c;--mute:#66635c;--line:#d9d3c5;--link:#141414;--mark:#ffcc00;--board:#111214;--hi:#26272c;--lo:#1d1e22;--ink:#f4f1e8;--dim:#a7a49c;--amber:#ffcc00}
+@media (prefers-color-scheme: dark){:root{--bg:#0c0d0f;--fg:#f2efe8;--fg2:#bdb9b0;--mute:#97938b;--line:#2c2d32;--link:#ffd447;--board:#151619}}
+@media (prefers-contrast: more){:root{--fg2:var(--fg);--mute:var(--fg);--dim:#e4e1da}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:light dark}
+body{background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:clamp(1rem,.96rem + .2vw,1.125rem);line-height:1.6}
+a{color:var(--link);text-underline-offset:.22em}
+a:hover{text-decoration-color:var(--mark)}
+:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.wrap{width:min(100% - 2*clamp(1.1rem,4vw,2.5rem),1140px);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;left:.75rem;top:-5rem;z-index:9;padding:.6rem .9rem;background:var(--mark);color:#111;font-weight:700}
+.skip:focus{top:.75rem}
+.nav a,.eyebrow,.board time,.board .tp,.chips a,.meta{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.1em}
+.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.1rem}
+.brand{display:grid;place-items:center;width:2.75rem;height:2.75rem;border-radius:.22rem;background:var(--mark);color:#111;font-weight:800;letter-spacing:-.05em;text-decoration:none;view-transition-name:brand}
+.nav{display:flex;flex-wrap:wrap;gap:.2rem}
+.nav a{padding:.6rem .75rem;border-radius:.3rem;color:var(--fg);font-size:.8rem;text-decoration:none}
+.nav a:hover,.nav [aria-current]{background:var(--mark);color:#111}
+.hero{padding-block:clamp(2.5rem,8vw,5rem) clamp(2rem,5vw,3.5rem)}
+.eyebrow,.meta{font-size:.78rem;color:var(--mute)}
+.eyebrow a{color:inherit}
+h1{margin:1.1rem 0 1.4rem;line-height:1.05;letter-spacing:-.03em}
+.tiles{display:flex;gap:.07em;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:clamp(3.2rem,16vw,7rem)}
+.tiles i{position:relative;display:grid;place-items:center;width:.84em;height:1.2em;border-radius:.09em;background:linear-gradient(var(--hi) 50%,var(--lo) 50%);color:var(--ink);font-style:normal;box-shadow:0 .06em .14em #0005}
+.tiles i::before{content:attr(data-c)}
+.tiles i::after{content:"";position:absolute;inset:calc(50% - .5px) 0 auto;height:1px;background:#0009}
+.lede{max-width:40ch;font-size:clamp(1.2rem,1.05rem + .9vw,1.7rem);font-weight:650;line-height:1.3;letter-spacing:-.02em}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.6rem;list-style:none}
+.chips a{display:inline-block;padding:.45rem .7rem;border:1px solid var(--line);border-radius:.3rem;font-size:.75rem;text-decoration:none}
+.chips a:hover,.chips [aria-current]{background:var(--mark);border-color:var(--mark);color:#111}
+.board{list-style:none;border-radius:.8rem;background:var(--board);color:var(--ink);overflow:hidden}
+.board li+li{border-top:1px solid #2a2b30}
+.board a{display:grid;grid-template-columns:8.5rem 7rem minmax(0,1fr);gap:.3rem 1.5rem;padding:1.15rem 1.4rem;color:inherit;text-decoration:none}
+.board a:hover{background:#1b1c20}
+.board a:hover h2{text-decoration:underline;text-decoration-color:var(--amber)}
+.board time,.board .tp{padding-top:.3rem;font-size:.75rem;color:var(--dim)}
+.board .tp{color:var(--amber)}
+.board h2{font-size:1.2rem;line-height:1.3}
+.board p{grid-column:3;color:#cfccc4;font-size:.95rem}
+.empty{padding:1.4rem;border-radius:.8rem;background:var(--board);color:var(--dim)}
+.post{max-width:68ch;padding-block:clamp(2.5rem,7vw,4.5rem) 2rem}
+.post h1{font-size:clamp(2rem,1.4rem + 2.6vw,3.2rem)}
+.prose{font-size:clamp(1.05rem,1rem + .25vw,1.2rem);line-height:1.7}
+.prose>*+*{margin-top:1.15em}
+.prose h2{margin-top:1.8em;font-size:1.45rem;line-height:1.25;letter-spacing:-.02em}
+.prose h3{margin-top:1.5em;font-size:1.2rem}
+.prose ul,.prose ol{padding-left:1.3em}
+.prose li+li{margin-top:.4em}
+.prose blockquote{padding-left:1.1em;border-left:4px solid var(--mark);color:var(--fg2)}
+.prose code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em}
+.prose pre{padding:1rem 1.2rem;border-radius:.5rem;background:var(--board);color:var(--ink);overflow-x:auto}
+.byline{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--fg2)}
+.pn{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:1.6rem}
+section{padding-block:clamp(1.5rem,4vw,2.5rem) clamp(2.5rem,6vw,4rem)}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 2rem;padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mute);font-size:.9rem}
+@media (max-width:42rem){.board a{grid-template-columns:1fr auto}.board h2,.board p{grid-column:1/-1}}
+@media print{.top,.foot,.pn,.skip{display:none}body{background:#fff;color:#000}}
+  </style>
+</head>
+<body>
+<!-- Generated by scripts/generate-blog.js from blog/posts/. Do not edit by hand. -->
+<a class="skip" href="#content">Saltar al contenido</a>
+<header class="top wrap">
+  <a class="brand" href="/" aria-label="Iñaki Fuentes, home">IF</a>
+  <nav class="nav" aria-label="Site">
+    <a href="/now.html">Now</a>
+    <a href="/resume.html">Résumé</a>
+    <a href="/blog/" aria-current="page">Blog</a>
+  </nav>
+</header>
+<main id="content" class="wrap">
+  <div class="hero">
+    <p class="eyebrow"><a href="/blog/">Blog</a> · Tema</p>
+    <h1>Liderazgo</h1>
+    <p class="lede">Equipos, decisiones y cómo se construye una empresa desde dentro.</p>
+    <nav aria-label="Temas"><ul class="chips">
+    <li><a href="/blog/">Todo</a></li>
+    <li><a href="/blog/tema/liderazgo/" aria-current="page">Liderazgo</a></li>
+    <li><a href="/blog/tema/tecnologia/">Tecnología</a></li>
+    <li><a href="/blog/tema/evoost/">eVoost</a></li>
+    <li><a href="/blog/tema/fliinow/">Fliinow</a></li>
+    <li><a href="/blog/tema/personal/">Personal</a></li>
+  </ul></nav>
+  </div>
+  <section aria-label="Artículos sobre Liderazgo">
+<p class="empty">Todavía no hay artículos. El primero sale pronto.</p>
+  </section>
+</main>
+<footer class="foot wrap">
+  <p>Stay calm. Be critical. Start building.</p>
+  <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/feed.xml">RSS</a></p>
+</footer>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","@id":"https://ifuentes.net/blog/tema/liderazgo/","url":"https://ifuentes.net/blog/tema/liderazgo/","name":"Liderazgo · Blog de Iñaki Fuentes","description":"Equipos, decisiones y cómo se construye una empresa desde dentro.","inLanguage":"es","isPartOf":{"@id":"https://ifuentes.net/blog/#blog"},"about":"Liderazgo"}</script>
+</body>
+</html>

@@ -58,7 +58,8 @@ function splitTitle(h3) {
 
 function socialLinks(home) {
   return Array.from(home.querySelectorAll('nav[aria-label="Social media and professional links"] a')).map(a => {
-    const href = a.getAttribute('href');
+    const raw = a.getAttribute('href');
+    const href = raw.startsWith('/') ? SITE + raw : raw;
     const label = clean(a.textContent);
     return { label, href, shown: href.startsWith('mailto:') ? href.slice(7) : href };
   });

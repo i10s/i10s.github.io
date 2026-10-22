@@ -38,7 +38,7 @@ Advisor, mentor and partner for tech and travel startups: strategy, scaling and 
 
 - **Training**: Consistency over intensity, logged on [Strava](https://www.strava.com/athletes/1980963).
 - **Reading**: A mix of sci-fi, strategy and leadership.
-- **Writing**: Occasional [blog posts](https://inaki.bearblog.dev/blog/) and private notes.
+- **Writing**: Long-form notes on the [blog](https://ifuentes.net/blog/) (in Spanish): leadership, technology, eVoost, Fliinow and the personal side.
 
 ## Priorities
 
