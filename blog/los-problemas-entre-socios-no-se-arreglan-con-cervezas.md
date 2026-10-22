@@ -1,3 +1,14 @@
+---
+title: "Los problemas entre socios no se arreglan con cervezas"
+description: "Un pacto de socios no es un trámite legal, es una conversación honesta. Tenerla al principio no mata la ilusión: la protege."
+canonical: "https://ifuentes.net/blog/los-problemas-entre-socios-no-se-arreglan-con-cervezas/"
+author: "Iñaki Fuentes"
+date: "2025-06-13"
+last_updated: "2026-10-22"
+topic: "Liderazgo"
+lang: "es"
+---
+
 # Los problemas entre socios no se arreglan con cervezas
 
 > Un pacto de socios no es un trámite legal, es una conversación honesta. Tenerla al principio no mata la ilusión: la protege.

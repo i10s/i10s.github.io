@@ -1,3 +1,14 @@
+---
+title: "Un sistema no aprende porque recuerde lo que pasó"
+description: "Las empresas guardan lo que ocurrió, pero casi nunca lo que creían antes de que ocurriera. Sin esa mitad no hay aprendizaje, solo archivo."
+canonical: "https://ifuentes.net/blog/un-sistema-no-aprende-porque-recuerde-lo-que-paso/"
+author: "Iñaki Fuentes"
+date: "2026-10-22"
+last_updated: "2026-10-22"
+topic: "eVoost"
+lang: "es"
+---
+
 # Un sistema no aprende porque recuerde lo que pasó
 
 > Las empresas guardan lo que ocurrió, pero casi nunca lo que creían antes de que ocurriera. Sin esa mitad no hay aprendizaje, solo archivo.

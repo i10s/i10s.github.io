@@ -1,3 +1,14 @@
+---
+title: "El lujo de escribir despacio"
+description: "Vivimos rodeados de urgencias. Escribir despacio es mi forma de no dejar que la velocidad de los demás decida por mí."
+canonical: "https://ifuentes.net/blog/el-lujo-de-escribir-despacio/"
+author: "Iñaki Fuentes"
+date: "2025-01-20"
+last_updated: "2026-10-22"
+topic: "Personal"
+lang: "es"
+---
+
 # El lujo de escribir despacio
 
 > Vivimos rodeados de urgencias. Escribir despacio es mi forma de no dejar que la velocidad de los demás decida por mí.

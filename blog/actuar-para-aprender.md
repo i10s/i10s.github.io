@@ -1,3 +1,14 @@
+---
+title: "Actuar para aprender"
+description: "La acción genera claridad. Si no sabes qué hacer, haz algo: aunque no sea la decisión correcta, te dará la información para encontrarla."
+canonical: "https://ifuentes.net/blog/actuar-para-aprender/"
+author: "Iñaki Fuentes"
+date: "2025-11-16"
+last_updated: "2026-10-22"
+topic: "Liderazgo"
+lang: "es"
+---
+
 # Actuar para aprender
 
 > La acción genera claridad. Si no sabes qué hacer, haz algo: aunque no sea la decisión correcta, te dará la información para encontrarla.
