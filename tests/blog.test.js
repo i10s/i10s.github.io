@@ -48,6 +48,7 @@ describe('Blog generator: posts', () => {
     fs.mkdirSync(path.join(tmp, 'blog', 'posts'), { recursive: true });
     fs.copyFileSync(script, path.join(tmp, 'scripts', 'generate-blog.js'));
     fs.copyFileSync(path.join(root, 'sitemap.xml'), path.join(tmp, 'sitemap.xml'));
+    fs.copyFileSync(path.join(root, 'flap.js'), path.join(tmp, 'flap.js'));
   });
   afterEach(() => fs.rmSync(tmp, { recursive: true, force: true }));
 
@@ -99,14 +100,30 @@ describe('Blog: generated files in the repo', () => {
     expect(execFileSync('node', ['scripts/generate-blog.js', '--check'], { cwd: root, encoding: 'utf8' })).to.include('up to date');
   });
 
-  it('index is linked from every main page and uses no JavaScript', () => {
+  it('index is linked from every main page and only loads the shared flap script', () => {
     ['index.html', 'now.html', 'resume.html', '404.html'].forEach(page => {
       expect(read(page), page).to.include('href="/blog/"');
       expect(read(page), page).not.to.include('bearblog');
     });
     const idx = read('blog/index.html');
-    expect(idx).not.to.match(/<script(?![^>]*application\/ld\+json)/);
+    const scripts = [...idx.matchAll(/<script(?![^>]*application\/ld\+json)[^>]*>/g)].map(m => m[0]);
+    expect(scripts).to.have.length(1);
+    expect(scripts[0]).to.match(/src="\/flap\.js\?v=[0-9a-f]{8}" defer data-cfasync="false"/);
+    expect(read('index.html')).to.include(scripts[0].match(/\/flap\.js\?v=[0-9a-f]{8}/)[0]);
     expect(idx).to.include('href="/blog/feed.xml"');
+  });
+
+  it('BLOG title tiles use the same flap markup as the home page', () => {
+    const doc = new JSDOM(read('blog/index.html')).window.document;
+    const tiles = doc.querySelectorAll('h1 [data-tiles] .w i');
+    expect([...tiles].map(t => t.dataset.c).join('')).to.equal('BLOG');
+    expect(read('blog/index.html')).to.match(/\.tiles \.a::before\{animation:fa/);
+  });
+
+  it('post pages stay JavaScript-free', () => {
+    fs.readdirSync(path.join(root, 'blog'), { withFileTypes: true })
+      .filter(e => e.isDirectory() && !['posts', 'tema'].includes(e.name))
+      .forEach(e => expect(read(`blog/${e.name}/index.html`)).not.to.match(/<script(?![^>]*application\/ld\+json)/));
   });
 
   it('feed is valid RSS', () => {

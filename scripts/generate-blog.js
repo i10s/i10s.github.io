@@ -30,6 +30,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const root = path.join(__dirname, '..');
 const SITE = 'https://ifuentes.net';
@@ -177,10 +178,15 @@ a:hover{text-decoration-color:var(--mark)}
 .eyebrow,.meta{font-size:.78rem;color:var(--mute)}
 .eyebrow a{color:inherit}
 h1{margin:1.1rem 0 1.4rem;line-height:1.05;letter-spacing:-.03em}
-.tiles{display:flex;gap:.07em;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:clamp(3.2rem,16vw,7rem)}
+.tiles,.tiles .w{display:flex;gap:.07em}
+.tiles{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:clamp(3.2rem,16vw,7rem)}
 .tiles i{position:relative;display:grid;place-items:center;width:.84em;height:1.2em;border-radius:.09em;background:linear-gradient(var(--hi) 50%,var(--lo) 50%);color:var(--ink);font-style:normal;box-shadow:0 .06em .14em #0005}
 .tiles i::before{content:attr(data-c)}
 .tiles i::after{content:"";position:absolute;inset:calc(50% - .5px) 0 auto;height:1px;background:#0009}
+.tiles .a::before{animation:fa 60ms ease-in}
+.tiles .b::before{animation:fb 60ms ease-in}
+@keyframes fa{from{transform:rotateX(90deg)}}
+@keyframes fb{from{transform:rotateX(90deg)}}
 .lede{max-width:40ch;font-size:clamp(1.2rem,1.05rem + .9vw,1.7rem);font-weight:650;line-height:1.3;letter-spacing:-.02em}
 .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.6rem;list-style:none}
 .chips a{display:inline-block;padding:.45rem .7rem;border:1px solid var(--line);border-radius:.3rem;font-size:.75rem;text-decoration:none}
@@ -215,7 +221,7 @@ section{padding-block:clamp(1.5rem,4vw,2.5rem) clamp(2.5rem,6vw,4rem)}
 
 const AUTHOR = { '@type': 'Person', '@id': `${SITE}/#person`, name: 'Iñaki Fuentes', url: `${SITE}/` };
 
-function page({ lang, title, description, canonical, ogType, extraHead = '', body, ld }) {
+function page({ lang, title, description, canonical, ogType, extraHead = '', body, ld, script = false }) {
   return `<!DOCTYPE html>
 <html lang="${lang}">
 <head>
@@ -266,12 +272,16 @@ ${body}
   <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/feed.xml">RSS</a></p>
 </footer>
 <script type="application/ld+json">${jsonLd(ld)}</script>
-</body>
+${script ? `<script src="${flapUrl()}" defer data-cfasync="false"></script>
+` : ''}</body>
 </html>
 `;
 }
 
-const tiles = word => `<span class="tiles" aria-hidden="true">${[...word].map(c => `<i data-c="${esc(c)}"></i>`).join('')}</span>`;
+// Same markup as the other pages: flap.js flips every <i> inside [data-tiles] .w once on load
+const tiles = word => `<span class="tiles" data-tiles aria-hidden="true"><span class="w">${[...word].map(c => `<i data-c="${esc(c)}"></i>`).join('')}</span></span>`;
+// Same content hash as scripts/stamp-assets.js, so both agree on /flap.js?v=…
+const flapUrl = () => `/flap.js?v=${crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'flap.js'))).digest('hex').slice(0, 8)}`;
 
 function boardList(posts) {
   if (!posts.length) return '<p class="empty">Todavía no hay artículos. El primero sale pronto.</p>';
@@ -303,7 +313,7 @@ ${boardList(posts)}
   const ld = { '@context': 'https://schema.org', '@type': 'Blog', '@id': `${SITE}/blog/#blog`, url: `${SITE}/blog/`, name: 'Iñaki Fuentes · Blog',
     description: lede, inLanguage: 'es', author: AUTHOR, publisher: AUTHOR,
     blogPost: posts.map(p => ({ '@type': 'BlogPosting', headline: p.meta.title, url: p.url, datePublished: p.date.toISOString().slice(0, 10) })) };
-  return page({ lang: 'es', title: 'Blog · Iñaki Fuentes', description: lede, canonical: `${SITE}/blog/`, ogType: 'website', body, ld });
+  return page({ lang: 'es', title: 'Blog · Iñaki Fuentes', description: lede, canonical: `${SITE}/blog/`, ogType: 'website', body, ld, script: true });
 }
 
 function topicPage(key, posts) {

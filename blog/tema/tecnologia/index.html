@@ -52,10 +52,15 @@ a:hover{text-decoration-color:var(--mark)}
 .eyebrow,.meta{font-size:.78rem;color:var(--mute)}
 .eyebrow a{color:inherit}
 h1{margin:1.1rem 0 1.4rem;line-height:1.05;letter-spacing:-.03em}
-.tiles{display:flex;gap:.07em;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:clamp(3.2rem,16vw,7rem)}
+.tiles,.tiles .w{display:flex;gap:.07em}
+.tiles{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:clamp(3.2rem,16vw,7rem)}
 .tiles i{position:relative;display:grid;place-items:center;width:.84em;height:1.2em;border-radius:.09em;background:linear-gradient(var(--hi) 50%,var(--lo) 50%);color:var(--ink);font-style:normal;box-shadow:0 .06em .14em #0005}
 .tiles i::before{content:attr(data-c)}
 .tiles i::after{content:"";position:absolute;inset:calc(50% - .5px) 0 auto;height:1px;background:#0009}
+.tiles .a::before{animation:fa 60ms ease-in}
+.tiles .b::before{animation:fb 60ms ease-in}
+@keyframes fa{from{transform:rotateX(90deg)}}
+@keyframes fb{from{transform:rotateX(90deg)}}
 .lede{max-width:40ch;font-size:clamp(1.2rem,1.05rem + .9vw,1.7rem);font-weight:650;line-height:1.3;letter-spacing:-.02em}
 .chips{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1.6rem;list-style:none}
 .chips a{display:inline-block;padding:.45rem .7rem;border:1px solid var(--line);border-radius:.3rem;font-size:.75rem;text-decoration:none}
