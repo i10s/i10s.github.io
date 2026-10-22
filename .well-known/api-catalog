@@ -1,6 +1,38 @@
 {
   "linkset": [
     {
+      "anchor": "https://ifuentes.net/.well-known/api-catalog",
+      "item": [
+        {
+          "href": "https://ifuentes.net/api"
+        },
+        {
+          "href": "https://ifuentes.net/mcp"
+        },
+        {
+          "href": "https://ifuentes.net/a2a"
+        },
+        {
+          "href": "https://ifuentes.net/ask"
+        }
+      ]
+    },
+    {
+      "anchor": "https://ifuentes.net/api",
+      "service-desc": [
+        {
+          "href": "https://ifuentes.net/openapi.json",
+          "type": "application/vnd.oai.openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://ifuentes.net/developers/#rest",
+          "type": "text/html"
+        }
+      ]
+    },
+    {
       "anchor": "https://ifuentes.net/mcp",
       "service-desc": [
         {
@@ -9,6 +41,10 @@
         }
       ],
       "service-doc": [
+        {
+          "href": "https://ifuentes.net/developers/#mcp",
+          "type": "text/html"
+        },
         {
           "href": "https://ifuentes.net/llms.txt",
           "type": "text/markdown"
@@ -25,8 +61,27 @@
       ],
       "service-doc": [
         {
+          "href": "https://ifuentes.net/developers/#a2a",
+          "type": "text/html"
+        },
+        {
           "href": "https://ifuentes.net/llms.txt",
           "type": "text/markdown"
+        }
+      ]
+    },
+    {
+      "anchor": "https://ifuentes.net/ask",
+      "service-desc": [
+        {
+          "href": "https://ifuentes.net/openapi.json",
+          "type": "application/vnd.oai.openapi+json"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://ifuentes.net/developers/#ask",
+          "type": "text/html"
         }
       ]
     },

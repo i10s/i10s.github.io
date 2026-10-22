@@ -1,3 +1,12 @@
+---
+title: "Now · Iñaki Fuentes"
+description: "What Iñaki Fuentes is focused on right now: eVoost AI, Fliinow, advising founders and a UEFA C coaching diploma. Updated October 2026."
+canonical: "https://ifuentes.net/now.html"
+author: "Iñaki Fuentes"
+lang: "en"
+last_updated: "2026-10-13"
+---
+
 # What I'm doing now: Iñaki Fuentes
 
 > Now boarding · Updated 13 October 2026 · Palma de Mallorca

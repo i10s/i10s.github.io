@@ -1,0 +1,147 @@
+{
+  "site": "https://ifuentes.net",
+  "blog": "https://ifuentes.net/blog/",
+  "updated": "2026-10-22",
+  "count": 9,
+  "topics": [
+    {
+      "id": "liderazgo",
+      "name": "Liderazgo"
+    },
+    {
+      "id": "tecnologia",
+      "name": "Tecnología"
+    },
+    {
+      "id": "evoost",
+      "name": "eVoost"
+    },
+    {
+      "id": "fliinow",
+      "name": "Fliinow"
+    },
+    {
+      "id": "personal",
+      "name": "Personal"
+    }
+  ],
+  "posts": [
+    {
+      "slug": "un-sistema-no-aprende-porque-recuerde-lo-que-paso",
+      "title": "Un sistema no aprende porque recuerde lo que pasó",
+      "description": "Las empresas guardan lo que ocurrió, pero casi nunca lo que creían antes de que ocurriera. Sin esa mitad no hay aprendizaje, solo archivo.",
+      "url": "https://ifuentes.net/blog/un-sistema-no-aprende-porque-recuerde-lo-que-paso/",
+      "markdown_url": "https://ifuentes.net/blog/un-sistema-no-aprende-porque-recuerde-lo-que-paso.md",
+      "date": "2026-10-22",
+      "updated": "2026-10-22",
+      "topic": "evoost",
+      "topic_name": "eVoost",
+      "lang": "es",
+      "minutes": 3
+    },
+    {
+      "slug": "esforzarse-no-basta",
+      "title": "Esforzarse no basta (y los niños lo saben)",
+      "description": "Mi hijo se esfuerza en cada partido y casi siempre pierde. Celebrar solo el esfuerzo no le ayuda. Enseñarle a revisar, sí.",
+      "url": "https://ifuentes.net/blog/esforzarse-no-basta/",
+      "markdown_url": "https://ifuentes.net/blog/esforzarse-no-basta.md",
+      "date": "2025-11-22",
+      "updated": "2026-10-22",
+      "topic": "personal",
+      "topic_name": "Personal",
+      "lang": "es",
+      "minutes": 2
+    },
+    {
+      "slug": "actuar-para-aprender",
+      "title": "Actuar para aprender",
+      "description": "La acción genera claridad. Si no sabes qué hacer, haz algo: aunque no sea la decisión correcta, te dará la información para encontrarla.",
+      "url": "https://ifuentes.net/blog/actuar-para-aprender/",
+      "markdown_url": "https://ifuentes.net/blog/actuar-para-aprender.md",
+      "date": "2025-11-16",
+      "updated": "2026-10-22",
+      "topic": "liderazgo",
+      "topic_name": "Liderazgo",
+      "lang": "es",
+      "minutes": 1
+    },
+    {
+      "slug": "legacy-no-significa-viejo",
+      "title": "Legacy no significa viejo. Significa rentable.",
+      "description": "El software que lleva veinte años en producción no es un lastre. Sobrevivió a mercados, modas y equipos enteros, y sigue pagando las nóminas.",
+      "url": "https://ifuentes.net/blog/legacy-no-significa-viejo/",
+      "markdown_url": "https://ifuentes.net/blog/legacy-no-significa-viejo.md",
+      "date": "2025-11-03",
+      "updated": "2026-10-22",
+      "topic": "tecnologia",
+      "topic_name": "Tecnología",
+      "lang": "es",
+      "minutes": 1
+    },
+    {
+      "slug": "los-problemas-entre-socios-no-se-arreglan-con-cervezas",
+      "title": "Los problemas entre socios no se arreglan con cervezas",
+      "description": "Un pacto de socios no es un trámite legal, es una conversación honesta. Tenerla al principio no mata la ilusión: la protege.",
+      "url": "https://ifuentes.net/blog/los-problemas-entre-socios-no-se-arreglan-con-cervezas/",
+      "markdown_url": "https://ifuentes.net/blog/los-problemas-entre-socios-no-se-arreglan-con-cervezas.md",
+      "date": "2025-06-13",
+      "updated": "2026-10-22",
+      "topic": "liderazgo",
+      "topic_name": "Liderazgo",
+      "lang": "es",
+      "minutes": 1
+    },
+    {
+      "slug": "los-jefes-que-no-estorban",
+      "title": "Los jefes que no estorban",
+      "description": "Hay jefes que no inspiran ni salen en las fotos del team building, pero hacen algo más valioso: no estorban. Cuando se van, se nota.",
+      "url": "https://ifuentes.net/blog/los-jefes-que-no-estorban/",
+      "markdown_url": "https://ifuentes.net/blog/los-jefes-que-no-estorban.md",
+      "date": "2025-04-10",
+      "updated": "2026-10-22",
+      "topic": "liderazgo",
+      "topic_name": "Liderazgo",
+      "lang": "es",
+      "minutes": 1
+    },
+    {
+      "slug": "el-reconocimiento-mas-valioso-del-mundo",
+      "title": "El reconocimiento más valioso del mundo",
+      "description": "Un dibujo de mi hijo me recordó algo que ninguna reunión, ascenso ni proyecto estratégico puede igualar.",
+      "url": "https://ifuentes.net/blog/el-reconocimiento-mas-valioso-del-mundo/",
+      "markdown_url": "https://ifuentes.net/blog/el-reconocimiento-mas-valioso-del-mundo.md",
+      "date": "2025-03-11",
+      "updated": "2026-10-22",
+      "topic": "personal",
+      "topic_name": "Personal",
+      "lang": "es",
+      "minutes": 1
+    },
+    {
+      "slug": "si-tu-idea-no-soporta-ser-discutida",
+      "title": "Si tu idea no soporta ser discutida",
+      "description": "Escribir y hablar de una idea es la prueba que te dice si vale la pena. Si solo buscas aplausos, no evoluciona.",
+      "url": "https://ifuentes.net/blog/si-tu-idea-no-soporta-ser-discutida/",
+      "markdown_url": "https://ifuentes.net/blog/si-tu-idea-no-soporta-ser-discutida.md",
+      "date": "2025-02-10",
+      "updated": "2026-10-22",
+      "topic": "liderazgo",
+      "topic_name": "Liderazgo",
+      "lang": "es",
+      "minutes": 1
+    },
+    {
+      "slug": "el-lujo-de-escribir-despacio",
+      "title": "El lujo de escribir despacio",
+      "description": "Vivimos rodeados de urgencias. Escribir despacio es mi forma de no dejar que la velocidad de los demás decida por mí.",
+      "url": "https://ifuentes.net/blog/el-lujo-de-escribir-despacio/",
+      "markdown_url": "https://ifuentes.net/blog/el-lujo-de-escribir-despacio.md",
+      "date": "2025-01-20",
+      "updated": "2026-10-22",
+      "topic": "personal",
+      "topic_name": "Personal",
+      "lang": "es",
+      "minutes": 2
+    }
+  ]
+}

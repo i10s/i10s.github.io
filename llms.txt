@@ -12,7 +12,9 @@ Last updated: 13 October 2026.
 
 - [Résumé](https://ifuentes.net/resume.md): Full career history with dates, acquisitions, education, certifications, languages and awards (HTML: https://ifuentes.net/resume.html)
 - [Now](https://ifuentes.net/now.md): What he is focused on right now (HTML: https://ifuentes.net/now.html)
-- [Home](https://ifuentes.net/): Current roles, career highlights and contact
+- [Blog](https://ifuentes.net/blog/llms.txt): His long-form articles, mostly in Spanish, each with a Markdown version (HTML: https://ifuentes.net/blog/)
+- [Home](https://ifuentes.net/index.md): Current roles, career highlights and contact (HTML: https://ifuentes.net/)
+- [About](https://ifuentes.net/about.html): Short bio, current roles and track record
 
 ## Contact and profiles
 
@@ -24,13 +26,17 @@ Last updated: 13 October 2026.
 - [Strava](https://www.strava.com/athletes/1980963)
 - [Keybase](https://keybase.io/ifuentes)
 - [Instagram](https://www.instagram.com/ifuentes/)
+- [Contact page](https://ifuentes.net/contact.html)
 
 ## Agent endpoints
 
 Public and read-only. No authentication, registration or API keys ([auth.md](https://ifuentes.net/auth.md)).
 
-- [MCP server](https://ifuentes.net/mcp): Streamable HTTP. Tools: `get_profile`, `get_resume`, `get_now`. Server card: https://ifuentes.net/.well-known/mcp/server-card.json
+- [Developers](https://ifuentes.net/developers/llms.txt): Every interface below, with examples (HTML: https://ifuentes.net/developers/)
+- [REST API](https://ifuentes.net/api): JSON, `GET` only. OpenAPI 3.1: https://ifuentes.net/openapi.json
+- [MCP server](https://ifuentes.net/mcp): Streamable HTTP. Tools: `get_profile`, `get_resume`, `get_now`, `get_blog_posts`, `get_blog_post`. Server card: https://ifuentes.net/.well-known/mcp/server-card.json
 - [A2A agent](https://ifuentes.net/a2a): JSON-RPC 2.0, `message/send`. Returns his published texts verbatim. Agent card: https://ifuentes.net/.well-known/agent-card.json
+- [NLWeb](https://ifuentes.net/ask): `/ask?query=`, list mode, optional server-sent events. Ranks his pages and posts without generative AI
 - [Agent Skill](https://ifuentes.net/.well-known/agent-skills/inaki-fuentes/SKILL.md): how to answer questions about him from first-party sources
 - [API catalog](https://ifuentes.net/.well-known/api-catalog): RFC 9727 list of the endpoints above
 - WebMCP: the same tools are registered in the browser on https://ifuentes.net/
@@ -39,4 +45,5 @@ Public and read-only. No authentication, registration or API keys ([auth.md](htt
 
 - [Full text](https://ifuentes.net/llms-full.txt): Bio, résumé and now page in a single file
 - [RSS feed](https://ifuentes.net/feed.xml): Updates
+- [Schema Map](https://ifuentes.net/schemamap.xml): Every schema.org node on the site in one JSON Lines feed
 - [humans.txt](https://ifuentes.net/humans.txt): Credits and colophon

@@ -1,3 +1,14 @@
+---
+title: "El reconocimiento más valioso del mundo"
+description: "Un dibujo de mi hijo me recordó algo que ninguna reunión, ascenso ni proyecto estratégico puede igualar."
+canonical: "https://ifuentes.net/blog/el-reconocimiento-mas-valioso-del-mundo/"
+author: "Iñaki Fuentes"
+date: "2025-03-11"
+last_updated: "2026-10-22"
+topic: "Personal"
+lang: "es"
+---
+
 # El reconocimiento más valioso del mundo
 
 > Un dibujo de mi hijo me recordó algo que ninguna reunión, ascenso ni proyecto estratégico puede igualar.

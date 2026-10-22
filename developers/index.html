@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Developers · Iñaki Fuentes</title>
+  <meta name="description" content="Public, read-only, no-auth interfaces to first-party information about Iñaki Fuentes: JSON API with OpenAPI 3.1, MCP server, A2A agent, NLWeb /ask and Markdown.">
+  <meta name="author" content="Iñaki Fuentes">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f2efe7" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0d0f" media="(prefers-color-scheme: dark)">
+  <link rel="canonical" href="https://ifuentes.net/developers/">
+  <link rel="alternate" type="text/markdown" title="Developers (llms.txt)" href="/developers/llms.txt">
+  <link rel="service-desc" type="application/vnd.oai.openapi+json" href="/openapi.json">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Iñaki Fuentes">
+  <meta property="og:title" content="Developers · Iñaki Fuentes">
+  <meta property="og:description" content="Public, read-only, no-auth interfaces to first-party information about Iñaki Fuentes: JSON API with OpenAPI 3.1, MCP server, A2A agent, NLWeb /ask and Markdown.">
+  <meta property="og:url" content="https://ifuentes.net/developers/">
+  <meta property="og:image" content="https://ifuentes.net/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ifuentes">
+  <style>
+@view-transition{navigation:auto}
+:root{--color-bg:#f2efe7;--color-text:#141414;--fg2:#45423c;--mute:#66635c;--line:#d9d3c5;--link:#141414;--mark:#ffcc00;--board:#111214;--hi:#26272c;--lo:#1d1e22;--ink:#f4f1e8;--dim:#a7a49c}
+@media (prefers-color-scheme: dark){:root{--color-bg:#0c0d0f;--color-text:#f2efe8;--fg2:#bdb9b0;--mute:#97938b;--line:#2c2d32;--link:#ffd447;--board:#151619}}
+@media (prefers-contrast: more){:root{--fg2:var(--color-text);--mute:var(--color-text);--dim:#e4e1da}}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{color-scheme:light dark}
+body{background:var(--color-bg);color:var(--color-text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:clamp(1rem,.96rem + .2vw,1.125rem);line-height:1.6}
+a{color:var(--link);text-underline-offset:.22em}
+a:hover{text-decoration-color:var(--mark)}
+:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.wrap{width:min(100% - 2*clamp(1.1rem,4vw,2.5rem),1140px);margin-inline:auto}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.skip{position:absolute;left:.75rem;top:-5rem;z-index:9;padding:.6rem .9rem;background:var(--mark);color:#111;font-weight:700}
+.skip:focus{top:.75rem}
+.nav a,.eyebrow,h1,.k,th,.meta{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;text-transform:uppercase;letter-spacing:.1em}
+.brand,.tiles i{display:grid;place-items:center;border-radius:.22rem}
+.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1.1rem}
+.brand{width:2.75rem;height:2.75rem;background:var(--mark);color:#111;font-weight:800;letter-spacing:-.05em;text-decoration:none;view-transition-name:brand}
+.nav{display:flex;flex-wrap:wrap;gap:.2rem}
+.nav a{padding:.6rem .75rem;border-radius:.3rem;color:var(--color-text);font-size:0.8rem;text-decoration:none}
+.nav a:hover{background:var(--mark);color:#111}
+.hero{padding-block:clamp(2.5rem,8vw,5.5rem) clamp(2.5rem,6vw,4.5rem)}
+.eyebrow,.k,.meta{font-size:0.78rem;color:var(--mute)}
+h1{margin:1.2rem 0 1.6rem;font-size:clamp(2.4rem,12.5vw,5.75rem);line-height:1}
+.tiles,.w{display:flex;gap:.07em}
+.tiles i{position:relative;width:.84em;height:1.2em;border-radius:.09em;background:linear-gradient(var(--hi) 50%,var(--lo) 50%);color:var(--ink);font-style:normal;box-shadow:0 .06em .14em #0005}
+.tiles i::before{content:attr(data-c)}
+.tiles i::after{content:"";position:absolute;inset:calc(50% - .5px) 0 auto;height:1px;background:#0009}
+.tiles .a::before{animation:fa 60ms ease-in}
+.tiles .b::before{animation:fb 60ms ease-in}
+@keyframes fa{from{transform:rotateX(90deg)}}
+@keyframes fb{from{transform:rotateX(90deg)}}
+.lede{max-width:34ch;font-size:clamp(1.3rem,1.05rem + 1.2vw,2rem);font-weight:650;line-height:1.3;letter-spacing:-.02em}
+section{padding-block:clamp(2rem,5vw,3.25rem);border-top:1px solid var(--line)}
+section>*+*{margin-top:1rem}
+h2{font-size:clamp(1.4rem,1.1rem + 1vw,1.9rem);letter-spacing:-.02em}
+h3{margin-top:1.75rem;font-size:1.15rem}
+section p,section li{max-width:68ch;color:var(--fg2)}
+section ul:not(.rows){padding-left:1.2em}
+.rows{list-style:none}
+.rows li{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:.25rem 2rem;padding-block:1rem;border-top:1px solid var(--line)}
+.rows li:first-child{border-top:0}
+.k{padding-top:.25rem}
+.big{font-size:clamp(1.2rem,1rem + 1vw,1.6rem);font-weight:650}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em}
+pre{padding:1rem 1.2rem;border-radius:.5rem;background:var(--board);color:var(--ink);font-size:.85rem;line-height:1.5;overflow-x:auto}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{padding:.6rem .75rem .6rem 0;border-top:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:.72rem;font-weight:400;color:var(--mute)}
+td{color:var(--fg2)}
+td:first-child{white-space:nowrap}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 2rem;padding-block:2rem 2.5rem;border-top:1px solid var(--line);color:var(--mute);font-size:0.9rem}
+.foot a{color:inherit}
+@media (max-width: 640px){.rows li{grid-template-columns:1fr}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
+  </style>
+</head>
+<body>
+<!-- Generated by scripts/generate-agent-files.js. Do not edit by hand. -->
+<a class="skip" href="#content">Skip to content</a>
+<header class="top wrap">
+  <a class="brand" href="/" aria-label="Iñaki Fuentes, home">IF</a>
+  <nav class="nav" aria-label="Site">
+    <a href="/now.html">Now</a>
+    <a href="/resume.html">Résumé</a>
+    <a href="/blog/">Blog</a>
+  </nav>
+</header>
+<main id="content" class="wrap">
+  <div class="hero">
+    <p class="eyebrow">Developers · Public · Read-only · No authentication</p>
+    <h1><span class="sr">Developers</span><span class="tiles" data-tiles aria-hidden="true"><span class="w"><i data-c="A"></i><i data-c="P"></i><i data-c="I"></i></span></span></h1>
+    <p class="lede">Public, read-only interfaces to the same first-party documents this site publishes. No accounts, keys or sign-up.</p>
+  </div>
+  <section aria-labelledby="rest">
+    <h2 id="rest">REST API</h2>
+    <p>JSON over HTTPS at <code>https://ifuentes.net/api</code>. <code>GET</code> only, CORS open to every origin, cached for five minutes. Described by <a href="/openapi.json">OpenAPI 3.1</a>.</p>
+    <div class="scroll"><table>
+      <thead><tr><th scope="col">Method</th><th scope="col">Path</th><th scope="col">Returns</th></tr></thead>
+      <tbody>
+        <tr><td>GET</td><td><code>/api</code></td><td>Index of the API: every endpoint and the related agent interfaces.</td></tr>
+        <tr><td>GET</td><td><code>/api/profile</code></td><td>Who Iñaki Fuentes is: current roles, short bio, career highlights and contact links. JSON with the Markdown text and its last-updated date.</td></tr>
+        <tr><td>GET</td><td><code>/api/resume</code></td><td>Iñaki Fuentes's full résumé: every role with dates and acquisitions, education, certifications, languages and awards. JSON with the Markdown text and its last-updated date.</td></tr>
+        <tr><td>GET</td><td><code>/api/now</code></td><td>What Iñaki Fuentes is focused on right now: roles in flight, what just ended, learning and priorities, with the last-updated date. JSON with the Markdown text and its last-updated date.</td></tr>
+        <tr><td>GET</td><td><code>/api/posts</code></td><td>Blog posts, newest first: title, summary, date, topic, language and links. Filters: topic, lang, limit.</td></tr>
+        <tr><td>GET</td><td><code>/api/posts/{slug}</code></td><td>One blog post: its metadata and the full text as Markdown.</td></tr>
+      </tbody>
+    </table></div>
+    <pre tabindex="0"><code>curl -s https://ifuentes.net/api/now</code></pre>
+    <pre tabindex="0"><code>{
+  &quot;id&quot;: &quot;now&quot;,
+  &quot;title&quot;: &quot;Now&quot;,
+  &quot;url&quot;: &quot;https://ifuentes.net/now.md&quot;,
+  &quot;html_url&quot;: &quot;https://ifuentes.net/now.html&quot;,
+  &quot;updated&quot;: &quot;YYYY-MM-DD&quot;,
+  &quot;content_type&quot;: &quot;text/markdown&quot;,
+  &quot;content&quot;: &quot;# What I'm doing now: Iñaki Fuentes\n…&quot;
+}</code></pre>
+    <pre tabindex="0"><code>curl -s 'https://ifuentes.net/api/posts?topic=evoost&amp;limit=5'</code></pre>
+    <h3 id="errors">Errors</h3>
+    <p>Errors are <a href="https://www.rfc-editor.org/rfc/rfc9457">RFC 9457</a> problem details (<code>application/problem+json</code>) with the right status code: 400, 404, 405 or 502.</p>
+    <pre tabindex="0"><code>{
+  &quot;type&quot;: &quot;about:blank&quot;,
+  &quot;title&quot;: &quot;Not Found&quot;,
+  &quot;status&quot;: 404,
+  &quot;detail&quot;: &quot;No blog post with slug 'nope'. List them at https://ifuentes.net/api/posts.&quot;,
+  &quot;instance&quot;: &quot;/api/posts/nope&quot;
+}</code></pre>
+  </section>
+
+  <section aria-labelledby="mcp">
+    <h2 id="mcp">MCP server</h2>
+    <p>Streamable HTTP, stateless, at <code>https://ifuentes.net/mcp</code>. Read-only tools: <code>get_profile</code>, <code>get_resume</code>, <code>get_now</code>, <code>get_blog_posts</code>, <code>get_blog_post</code>. The documents are also MCP resources. Card: <a href="/.well-known/mcp/server-card.json">server-card.json</a>.</p>
+    <pre tabindex="0"><code>curl -s -X POST https://ifuentes.net/mcp \
+  -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' \
+  -d '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;method&quot;:&quot;tools/call&quot;,&quot;params&quot;:{&quot;name&quot;:&quot;get_now&quot;,&quot;arguments&quot;:{}}}'</code></pre>
+  </section>
+
+  <section aria-labelledby="a2a">
+    <h2 id="a2a">A2A agent</h2>
+    <p>JSON-RPC 2.0 <code>message/send</code> at <code>https://ifuentes.net/a2a</code>. It picks the right document and returns it verbatim: no generative AI, so it cannot invent facts. Skills: <code>profile</code>, <code>resume</code>, <code>now</code>, <code>blog</code>. Card: <a href="/.well-known/agent-card.json">agent-card.json</a>.</p>
+    <pre tabindex="0"><code>curl -s -X POST https://ifuentes.net/a2a -H 'Content-Type: application/json' \
+  -d '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:1,&quot;method&quot;:&quot;message/send&quot;,&quot;params&quot;:{&quot;message&quot;:{&quot;kind&quot;:&quot;message&quot;,&quot;role&quot;:&quot;user&quot;,&quot;messageId&quot;:&quot;1&quot;,&quot;parts&quot;:[{&quot;kind&quot;:&quot;text&quot;,&quot;text&quot;:&quot;What is Iñaki Fuentes doing now?&quot;}]}}}'</code></pre>
+  </section>
+
+  <section aria-labelledby="ask">
+    <h2 id="ask">NLWeb /ask</h2>
+    <p><a href="https://github.com/nlweb-ai/NLWeb">NLWeb</a> endpoint at <code>https://ifuentes.net/ask</code>, <code>list</code> mode. It ranks the published pages and blog posts against the query with the same keyword rules as the A2A agent and returns them with their schema.org data. <code>GET</code> with <code>?query=</code>, or <code>POST</code> a v0.55 request. Add <code>streaming=true</code> or <code>Accept: text/event-stream</code> for server-sent events.</p>
+    <pre tabindex="0"><code>curl -s 'https://ifuentes.net/ask?query=what+is+he+working+on+now'</code></pre>
+    <pre tabindex="0"><code>curl -sN -X POST https://ifuentes.net/ask -H 'Content-Type: application/json' \
+  -d '{&quot;query&quot;:{&quot;text&quot;:&quot;blog posts about eVoost&quot;},&quot;prefer&quot;:{&quot;streaming&quot;:true}}'</code></pre>
+  </section>
+
+  <section aria-labelledby="webmcp">
+    <h2 id="webmcp">WebMCP</h2>
+    <p>The home, résumé and Now pages register the same read-only tools with <code>document.modelContext</code>, for agents that run in the browser.</p>
+  </section>
+
+  <section aria-labelledby="md">
+    <h2 id="md">Markdown</h2>
+    <div class="scroll"><table>
+      <thead><tr><th scope="col">Path</th><th scope="col">Contents</th></tr></thead>
+      <tbody>
+        <tr><td><a href="/llms.txt"><code>/llms.txt</code></a></td><td>Who he is, in Markdown (llmstxt.org)</td></tr>
+        <tr><td><a href="/llms-full.txt"><code>/llms-full.txt</code></a></td><td>Bio, résumé and Now page in one file</td></tr>
+        <tr><td><a href="/index.md"><code>/index.md</code></a></td><td>The home page as Markdown, with front matter. <code>GET /</code> with <code>Accept: text/markdown</code> returns it too</td></tr>
+        <tr><td><a href="/resume.md"><code>/resume.md</code></a></td><td>Résumé, with front matter</td></tr>
+        <tr><td><a href="/now.md"><code>/now.md</code></a></td><td>Now, with front matter</td></tr>
+        <tr><td><a href="/blog/llms.txt"><code>/blog/llms.txt</code></a></td><td>Every blog post, linking to its Markdown version</td></tr>
+        <tr><td><code>/blog/&lt;slug&gt;.md</code></td><td>One blog post, with front matter</td></tr>
+        <tr><td><a href="/developers/llms.txt"><code>/developers/llms.txt</code></a></td><td>This page, for agents</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section aria-labelledby="discovery">
+    <h2 id="discovery">Discovery</h2>
+    <div class="scroll"><table>
+      <thead><tr><th scope="col">Path</th><th scope="col">What it is</th></tr></thead>
+      <tbody>
+        <tr><td><a href="/.well-known/api-catalog"><code>/.well-known/api-catalog</code></a></td><td>API catalog (RFC 9727 linkset) of everything on this page</td></tr>
+        <tr><td><a href="/openapi.json"><code>/openapi.json</code></a></td><td>OpenAPI 3.1 description of the REST API and /ask</td></tr>
+        <tr><td><a href="/.well-known/mcp/server-card.json"><code>/.well-known/mcp/server-card.json</code></a></td><td>MCP server card</td></tr>
+        <tr><td><a href="/.well-known/agent-card.json"><code>/.well-known/agent-card.json</code></a></td><td>A2A agent card</td></tr>
+        <tr><td><a href="/.well-known/agent-skills/index.json"><code>/.well-known/agent-skills/index.json</code></a></td><td>Agent Skills index (v0.2.0)</td></tr>
+        <tr><td><a href="/.well-known/ard.json"><code>/.well-known/ard.json</code></a></td><td>Agentic Resource Discovery manifest</td></tr>
+        <tr><td><a href="/schemamap.xml"><code>/schemamap.xml</code></a></td><td>NLWeb Schema Map: the schema.org feed (/schema.jsonl) and RSS feeds</td></tr>
+        <tr><td><a href="/auth.md"><code>/auth.md</code></a></td><td>Authentication notice for agents (there is none)</td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section aria-labelledby="rules">
+    <h2 id="rules">Rules</h2>
+    <ul>
+      <li>No accounts, sign-up, API keys, OAuth or tokens. Do not send credentials: they are ignored.</li>
+      <li>Everything is read-only and public. Cache responses for a few minutes; content changes rarely.</li>
+      <li>Every document says when it was last updated. Cite the page and that date.</li>
+      <li>Problems or questions: <!--email_off--><a href="mailto:inaki@ifuentes.net">inaki@ifuentes.net</a><!--/email_off-->.</li>
+    </ul>
+  </section>
+</main>
+<footer class="foot wrap">
+  <p>Stay calm. Be critical. Start building.</p>
+  <p><a href="/">Home</a> · <a href="/about.html">About</a> · <a href="/contact.html">Contact</a> · <a href="/developers/" aria-current="page">Developers</a> · <a href="/feed.xml">RSS</a></p>
+</footer>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://ifuentes.net/developers/","url":"https://ifuentes.net/developers/","name":"Developers · Iñaki Fuentes","description":"Public, read-only, no-auth interfaces to first-party information about Iñaki Fuentes: JSON API with OpenAPI 3.1, MCP server, A2A agent, NLWeb /ask and Markdown.","inLanguage":"en","isPartOf":{"@id":"https://ifuentes.net/#website"},"about":{"@id":"https://ifuentes.net/api#api"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ifuentes.net/"},{"@type":"ListItem","position":2,"name":"Developers","item":"https://ifuentes.net/developers/"}]}},{"@type":"WebAPI","@id":"https://ifuentes.net/api#api","name":"ifuentes.net API","url":"https://ifuentes.net/api","description":"Public, read-only JSON API with first-party information about Iñaki Fuentes. No authentication.","documentation":"https://ifuentes.net/openapi.json","provider":{"@id":"https://ifuentes.net/#person"}}]}</script>
+<script src="/flap.js?v=741e445e" defer data-cfasync="false"></script>
+</body>
+</html>

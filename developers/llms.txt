@@ -1,0 +1,37 @@
+# Iñaki Fuentes · Developers
+
+> Public, read-only interfaces to first-party information about Iñaki Fuentes, published on ifuentes.net. No accounts, API keys or authentication.
+
+HTML version: https://ifuentes.net/developers/
+
+## REST API
+
+JSON over HTTPS, `GET` only, CORS open. Errors are RFC 9457 problem details (`application/problem+json`).
+
+- [OpenAPI 3.1](https://ifuentes.net/openapi.json): Full description, with schemas and operation ids
+- [GET /api](https://ifuentes.net/api): Index of the API: every endpoint and the related agent interfaces.
+- [GET /api/profile](https://ifuentes.net/api/profile): Who Iñaki Fuentes is: current roles, short bio, career highlights and contact links. JSON with the Markdown text and its last-updated date.
+- [GET /api/resume](https://ifuentes.net/api/resume): Iñaki Fuentes's full résumé: every role with dates and acquisitions, education, certifications, languages and awards. JSON with the Markdown text and its last-updated date.
+- [GET /api/now](https://ifuentes.net/api/now): What Iñaki Fuentes is focused on right now: roles in flight, what just ended, learning and priorities, with the last-updated date. JSON with the Markdown text and its last-updated date.
+- [GET /api/posts](https://ifuentes.net/api/posts): Blog posts, newest first: title, summary, date, topic, language and links. Filters: topic, lang, limit.
+- `GET /api/posts/{slug}`: One blog post: its metadata and the full text as Markdown.
+
+## Agent protocols
+
+- [MCP server](https://ifuentes.net/mcp): Streamable HTTP, stateless. Tools: `get_profile`, `get_resume`, `get_now`, `get_blog_posts`, `get_blog_post`. Card: https://ifuentes.net/.well-known/mcp/server-card.json
+- [A2A agent](https://ifuentes.net/a2a): JSON-RPC 2.0 `message/send`; returns the right document verbatim. Card: https://ifuentes.net/.well-known/agent-card.json
+- [NLWeb](https://ifuentes.net/ask): `GET /ask?query=…` or a v0.55 `POST`; list mode; `streaming=true` or `Accept: text/event-stream` for server-sent events
+- WebMCP: the same tools are registered with `document.modelContext` on https://ifuentes.net/, https://ifuentes.net/resume.html and https://ifuentes.net/now.html
+
+## Discovery
+
+- [API catalog](https://ifuentes.net/.well-known/api-catalog): RFC 9727 linkset
+- [Agent Skills](https://ifuentes.net/.well-known/agent-skills/index.json): v0.2.0 index
+- [ARD manifest](https://ifuentes.net/.well-known/ard.json): Agentic Resource Discovery
+- [Schema Map](https://ifuentes.net/schemamap.xml): NLWeb Schema Feeds
+- [auth.md](https://ifuentes.net/auth.md): No authentication
+
+## Optional
+
+- [Site summary](https://ifuentes.net/llms.txt): Who Iñaki Fuentes is
+- [Blog](https://ifuentes.net/blog/llms.txt): Every post, with Markdown links

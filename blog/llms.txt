@@ -1,0 +1,23 @@
+# Iñaki Fuentes · Blog
+
+> Long-form writing by Iñaki Fuentes (Partner & CTO at eVoost AI, co-founder of Fliinow) on leadership, technology, eVoost, Fliinow and the personal side. Mostly in Spanish. HTML: https://ifuentes.net/blog/
+
+Each article has a Markdown version with front matter (title, date, topic, language, canonical URL).
+
+## Posts
+
+- [Un sistema no aprende porque recuerde lo que pasó](https://ifuentes.net/blog/un-sistema-no-aprende-porque-recuerde-lo-que-paso.md): Las empresas guardan lo que ocurrió, pero casi nunca lo que creían antes de que ocurriera. Sin esa mitad no hay aprendizaje, solo archivo. (2026-10-22 · eVoost · es)
+- [Esforzarse no basta (y los niños lo saben)](https://ifuentes.net/blog/esforzarse-no-basta.md): Mi hijo se esfuerza en cada partido y casi siempre pierde. Celebrar solo el esfuerzo no le ayuda. Enseñarle a revisar, sí. (2025-11-22 · Personal · es)
+- [Actuar para aprender](https://ifuentes.net/blog/actuar-para-aprender.md): La acción genera claridad. Si no sabes qué hacer, haz algo: aunque no sea la decisión correcta, te dará la información para encontrarla. (2025-11-16 · Liderazgo · es)
+- [Legacy no significa viejo. Significa rentable.](https://ifuentes.net/blog/legacy-no-significa-viejo.md): El software que lleva veinte años en producción no es un lastre. Sobrevivió a mercados, modas y equipos enteros, y sigue pagando las nóminas. (2025-11-03 · Tecnología · es)
+- [Los problemas entre socios no se arreglan con cervezas](https://ifuentes.net/blog/los-problemas-entre-socios-no-se-arreglan-con-cervezas.md): Un pacto de socios no es un trámite legal, es una conversación honesta. Tenerla al principio no mata la ilusión: la protege. (2025-06-13 · Liderazgo · es)
+- [Los jefes que no estorban](https://ifuentes.net/blog/los-jefes-que-no-estorban.md): Hay jefes que no inspiran ni salen en las fotos del team building, pero hacen algo más valioso: no estorban. Cuando se van, se nota. (2025-04-10 · Liderazgo · es)
+- [El reconocimiento más valioso del mundo](https://ifuentes.net/blog/el-reconocimiento-mas-valioso-del-mundo.md): Un dibujo de mi hijo me recordó algo que ninguna reunión, ascenso ni proyecto estratégico puede igualar. (2025-03-11 · Personal · es)
+- [Si tu idea no soporta ser discutida](https://ifuentes.net/blog/si-tu-idea-no-soporta-ser-discutida.md): Escribir y hablar de una idea es la prueba que te dice si vale la pena. Si solo buscas aplausos, no evoluciona. (2025-02-10 · Liderazgo · es)
+- [El lujo de escribir despacio](https://ifuentes.net/blog/el-lujo-de-escribir-despacio.md): Vivimos rodeados de urgencias. Escribir despacio es mi forma de no dejar que la velocidad de los demás decida por mí. (2025-01-20 · Personal · es)
+
+## Optional
+
+- [posts.json](https://ifuentes.net/blog/posts.json): The same list as JSON
+- [RSS feed](https://ifuentes.net/blog/feed.xml): Full text of the latest posts
+- [Site summary](https://ifuentes.net/llms.txt): Who Iñaki Fuentes is

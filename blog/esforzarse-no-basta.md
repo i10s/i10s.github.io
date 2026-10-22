@@ -1,3 +1,14 @@
+---
+title: "Esforzarse no basta (y los niños lo saben)"
+description: "Mi hijo se esfuerza en cada partido y casi siempre pierde. Celebrar solo el esfuerzo no le ayuda. Enseñarle a revisar, sí."
+canonical: "https://ifuentes.net/blog/esforzarse-no-basta/"
+author: "Iñaki Fuentes"
+date: "2025-11-22"
+last_updated: "2026-10-22"
+topic: "Personal"
+lang: "es"
+---
+
 # Esforzarse no basta (y los niños lo saben)
 
 > Mi hijo se esfuerza en cada partido y casi siempre pierde. Celebrar solo el esfuerzo no le ayuda. Enseñarle a revisar, sí.

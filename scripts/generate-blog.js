@@ -7,8 +7,11 @@
  *   blog/index.html                  all posts, newest first (departures-board list)
  *   blog/tema/<topic>/index.html     posts by topic
  *   blog/<slug>/index.html           each post (clean URL https://ifuentes.net/blog/<slug>/)
- *   blog/<slug>.md                   Markdown version for agents (rel="alternate" type="text/markdown")
+ *   blog/<slug>.md                   Markdown version for agents (rel="alternate" type="text/markdown"), with front matter
  *   blog/feed.xml                    RSS 2.0 with full content
+ *   blog/posts.json                  every post's metadata, for the REST API (/api/posts) and NLWeb (/ask)
+ *   blog/llms.txt                    llms.txt for the blog: every post with a link to its Markdown version
+ *   blog/schema.jsonl                NLWeb Schema Feed: the blog's JSON-LD nodes, one per line (listed in /schemamap.xml)
  *   sitemap.xml                      the block between <!-- blog:start --> and <!-- blog:end -->
  *
  * Post file: blog/posts/YYYY-MM-DD-slug.md
@@ -272,9 +275,9 @@ ${MARKER}
 ${body}
 <footer class="foot wrap">
   <p>Stay calm. Be critical. Start building.</p>
-  <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/blog/feed.xml">RSS</a></p>
+  <p><a href="/">Home</a> · <a href="/blog/">Blog</a> · <a href="/about.html">About</a> · <a href="/contact.html">Contact</a> · <a href="/blog/feed.xml">RSS</a></p>
 </footer>
-<script type="application/ld+json">${jsonLd(ld)}</script>
+${[].concat(ld).map(item => `<script type="application/ld+json">${jsonLd(item)}</script>`).join('\n')}
 ${script ? `<script src="${flapUrl()}" defer data-cfasync="false"></script>
 ` : ''}</body>
 </html>
@@ -364,12 +367,31 @@ ${nav ? `    <nav class="pn" aria-label="Más artículos">\n    ${nav}\n    </na
   <meta property="article:section" content="${t.name}">
   <meta property="article:author" content="${SITE}/">
 `;
+  const breadcrumb = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` },
+    { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE}/blog/` },
+    { '@type': 'ListItem', position: 3, name: t.name, item: `${SITE}/blog/tema/${p.meta.topic}/` },
+    { '@type': 'ListItem', position: 4, name: p.meta.title, item: p.url }
+  ] };
   return page({ lang: p.lang, title: `${p.meta.title} · Iñaki Fuentes`, description: p.meta.description, canonical: p.url,
-    ogType: 'article', extraHead, body, ld });
+    ogType: 'article', extraHead, body, ld: [ld, breadcrumb] });
+}
+
+// YAML front matter; JSON strings are valid YAML double-quoted scalars
+const frontMatter = fields => ['---', ...Object.entries(fields).map(([k, v]) => `${k}: ${JSON.stringify(v)}`), '---', ''].join('\n');
+
+const isoDate = d => d.toISOString().slice(0, 10);
+
+function postSummary(p) {
+  return { slug: p.slug, title: p.meta.title, description: p.meta.description, url: p.url, markdown_url: `${SITE}/blog/${p.slug}.md`,
+    date: isoDate(p.date), updated: isoDate(p.updated), topic: p.meta.topic, topic_name: TOPICS[p.meta.topic].name, lang: p.lang,
+    minutes: p.minutes };
 }
 
 function postMarkdown(p) {
-  return `# ${p.meta.title}
+  return `${frontMatter({ title: p.meta.title, description: p.meta.description, canonical: p.url, author: 'Iñaki Fuentes',
+    date: isoDate(p.date), last_updated: isoDate(p.updated), topic: TOPICS[p.meta.topic].name, lang: p.lang })}
+# ${p.meta.title}
 
 > ${p.meta.description}
 
@@ -380,6 +402,49 @@ function postMarkdown(p) {
 
 ${p.body}
 `;
+}
+
+function postsJson(posts) {
+  const last = posts.length ? posts.reduce((a, b) => (a.updated > b.updated ? a : b)).updated : parseDate(EPOCH);
+  return JSON.stringify({ site: SITE, blog: `${SITE}/blog/`, updated: isoDate(last), count: posts.length,
+    topics: Object.entries(TOPICS).map(([id, t]) => ({ id, name: t.name })), posts: posts.map(postSummary) }, null, 2) + '\n';
+}
+
+function blogLlms(posts) {
+  return [
+    '# Iñaki Fuentes · Blog',
+    '',
+    `> Long-form writing by Iñaki Fuentes (Partner & CTO at eVoost AI, co-founder of Fliinow) on leadership, technology, eVoost, Fliinow and the personal side. Mostly in Spanish. HTML: ${SITE}/blog/`,
+    '',
+    'Each article has a Markdown version with front matter (title, date, topic, language, canonical URL).',
+    '',
+    '## Posts',
+    '',
+    ...(posts.length ? posts.map(p => `- [${p.meta.title}](${SITE}/blog/${p.slug}.md): ${p.meta.description} (${isoDate(p.date)} · ${TOPICS[p.meta.topic].name} · ${p.lang})`) : ['- No posts yet.']),
+    '',
+    '## Optional',
+    '',
+    `- [posts.json](${SITE}/blog/posts.json): The same list as JSON`,
+    `- [RSS feed](${SITE}/blog/feed.xml): Full text of the latest posts`,
+    `- [Site summary](${SITE}/llms.txt): Who Iñaki Fuentes is`,
+    ''
+  ].join('\n');
+}
+
+// NLWeb Schema Feed: every JSON-LD node of the generated blog pages except breadcrumbs, one per line
+function schemaFeed(files) {
+  const lines = [];
+  files.forEach((html, rel) => {
+    if (!rel.endsWith('.html')) return;
+    for (const m of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)) {
+      const data = JSON.parse(m[1]);
+      (data['@graph'] || [data]).filter(node => node['@type'] !== 'BreadcrumbList').forEach(node => {
+        const { '@context': ctx, ...rest } = node;
+        lines.push(JSON.stringify({ '@context': 'https://schema.org', ...rest }));
+      });
+    }
+  });
+  return lines.join('\n') + '\n';
 }
 
 function feed(posts) {
@@ -438,6 +503,9 @@ function build() {
     files.set(`blog/${p.slug}.md`, postMarkdown(p));
   });
   files.set('blog/feed.xml', feed(posts));
+  files.set('blog/posts.json', postsJson(posts));
+  files.set('blog/llms.txt', blogLlms(posts));
+  files.set('blog/schema.jsonl', schemaFeed(files));
   files.set('sitemap.xml', sitemap(fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8'), posts, byTopic.filter(([, l]) => l.length)));
   return { posts, files };
 }
@@ -495,4 +563,4 @@ if (require.main === module) {
   }
 }
 
-module.exports = { markdown, inline, readPosts, build, TOPICS, longDate };
+module.exports = { markdown, inline, readPosts, build, postSummary, TOPICS, longDate };

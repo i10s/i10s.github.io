@@ -11,7 +11,7 @@ const path = require('path');
 
 const root = path.join(__dirname, '..');
 const read = file => fs.readFileSync(path.join(root, file), 'utf8');
-const pages = ['index.html', 'resume.html', 'now.html', '404.html', 'offline.html'];
+const pages = ['index.html', 'resume.html', 'now.html', 'about.html', 'contact.html', 'developers/index.html', '404.html', 'offline.html'];
 
 // Map a same-origin URL ("/now.html", "/", "/images/x.webp?v=1") to a file on disk
 const toFile = url => {

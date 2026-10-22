@@ -1,3 +1,14 @@
+---
+title: "Los jefes que no estorban"
+description: "Hay jefes que no inspiran ni salen en las fotos del team building, pero hacen algo más valioso: no estorban. Cuando se van, se nota."
+canonical: "https://ifuentes.net/blog/los-jefes-que-no-estorban/"
+author: "Iñaki Fuentes"
+date: "2025-04-10"
+last_updated: "2026-10-22"
+topic: "Liderazgo"
+lang: "es"
+---
+
 # Los jefes que no estorban
 
 > Hay jefes que no inspiran ni salen en las fotos del team building, pero hacen algo más valioso: no estorban. Cuando se van, se nota.

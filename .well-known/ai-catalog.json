@@ -20,7 +20,8 @@
       "capabilities": [
         "get_profile",
         "get_resume",
-        "get_now"
+        "get_now",
+        "get_blog_posts"
       ],
       "representativeQueries": [
         "Who is Iñaki Fuentes?",
@@ -31,11 +32,36 @@
       ]
     },
     {
+      "identifier": "urn:air:ifuentes.net:api:rest",
+      "displayName": "Iñaki Fuentes REST API",
+      "type": "application/vnd.oai.openapi+json",
+      "url": "https://ifuentes.net/openapi.json",
+      "description": "Read-only JSON API with Iñaki Fuentes's profile, résumé, Now page and blog posts. No authentication.",
+      "tags": [
+        "rest",
+        "openapi",
+        "profile",
+        "blog"
+      ],
+      "capabilities": [
+        "getApiIndex",
+        "getProfile",
+        "getResume",
+        "getNow",
+        "listBlogPosts",
+        "getBlogPost"
+      ],
+      "representativeQueries": [
+        "List Iñaki Fuentes's blog posts as JSON.",
+        "Get Iñaki Fuentes's résumé as JSON."
+      ]
+    },
+    {
       "identifier": "urn:air:ifuentes.net:agent:profile",
       "displayName": "Iñaki Fuentes profile agent",
       "type": "application/a2a-agent-card+json",
       "url": "https://ifuentes.net/.well-known/agent-card.json",
-      "description": "A2A agent that answers with Iñaki Fuentes's published profile, résumé or Now page, verbatim. No authentication.",
+      "description": "A2A agent that answers with Iñaki Fuentes's published profile, résumé, Now page or blog index, verbatim. No authentication.",
       "tags": [
         "a2a",
         "profile",
@@ -44,7 +70,8 @@
       "capabilities": [
         "profile",
         "resume",
-        "now"
+        "now",
+        "blog"
       ],
       "representativeQueries": [
         "Who is Iñaki Fuentes?",

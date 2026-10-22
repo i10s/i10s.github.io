@@ -1,3 +1,14 @@
+---
+title: "Si tu idea no soporta ser discutida"
+description: "Escribir y hablar de una idea es la prueba que te dice si vale la pena. Si solo buscas aplausos, no evoluciona."
+canonical: "https://ifuentes.net/blog/si-tu-idea-no-soporta-ser-discutida/"
+author: "Iñaki Fuentes"
+date: "2025-02-10"
+last_updated: "2026-10-22"
+topic: "Liderazgo"
+lang: "es"
+---
+
 # Si tu idea no soporta ser discutida
 
 > Escribir y hablar de una idea es la prueba que te dice si vale la pena. Si solo buscas aplausos, no evoluciona.

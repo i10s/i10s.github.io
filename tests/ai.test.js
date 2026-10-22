@@ -47,8 +47,9 @@ describe('AI readiness: crawl access', () => {
     ['/archive/', '/v2/', '/docs/'].forEach(dir => expect(robots).to.include(`Disallow: ${dir}`));
   });
 
-  it('only uses directives Lighthouse and search engines understand', () => {
-    const known = ['user-agent', 'allow', 'disallow', 'sitemap', 'crawl-delay', 'content-signal'];
+  it('only uses directives Lighthouse and search engines understand, plus the NLWeb Schema Map', () => {
+    // schemamap (NLWeb Schema Feeds) is not on Lighthouse's list: it costs the robots-txt audit, on purpose
+    const known = ['user-agent', 'allow', 'disallow', 'sitemap', 'crawl-delay', 'content-signal', 'schemamap'];
     robots.split('\n').map(l => l.replace(/#.*/, '').trim()).filter(Boolean).forEach(line => {
       expect(known, line).to.include(line.split(':')[0].toLowerCase());
     });
@@ -76,6 +77,32 @@ describe('AI readiness: crawl access', () => {
       const robotsMeta = dom(file).querySelector('meta[name="robots"]');
       expect(robotsMeta ? robotsMeta.getAttribute('content') : '', file).to.not.include('noindex');
     });
+  });
+
+  it('points the Schema Map directive at a Schema Map whose feeds exist', () => {
+    const map = robots.match(/^Schemamap: (.*)$/mi)[1];
+    expect(map).to.equal('https://ifuentes.net/schemamap.xml');
+    const xml = read('schemamap.xml');
+    const doc = new JSDOM(xml, { contentType: 'text/xml' }).window.document;
+    expect(doc.querySelector('parsererror')).to.equal(null);
+    expect(doc.documentElement.namespaceURI).to.equal('http://www.sitemaps.org/schemas/sitemap/0.9');
+    const urls = Array.from(doc.getElementsByTagName('url'));
+    expect(urls.length).to.be.greaterThan(0);
+    urls.forEach(url => {
+      const loc = url.getElementsByTagName('loc')[0].textContent;
+      expect(fs.existsSync(path.join(root, loc.replace('https://ifuentes.net/', ''))), loc).to.be.true;
+      expect(url.getElementsByTagNameNS('http://schema.org/schemas/schemafeed/0.1', 'contentType')[0].textContent).to.match(/^structuredData\/(schema\.org|rss)$/);
+    });
+  });
+
+  it('publishes schema.org feeds with one JSON-LD object per line', () => {
+    const lines = ['schema.jsonl', 'blog/schema.jsonl'].flatMap(file => read(file).trim().split('\n').map(line => JSON.parse(line)));
+    lines.forEach(node => {
+      expect(node['@context']).to.equal('https://schema.org');
+      expect(node['@type']).to.exist;
+    });
+    const types = lines.map(n => n['@type']).flat();
+    ['Person', 'WebSite', 'ProfilePage', 'AboutPage', 'ContactPage', 'WebAPI', 'Blog'].forEach(type => expect(types).to.include(type));
   });
 
   it('publishes an IndexNow key file that contains its own name', () => {
@@ -107,8 +134,30 @@ describe('AI readiness: machine-readable content', () => {
   });
 
   it('links each content page to its Markdown version', () => {
-    [['index.html', '/llms.txt'], ['resume.html', '/resume.md'], ['now.html', '/now.md']].forEach(([page, href]) => {
+    [['index.html', '/llms.txt'], ['resume.html', '/resume.md'], ['now.html', '/now.md'], ['404.html', '/404.md'], ['developers/index.html', '/developers/llms.txt']].forEach(([page, href]) => {
       expect(dom(page).querySelector(`link[rel="alternate"][type="text/markdown"][href="${href}"]`), page).to.exist;
+      expect(fs.existsSync(path.join(root, href)), href).to.be.true;
+    });
+  });
+
+  it('opens every Markdown page with front matter: title, description, canonical URL and last update', () => {
+    const blogMd = fs.readdirSync(path.join(root, 'blog')).filter(f => f.endsWith('.md')).map(f => `blog/${f}`);
+    ['index.md', 'resume.md', 'now.md', ...blogMd].forEach(file => {
+      const front = read(file).match(/^---\n([\s\S]*?)\n---\n\n# /);
+      expect(front, file).to.exist;
+      const fields = Object.fromEntries(front[1].split('\n').map(l => l.match(/^([a-z_]+): (.*)$/)).map(m => [m[1], JSON.parse(m[2])]));
+      expect(fields, file).to.include.keys('title', 'description', 'canonical', 'last_updated');
+      expect(fields.canonical, file).to.match(/^https:\/\/ifuentes\.net\//);
+      expect(fields.last_updated, file).to.match(/^\d{4}-\d{2}-\d{2}$/);
+    });
+    expect(read('index.md')).to.include(read('llms.txt'));
+  });
+
+  it('splits llms.txt by area: the blog and developers have their own, linked from the root', () => {
+    const llms = read('llms.txt');
+    ['blog/llms.txt', 'developers/llms.txt'].forEach(file => {
+      expect(llms).to.include(`https://ifuentes.net/${file}`);
+      expect(read(file)).to.match(/^# .+\n\n> /);
     });
   });
 
@@ -126,7 +175,7 @@ describe('AI readiness: machine-readable content', () => {
   });
 
   it('opts emails and scripts out of Cloudflare HTML rewriting', () => {
-    ['index.html', 'resume.html', 'privacy.html', 'security-policy.html'].forEach(page => {
+    ['index.html', 'resume.html', 'privacy.html', 'security-policy.html', 'contact.html', 'developers/index.html'].forEach(page => {
       const html = read(page);
       const mailtos = (html.match(/href="mailto:/g) || []).length;
       const guarded = (html.match(/<!--email_off--><a href="mailto:/g) || []).length;
@@ -140,7 +189,7 @@ describe('AI readiness: machine-readable content', () => {
   });
 
   it('uses one Person identity across pages', () => {
-    ['index.html', 'resume.html', 'now.html'].forEach(page => {
+    ['index.html', 'resume.html', 'now.html', 'about.html', 'contact.html', 'developers/index.html'].forEach(page => {
       const ids = JSON.stringify(jsonLd(dom(page)));
       expect(ids, page).to.include('"https://ifuentes.net/#person"');
     });
@@ -230,14 +279,42 @@ describe('Agent discovery (Cloudflare agent-readiness checks)', () => {
     });
   });
 
-  it('publishes the same MCP server card at both well-known paths', () => {
+  it('publishes the same MCP server card at both well-known paths, with registry branding', () => {
     const card = readJson('.well-known/mcp/server-card.json');
     expect(read('.well-known/mcp.json')).to.equal(read('.well-known/mcp/server-card.json'));
+    expect(card).to.include.keys('name', 'version', 'description', 'serverUrl', 'icons');
+    expect(card.version).to.equal(agent.VERSION);
+    expect(card.serverUrl).to.equal(agent.MCP_URL);
+    card.icons.forEach(icon => expect(fs.existsSync(path.join(root, icon.src.replace(agent.SITE, ''))), icon.src).to.be.true);
     expect(card.serverInfo).to.include.keys('name', 'version');
     expect(card.url).to.equal(agent.MCP_URL);
     expect(card.transport.type).to.equal('streamable-http');
     expect(card.capabilities.tools).to.equal(true);
-    expect(card.tools.map(t => t.name)).to.deep.equal(tools);
+    expect(card.tools.map(t => t.name)).to.deep.equal([...tools, agent.POST_TOOL.tool]);
+    card.tools.forEach(tool => expect(tool.inputSchema.type, tool.name).to.equal('object'));
+  });
+
+  it('describes the REST API and /ask with OpenAPI 3.1, ready for function calling', () => {
+    const spec = readJson('openapi.json');
+    expect(spec.openapi).to.match(/^3\.1\./);
+    expect(spec.servers[0].url).to.equal(agent.SITE);
+    const ids = [];
+    Object.entries(spec.paths).forEach(([route, item]) => Object.entries(item).forEach(([method, op]) => {
+      expect(op.operationId, `${method} ${route}`).to.match(/^[a-z][A-Za-z]+$/);
+      expect(op.summary, op.operationId).to.be.a('string');
+      expect(op.description, op.operationId).to.be.a('string');
+      expect(op.responses, op.operationId).to.have.property('200');
+      (op.parameters || []).forEach(p => expect(p.description, `${op.operationId} ${p.name}`).to.be.a('string'));
+      ids.push(op.operationId);
+    }));
+    expect(new Set(ids).size).to.equal(ids.length);
+    agent.DOCUMENTS.filter(d => d.api !== false).forEach(d => expect(spec.paths).to.have.property(`/api/${d.id}`));
+    ['/api', '/api/posts', '/api/posts/{slug}', '/ask'].forEach(route => expect(spec.paths).to.have.property(route));
+    // Every $ref resolves
+    JSON.stringify(spec).match(/"\$ref":"[^"]+"/g).map(r => r.slice(8, -1)).forEach(ref => {
+      const target = ref.slice(2).split('/').reduce((node, key) => node && node[key], spec);
+      expect(target, ref).to.exist;
+    });
   });
 
   it('publishes an A2A agent card with a JSON-RPC interface and one skill per document', () => {
@@ -249,11 +326,16 @@ describe('Agent discovery (Cloudflare agent-readiness checks)', () => {
     card.skills.forEach(skill => expect(skill).to.include.keys('id', 'name', 'description'));
   });
 
-  it('lists the MCP server and the A2A agent in the RFC 9727 API catalog', () => {
+  it('lists the REST API, the MCP server and the A2A agent in the RFC 9727 API catalog', () => {
     const catalog = readJson('.well-known/api-catalog');
-    const anchors = catalog.linkset.map(entry => entry.anchor);
-    expect(anchors).to.include.members([agent.MCP_URL, agent.A2A_URL]);
-    catalog.linkset.forEach(entry => expect(Object.keys(entry).some(k => ['service-desc', 'service-doc'].includes(k)), entry.anchor).to.be.true);
+    const [self, ...apis] = catalog.linkset;
+    expect(self.anchor).to.equal(`${agent.SITE}/.well-known/api-catalog`);
+    expect(self.item.map(i => i.href)).to.include.members([agent.API_URL, agent.MCP_URL, agent.A2A_URL, agent.ASK_URL]);
+    expect(apis.map(entry => entry.anchor)).to.include.members(self.item.map(i => i.href));
+    apis.forEach(entry => expect(Object.keys(entry).some(k => ['service-desc', 'service-doc'].includes(k)), entry.anchor).to.be.true);
+    const rest = apis.find(entry => entry.anchor === agent.API_URL);
+    expect(rest['service-desc'][0].href).to.equal(agent.OPENAPI_URL);
+    expect(rest['service-doc'][0].href).to.match(/^https:\/\/ifuentes\.net\/developers\//);
   });
 
   it('tells agents in auth.md that no authentication is needed', () => {
@@ -280,6 +362,8 @@ describe('Agent discovery (Cloudflare agent-readiness checks)', () => {
   it('gives the Worker the same tools and endpoints', () => {
     const workerConfig = readJson('worker/src/config.json');
     expect(workerConfig.documents.map(d => d.tool)).to.deep.equal(tools);
+    expect(workerConfig.postTool.tool).to.equal(agent.POST_TOOL.tool);
+    workerConfig.documents.forEach(d => expect(fs.existsSync(path.join(root, d.markdown)), d.markdown).to.be.true);
     expect(workerConfig.mcpUrl).to.equal(agent.MCP_URL);
     expect(workerConfig.a2aUrl).to.equal(agent.A2A_URL);
   });
@@ -287,7 +371,7 @@ describe('Agent discovery (Cloudflare agent-readiness checks)', () => {
   it('lists the agent endpoints in llms.txt', () => {
     const llms = read('llms.txt');
     expect(llms).to.match(/^## Agent endpoints$/m);
-    [agent.MCP_URL, agent.A2A_URL, '/.well-known/api-catalog', '/.well-known/agent-skills/', '/auth.md'].forEach(url => expect(llms).to.include(url));
+    [agent.MCP_URL, agent.A2A_URL, agent.API_URL, agent.ASK_URL, agent.OPENAPI_URL, '/.well-known/api-catalog', '/.well-known/agent-skills/', '/auth.md'].forEach(url => expect(llms).to.include(url));
   });
 
   it('publishes an ARD manifest (ard.json and the legacy ai-catalog.json) pointing at real files', () => {
@@ -311,5 +395,56 @@ describe('Agent discovery (Cloudflare agent-readiness checks)', () => {
     expect(poppy.organization).to.deep.equal({ name: agent.NAME, domain: 'ifuentes.net' });
     expect(poppy).to.have.property('web');
     ['agent', 'apis', 'auth', 'feedback'].forEach(key => expect(poppy).to.not.have.property(key));
+  });
+});
+
+describe('Trust pages and developer portal', () => {
+  const home = dom('index.html');
+  const sitemap = read('sitemap.xml');
+
+  it('links About, Contact and Developers from the home page footer, and lists them in the sitemap', () => {
+    ['/about.html', '/contact.html', '/developers/'].forEach(href => {
+      expect(home.querySelector(`footer a[href="${href}"]`), href).to.exist;
+      expect(sitemap).to.include(`<loc>https://ifuentes.net${href}</loc>`);
+    });
+    expect(home.querySelector('link[rel="service-desc"][href="/openapi.json"]')).to.exist;
+    expect(home.querySelector('link[rel="service-doc"][href="/developers/"]')).to.exist;
+  });
+
+  it('marks the pages with AboutPage, ContactPage, WebAPI and breadcrumbs', () => {
+    const types = page => nodes(jsonLd(dom(page))).map(n => n['@type']);
+    expect(types('about.html')).to.include('AboutPage');
+    expect(types('contact.html')).to.include('ContactPage');
+    expect(types('developers/index.html')).to.include.members(['WebPage', 'WebAPI']);
+    ['about.html', 'contact.html', 'developers/index.html'].forEach(page => {
+      const node = nodes(jsonLd(dom(page)))[0];
+      expect(node.breadcrumb['@type'], page).to.equal('BreadcrumbList');
+    });
+  });
+
+  it('gives the organisations a contact point and an address, and the person a contact point', () => {
+    const person = jsonLd(home)[0];
+    expect(person.contactPoint.email).to.equal('inaki@ifuentes.net');
+    person.worksFor.forEach(org => {
+      expect(org.contactPoint, org.name).to.exist;
+      expect(org.address.addressCountry, org.name).to.equal('ES');
+    });
+  });
+
+  it('shows the contact email and the same profiles as the home page', () => {
+    const contact = dom('contact.html');
+    expect(contact.querySelector('a[href="mailto:inaki@ifuentes.net"]')).to.exist;
+    ['https://www.linkedin.com/in/inakifuentes/', 'https://github.com/i10s', 'https://x.com/ifuentes'].forEach(href => {
+      expect(contact.querySelector(`a[href="${href}"]`), href).to.exist;
+      expect(home.querySelector(`a[href="${href}"]`), href).to.exist;
+    });
+  });
+
+  it('documents every REST endpoint and MCP tool on the developer page', () => {
+    const agent = require('../scripts/agent-config');
+    const page = read('developers/index.html');
+    JSON.parse(read('worker/src/config.json')).apiEndpoints.forEach(e => expect(page).to.include(`<code>${e.path}</code>`));
+    [...agent.DOCUMENTS, agent.POST_TOOL].forEach(t => expect(page).to.include(`<code>${t.tool}</code>`));
+    ['/openapi.json', '/.well-known/api-catalog', agent.ASK_URL].forEach(url => expect(page).to.include(url));
   });
 });

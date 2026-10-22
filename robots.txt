@@ -10,6 +10,7 @@
 # Full text for LLMs:   https://ifuentes.net/llms-full.txt
 # Humans TXT:           https://ifuentes.net/humans.txt
 # Agent endpoints:      https://ifuentes.net/.well-known/api-catalog
+# Developers:           https://ifuentes.net/developers/ (OpenAPI: https://ifuentes.net/openapi.json)
 
 User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
@@ -70,5 +71,7 @@ Disallow: /tests/
 Disallow: /worker/
 
 Sitemap: https://ifuentes.net/sitemap.xml
+# NLWeb Schema Feeds: every schema.org node on the site, as JSON Lines
+Schemamap: https://ifuentes.net/schemamap.xml
 
 # Security: https://ifuentes.net/.well-known/security.txt

@@ -20,19 +20,36 @@
       "name": "get_now",
       "description": "What Iñaki Fuentes is focused on right now: roles in flight, what just ended, learning and priorities, with the last-updated date. First-party Markdown.",
       "path": "/now.md"
+    },
+    {
+      "name": "get_blog_posts",
+      "description": "Every article on Iñaki Fuentes's blog, newest first: title, date, topic, summary and a link to its Markdown version. Mostly in Spanish. First-party Markdown.",
+      "path": "/blog/llms.txt"
+    },
+    {
+      "name": "get_blog_post",
+      "description": "One article from Iñaki Fuentes's blog as Markdown, by slug (list them with get_blog_posts). Mostly in Spanish. First-party Markdown.",
+      "path": "/blog/{slug}.md",
+      "slug": true
     }
   ];
 
-  TOOLS.forEach(({ name, description, path }) => {
+  const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+  const NO_INPUT = {"type":"object","properties":{},"additionalProperties":false};
+  const SLUG_INPUT = {"type":"object","properties":{"slug":{"type":"string","pattern":"^[a-z0-9]+(-[a-z0-9]+)*$","description":"Post slug, as listed by get_blog_posts"}},"required":["slug"],"additionalProperties":false};
+
+  TOOLS.forEach(({ name, description, path, slug }) => {
     try {
       const registered = context.registerTool({
         name,
         description,
-        inputSchema: { type: 'object', properties: {}, additionalProperties: false },
+        inputSchema: slug ? SLUG_INPUT : NO_INPUT,
         annotations: { readOnlyHint: true },
-        async execute() {
-          const response = await fetch(path, { headers: { Accept: 'text/markdown, text/plain' } });
-          if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
+        async execute(input) {
+          if (slug && !(input && typeof input.slug === 'string' && SLUG.test(input.slug))) throw new Error('slug: lowercase letters, digits and hyphens');
+          const url = slug ? path.replace('{slug}', input.slug) : path;
+          const response = await fetch(url, { headers: { Accept: 'text/markdown, text/plain' } });
+          if (!response.ok) throw new Error(`${url}: HTTP ${response.status}`);
           return { content: [{ type: 'text', text: await response.text() }] };
         }
       });

@@ -1,3 +1,14 @@
+---
+title: "Legacy no significa viejo. Significa rentable."
+description: "El software que lleva veinte años en producción no es un lastre. Sobrevivió a mercados, modas y equipos enteros, y sigue pagando las nóminas."
+canonical: "https://ifuentes.net/blog/legacy-no-significa-viejo/"
+author: "Iñaki Fuentes"
+date: "2025-11-03"
+last_updated: "2026-10-22"
+topic: "Tecnología"
+lang: "es"
+---
+
 # Legacy no significa viejo. Significa rentable.
 
 > El software que lleva veinte años en producción no es un lastre. Sobrevivió a mercados, modas y equipos enteros, y sigue pagando las nóminas.

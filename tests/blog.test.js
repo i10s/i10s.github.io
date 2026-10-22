@@ -75,7 +75,14 @@ describe('Blog generator: posts', () => {
     expect(ld).to.include({ '@type': 'BlogPosting', headline: 'Uno', datePublished: '2026-10-20', articleSection: 'Liderazgo' });
     expect(ld.author['@id']).to.equal('https://ifuentes.net/#person');
     expect(doc.querySelector('a[rel="next"]').getAttribute('href')).to.equal('/blog/dos/');
-    expect(fs.readFileSync(path.join(tmp, 'blog', 'uno.md'), 'utf8')).to.match(/^# Uno\n/);
+    const crumbs = JSON.parse(doc.querySelectorAll('script[type="application/ld+json"]')[1].textContent);
+    expect(crumbs['@type']).to.equal('BreadcrumbList');
+    expect(crumbs.itemListElement.map(i => i.item)).to.deep.equal(['https://ifuentes.net/', 'https://ifuentes.net/blog/', 'https://ifuentes.net/blog/tema/liderazgo/', 'https://ifuentes.net/blog/uno/']);
+    expect(fs.readFileSync(path.join(tmp, 'blog', 'uno.md'), 'utf8')).to.match(/^---\ntitle: "Uno"\n[\s\S]*\nlang: "en"\n---\n\n# Uno\n/);
+    const index = JSON.parse(fs.readFileSync(path.join(tmp, 'blog', 'posts.json'), 'utf8'));
+    expect(index.posts.map(p => p.slug)).to.deep.equal(['dos', 'uno']);
+    expect(index.posts[1]).to.include({ lang: 'en', topic: 'liderazgo', markdown_url: 'https://ifuentes.net/blog/uno.md' });
+    expect(fs.readFileSync(path.join(tmp, 'blog', 'llms.txt'), 'utf8')).to.include('- [Uno](https://ifuentes.net/blog/uno.md): Primero.');
     const feed = fs.readFileSync(path.join(tmp, 'blog', 'feed.xml'), 'utf8');
     expect(feed.match(/<item>/g)).to.have.length(2);
     expect(feed).to.include('<lastBuildDate>Fri, 23 Oct 2026 00:00:00 +0000</lastBuildDate>');
