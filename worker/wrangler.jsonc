@@ -8,6 +8,9 @@
   "routes": [
     { "pattern": "ifuentes.net/mcp", "zone_name": "ifuentes.net" },
     { "pattern": "ifuentes.net/a2a", "zone_name": "ifuentes.net" },
+    { "pattern": "ifuentes.net/api", "zone_name": "ifuentes.net" },
+    { "pattern": "ifuentes.net/api/*", "zone_name": "ifuentes.net" },
+    { "pattern": "ifuentes.net/ask", "zone_name": "ifuentes.net" },
     { "pattern": "ifuentes.net/", "zone_name": "ifuentes.net" },
     { "pattern": "ifuentes.net/.well-known/api-catalog", "zone_name": "ifuentes.net" }
   ],

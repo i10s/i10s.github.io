@@ -30,21 +30,21 @@ export function messageText(message) {
     .join('\n');
 }
 
+/** Scores every document by the keywords the text mentions; best first, ties in published order. */
+export function rankDocuments(text, documents) {
+  const haystack = ` ${String(text).toLowerCase()} `;
+  return documents
+    .map((doc, order) => ({ doc, order, hits: doc.keywords.filter(keyword => haystack.includes(keyword.toLowerCase())).length }))
+    .sort((a, b) => b.hits - a.hits || a.order - b.order)
+    .map(({ doc, hits }) => ({ doc, hits }));
+}
+
 /** Picks the document that answers the message: explicit skill first, then keywords, else the profile. */
 export function pickDocument(text, documents, requestedSkill) {
   const requested = documents.find(doc => doc.id === requestedSkill);
   if (requested) return requested;
-  const haystack = ` ${String(text).toLowerCase()} `;
-  let best = documents[0];
-  let bestScore = 0;
-  for (const doc of documents) {
-    const score = doc.keywords.filter(keyword => haystack.includes(keyword.toLowerCase())).length;
-    if (score > bestScore) {
-      best = doc;
-      bestScore = score;
-    }
-  }
-  return best;
+  const [best] = rankDocuments(text, documents);
+  return best.hits > 0 ? best.doc : documents[0];
 }
 
 /**
