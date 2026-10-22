@@ -47,6 +47,20 @@
   <changefreq>weekly</changefreq>
   <priority>0.80</priority>
 </url>
+
+<url>
+  <loc>https://ifuentes.net/blog/tema/evoost/</loc>
+  <lastmod>2026-10-22T00:00:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.50</priority>
+</url>
+
+<url>
+  <loc>https://ifuentes.net/blog/un-sistema-no-aprende-porque-recuerde-lo-que-paso/</loc>
+  <lastmod>2026-10-22T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.70</priority>
+</url>
 <!-- blog:end -->
 
 </urlset>
