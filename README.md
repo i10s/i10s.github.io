@@ -79,6 +79,7 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 ├── index.html           # Home: split-flap hero, departures/arrivals boards, boarding pass
 ├── resume.html          # Résumé ("flight log"), print-ready
 ├── now.html             # Current focus (/now page)
+├── blog/                # Blog (/blog/): posts/*.md are the source; everything else is generated
 ├── 404.html             # "Gate changed" error page
 ├── offline.html         # "Delayed" offline fallback
 ├── flap.js              # Split-flap tiles, board flaps, clocks, Konami easter egg
@@ -100,6 +101,7 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 │   ├── generate-og-cards.js # Social card templates + PNG rendering
 │   ├── agent-config.js  # Single source for agent tools, skills and endpoints
 │   ├── generate-agent-files.js # llms.txt, Markdown, cards, catalog, skill, webmcp.js from HTML + config
+│   ├── generate-blog.js # Blog pages, topic pages, feed and sitemap block from blog/posts/*.md
 │   ├── stamp-assets.js  # Content hash for /flap.js?v=… and /webmcp.js?v=… in pages and the service worker
 │   ├── indexnow.js      # Ping IndexNow (Bing, Yandex…) with the sitemap URLs
 │   └── fix-html.js      # HTML validation fixer (all primary pages)
@@ -176,6 +178,15 @@ Everything below is generated from `scripts/agent-config.js` and the HTML (`npm 
 | Markdown negotiation | Cloudflare *Markdown for Agents* answers `Accept: text/markdown`; the Worker falls back to `llms.txt` |
 
 The MCP server and the A2A agent run on a small Cloudflare Worker ([`worker/`](worker/README.md)) on four paths only; they read the published Markdown at request time and never hold their own copy of the facts. OAuth, Web Bot Auth and the commerce checks do not apply to a site without logins, bots or payments. DNS-AID needs one DNS record (see [worker/README.md](worker/README.md#optional-dns-for-ai-discovery-dns-aid)).
+
+## ✍️ Blog
+
+`/blog/` holds long-form posts in Spanish (and occasionally English) on five topics: liderazgo, tecnología, eVoost, Fliinow and personal.
+
+- **Source**: `blog/posts/YYYY-MM-DD-slug.md` with front matter (`title`, `date`, `description` ≤200 chars, `topic`, optional `lang`, `updated`). Body: paragraphs, `##`/`###`, lists, quotes, code, bold, italic, links.
+- **Generated** by `npm run generate:blog` (also part of `npm run build`): `blog/index.html`, `blog/tema/<topic>/`, `blog/<slug>/index.html`, `blog/<slug>.md` (Markdown for agents), `blog/feed.xml` (RSS with full text) and the `<!-- blog:start -->` block of `sitemap.xml`. Deleting a post removes its pages. `validate:generated` fails if anything is stale.
+- **No JavaScript** on blog pages; same palette, nav and board look as the rest of the site; `BlogPosting` JSON-LD tied to the one `Person` `@id`.
+- **Publishing** is automated from the private `i10s/me` repo: an approved post is committed to `blog/posts/`, generated, validated and pushed, and GitHub Pages deploys it.
 
 ## 🚀 Deployment
 
