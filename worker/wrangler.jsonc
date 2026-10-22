@@ -6,11 +6,12 @@
   "compatibility_flags": ["nodejs_compat"],
   // Only these paths run the Worker; everything else is served by GitHub Pages as before.
   "routes": [
-    { "pattern": "ifuentes.net/mcp", "zone_name": "ifuentes.net" },
-    { "pattern": "ifuentes.net/a2a", "zone_name": "ifuentes.net" },
-    { "pattern": "ifuentes.net/api", "zone_name": "ifuentes.net" },
-    { "pattern": "ifuentes.net/api/*", "zone_name": "ifuentes.net" },
-    { "pattern": "ifuentes.net/ask", "zone_name": "ifuentes.net" },
+    // Trailing * so query strings match too (an exact route ignores /ask?query=…); any other path
+    // under these prefixes falls through to GitHub Pages in the fetch handler.
+    { "pattern": "ifuentes.net/mcp*", "zone_name": "ifuentes.net" },
+    { "pattern": "ifuentes.net/a2a*", "zone_name": "ifuentes.net" },
+    { "pattern": "ifuentes.net/api*", "zone_name": "ifuentes.net" },
+    { "pattern": "ifuentes.net/ask*", "zone_name": "ifuentes.net" },
     { "pattern": "ifuentes.net/", "zone_name": "ifuentes.net" },
     { "pattern": "ifuentes.net/.well-known/api-catalog", "zone_name": "ifuentes.net" }
   ],

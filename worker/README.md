@@ -44,7 +44,7 @@ Unit tests for the A2A, REST API and NLWeb logic (against the files on disk) and
 ## Deploy
 
 1. Push the site first, so GitHub Pages publishes the cards, the catalog, `openapi.json`, `index.md` and `blog/posts.json` the Worker reads and links to.
-2. Then deploy the Worker (needs a `wrangler login` with access to the `ifuentes.net` zone). The deploy adds the `/api`, `/api/*` and `/ask` routes:
+2. The **Deploy Worker** workflow (`.github/workflows/deploy-worker.yml`) deploys after the tests pass on `main` when `worker/` changed, using the `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets of the personal account that owns the `ifuentes.net` zone. To deploy by hand (the routes end in `*` so query strings match):
 
 ```bash
 cd worker

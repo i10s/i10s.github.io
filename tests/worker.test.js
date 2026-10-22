@@ -267,7 +267,7 @@ describe('Worker: wiring', () => {
 
   it('runs only on the agent paths; GitHub Pages keeps serving everything else', () => {
     const paths = wrangler.routes.map(r => r.pattern.replace('ifuentes.net', ''));
-    expect(paths).to.have.members(['/mcp', '/a2a', '/api', '/api/*', '/ask', '/', '/.well-known/api-catalog']);
+    expect(paths).to.have.members(['/mcp*', '/a2a*', '/api*', '/ask*', '/', '/.well-known/api-catalog']);
     expect(new URL(config.mcpUrl).pathname).to.equal('/mcp');
     expect(new URL(config.a2aUrl).pathname).to.equal('/a2a');
     wrangler.routes.forEach(r => expect(r.zone_name).to.equal('ifuentes.net'));
