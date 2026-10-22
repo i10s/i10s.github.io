@@ -79,13 +79,14 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 ├── index.html           # Home: split-flap hero, departures/arrivals boards, boarding pass
 ├── resume.html          # Résumé ("flight log"), print-ready
 ├── now.html             # Current focus (/now page)
+├── about.html, contact.html, developers/ # Trust pages and developer portal (generated, do not edit by hand)
 ├── blog/                # Blog (/blog/): posts/*.md are the source; everything else is generated
 ├── 404.html             # "Gate changed" error page
 ├── offline.html         # "Delayed" offline fallback
 ├── flap.js              # Split-flap tiles, board flaps, clocks, Konami easter egg
-├── llms.txt, llms-full.txt, resume.md, now.md # Generated for AI engines (do not edit by hand)
-├── webmcp.js, auth.md, .well-known/ # Generated agent discovery files (do not edit by hand)
-├── worker/              # Cloudflare Worker: MCP server, A2A agent, Link headers
+├── llms.txt, llms-full.txt, index.md, resume.md, now.md # Generated for AI engines (do not edit by hand)
+├── webmcp.js, auth.md, openapi.json, schema.jsonl, schemamap.xml, .well-known/ # Generated agent discovery files (do not edit by hand)
+├── worker/              # Cloudflare Worker: REST API, MCP server, A2A agent, NLWeb /ask, Link headers
 ├── sw.js                # Service Worker (network-first pages, cached assets)
 ├── favicon.svg          # Brand mark (PNG/ICO icons rendered from it)
 ├── og.png, og-*.png     # Social cards (generated from cards/)
@@ -100,7 +101,8 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 │   ├── check-budget.js  # Performance budget check (pre-commit + CI)
 │   ├── generate-og-cards.js # Social card templates + PNG rendering
 │   ├── agent-config.js  # Single source for agent tools, skills and endpoints
-│   ├── generate-agent-files.js # llms.txt, Markdown, cards, catalog, skill, webmcp.js from HTML + config
+│   ├── generate-agent-files.js # llms.txt, Markdown, cards, catalog, OpenAPI, skill, webmcp.js from HTML + config
+│   ├── agent-pages.js   # About, Contact and Developers pages (used by generate-agent-files.js)
 │   ├── generate-blog.js # Blog pages, topic pages, feed and sitemap block from blog/posts/*.md
 │   ├── stamp-assets.js  # Content hash for /flap.js?v=… and /webmcp.js?v=… in pages and the service worker
 │   ├── indexnow.js      # Ping IndexNow (Bing, Yandex…) with the sitemap URLs
@@ -153,8 +155,10 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 Most AI crawlers and assistants read raw HTML without running JavaScript, so every page is complete as plain HTML and the site speaks their formats:
 
 - **Crawl access**: `robots.txt` welcomes all crawlers and names the main AI agents (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, Claude-User, PerplexityBot, Google-Extended, Applebot-Extended, CCBot…). Search, AI answers and training are allowed and declared with [Content Signals](https://contentsignals.org) (`search=yes, ai-input=yes, ai-train=yes`). Legacy snapshots (`/archive/`, `/v2/`) and developer files are excluded and marked `noindex`, so there is one current version.
-- **[llms.txt](https://ifuentes.net/llms.txt)** ([llmstxt.org](https://llmstxt.org)), **llms-full.txt**, **resume.md** and **now.md**: Markdown versions generated from the HTML (`npm run generate:agents`), linked with `<link rel="alternate" type="text/markdown">`.
-- **Plain-prose bio** on the home page and **JSON-LD**: `Person` (one `@id` across pages), `ProfilePage` with `dateModified`, résumé roles as `EmployeeRole` and credentials as `EducationalOccupationalCredential`.
+- **[llms.txt](https://ifuentes.net/llms.txt)** ([llmstxt.org](https://llmstxt.org)), **llms-full.txt**, **index.md**, **resume.md** and **now.md**: Markdown versions generated from the HTML (`npm run generate:agents`), linked with `<link rel="alternate" type="text/markdown">`. The `.md` pages (and the blog's) open with front matter: `title`, `description`, `canonical`, `last_updated`. The blog and the developer portal have their own `llms.txt` (`/blog/llms.txt`, `/developers/llms.txt`), linked from the root one.
+- **Plain-prose bio** on the home page and **JSON-LD**: `Person` (one `@id` across pages, with a `contactPoint`), the organisations he works for with `address` and `contactPoint` (from their own sites), `WebSite` + `ProfilePage` with `dateModified`, `AboutPage`, `ContactPage`, `WebAPI`, `Blog`/`BlogPosting` and `BreadcrumbList`; résumé roles as `EmployeeRole` and credentials as `EducationalOccupationalCredential`.
+- **Trust pages**: [About](https://ifuentes.net/about.html) and [Contact](https://ifuentes.net/contact.html), generated from the home and Now pages, linked from the footer.
+- **NLWeb Schema Feeds**: `Schemamap:` in `robots.txt` points to [`/schemamap.xml`](https://ifuentes.net/schemamap.xml), which lists `/schema.jsonl` (every JSON-LD node of the pages), `/blog/schema.jsonl` and the RSS feeds. Lighthouse does not know the directive, so its `robots-txt` audit reports it; that is the price of the NLWeb check.
 - **Clean text**: split-flap animations only change `data-*` attributes rendered by CSS, so the DOM text is never scrambled.
 - **Cloudflare-safe markup**: `<!--email_off-->` around emails and `data-cfasync="false"` on scripts, so Email Obfuscation and Rocket Loader do not rewrite what bots read.
 - **Freshness**: sitemap `lastmod`, JSON-LD `dateModified` and visible dates agree (tested). After a deploy, `npm run indexnow` pings Bing (which feeds ChatGPT search, Copilot and DuckDuckGo), Yandex, Seznam and Naver through [IndexNow](https://www.indexnow.org).
@@ -166,25 +170,28 @@ Everything below is generated from `scripts/agent-config.js` and the HTML (`npm 
 
 | Check | What the site publishes |
 | --- | --- |
-| MCP Server Card | [`/.well-known/mcp/server-card.json`](https://ifuentes.net/.well-known/mcp/server-card.json) (also `/.well-known/mcp.json`) for the read-only MCP server at `/mcp` |
+| Developer portal | [`/developers/`](https://ifuentes.net/developers/): every interface with `curl` examples, linked from the home page footer |
+| REST API + OpenAPI | Read-only JSON at `/api` (`/api/profile`, `/api/resume`, `/api/now`, `/api/posts`, `/api/posts/{slug}`), RFC 9457 errors, described by [`/openapi.json`](https://ifuentes.net/openapi.json) (OpenAPI 3.1) |
+| MCP Server Card | [`/.well-known/mcp/server-card.json`](https://ifuentes.net/.well-known/mcp/server-card.json) (also `/.well-known/mcp.json`) for the read-only MCP server at `/mcp`, with registry `name`, `version`, `description` and `icons` |
 | A2A Agent Card | [`/.well-known/agent-card.json`](https://ifuentes.net/.well-known/agent-card.json) for the A2A agent at `/a2a` |
+| NLWeb | `/ask?query=…` (or a v0.55 `POST`), list mode, optional server-sent events; deterministic ranking of pages and posts |
 | Agent Skills | [`/.well-known/agent-skills/index.json`](https://ifuentes.net/.well-known/agent-skills/index.json) (v0.2.0) with the `inaki-fuentes` skill: how to answer questions about him from first-party sources |
-| WebMCP | `webmcp.js` registers `get_profile`, `get_resume` and `get_now` with `document.modelContext` on the content pages |
-| API Catalog | [`/.well-known/api-catalog`](https://ifuentes.net/.well-known/api-catalog) (RFC 9727 linkset) |
+| WebMCP | `webmcp.js` registers `get_profile`, `get_resume`, `get_now`, `get_blog_posts` and `get_blog_post` with `document.modelContext` on the content pages |
+| API Catalog | [`/.well-known/api-catalog`](https://ifuentes.net/.well-known/api-catalog) (RFC 9727 linkset): `item` links to the REST API, MCP, A2A and NLWeb, each with `service-desc` and `service-doc` |
 | Auth.md | [`/auth.md`](https://ifuentes.net/auth.md): no authentication is needed (the scan expects a registration flow, which a site without accounts does not have) |
 | ARD | [`/.well-known/ard.json`](https://ifuentes.net/.well-known/ard.json) (and legacy `ai-catalog.json`): Agentic Resource Discovery manifest of the MCP server, A2A agent, skills and llms.txt |
 | Personal Agent Protocol | [`/.well-known/poppy.json`](https://ifuentes.net/.well-known/poppy.json): website-only declaration (agents browse as ordinary visitors) |
-| Link headers | The Worker adds `Link` headers (`api-catalog`, `service-desc`, `describedby`, `ard`) to the home page |
-| Markdown negotiation | Cloudflare *Markdown for Agents* answers `Accept: text/markdown`; the Worker falls back to `llms.txt` |
+| Link headers | The Worker adds `Link` headers (`api-catalog`, `service-desc` for OpenAPI and the cards, `service-doc`, `describedby`, `ard`) to the home page |
+| Markdown negotiation | `GET /` with `Accept: text/markdown`, or from an assistant fetching for a user (`ChatGPT-User`, `Claude-User`, `Perplexity-User`…), returns `/index.md` (`Vary: Accept, User-Agent`) |
 
-The MCP server and the A2A agent run on a small Cloudflare Worker ([`worker/`](worker/README.md)) on four paths only; they read the published Markdown at request time and never hold their own copy of the facts. OAuth, Web Bot Auth and the commerce checks do not apply to a site without logins, bots or payments. DNS-AID needs one DNS record (see [worker/README.md](worker/README.md#optional-dns-for-ai-discovery-dns-aid)).
+The REST API, MCP server, A2A agent and NLWeb endpoint run on a small Cloudflare Worker ([`worker/`](worker/README.md)) on a few paths only; they read the published Markdown and `blog/posts.json` at request time and never hold their own copy of the facts. OAuth, Web Bot Auth and the commerce checks do not apply to a site without logins, bots or payments. DNS-AID needs one DNS record (see [worker/README.md](worker/README.md#optional-dns-for-ai-discovery-dns-aid)).
 
 ## ✍️ Blog
 
 `/blog/` holds long-form posts in Spanish (and occasionally English) on five topics: liderazgo, tecnología, eVoost, Fliinow and personal.
 
 - **Source**: `blog/posts/YYYY-MM-DD-slug.md` with front matter (`title`, `date`, `description` ≤200 chars, `topic`, optional `lang`, `updated`). Body: paragraphs, `##`/`###`, lists, quotes, code, bold, italic, links.
-- **Generated** by `npm run generate:blog` (also part of `npm run build`): `blog/index.html`, `blog/tema/<topic>/`, `blog/<slug>/index.html`, `blog/<slug>.md` (Markdown for agents), `blog/feed.xml` (RSS with full text) and the `<!-- blog:start -->` block of `sitemap.xml`. Deleting a post removes its pages. `validate:generated` fails if anything is stale.
+- **Generated** by `npm run generate:blog` (also part of `npm run build`): `blog/index.html`, `blog/tema/<topic>/`, `blog/<slug>/index.html`, `blog/<slug>.md` (Markdown for agents, with front matter), `blog/feed.xml` (RSS with full text), `blog/posts.json` (for `/api/posts` and `/ask`), `blog/llms.txt`, `blog/schema.jsonl` and the `<!-- blog:start -->` block of `sitemap.xml`. Publishing a post only touches `blog/` and `sitemap.xml`. Deleting a post removes its pages. `validate:generated` fails if anything is stale.
 - **No JavaScript** on blog pages; same palette, nav and board look as the rest of the site; `BlogPosting` JSON-LD tied to the one `Person` `@id`.
 - **Publishing** is automated from the private `i10s/me` repo: an approved post is committed to `blog/posts/`, generated, validated and pushed, and GitHub Pages deploys it.
 
