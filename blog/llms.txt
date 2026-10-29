@@ -6,6 +6,7 @@ Each article has a Markdown version with front matter (title, date, topic, langu
 
 ## Posts
 
+- [Para que te cuenten cuánto ganan](https://ifuentes.net/blog/para-que-te-cuenten-cuanto-ganan.md): Qué decidimos al construir Quórum para que la gente cuente sus ingresos y qué casa necesita a una empresa que no conoce. (2026-10-29 · eVoost · es)
 - [Un sistema no aprende porque recuerde lo que pasó](https://ifuentes.net/blog/un-sistema-no-aprende-porque-recuerde-lo-que-paso.md): Las empresas guardan lo que ocurrió, pero casi nunca lo que creían antes de que ocurriera. Sin esa mitad no hay aprendizaje, solo archivo. (2026-10-22 · eVoost · es)
 - [Esforzarse no basta (y los niños lo saben)](https://ifuentes.net/blog/esforzarse-no-basta.md): Mi hijo se esfuerza en cada partido y casi siempre pierde. Celebrar solo el esfuerzo no le ayuda. Enseñarle a revisar, sí. (2025-11-22 · Personal · es)
 - [Actuar para aprender](https://ifuentes.net/blog/actuar-para-aprender.md): La acción genera claridad. Si no sabes qué hacer, haz algo: aunque no sea la decisión correcta, te dará la información para encontrarla. (2025-11-16 · Liderazgo · es)

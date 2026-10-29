@@ -1,8 +1,8 @@
 {
   "site": "https://ifuentes.net",
   "blog": "https://ifuentes.net/blog/",
-  "updated": "2026-10-22",
-  "count": 9,
+  "updated": "2026-10-29",
+  "count": 10,
   "topics": [
     {
       "id": "liderazgo",
@@ -26,6 +26,19 @@
     }
   ],
   "posts": [
+    {
+      "slug": "para-que-te-cuenten-cuanto-ganan",
+      "title": "Para que te cuenten cuánto ganan",
+      "description": "Qué decidimos al construir Quórum para que la gente cuente sus ingresos y qué casa necesita a una empresa que no conoce.",
+      "url": "https://ifuentes.net/blog/para-que-te-cuenten-cuanto-ganan/",
+      "markdown_url": "https://ifuentes.net/blog/para-que-te-cuenten-cuanto-ganan.md",
+      "date": "2026-10-29",
+      "updated": "2026-10-29",
+      "topic": "evoost",
+      "topic_name": "eVoost",
+      "lang": "es",
+      "minutes": 3
+    },
     {
       "slug": "un-sistema-no-aprende-porque-recuerde-lo-que-paso",
       "title": "Un sistema no aprende porque recuerde lo que pasó",
