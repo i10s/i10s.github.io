@@ -1,8 +1,8 @@
 {
   "site": "https://ifuentes.net",
   "blog": "https://ifuentes.net/blog/",
-  "updated": "2026-10-29",
-  "count": 10,
+  "updated": "2026-11-06",
+  "count": 11,
   "topics": [
     {
       "id": "liderazgo",
@@ -26,6 +26,19 @@
     }
   ],
   "posts": [
+    {
+      "slug": "data-is-the-input-decisions-are-the-product",
+      "title": "Data is the input. Decisions are the product.",
+      "description": "How we are building decision systems for new residential development at eVoost, from earned autonomy to decision history and the questions we have not answered yet.",
+      "url": "https://ifuentes.net/blog/data-is-the-input-decisions-are-the-product/",
+      "markdown_url": "https://ifuentes.net/blog/data-is-the-input-decisions-are-the-product.md",
+      "date": "2026-11-06",
+      "updated": "2026-11-06",
+      "topic": "evoost",
+      "topic_name": "eVoost",
+      "lang": "en",
+      "minutes": 14
+    },
     {
       "slug": "para-que-te-cuenten-cuanto-ganan",
       "title": "Para que te cuenten cuánto ganan",
