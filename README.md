@@ -1,6 +1,6 @@
 # i10s.github.io - Personal Website
 
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-deployed-success?logo=github)](https://ifuentes.net)
+[![Cloudflare Workers](https://img.shields.io/badge/Cloudflare%20Workers-deployed-success?logo=cloudflare)](https://ifuentes.net)
 
 Personal website for Iñaki Fuentes. Twenty years in travel tech, told as an airport split-flap board: **Departures** is what he does now, **Arrivals** is where he has been, and the contact card is a boarding pass. Built for clarity, low maintenance and strong defaults (performance, accessibility, PWA, SEO).
 
@@ -86,7 +86,7 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 ├── flap.js              # Split-flap tiles, board flaps, clocks, Konami easter egg
 ├── llms.txt, llms-full.txt, index.md, resume.md, now.md # Generated for AI engines (do not edit by hand)
 ├── webmcp.js, auth.md, openapi.json, schema.jsonl, schemamap.xml, .well-known/ # Generated agent discovery files (do not edit by hand)
-├── worker/              # Cloudflare Worker: REST API, MCP server, A2A agent, NLWeb /ask, Link headers
+├── worker/              # Cloudflare Worker: serves the site, security headers, REST API, MCP, A2A, NLWeb /ask
 ├── sw.js                # Service Worker (network-first pages, cached assets)
 ├── favicon.svg          # Brand mark (PNG/ICO icons rendered from it)
 ├── og.png, og-*.png     # Social cards (generated from cards/)
@@ -184,7 +184,7 @@ Everything below is generated from `scripts/agent-config.js` and the HTML (`npm 
 | Link headers | The Worker adds `Link` headers (`api-catalog`, `service-desc` for OpenAPI and the cards, `service-doc`, `describedby`, `ard`) to the home page |
 | Markdown negotiation | `GET /` with `Accept: text/markdown`, or from an assistant fetching for a user (`ChatGPT-User`, `Claude-User`, `Perplexity-User`…), returns `/index.md` (`Vary: Accept, User-Agent`) |
 
-The REST API, MCP server, A2A agent and NLWeb endpoint run on a small Cloudflare Worker ([`worker/`](worker/README.md)) on a few paths only; they read the published Markdown and `blog/posts.json` at request time and never hold their own copy of the facts. OAuth, Web Bot Auth and the commerce checks do not apply to a site without logins, bots or payments. DNS-AID needs one DNS record (see [worker/README.md](worker/README.md#optional-dns-for-ai-discovery-dns-aid)).
+The REST API, MCP server, A2A agent and NLWeb endpoint run on the Cloudflare Worker that serves the site ([`worker/`](worker/README.md)); they read the published Markdown and `blog/posts.json` at request time and never hold their own copy of the facts. OAuth, Web Bot Auth and the commerce checks do not apply to a site without logins, bots or payments. DNS-AID needs one DNS record (see [worker/README.md](worker/README.md#optional-dns-for-ai-discovery-dns-aid)).
 
 ## ✍️ Blog
 
@@ -193,16 +193,16 @@ The REST API, MCP server, A2A agent and NLWeb endpoint run on a small Cloudflare
 - **Source**: `blog/posts/YYYY-MM-DD-slug.md` with front matter (`title`, `date`, `description` ≤200 chars, `topic`, optional `lang`, `updated`). Body: paragraphs, `##`/`###`, lists, quotes, code, bold, italic, links.
 - **Generated** by `npm run generate:blog` (also part of `npm run build`): `blog/index.html`, `blog/tema/<topic>/`, `blog/<slug>/index.html`, `blog/<slug>.md` (Markdown for agents, with front matter), `blog/feed.xml` (RSS with full text), `blog/posts.json` (for `/api/posts` and `/ask`), `blog/llms.txt`, `blog/schema.jsonl` and the `<!-- blog:start -->` block of `sitemap.xml`. Publishing a post only touches `blog/` and `sitemap.xml`. Deleting a post removes its pages. `validate:generated` fails if anything is stale.
 - **No JavaScript** on blog pages; same palette, nav and board look as the rest of the site; `BlogPosting` JSON-LD tied to the one `Person` `@id`.
-- **Publishing** is automated from the private `i10s/me` repo: an approved post is committed to `blog/posts/`, generated, validated and pushed, and GitHub Pages deploys it.
+- **Publishing** is automated from the private `i10s/me` repo: an approved post is committed to `blog/posts/`, generated, validated and pushed, and the Worker deploy publishes it.
 
 ## 🚀 Deployment
 
-This site is deployed on **GitHub Pages**:
+This site is served by a **Cloudflare Worker with static assets** ([worker/README.md](worker/README.md)):
 
-- **Production URL**: <https://ifuentes.net>
-- **Auto-deploy**: Pushes to `main` branch trigger deployment
-- **Build time**: ~1-2 minutes
-- **Agent endpoints**: after the Pages deploy, `cd worker && npm run deploy` (Cloudflare Worker, see [worker/README.md](worker/README.md))
+- **Production URL**: <https://ifuentes.net> (`www` and `mta-sts` are on the same Worker)
+- **Auto-deploy**: the **Deploy Worker** workflow publishes every push to `main` once the tests pass
+- **What is published**: the repository root, minus what `.assetsignore` lists (tooling, tests, `worker/`, `node_modules`)
+- **Security headers**: CSP, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy` and COOP from `worker/src/site.js`; HSTS and the minimum TLS version are zone settings in Cloudflare
 - **After deploy**: `npm run indexnow` to ask search and AI engines to recrawl the sitemap URLs
 
 ## 📈 Monitoring & Tooling

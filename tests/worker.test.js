@@ -265,17 +265,24 @@ describe('Worker: wiring', () => {
     expect(source).to.match(/z\.string\(\)\.regex\(SLUG\)/);
   });
 
-  it('runs only on the agent paths; GitHub Pages keeps serving everything else', () => {
-    const paths = wrangler.routes.map(r => r.pattern.replace('ifuentes.net', ''));
-    expect(paths).to.have.members(['/mcp*', '/a2a*', '/api*', '/ask*', '/', '/.well-known/api-catalog']);
+  it('serves the whole site on the apex, www and mta-sts, with the Worker in front of every asset', () => {
+    expect(wrangler.routes.map(r => r.pattern)).to.have.members(['ifuentes.net/*', 'www.ifuentes.net/*', 'mta-sts.ifuentes.net/*']);
     expect(new URL(config.mcpUrl).pathname).to.equal('/mcp');
     expect(new URL(config.a2aUrl).pathname).to.equal('/a2a');
     wrangler.routes.forEach(r => expect(r.zone_name).to.equal('ifuentes.net'));
     expect(wrangler.workers_dev).to.equal(false);
+    expect(wrangler.assets).to.include({ directory: '..', binding: 'ASSETS', run_worker_first: true, html_handling: 'none' });
   });
 
-  it('fails open on the home page and API catalog', () => {
-    expect(source.match(/passThroughOnException\(\)/g)).to.have.length(2);
+  it('does not publish the repository tooling', () => {
+    const ignored = read('.assetsignore').split('\n').map(l => l.trim());
+    ['.git', '.github', 'node_modules', 'worker', 'tests', 'scripts', 'package.json'].forEach(entry => expect(ignored, entry).to.include(entry));
+  });
+
+  it('adds the security headers to every response and falls back to the plain home page', () => {
+    expect(source).to.include('withSecurityHeaders(await route(request, env, ctx))');
+    expect(source).to.include('home(request).catch(() => serveStatic(request, env.ASSETS))');
+    expect(source).not.to.match(/[^.]fetch\(request\)/);
   });
 
   it('advertises the endpoints agents look for in the home page Link header', () => {
@@ -289,5 +296,68 @@ describe('Worker: wiring', () => {
   it('pins exact dependency versions', () => {
     const pkg = JSON.parse(read('worker/package.json'));
     Object.values({ ...pkg.dependencies, ...pkg.devDependencies }).forEach(version => expect(version).to.match(/^\d+\.\d+\.\d+$/));
+  });
+});
+
+describe('Worker: static site', () => {
+  let site;
+  const files = {
+    '/index.html': '<h1>home</h1>',
+    '/now.html': 'now',
+    '/blog/index.html': 'blog',
+    '/404.html': 'missing'
+  };
+  const assets = { fetch: async req => {
+    const body = files[new URL(req.url).pathname];
+    return body === undefined ? new Response('', { status: 404 }) : new Response(body, { headers: { 'Content-Type': 'text/html' } });
+  } };
+  const get = (url, method = 'GET') => site.serveStatic(new Request(url, { method }), assets);
+
+  before(async () => {
+    site = await import('../worker/src/site.js');
+  });
+
+  it('resolves paths like GitHub Pages did', async () => {
+    expect(await (await get('https://ifuentes.net/')).text()).to.equal('<h1>home</h1>');
+    expect(await (await get('https://ifuentes.net/now.html')).text()).to.equal('now');
+    expect(await (await get('https://ifuentes.net/now')).text()).to.equal('now');
+    expect(await (await get('https://ifuentes.net/blog/')).text()).to.equal('blog');
+    const dir = await get('https://ifuentes.net/blog?x=1');
+    expect(dir.status).to.equal(301);
+    expect(dir.headers.get('Location')).to.equal('https://ifuentes.net/blog/?x=1');
+  });
+
+  it('answers unknown paths with the 404 page and a 404 status', async () => {
+    const response = await get('https://ifuentes.net/nope');
+    expect(response.status).to.equal(404);
+    expect(await response.text()).to.equal('missing');
+    expect(await (await get('https://ifuentes.net/nope', 'HEAD')).text()).to.equal('');
+  });
+
+  it('keeps CORS open on public files, as GitHub Pages did', async () => {
+    expect((await get('https://ifuentes.net/now.html')).headers.get('Access-Control-Allow-Origin')).to.equal('*');
+  });
+
+  it('adds the security headers without overriding the ones a handler set', () => {
+    const response = site.withSecurityHeaders(new Response('x', { headers: { 'X-Frame-Options': 'SAMEORIGIN' } }));
+    expect(response.headers.get('Content-Security-Policy')).to.include("frame-ancestors 'none'");
+    expect(response.headers.get('Content-Security-Policy')).to.include("object-src 'none'");
+    expect(response.headers.get('Referrer-Policy')).to.equal('strict-origin-when-cross-origin');
+    expect(response.headers.get('X-Frame-Options')).to.equal('SAMEORIGIN');
+  });
+
+  it('redirects www to the apex, keeping path and query', () => {
+    const response = site.hostResponse(new Request('https://www.ifuentes.net/now.html?a=1'));
+    expect(response.status).to.equal(301);
+    expect(response.headers.get('Location')).to.equal('https://ifuentes.net/now.html?a=1');
+    expect(site.hostResponse(new Request('https://ifuentes.net/'))).to.equal(null);
+  });
+
+  it('serves an enforcing MTA-STS policy for the Proton MX hosts on mta-sts only', async () => {
+    const policy = site.hostResponse(new Request('https://mta-sts.ifuentes.net/.well-known/mta-sts.txt'));
+    const text = await policy.text();
+    expect(text).to.match(/^version: STSv1\r\nmode: enforce\r\n/);
+    expect(text).to.include('mx: mail.protonmail.ch').and.include('mx: mailsec.protonmail.ch');
+    expect(site.hostResponse(new Request('https://mta-sts.ifuentes.net/')).status).to.equal(404);
   });
 });

@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.4.0] - 2026-11-23
+
+The site moves from GitHub Pages to the Cloudflare Worker, so it can send security headers.
+
+### Changed (3.4.0)
+
+- The Worker serves the whole site as static assets (`worker/wrangler.jsonc`, `.assetsignore`), resolving paths as GitHub Pages did; the Deploy Worker workflow publishes every push to `main`
+- Privacy notice and security policy name Cloudflare as the host
+
+### Added (3.4.0)
+
+- Security headers on every response: Content-Security-Policy, X-Frame-Options, Referrer-Policy, Permissions-Policy, Cross-Origin-Opener-Policy (`worker/src/site.js`)
+- `www.ifuentes.net` redirects to the apex from the Worker; `mta-sts.ifuentes.net` serves the MTA-STS policy
+
+### Removed (3.4.0)
+
+- `_headers` and `.htaccess`, which no host applied
+
 ## [3.3.0] - 2026-10-22
 
 Agent-ready, second pass: a public read-only API, a developer portal and trust pages, all generated from the same sources.
