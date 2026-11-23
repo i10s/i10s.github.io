@@ -18,6 +18,7 @@ The site moves from GitHub Pages to the Cloudflare Worker, so it can send securi
 ### Added (3.4.0)
 
 - Security headers on every response: Content-Security-Policy, X-Frame-Options, Referrer-Policy, Permissions-Policy, Cross-Origin-Opener-Policy (`worker/src/site.js`)
+- `scripts/csp-hashes.js` (`npm run generate:csp`, part of `build` and `validate:generated`): the CSP allows inline scripts by hash instead of `'unsafe-inline'`
 - `www.ifuentes.net` redirects to the apex from the Worker; `mta-sts.ifuentes.net` serves the MTA-STS policy
 
 ### Removed (3.4.0)

@@ -346,6 +346,16 @@ describe('Worker: static site', () => {
     expect(response.headers.get('X-Frame-Options')).to.equal('SAMEORIGIN');
   });
 
+  it('allows inline scripts by hash only, with the hashes of the published pages', () => {
+    const csp = require('../scripts/csp-hashes');
+    const scriptSrc = site.CSP.split('; ').find(d => d.startsWith('script-src '));
+    expect(scriptSrc).not.to.include("'unsafe-inline'");
+    expect(read('worker/src/csp-hashes.js')).to.equal(csp.build());
+    const [registration] = csp.inlineScripts(read('index.html')).filter(body => body.includes('serviceWorker'));
+    expect(scriptSrc).to.include(csp.digest(registration));
+    expect(csp.inlineScripts('<script type="application/ld+json">{}</script><script src="/a.js"></script>')).to.deep.equal([]);
+  });
+
   it('redirects www to the apex, keeping path and query', () => {
     const response = site.hostResponse(new Request('https://www.ifuentes.net/now.html?a=1'));
     expect(response.status).to.equal(301);

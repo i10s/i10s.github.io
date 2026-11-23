@@ -8,6 +8,8 @@
  * - www.ifuentes.net redirects to the apex; mta-sts.ifuentes.net serves the MTA-STS policy (RFC 8461).
  */
 
+import { SCRIPT_HASHES } from './csp-hashes.js';
+
 export const APEX = 'ifuentes.net';
 
 export const MTA_STS_POLICY = [
@@ -21,8 +23,9 @@ export const MTA_STS_POLICY = [
 
 export const CSP = [
   "default-src 'self'",
-  // Cloudflare Web Analytics (cookieless) injects its beacon from static.cloudflareinsights.com.
-  "script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com",
+  // Inline scripts are allowed by hash (scripts/csp-hashes.js). Cloudflare Web Analytics (cookieless)
+  // injects its beacon from static.cloudflareinsights.com.
+  `script-src 'self' ${SCRIPT_HASHES.join(' ')} https://static.cloudflareinsights.com`,
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
   "font-src 'self' https://fonts.gstatic.com",
   "img-src 'self' data: https:",
