@@ -13,6 +13,7 @@ The site moves from GitHub Pages to the Cloudflare Worker, so it can send securi
 
 - The Worker serves the whole site as static assets (`worker/wrangler.jsonc`, `.assetsignore`), resolving paths as GitHub Pages did; the Deploy Worker workflow publishes every push to `main`
 - Privacy notice and security policy name Cloudflare as the host
+- Privacy notice discloses Cloudflare Web Analytics (cookieless), which Cloudflare already injected; the CSP allows its beacon
 
 ### Added (3.4.0)
 

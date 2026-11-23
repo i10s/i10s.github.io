@@ -62,7 +62,7 @@ Actual numbers vary by change; a lightweight baseline is enforced via automated 
 - First Contentful Paint: < 0.8s on median broadband
 - Time To Interactive: < 1.2s
 - Layout Shift (CLS): ~0 (no unexpected shifts)
-- Zero 3rd-party blocking scripts (except optional analytics when added)
+- Zero 3rd-party blocking scripts (the only third-party script is the async, cookieless Cloudflare Web Analytics beacon)
 
 ## 🎨 Design Principles
 
