@@ -1,8 +1,8 @@
 {
   "site": "https://ifuentes.net",
   "blog": "https://ifuentes.net/blog/",
-  "updated": "2026-11-06",
-  "count": 11,
+  "updated": "2026-11-27",
+  "count": 12,
   "topics": [
     {
       "id": "liderazgo",
@@ -26,6 +26,19 @@
     }
   ],
   "posts": [
+    {
+      "slug": "industrializar-la-obra-adelanta-la-decision",
+      "title": "Industrializar la obra adelanta la decisión",
+      "description": "Industrializar la obra obliga a fijar antes el producto. Eso cambia el trabajo de quien estudia la demanda y abre una oportunidad: apuntar lo que se creía antes de fabricar.",
+      "url": "https://ifuentes.net/blog/industrializar-la-obra-adelanta-la-decision/",
+      "markdown_url": "https://ifuentes.net/blog/industrializar-la-obra-adelanta-la-decision.md",
+      "date": "2026-11-27",
+      "updated": "2026-11-27",
+      "topic": "evoost",
+      "topic_name": "eVoost",
+      "lang": "es",
+      "minutes": 4
+    },
     {
       "slug": "data-is-the-input-decisions-are-the-product",
       "title": "Data is the input. Decisions are the product.",
