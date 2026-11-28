@@ -27,6 +27,30 @@ describe('Blog generator: Markdown', () => {
       .to.equal('<strong>n</strong> <em>i</em> <em>j</em> <code>x&lt;y</code> <a href="https://ifuentes.net/?a=1&amp;b=2">l</a>');
   });
 
+  it('renders an image from /images/blog/ as a figure with its real size, and refuses anything else', () => {
+    const dir = path.join(root, 'images', 'blog');
+    const file = path.join(dir, 'zz-test-figure.png');
+    const png = Buffer.alloc(24);
+    png.write('\x89PNG\r\n\x1a\n', 0, 'latin1');
+    png.writeUInt32BE(1080, 16);
+    png.writeUInt32BE(1350, 20);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.writeFileSync(file, png);
+    try {
+      expect(markdown('Antes.\n\n![Un <gráfico>](/images/blog/zz-test-figure.png "Fuente: *INE*")\n\nDespués.')).to.equal([
+        '<p>Antes.</p>',
+        '<figure><img src="/images/blog/zz-test-figure.png" alt="Un &lt;gráfico&gt;" width="1080" height="1350" loading="lazy" decoding="async">'
+          + '<figcaption>Fuente: <em>INE</em></figcaption></figure>',
+        '<p>Después.</p>'
+      ].join('\n'));
+      expect(() => markdown('![](/images/blog/zz-test-figure.png)')).to.throw(/alt text/);
+    } finally {
+      fs.unlinkSync(file);
+    }
+    expect(() => markdown('![x](https://example.com/a.png)')).to.throw(/under \/images\/blog/);
+    expect(() => markdown('![x](/images/blog/missing.png)')).to.throw(/not found/);
+  });
+
   it('rejects unsafe link targets and h1 in the body', () => {
     expect(() => inline('[x](javascript:alert(1))')).to.throw(/unsupported link/);
     expect(() => markdown('# Title')).to.throw(/only h1/);

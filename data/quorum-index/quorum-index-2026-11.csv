@@ -1,0 +1,307 @@
+ine_code,municipality,province,years_of_income_80m2,mortgage_share_of_income_pct,rent_share_of_income_pct,median_income_eur_year,appraised_value_eur_m2,price_80m2_eur,mortgage_payment_eur_month,rent_eur_m2_month,rent_80m2_eur_month,quorum_url
+07054,Santa Eulària des Riu,"Balears, Illes",23.348,108.17,53.71,23450.0,6844.0,547520,2113.76,13.12,1050.0,https://quorum.evoost.ai/vivienda/santa-eularia-des-riu/
+29069,Marbella,Málaga,20.294,94.01,53.67,17850.0,4528.0,362240,1398.46,9.98,798.0,https://quorum.evoost.ai/vivienda/marbella/
+07011,Calvià,"Balears, Illes",19.348,89.63,54.77,22750.0,5502.0,440160,1699.28,12.98,1038.0,https://quorum.evoost.ai/vivienda/calvia/
+29054,Fuengirola,Málaga,18.276,84.67,54.33,16450.0,3758.0,300640,1160.65,9.31,745.0,https://quorum.evoost.ai/vivienda/fuengirola/
+07026,Eivissa,"Balears, Illes",18.13,83.99,50.8,24150.0,5473.0,437840,1690.33,12.78,1022.0,https://quorum.evoost.ai/vivienda/eivissa/
+28079,Madrid,Madrid,17.948,83.15,57.64,24150.0,5418.0,433440,1673.34,14.5,1160.0,https://quorum.evoost.ai/vivienda/madrid/
+38001,Adeje,Santa Cruz de Tenerife,17.614,81.6,56.7,17150.0,3776.0,302080,1166.21,10.13,810.0,https://quorum.evoost.ai/vivienda/adeje/
+03082,Xàbia/Jávea,Alicante,17.055,79.01,41.9,16450.0,3507.0,280560,1083.13,7.18,574.0,https://quorum.evoost.ai/vivienda/xabia-javea/
+29025,Benalmádena,Málaga,16.955,78.55,54.96,17850.0,3783.0,302640,1168.37,10.22,818.0,https://quorum.evoost.ai/vivienda/benalmadena/
+03047,Calp,Alicante,16.599,76.9,44.43,15750.0,3268.0,261440,1009.32,7.29,583.0,https://quorum.evoost.ai/vivienda/calp/
+29070,Mijas,Málaga,16.365,75.81,51.18,16450.0,3365.0,269200,1039.27,8.77,702.0,https://quorum.evoost.ai/vivienda/mijas/
+29901,Torremolinos,Málaga,16.207,75.08,52.94,18550.0,3758.0,300640,1160.65,10.23,818.0,https://quorum.evoost.ai/vivienda/torremolinos/
+18017,Almuñécar,Granada,16.032,74.27,43.57,15050.0,3016.0,241280,931.49,6.83,546.0,https://quorum.evoost.ai/vivienda/almunecar/
+28006,Alcobendas,Madrid,15.82,73.29,46.59,24850.0,4914.0,393120,1517.68,12.06,965.0,https://quorum.evoost.ai/vivienda/alcobendas/
+29051,Estepona,Málaga,15.767,73.04,46.2,17850.0,3518.0,281440,1086.53,8.59,687.0,https://quorum.evoost.ai/vivienda/estepona/
+03031,Benidorm,Alicante,15.64,72.46,49.25,16450.0,3216.0,257280,993.26,8.44,675.0,https://quorum.evoost.ai/vivienda/benidorm/
+08270,Sitges,Barcelona,15.443,71.54,50.95,25550.0,4932.0,394560,1523.24,13.56,1085.0,https://quorum.evoost.ai/vivienda/sitges/
+35014,La Oliva,Las Palmas,15.394,71.31,48.92,17150.0,3300.0,264000,1019.2,8.74,699.0,https://quorum.evoost.ai/vivienda/la-oliva/
+07015,Ciutadella de Menorca,"Balears, Illes",15.266,70.72,35.03,21350.0,4074.0,325920,1258.25,7.79,623.0,https://quorum.evoost.ai/vivienda/ciutadella-de-menorca/
+08019,Barcelona,Barcelona,15.245,70.62,55.33,24150.0,4602.0,368160,1421.32,13.92,1114.0,https://quorum.evoost.ai/vivienda/barcelona/
+20069,Donostia/San Sebastián,Gipuzkoa,14.342,66.44,46.89,29050.0,5208.0,416640,1608.48,14.19,1135.0,https://quorum.evoost.ai/vivienda/donostia-san-sebastian/
+38006,Arona,Santa Cruz de Tenerife,14.327,66.37,54.39,16450.0,2946.0,235680,909.87,9.32,746.0,https://quorum.evoost.ai/vivienda/arona/
+29067,Málaga,Málaga,14.318,66.33,50.61,18550.0,3320.0,265600,1025.38,9.78,782.0,https://quorum.evoost.ai/vivienda/malaga/
+35019,San Bartolomé de Tirajana,Las Palmas,14.171,65.65,48.34,18550.0,3286.0,262880,1014.87,9.34,747.0,https://quorum.evoost.ai/vivienda/san-bartolome-de-tirajana/
+08056,Castelldefels,Barcelona,13.962,64.68,50.03,24850.0,4337.0,346960,1339.47,12.95,1036.0,https://quorum.evoost.ai/vivienda/castelldefels/
+03063,Dénia,Alicante,13.924,64.51,38.18,17150.0,2985.0,238800,921.91,6.82,546.0,https://quorum.evoost.ai/vivienda/denia/
+03133,Torrevieja,Alicante,13.924,64.51,48.93,12950.0,2254.0,180320,696.14,6.6,528.0,https://quorum.evoost.ai/vivienda/torrevieja/
+38028,Puerto de la Cruz,Santa Cruz de Tenerife,13.858,64.2,55.18,17850.0,3092.0,247360,954.96,10.26,821.0,https://quorum.evoost.ai/vivienda/puerto-de-la-cruz/
+07040,Palma,"Balears, Illes",13.838,64.11,43.67,22050.0,3814.0,305120,1177.95,10.03,802.0,https://quorum.evoost.ai/vivienda/palma/
+07031,Llucmajor,"Balears, Illes",13.742,63.66,42.62,22750.0,3908.0,312640,1206.98,10.1,808.0,https://quorum.evoost.ai/vivienda/llucmajor/
+08101,L'Hospitalet de Llobregat,Barcelona,13.343,61.82,67.74,18550.0,3094.0,247520,955.58,13.09,1047.0,https://quorum.evoost.ai/vivienda/l-hospitalet-de-llobregat/
+29082,Rincón de la Victoria,Málaga,13.137,60.86,39.84,21350.0,3506.0,280480,1082.82,8.86,709.0,https://quorum.evoost.ai/vivienda/rincon-de-la-victoria/
+28134,San Sebastián de los Reyes,Madrid,13.009,60.27,44.74,24850.0,4041.0,323280,1248.05,11.58,926.0,https://quorum.evoost.ai/vivienda/san-sebastian-de-los-reyes/
+29094,Vélez-Málaga,Málaga,13.005,60.25,38.79,17150.0,2788.0,223040,861.07,6.93,554.0,https://quorum.evoost.ai/vivienda/velez-malaga/
+11030,Rota,Cádiz,12.899,59.76,47.65,17850.0,2878.0,230240,888.86,8.86,709.0,https://quorum.evoost.ai/vivienda/rota/
+08077,Esplugues de Llobregat,Barcelona,12.698,58.82,53.18,23450.0,3722.0,297760,1149.53,12.99,1039.0,https://quorum.evoost.ai/vivienda/esplugues-de-llobregat/
+28074,Leganés,Madrid,12.606,58.4,45.7,20650.0,3254.0,260320,1004.99,9.83,786.0,https://quorum.evoost.ai/vivienda/leganes/
+28007,Alcorcón,Madrid,12.526,58.03,43.29,22750.0,3562.0,284960,1100.12,10.26,821.0,https://quorum.evoost.ai/vivienda/alcorcon/
+03121,Santa Pola,Alicante,12.194,56.49,37.67,17150.0,2614.0,209120,807.33,6.73,538.0,https://quorum.evoost.ai/vivienda/santa-pola/
+07033,Manacor,"Balears, Illes",12.154,56.31,30.32,19950.0,3031.0,242480,936.12,6.3,504.0,https://quorum.evoost.ai/vivienda/manacor/
+28080,Majadahonda,Madrid,12.045,55.8,38.34,33250.0,5006.0,400480,1546.09,13.28,1062.0,https://quorum.evoost.ai/vivienda/majadahonda/
+28049,Coslada,Madrid,11.969,55.45,44.02,22050.0,3299.0,263920,1018.89,10.11,809.0,https://quorum.evoost.ai/vivienda/coslada/
+28092,Móstoles,Madrid,11.909,55.17,43.0,20650.0,3074.0,245920,949.4,9.25,740.0,https://quorum.evoost.ai/vivienda/mostoles/
+08205,Sant Cugat del Vallès,Barcelona,11.822,54.77,38.2,33950.0,5017.0,401360,1549.49,13.51,1081.0,https://quorum.evoost.ai/vivienda/sant-cugat-del-valles/
+08089,Gavà,Barcelona,11.821,54.76,45.48,23450.0,3465.0,277200,1070.16,11.11,889.0,https://quorum.evoost.ai/vivienda/gava/
+03050,el Campello,Alicante,11.786,54.6,43.39,19250.0,2836.0,226880,875.89,8.7,696.0,https://quorum.evoost.ai/vivienda/el-campello/
+08073,Cornellà de Llobregat,Barcelona,11.773,54.54,51.08,21350.0,3142.0,251360,970.4,11.36,909.0,https://quorum.evoost.ai/vivienda/cornella-de-llobregat/
+11012,Cádiz,Cádiz,11.704,54.22,42.21,20650.0,3021.0,241680,933.03,9.08,726.0,https://quorum.evoost.ai/vivienda/cadiz/
+38017,Granadilla de Abona,Santa Cruz de Tenerife,11.671,54.07,47.86,17150.0,2502.0,200160,772.74,8.55,684.0,https://quorum.evoost.ai/vivienda/granadilla-de-abona/
+08217,Sant Joan Despí,Barcelona,11.607,53.77,43.43,25550.0,3707.0,296560,1144.9,11.56,925.0,https://quorum.evoost.ai/vivienda/sant-joan-despi/
+28047,Collado Villalba,Madrid,11.599,53.74,44.63,20650.0,2994.0,239520,924.69,9.6,768.0,https://quorum.evoost.ai/vivienda/collado-villalba/
+08245,Santa Coloma de Gramenet,Barcelona,11.59,53.69,53.46,17850.0,2586.0,206880,798.68,9.94,795.0,https://quorum.evoost.ai/vivienda/santa-coloma-de-gramenet/
+11033,San Roque,Cádiz,11.514,53.34,44.8,17850.0,2569.0,205520,793.43,8.33,666.0,https://quorum.evoost.ai/vivienda/san-roque/
+11032,Sanlúcar de Barrameda,Cádiz,11.512,53.33,45.02,14350.0,2065.0,165200,637.77,6.73,538.0,https://quorum.evoost.ai/vivienda/sanlucar-de-barrameda/
+28065,Getafe,Madrid,11.506,53.3,43.29,22750.0,3272.0,261760,1010.55,10.26,821.0,https://quorum.evoost.ai/vivienda/getafe/
+08194,Sant Adrià de Besòs,Barcelona,11.495,53.25,55.16,19250.0,2766.0,221280,854.27,11.06,885.0,https://quorum.evoost.ai/vivienda/sant-adria-de-besos/
+11027,El Puerto de Santa María,Cádiz,11.469,53.13,41.47,17850.0,2559.0,204720,790.34,7.71,617.0,https://quorum.evoost.ai/vivienda/el-puerto-de-santa-maria/
+28148,Torrejón de Ardoz,Madrid,11.402,52.82,41.59,21350.0,3043.0,243440,939.82,9.25,740.0,https://quorum.evoost.ai/vivienda/torrejon-de-ardoz/
+48020,Bilbao,Bizkaia,11.361,52.63,45.24,24850.0,3529.0,282320,1089.92,11.71,937.0,https://quorum.evoost.ai/vivienda/bilbao/
+28058,Fuenlabrada,Madrid,11.32,52.44,42.4,20650.0,2922.0,233760,902.45,9.12,730.0,https://quorum.evoost.ai/vivienda/fuenlabrada/
+07036,Marratxí,"Balears, Illes",11.227,52.01,32.66,26950.0,3782.0,302560,1168.06,9.17,734.0,https://quorum.evoost.ai/vivienda/marratxi/
+17095,Lloret de Mar,Girona,11.158,51.69,48.76,17150.0,2392.0,191360,738.76,8.71,697.0,https://quorum.evoost.ai/vivienda/lloret-de-mar/
+46250,València,Valencia,11.14,51.61,37.46,21350.0,2973.0,237840,918.21,8.33,666.0,https://quorum.evoost.ai/vivienda/valencia/
+43905,Salou,Tarragona,11.079,51.33,43.01,18550.0,2569.0,205520,793.43,8.31,665.0,https://quorum.evoost.ai/vivienda/salou/
+08015,Badalona,Barcelona,10.94,50.68,48.02,20650.0,2824.0,225920,872.19,10.33,826.0,https://quorum.evoost.ai/vivienda/badalona/
+20067,Errenteria,Gipuzkoa,10.918,50.58,43.61,24150.0,3296.0,263680,1017.96,10.97,878.0,https://quorum.evoost.ai/vivienda/errenteria/
+07032,Maó,"Balears, Illes",10.852,50.27,29.91,22050.0,2991.0,239280,923.76,6.87,550.0,https://quorum.evoost.ai/vivienda/mao/
+11015,Chiclana de la Frontera,Cádiz,10.84,50.22,39.33,16450.0,2229.0,178320,688.42,6.74,539.0,https://quorum.evoost.ai/vivienda/chiclana-de-la-frontera/
+28106,Parla,Madrid,10.801,50.04,44.64,17850.0,2410.0,192800,744.32,8.3,664.0,https://quorum.evoost.ai/vivienda/parla/
+08211,Sant Feliu de Llobregat,Barcelona,10.72,49.66,44.23,24850.0,3330.0,266400,1028.46,11.45,916.0,https://quorum.evoost.ai/vivienda/sant-feliu-de-llobregat/
+28113,Pinto,Madrid,10.71,49.62,40.97,22050.0,2952.0,236160,911.72,9.41,753.0,https://quorum.evoost.ai/vivienda/pinto/
+28005,Alcalá de Henares,Madrid,10.674,49.45,41.58,22050.0,2942.0,235360,908.63,9.55,764.0,https://quorum.evoost.ai/vivienda/alcala-de-henares/
+29007,Alhaurín de la Torre,Málaga,10.665,49.41,41.14,20650.0,2753.0,220240,850.26,8.85,708.0,https://quorum.evoost.ai/vivienda/alhaurin-de-la-torre/
+08301,Viladecans,Barcelona,10.641,49.29,42.08,23450.0,3119.0,249520,963.3,10.28,822.0,https://quorum.evoost.ai/vivienda/viladecans/
+41091,Sevilla,Sevilla,10.635,49.27,44.94,19950.0,2652.0,212160,819.06,9.34,747.0,https://quorum.evoost.ai/vivienda/sevilla/
+07027,Inca,"Balears, Illes",10.627,49.23,34.07,19950.0,2650.0,212000,818.45,7.08,566.0,https://quorum.evoost.ai/vivienda/inca/
+28130,San Fernando de Henares,Madrid,10.627,49.23,42.45,22050.0,2929.0,234320,904.62,9.75,780.0,https://quorum.evoost.ai/vivienda/san-fernando-de-henares/
+08169,El Prat de Llobregat,Barcelona,10.578,49.0,46.59,22750.0,3008.0,240640,929.01,11.04,883.0,https://quorum.evoost.ai/vivienda/el-prat-de-llobregat/
+39020,Castro-Urdiales,Cantabria,10.544,48.85,36.65,21350.0,2814.0,225120,869.1,8.15,652.0,https://quorum.evoost.ai/vivienda/castro-urdiales/
+28115,Pozuelo de Alarcón,Madrid,10.53,48.78,33.23,39550.0,5206.0,416480,1607.86,13.69,1095.0,https://quorum.evoost.ai/vivienda/pozuelo-de-alarcon/
+20045,Irun,Gipuzkoa,10.49,48.6,40.65,23450.0,3075.0,246000,949.71,9.93,794.0,https://quorum.evoost.ai/vivienda/irun/
+28014,Arganda del Rey,Madrid,10.476,48.53,38.35,20650.0,2704.0,216320,835.13,8.25,660.0,https://quorum.evoost.ai/vivienda/arganda-del-rey/
+48054,Leioa,Bizkaia,10.462,48.47,37.88,27650.0,3616.0,289280,1116.79,10.91,873.0,https://quorum.evoost.ai/vivienda/leioa/
+48044,Getxo,Bizkaia,10.394,48.15,34.6,31850.0,4138.0,331040,1278.01,11.48,918.0,https://quorum.evoost.ai/vivienda/getxo/
+28127,Las Rozas de Madrid,Madrid,10.357,47.98,37.35,34650.0,4486.0,358880,1385.49,13.48,1078.0,https://quorum.evoost.ai/vivienda/las-rozas-de-madrid/
+28903,Tres Cantos,Madrid,10.347,47.93,32.74,33950.0,4391.0,351280,1356.15,11.58,926.0,https://quorum.evoost.ai/vivienda/tres-cantos/
+38011,Candelaria,Santa Cruz de Tenerife,10.248,47.48,42.09,21350.0,2735.0,218800,844.7,9.36,749.0,https://quorum.evoost.ai/vivienda/candelaria/
+03014,Alacant/Alicante,Alicante,10.214,47.32,39.26,17850.0,2279.0,182320,703.86,7.3,584.0,https://quorum.evoost.ai/vivienda/alicante/
+28123,Rivas-Vaciamadrid,Madrid,10.187,47.2,31.91,27650.0,3521.0,281680,1087.45,9.19,735.0,https://quorum.evoost.ai/vivienda/rivas-vaciamadrid/
+03099,Orihuela,Alicante,10.116,46.86,31.11,16450.0,2080.0,166400,642.4,5.33,426.0,https://quorum.evoost.ai/vivienda/orihuela/
+15030,A Coruña,A Coruña,10.068,46.64,31.48,22050.0,2775.0,222000,857.05,7.23,578.0,https://quorum.evoost.ai/vivienda/a-coruna/
+08231,Sant Pere de Ribes,Barcelona,10.016,46.4,43.48,21350.0,2673.0,213840,825.55,9.67,774.0,https://quorum.evoost.ai/vivienda/sant-pere-de-ribes/
+39075,Santander,Cantabria,9.975,46.21,37.64,21350.0,2662.0,212960,822.15,8.37,670.0,https://quorum.evoost.ai/vivienda/santander/
+03139,"Vila Joiosa, la/Villajoyosa",Alicante,9.959,46.14,35.33,17850.0,2222.0,177760,686.26,6.57,526.0,https://quorum.evoost.ai/vivienda/vila-joiosa-la-villajoyosa/
+51001,Ceuta,Ceuta,9.927,45.99,52.01,17850.0,2215.0,177200,684.1,9.67,774.0,https://quorum.evoost.ai/vivienda/ceuta/
+08172,Premià de Mar,Barcelona,9.895,45.84,40.76,22750.0,2814.0,225120,869.1,9.66,773.0,https://quorum.evoost.ai/vivienda/premia-de-mar/
+08121,Mataró,Barcelona,9.875,45.75,42.17,20650.0,2549.0,203920,787.25,9.07,726.0,https://quorum.evoost.ai/vivienda/mataro/
+08200,Sant Boi de Llobregat,Barcelona,9.85,45.63,45.95,22750.0,2801.0,224080,865.08,10.89,871.0,https://quorum.evoost.ai/vivienda/sant-boi-de-llobregat/
+48013,Barakaldo,Bizkaia,9.808,45.44,43.31,23450.0,2875.0,230000,887.94,10.58,846.0,https://quorum.evoost.ai/vivienda/barakaldo/
+28045,Colmenar Viejo,Madrid,9.753,45.18,32.46,25550.0,3115.0,249200,962.06,8.64,691.0,https://quorum.evoost.ai/vivienda/colmenar-viejo/
+28061,Galapagar,Madrid,9.723,45.04,35.04,23450.0,2850.0,228000,880.22,8.56,685.0,https://quorum.evoost.ai/vivienda/galapagar/
+52001,Melilla,Melilla,9.699,44.93,49.32,17850.0,2164.0,173120,668.35,9.17,734.0,https://quorum.evoost.ai/vivienda/melilla/
+08307,Vilanova i la Geltrú,Barcelona,9.628,44.6,37.94,22750.0,2738.0,219040,845.63,8.99,719.0,https://quorum.evoost.ai/vivienda/vilanova-i-la-geltru/
+46169,Mislata,Valencia,9.617,44.55,33.21,19250.0,2314.0,185120,714.67,6.66,533.0,https://quorum.evoost.ai/vivienda/mislata/
+48078,Portugalete,Bizkaia,9.587,44.41,40.03,24150.0,2894.0,231520,893.81,10.07,806.0,https://quorum.evoost.ai/vivienda/portugalete/
+08266,Cerdanyola del Vallès,Barcelona,9.542,44.21,38.94,24850.0,2964.0,237120,915.43,10.08,806.0,https://quorum.evoost.ai/vivienda/cerdanyola-del-valles/
+48015,Basauri,Bizkaia,9.515,44.08,39.59,23450.0,2789.0,223120,861.38,9.67,774.0,https://quorum.evoost.ai/vivienda/basauri/
+18087,Granada,Granada,9.476,43.9,32.26,20650.0,2446.0,195680,755.44,6.94,555.0,https://quorum.evoost.ai/vivienda/granada/
+48082,Santurtzi,Bizkaia,9.474,43.89,41.39,23450.0,2777.0,222160,857.67,10.11,809.0,https://quorum.evoost.ai/vivienda/santurtzi/
+21044,Lepe,Huelva,9.443,43.74,32.85,15750.0,1859.0,148720,574.15,5.39,431.0,https://quorum.evoost.ai/vivienda/lepe/
+43038,Cambrils,Tarragona,9.399,43.54,38.07,20650.0,2426.0,194080,749.27,8.19,655.0,https://quorum.evoost.ai/vivienda/cambrils/
+08125,Montcada i Reixac,Barcelona,9.386,43.48,40.2,21350.0,2505.0,200400,773.66,8.94,715.0,https://quorum.evoost.ai/vivienda/montcada-i-reixac/
+35016,Las Palmas de Gran Canaria,Las Palmas,9.371,43.42,40.81,19950.0,2337.0,186960,721.78,8.48,678.0,https://quorum.evoost.ai/vivienda/las-palmas-de-gran-canaria/
+38038,Santa Cruz de Tenerife,Santa Cruz de Tenerife,9.343,43.29,38.35,19950.0,2330.0,186400,719.62,7.97,638.0,https://quorum.evoost.ai/vivienda/santa-cruz-de-tenerife/
+08163,Pineda de Mar,Barcelona,9.309,43.13,39.75,19250.0,2240.0,179200,691.82,7.97,638.0,https://quorum.evoost.ai/vivienda/pineda-de-mar/
+48084,Sestao,Bizkaia,9.255,42.88,45.51,20650.0,2389.0,191120,737.84,9.79,783.0,https://quorum.evoost.ai/vivienda/sestao/
+17023,Blanes,Girona,9.234,42.78,39.8,19250.0,2222.0,177760,686.26,7.98,638.0,https://quorum.evoost.ai/vivienda/blanes/
+46078,Burjassot,Valencia,9.227,42.75,35.49,17150.0,1978.0,158240,610.9,6.34,507.0,https://quorum.evoost.ai/vivienda/burjassot/
+46190,Paterna,Valencia,9.203,42.63,32.0,19950.0,2295.0,183600,708.81,6.65,532.0,https://quorum.evoost.ai/vivienda/paterna/
+08180,Ripollet,Barcelona,9.173,42.5,42.27,21350.0,2448.0,195840,756.06,9.4,752.0,https://quorum.evoost.ai/vivienda/ripollet/
+08124,Mollet del Vallès,Barcelona,9.161,42.44,36.88,22050.0,2525.0,202000,779.84,8.47,678.0,https://quorum.evoost.ai/vivienda/mollet-del-valles/
+08252,Barberà del Vallès,Barcelona,9.15,42.39,37.46,23450.0,2682.0,214560,828.33,9.15,732.0,https://quorum.evoost.ai/vivienda/barbera-del-valles/
+28161,Valdemoro,Madrid,9.146,42.37,36.89,23450.0,2681.0,214480,828.02,9.01,721.0,https://quorum.evoost.ai/vivienda/valdemoro/
+30035,San Javier,Murcia,9.11,42.21,32.97,17150.0,1953.0,156240,603.18,5.89,471.0,https://quorum.evoost.ai/vivienda/san-javier/
+35004,Arrecife,Las Palmas,9.035,41.86,38.29,17850.0,2016.0,161280,622.64,7.12,570.0,https://quorum.evoost.ai/vivienda/arrecife/
+28022,Boadilla del Monte,Madrid,9.025,41.81,31.96,38150.0,4304.0,344320,1329.28,12.7,1016.0,https://quorum.evoost.ai/vivienda/boadilla-del-monte/
+28096,Navalcarnero,Madrid,9.023,41.8,34.92,22050.0,2487.0,198960,768.11,8.02,642.0,https://quorum.evoost.ai/vivienda/navalcarnero/
+08184,Rubí,Barcelona,8.994,41.67,40.19,22050.0,2479.0,198320,765.63,9.23,738.0,https://quorum.evoost.ai/vivienda/rubi/
+08196,Sant Andreu de la Barca,Barcelona,8.935,41.39,34.92,23450.0,2619.0,209520,808.87,8.53,682.0,https://quorum.evoost.ai/vivienda/sant-andreu-de-la-barca/
+38031,Los Realejos,Santa Cruz de Tenerife,8.891,41.19,34.2,17150.0,1906.0,152480,588.66,6.11,489.0,https://quorum.evoost.ai/vivienda/los-realejos/
+01059,Vitoria-Gasteiz,Álava,8.881,41.14,36.85,24150.0,2681.0,214480,828.02,9.27,742.0,https://quorum.evoost.ai/vivienda/vitoria-gasteiz/
+37274,Salamanca,Salamanca,8.873,41.1,32.57,19250.0,2135.0,170800,659.39,6.53,522.0,https://quorum.evoost.ai/vivienda/salamanca/
+28181,Villaviciosa de Odón,Madrid,8.851,41.01,39.73,31850.0,3524.0,281920,1088.38,13.18,1054.0,https://quorum.evoost.ai/vivienda/villaviciosa-de-odon/
+36057,Vigo,Pontevedra,8.791,40.72,34.89,21350.0,2346.0,187680,724.56,7.76,621.0,https://quorum.evoost.ai/vivienda/vigo/
+08096,Granollers,Barcelona,8.737,40.47,38.27,22050.0,2408.0,192640,743.71,8.79,703.0,https://quorum.evoost.ai/vivienda/granollers/
+08187,Sabadell,Barcelona,8.697,40.29,37.96,22050.0,2397.0,191760,740.31,8.72,698.0,https://quorum.evoost.ai/vivienda/sabadell/
+04079,Roquetas de Mar,Almería,8.665,40.14,37.0,15750.0,1706.0,136480,526.89,6.07,486.0,https://quorum.evoost.ai/vivienda/roquetas-de-mar/
+31201,Pamplona/Iruña,Navarra,8.636,40.01,30.8,24965.0,2695.0,215600,832.35,8.01,641.0,https://quorum.evoost.ai/vivienda/pamplona/
+08263,Sant Vicenç dels Horts,Barcelona,8.615,39.91,38.27,22750.0,2450.0,196000,756.68,9.07,726.0,https://quorum.evoost.ai/vivienda/sant-vicenc-dels-horts/
+41021,Camas,Sevilla,8.603,39.86,45.11,16450.0,1769.0,141520,546.35,7.73,618.0,https://quorum.evoost.ai/vivienda/camas/
+33024,Gijón,Asturias,8.501,39.38,31.83,22050.0,2343.0,187440,723.63,7.31,585.0,https://quorum.evoost.ai/vivienda/gijon/
+48036,Galdakao,Bizkaia,8.493,39.34,30.85,26950.0,2861.0,228880,883.61,8.66,693.0,https://quorum.evoost.ai/vivienda/galdakao/
+08114,Martorell,Barcelona,8.491,39.34,35.88,21350.0,2266.0,181280,699.85,7.98,638.0,https://quorum.evoost.ai/vivienda/martorell/
+38023,San Cristóbal de La Laguna,Santa Cruz de Tenerife,8.486,39.31,36.65,19250.0,2042.0,163360,630.67,7.35,588.0,https://quorum.evoost.ai/vivienda/san-cristobal-de-la-laguna/
+11020,Jerez de la Frontera,Cádiz,8.466,39.22,36.94,17150.0,1815.0,145200,560.56,6.6,528.0,https://quorum.evoost.ai/vivienda/jerez-de-la-frontera/
+28013,Aranjuez,Madrid,8.465,39.22,37.38,20650.0,2185.0,174800,674.83,8.04,643.0,https://quorum.evoost.ai/vivienda/aranjuez/
+11031,San Fernando,Cádiz,8.461,39.2,35.19,18550.0,1962.0,156960,605.96,6.8,544.0,https://quorum.evoost.ai/vivienda/san-fernando/
+40194,Segovia,Segovia,8.442,39.11,32.31,20650.0,2179.0,174320,672.98,6.95,556.0,https://quorum.evoost.ai/vivienda/segovia/
+30026,Mazarrón,Murcia,8.42,39.01,31.45,15050.0,1584.0,126720,489.22,4.93,394.0,https://quorum.evoost.ai/vivienda/mazarron/
+46110,Xirivella,Valencia,8.35,38.68,34.15,17150.0,1790.0,143200,552.84,6.1,488.0,https://quorum.evoost.ai/vivienda/xirivella/
+11028,Puerto Real,Cádiz,8.341,38.64,34.83,18550.0,1934.0,154720,597.31,6.73,538.0,https://quorum.evoost.ai/vivienda/puerto-real/
+43163,El Vendrell,Tarragona,8.324,38.56,35.01,19250.0,2003.0,160240,618.62,7.02,562.0,https://quorum.evoost.ai/vivienda/el-vendrell/
+46102,Quart de Poblet,Valencia,8.298,38.44,32.24,18550.0,1924.0,153920,594.22,6.23,498.0,https://quorum.evoost.ai/vivienda/quart-de-poblet/
+41038,Dos Hermanas,Sevilla,8.283,38.37,37.65,19250.0,1993.0,159440,615.53,7.55,604.0,https://quorum.evoost.ai/vivienda/dos-hermanas/
+11022,La Línea de la Concepción,Cádiz,8.249,38.21,47.79,15750.0,1624.0,129920,501.57,7.84,627.0,https://quorum.evoost.ai/vivienda/la-linea-de-la-concepcion/
+08279,Terrassa,Barcelona,8.243,38.19,39.05,22050.0,2272.0,181760,701.7,8.97,718.0,https://quorum.evoost.ai/vivienda/terrassa/
+35022,Santa Lucía de Tirajana,Las Palmas,8.215,38.06,38.12,17150.0,1761.0,140880,543.88,6.81,545.0,https://quorum.evoost.ai/vivienda/santa-lucia-de-tirajana/
+46244,Torrent,Valencia,8.211,38.04,32.71,18550.0,1904.0,152320,588.05,6.32,506.0,https://quorum.evoost.ai/vivienda/torrent/
+03122,Sant Vicent del Raspeig/San Vicente del Raspeig,Alicante,8.204,38.01,32.12,19250.0,1974.0,157920,609.67,6.44,515.0,https://quorum.evoost.ai/vivienda/san-vicente-del-raspeig/
+19046,Azuqueca de Henares,Guadalajara,8.201,38.0,35.24,20650.0,2117.0,169360,653.83,7.58,606.0,https://quorum.evoost.ai/vivienda/azuqueca-de-henares/
+46131,Gandia,Valencia,8.196,37.97,30.12,17150.0,1757.0,140560,542.65,5.38,430.0,https://quorum.evoost.ai/vivienda/gandia/
+08260,Santa Perpètua de Mogoda,Barcelona,8.164,37.82,36.64,23450.0,2393.0,191440,739.07,8.95,716.0,https://quorum.evoost.ai/vivienda/santa-perpetua-de-mogoda/
+17079,Girona,Girona,8.144,37.73,38.7,22750.0,2316.0,185280,715.29,9.17,734.0,https://quorum.evoost.ai/vivienda/girona/
+35017,Puerto del Rosario,Las Palmas,8.141,37.72,34.31,19250.0,1959.0,156720,605.03,6.88,550.0,https://quorum.evoost.ai/vivienda/puerto-del-rosario/
+50297,Zaragoza,Zaragoza,8.127,37.65,34.0,22050.0,2240.0,179200,691.82,7.81,625.0,https://quorum.evoost.ai/vivienda/zaragoza/
+04013,Almería,Almería,8.049,37.29,36.57,17850.0,1796.0,143680,554.69,6.8,544.0,https://quorum.evoost.ai/vivienda/almeria/
+46159,Manises,Valencia,8.047,37.28,33.79,18550.0,1866.0,149280,576.31,6.53,522.0,https://quorum.evoost.ai/vivienda/manises/
+19130,Guadalajara,Guadalajara,8.004,37.08,32.87,21350.0,2136.0,170880,659.7,7.31,585.0,https://quorum.evoost.ai/vivienda/guadalajara/
+15078,Santiago de Compostela,A Coruña,7.98,36.97,29.56,23450.0,2339.0,187120,722.4,7.22,578.0,https://quorum.evoost.ai/vivienda/santiago-de-compostela/
+39016,Camargo,Cantabria,7.97,36.92,30.62,21350.0,2127.0,170160,656.92,6.81,545.0,https://quorum.evoost.ai/vivienda/camargo/
+03065,Elx/Elche,Alicante,7.951,36.84,32.21,16450.0,1635.0,130800,504.97,5.52,442.0,https://quorum.evoost.ai/vivienda/elche/
+18140,Motril,Granada,7.893,36.57,31.46,16450.0,1623.0,129840,501.26,5.39,431.0,https://quorum.evoost.ai/vivienda/motril/
+29084,Ronda,Málaga,7.812,36.19,27.59,17850.0,1743.0,139440,538.32,5.13,410.0,https://quorum.evoost.ai/vivienda/ronda/
+41081,La Rinconada,Sevilla,7.804,36.15,34.93,17150.0,1673.0,133840,516.7,6.24,499.0,https://quorum.evoost.ai/vivienda/la-rinconada/
+04066,Níjar,Almería,7.789,36.08,34.04,13650.0,1329.0,106320,410.46,4.84,387.0,https://quorum.evoost.ai/vivienda/nijar/
+33044,Oviedo,Asturias,7.789,36.08,31.27,22750.0,2215.0,177200,684.1,7.41,593.0,https://quorum.evoost.ai/vivienda/oviedo/
+35002,Agüimes,Las Palmas,7.751,35.91,37.05,19250.0,1865.0,149200,576.0,7.43,594.0,https://quorum.evoost.ai/vivienda/aguimes/
+41059,Mairena del Aljarafe,Sevilla,7.75,35.9,37.22,22050.0,2136.0,170880,659.7,8.55,684.0,https://quorum.evoost.ai/vivienda/mairena-del-aljarafe/
+38026,La Orotava,Santa Cruz de Tenerife,7.749,35.9,32.27,17850.0,1729.0,138320,534.0,6.0,480.0,https://quorum.evoost.ai/vivienda/la-orotava/
+35026,Telde,Las Palmas,7.746,35.88,37.26,18550.0,1796.0,143680,554.69,7.2,576.0,https://quorum.evoost.ai/vivienda/telde/
+36038,Pontevedra,Pontevedra,7.719,35.76,28.42,21350.0,2060.0,164800,636.23,6.32,506.0,https://quorum.evoost.ai/vivienda/pontevedra/
+08298,Vic,Barcelona,7.713,35.73,32.91,20650.0,1991.0,159280,614.92,7.08,566.0,https://quorum.evoost.ai/vivienda/vic/
+04902,El Ejido,Almería,7.649,35.43,36.39,14350.0,1372.0,109760,423.74,5.44,435.0,https://quorum.evoost.ai/vivienda/el-ejido/
+48027,Durango,Bizkaia,7.635,35.37,30.41,27650.0,2639.0,211120,815.05,8.76,701.0,https://quorum.evoost.ai/vivienda/durango/
+08305,Vilafranca del Penedès,Barcelona,7.625,35.33,33.27,21350.0,2035.0,162800,628.51,7.4,592.0,https://quorum.evoost.ai/vivienda/vilafranca-del-penedes/
+41004,Alcalá de Guadaíra,Sevilla,7.624,35.32,34.1,17850.0,1701.0,136080,525.35,6.34,507.0,https://quorum.evoost.ai/vivienda/alcala-de-guadaira/
+11004,Algeciras,Cádiz,7.44,34.47,38.57,17150.0,1595.0,127600,492.61,6.89,551.0,https://quorum.evoost.ai/vivienda/algeciras/
+21041,Huelva,Huelva,7.431,34.42,37.49,17850.0,1658.0,132640,512.07,6.97,558.0,https://quorum.evoost.ai/vivienda/huelva/
+15058,Oleiros,A Coruña,7.417,34.36,26.12,24850.0,2304.0,184320,711.59,6.76,541.0,https://quorum.evoost.ai/vivienda/oleiros/
+14021,Córdoba,Córdoba,7.414,34.35,35.91,19250.0,1784.0,142720,550.98,7.2,576.0,https://quorum.evoost.ai/vivienda/cordoba/
+41095,Utrera,Sevilla,7.348,34.04,32.56,16450.0,1511.0,120880,466.67,5.58,446.0,https://quorum.evoost.ai/vivienda/utrera/
+39087,Torrelavega,Cantabria,7.34,34.0,32.76,18550.0,1702.0,136160,525.66,6.33,506.0,https://quorum.evoost.ai/vivienda/torrelavega/
+45081,Illescas,Toledo,7.322,33.92,33.59,19950.0,1826.0,146080,563.96,6.98,558.0,https://quorum.evoost.ai/vivienda/illescas/
+47186,Valladolid,Valladolid,7.292,33.78,30.85,21350.0,1946.0,155680,601.02,6.86,549.0,https://quorum.evoost.ai/vivienda/valladolid/
+09059,Burgos,Burgos,7.244,33.56,30.3,22750.0,2060.0,164800,636.23,7.18,574.0,https://quorum.evoost.ai/vivienda/burgos/
+46005,Alaquàs,Valencia,7.241,33.55,32.45,18550.0,1679.0,134320,518.56,6.27,502.0,https://quorum.evoost.ai/vivienda/alaquas/
+02003,Albacete,Albacete,7.234,33.51,29.02,19950.0,1804.0,144320,557.16,6.03,482.0,https://quorum.evoost.ai/vivienda/albacete/
+45168,Toledo,Toledo,7.212,33.41,30.38,23450.0,2114.0,169120,652.9,7.42,594.0,https://quorum.evoost.ai/vivienda/toledo/
+15031,Culleredo,A Coruña,7.146,33.1,27.56,21350.0,1907.0,152560,588.97,6.13,490.0,https://quorum.evoost.ai/vivienda/culleredo/
+41034,Coria del Río,Sevilla,7.137,33.06,36.51,15750.0,1405.0,112400,433.93,5.99,479.0,https://quorum.evoost.ai/vivienda/coria-del-rio/
+36008,Cangas,Pontevedra,7.13,33.03,27.33,19950.0,1778.0,142240,549.13,5.68,454.0,https://quorum.evoost.ai/vivienda/cangas/
+46021,Aldaia,Valencia,7.094,32.87,30.84,18550.0,1645.0,131600,508.05,5.96,477.0,https://quorum.evoost.ai/vivienda/aldaia/
+30003,Águilas,Murcia,7.071,32.76,28.65,16450.0,1454.0,116320,449.07,4.91,393.0,https://quorum.evoost.ai/vivienda/aguilas/
+43148,Tarragona,Tarragona,7.051,32.67,34.97,21000.0,1851.0,148080,571.68,7.65,612.0,https://quorum.evoost.ai/vivienda/tarragona/
+11006,Arcos de la Frontera,Cádiz,7.049,32.65,26.98,15050.0,1326.0,106080,409.53,4.23,338.0,https://quorum.evoost.ai/vivienda/arcos-de-la-frontera/
+46181,Oliva,Valencia,7.016,32.5,25.81,17150.0,1504.0,120320,464.51,4.61,369.0,https://quorum.evoost.ai/vivienda/oliva/
+30037,Torre-Pacheco,Murcia,6.999,32.43,30.17,15750.0,1378.0,110240,425.59,4.95,396.0,https://quorum.evoost.ai/vivienda/torre-pacheco/
+41069,Los Palacios y Villafranca,Sevilla,6.974,32.31,30.87,15050.0,1312.0,104960,405.21,4.84,387.0,https://quorum.evoost.ai/vivienda/los-palacios-y-villafranca/
+46094,Catarroja,Valencia,6.932,32.11,28.28,19250.0,1668.0,133440,515.16,5.67,454.0,https://quorum.evoost.ai/vivienda/catarroja/
+26089,Logroño,La Rioja,6.901,31.97,28.17,22050.0,1902.0,152160,587.43,6.47,518.0,https://quorum.evoost.ai/vivienda/logrono/
+15002,Ames,A Coruña,6.876,31.85,25.23,21350.0,1835.0,146800,566.74,5.61,449.0,https://quorum.evoost.ai/vivienda/ames/
+29015,Antequera,Málaga,6.866,31.81,29.53,17850.0,1532.0,122560,473.16,5.49,439.0,https://quorum.evoost.ai/vivienda/antequera/
+15005,Arteixo,A Coruña,6.857,31.77,25.38,19250.0,1650.0,132000,509.6,5.09,407.0,https://quorum.evoost.ai/vivienda/arteixo/
+12027,Benicarló,Castellón,6.823,31.61,30.11,16450.0,1403.0,112240,433.31,5.16,413.0,https://quorum.evoost.ai/vivienda/benicarlo/
+22125,Huesca,Huesca,6.782,31.42,30.49,21350.0,1810.0,144800,559.01,6.78,542.0,https://quorum.evoost.ai/vivienda/huesca/
+46220,Sagunt/Sagunto,Valencia,6.77,31.36,29.72,19250.0,1629.0,130320,503.11,5.96,477.0,https://quorum.evoost.ai/vivienda/sagunt-sagunto/
+12138,Vinaròs,Castellón,6.718,31.12,28.4,17850.0,1499.0,119920,462.96,5.28,422.0,https://quorum.evoost.ai/vivienda/vinaros/
+41024,Carmona,Sevilla,6.652,30.82,31.74,17150.0,1426.0,114080,440.42,5.67,454.0,https://quorum.evoost.ai/vivienda/carmona/
+08102,Igualada,Barcelona,6.632,30.73,29.04,22050.0,1828.0,146240,564.57,6.67,534.0,https://quorum.evoost.ai/vivienda/igualada/
+36060,Vilagarcía de Arousa,Pontevedra,6.598,30.57,26.55,18550.0,1530.0,122400,472.54,5.13,410.0,https://quorum.evoost.ai/vivienda/vilagarcia-de-arousa/
+06015,Badajoz,Badajoz,6.566,30.42,29.47,19250.0,1580.0,126400,487.98,5.91,473.0,https://quorum.evoost.ai/vivienda/badajoz/
+30030,Murcia,Murcia,6.566,30.42,32.96,19250.0,1580.0,126400,487.98,6.61,529.0,https://quorum.evoost.ai/vivienda/murcia/
+35006,Arucas,Las Palmas,6.532,30.26,30.7,19950.0,1629.0,130320,503.11,6.38,510.0,https://quorum.evoost.ai/vivienda/arucas/
+17066,Figueres,Girona,6.489,30.06,34.43,17150.0,1391.0,111280,429.61,6.15,492.0,https://quorum.evoost.ai/vivienda/figueres/
+30016,Cartagena,Murcia,6.409,29.69,28.26,18550.0,1486.0,118880,458.95,5.46,437.0,https://quorum.evoost.ai/vivienda/cartagena/
+17155,Salt,Girona,6.39,29.6,38.4,16450.0,1314.0,105120,405.83,6.58,526.0,https://quorum.evoost.ai/vivienda/salt/
+43123,Reus,Tarragona,6.384,29.58,31.71,19950.0,1592.0,127360,491.69,6.59,527.0,https://quorum.evoost.ai/vivienda/reus/
+44216,Teruel,Teruel,6.354,29.44,24.73,22750.0,1807.0,144560,558.09,5.86,469.0,https://quorum.evoost.ai/vivienda/teruel/
+36026,Marín,Pontevedra,6.353,29.43,23.65,18550.0,1473.0,117840,454.93,4.57,366.0,https://quorum.evoost.ai/vivienda/marin/
+17114,Olot,Girona,6.35,29.42,29.2,20650.0,1639.0,131120,506.2,6.28,502.0,https://quorum.evoost.ai/vivienda/olot/
+05019,Ávila,Ávila,6.342,29.38,27.61,20650.0,1637.0,130960,505.58,5.94,475.0,https://quorum.evoost.ai/vivienda/avila/
+46235,Sueca,Valencia,6.305,29.21,23.91,18550.0,1462.0,116960,451.54,4.62,370.0,https://quorum.evoost.ai/vivienda/sueca/
+42173,Soria,Soria,6.295,29.16,29.26,22050.0,1735.0,138800,535.85,6.72,538.0,https://quorum.evoost.ai/vivienda/soria/
+41039,Écija,Sevilla,6.258,28.99,24.26,15750.0,1232.0,98560,380.5,3.98,318.0,https://quorum.evoost.ai/vivienda/ecija/
+20030,Eibar,Gipuzkoa,6.238,28.9,31.63,26250.0,2047.0,163760,632.21,8.65,692.0,https://quorum.evoost.ai/vivienda/eibar/
+15073,Ribeira,A Coruña,6.197,28.71,23.75,18550.0,1437.0,114960,443.81,4.59,367.0,https://quorum.evoost.ai/vivienda/ribeira/
+08113,Manresa,Barcelona,6.139,28.44,30.51,19950.0,1531.0,122480,472.85,6.34,507.0,https://quorum.evoost.ai/vivienda/manresa/
+16078,Cuenca,Cuenca,6.133,28.41,26.41,20650.0,1583.0,126640,488.91,5.68,454.0,https://quorum.evoost.ai/vivienda/cuenca/
+31232,Tudela,Navarra,6.111,28.31,27.43,21206.0,1620.0,129600,500.33,6.06,485.0,https://quorum.evoost.ai/vivienda/tudela/
+12040,Castelló de la Plana/Castellón de la Plana,Castellón,6.079,28.16,26.37,19950.0,1516.0,121280,468.21,5.48,438.0,https://quorum.evoost.ai/vivienda/castellon-de-la-plana/
+45165,Talavera de la Reina,Toledo,6.035,27.96,30.35,16450.0,1241.0,99280,383.28,5.2,416.0,https://quorum.evoost.ai/vivienda/talavera-de-la-reina/
+10037,Cáceres,Cáceres,5.978,27.69,25.34,20650.0,1543.0,123440,476.55,5.45,436.0,https://quorum.evoost.ai/vivienda/caceres/
+24089,León,León,5.976,27.68,24.86,22050.0,1647.0,131760,508.67,5.71,457.0,https://quorum.evoost.ai/vivienda/leon/
+35011,Ingenio,Las Palmas,5.901,27.34,31.12,19250.0,1420.0,113600,438.56,6.24,499.0,https://quorum.evoost.ai/vivienda/ingenio/
+23050,Jaén,Jaén,5.891,27.29,28.58,19950.0,1469.0,117520,453.7,5.94,475.0,https://quorum.evoost.ai/vivienda/jaen/
+33004,Avilés,Asturias,5.819,26.96,27.2,21350.0,1553.0,124240,479.64,6.05,484.0,https://quorum.evoost.ai/vivienda/aviles/
+32054,Ourense,Ourense,5.794,26.84,24.97,19950.0,1445.0,115600,446.29,5.19,415.0,https://quorum.evoost.ai/vivienda/ourense/
+49275,Zamora,Zamora,5.758,26.68,23.82,19950.0,1436.0,114880,443.51,4.95,396.0,https://quorum.evoost.ai/vivienda/zamora/
+34120,Palencia,Palencia,5.699,26.4,26.96,20650.0,1471.0,117680,454.32,5.8,464.0,https://quorum.evoost.ai/vivienda/palencia/
+41053,Lebrija,Sevilla,5.679,26.31,27.73,15750.0,1118.0,89440,345.29,4.55,364.0,https://quorum.evoost.ai/vivienda/lebrija/
+33066,Siero,Asturias,5.674,26.29,26.43,22050.0,1564.0,125120,483.04,6.07,486.0,https://quorum.evoost.ai/vivienda/siero/
+14038,Lucena,Córdoba,5.557,25.74,28.1,15750.0,1094.0,87520,337.88,4.61,369.0,https://quorum.evoost.ai/vivienda/lucena/
+03059,Crevillent,Alicante,5.55,25.71,25.32,15050.0,1044.0,83520,322.44,3.97,318.0,https://quorum.evoost.ai/vivienda/crevillent/
+09018,Aranda de Duero,Burgos,5.544,25.68,28.92,20650.0,1431.0,114480,441.96,6.22,498.0,https://quorum.evoost.ai/vivienda/aranda-de-duero/
+13034,Ciudad Real,Ciudad Real,5.515,25.55,25.3,22050.0,1520.0,121600,469.45,5.81,465.0,https://quorum.evoost.ai/vivienda/ciudad-real/
+30027,Molina de Segura,Murcia,5.506,25.51,26.08,19250.0,1325.0,106000,409.22,5.23,418.0,https://quorum.evoost.ai/vivienda/molina-de-segura/
+25120,Lleida,Lleida,5.49,25.43,32.0,19950.0,1369.0,109520,422.81,6.65,532.0,https://quorum.evoost.ai/vivienda/lleida/
+30024,Lorca,Murcia,5.458,25.28,27.32,17150.0,1170.0,93600,361.35,4.88,390.0,https://quorum.evoost.ai/vivienda/lorca/
+27028,Lugo,Lugo,5.439,25.2,22.59,20650.0,1404.0,112320,433.62,4.86,389.0,https://quorum.evoost.ai/vivienda/lugo/
+03104,Petrer,Alicante,5.413,25.08,25.62,16450.0,1113.0,89040,343.75,4.39,351.0,https://quorum.evoost.ai/vivienda/petrer/
+09219,Miranda de Ebro,Burgos,5.4,25.01,28.06,21350.0,1441.0,115280,445.05,6.24,499.0,https://quorum.evoost.ai/vivienda/miranda-de-ebro/
+36045,Redondela,Pontevedra,5.338,24.73,25.2,20650.0,1378.0,110240,425.59,5.42,434.0,https://quorum.evoost.ai/vivienda/redondela/
+46017,Alzira,Valencia,5.266,24.39,24.22,18550.0,1221.0,97680,377.1,4.68,374.0,https://quorum.evoost.ai/vivienda/alzira/
+46145,Xàtiva,Valencia,5.214,24.16,23.96,18550.0,1209.0,96720,373.4,4.63,370.0,https://quorum.evoost.ai/vivienda/xativa/
+41065,Morón de la Frontera,Sevilla,5.165,23.93,27.49,16450.0,1062.0,84960,328.0,4.71,377.0,https://quorum.evoost.ai/vivienda/moron-de-la-frontera/
+03066,Elda,Alicante,5.145,23.84,27.49,15750.0,1013.0,81040,312.86,4.51,361.0,https://quorum.evoost.ai/vivienda/elda/
+12009,Almassora,Castellón,5.145,23.84,24.63,18550.0,1193.0,95440,368.46,4.76,381.0,https://quorum.evoost.ai/vivienda/almassora/
+12032,Borriana/Burriana,Castellón,5.127,23.75,24.58,17850.0,1144.0,91520,353.32,4.57,366.0,https://quorum.evoost.ai/vivienda/borriana-burriana/
+24142,San Andrés del Rabanedo,León,5.121,23.72,26.42,19950.0,1277.0,102160,394.4,5.49,439.0,https://quorum.evoost.ai/vivienda/san-andres-del-rabanedo/
+10148,Plasencia,Cáceres,5.098,23.62,23.39,18550.0,1182.0,94560,365.06,4.52,362.0,https://quorum.evoost.ai/vivienda/plasencia/
+03009,Alcoi/Alcoy,Alicante,5.073,23.5,24.42,17850.0,1132.0,90560,349.62,4.54,363.0,https://quorum.evoost.ai/vivienda/alcoi-alcoy/
+14056,Puente Genil,Córdoba,5.008,23.2,26.39,15750.0,986.0,78880,304.52,4.33,346.0,https://quorum.evoost.ai/vivienda/puente-genil/
+30005,Alcantarilla,Murcia,4.991,23.12,24.07,17150.0,1070.0,85600,330.47,4.3,344.0,https://quorum.evoost.ai/vivienda/alcantarilla/
+46184,Ontinyent,Valencia,4.908,22.74,21.58,18550.0,1138.0,91040,351.47,4.17,334.0,https://quorum.evoost.ai/vivienda/ontinyent/
+06083,Mérida,Badajoz,4.873,22.58,26.7,18550.0,1130.0,90400,349.0,5.16,413.0,https://quorum.evoost.ai/vivienda/merida/
+15036,Ferrol,A Coruña,4.86,22.52,22.86,19950.0,1212.0,96960,374.32,4.75,380.0,https://quorum.evoost.ai/vivienda/ferrol/
+15054,Narón,A Coruña,4.84,22.42,20.31,19950.0,1207.0,96560,372.78,4.22,338.0,https://quorum.evoost.ai/vivienda/naron/
+15019,Carballo,A Coruña,4.829,22.37,18.25,19250.0,1162.0,92960,358.88,3.66,293.0,https://quorum.evoost.ai/vivienda/carballo/
+12135,Vila-real,Castellón,4.816,22.31,23.53,19950.0,1201.0,96080,370.93,4.89,391.0,https://quorum.evoost.ai/vivienda/vila-real/
+06011,Almendralejo,Badajoz,4.739,21.95,22.86,15750.0,933.0,74640,288.16,3.75,300.0,https://quorum.evoost.ai/vivienda/almendralejo/
+03093,Novelda,Alicante,4.735,21.93,21.77,17150.0,1015.0,81200,313.48,3.89,311.0,https://quorum.evoost.ai/vivienda/novelda/
+30019,Cieza,Murcia,4.64,21.49,22.88,16450.0,954.0,76320,294.64,3.92,314.0,https://quorum.evoost.ai/vivienda/cieza/
+03140,Villena,Alicante,4.637,21.48,21.66,17150.0,994.0,79520,306.99,3.87,310.0,https://quorum.evoost.ai/vivienda/villena/
+46029,Algemesí,Valencia,4.615,21.38,20.91,18550.0,1070.0,85600,330.47,4.04,323.0,https://quorum.evoost.ai/vivienda/algemesi/
+43155,Tortosa,Tarragona,4.613,21.37,25.83,19250.0,1110.0,88800,342.82,5.18,414.0,https://quorum.evoost.ai/vivienda/tortosa/
+06044,Don Benito,Badajoz,4.612,21.37,23.29,17850.0,1029.0,82320,317.8,4.33,346.0,https://quorum.evoost.ai/vivienda/don-benito/
+23092,Úbeda,Jaén,4.54,21.03,20.71,17850.0,1013.0,81040,312.86,3.85,308.0,https://quorum.evoost.ai/vivienda/ubeda/
+30039,Totana,Murcia,4.515,20.92,22.89,17150.0,968.0,77440,298.96,4.09,327.0,https://quorum.evoost.ai/vivienda/totana/
+13005,Alcázar de San Juan,Ciudad Real,4.339,20.1,27.38,19250.0,1044.0,83520,322.44,5.49,439.0,https://quorum.evoost.ai/vivienda/alcazar-de-san-juan/
+30043,Yecla,Murcia,4.289,19.87,20.66,16450.0,882.0,70560,272.4,3.54,283.0,https://quorum.evoost.ai/vivienda/yecla/
+33031,Langreo,Asturias,4.219,19.54,23.43,19950.0,1052.0,84160,324.91,4.87,390.0,https://quorum.evoost.ai/vivienda/langreo/
+30015,Caravaca de la Cruz,Murcia,4.212,19.51,20.88,17150.0,903.0,72240,278.89,3.73,298.0,https://quorum.evoost.ai/vivienda/caravaca-de-la-cruz/
+30022,Jumilla,Murcia,4.211,19.51,22.19,15750.0,829.0,66320,256.04,3.64,291.0,https://quorum.evoost.ai/vivienda/jumilla/
+23005,Andújar,Jaén,4.16,19.27,22.61,15750.0,819.0,65520,252.95,3.71,297.0,https://quorum.evoost.ai/vivienda/andujar/
+23055,Linares,Jaén,4.147,19.21,23.51,17150.0,889.0,71120,274.57,4.2,336.0,https://quorum.evoost.ai/vivienda/linares/
+12126,la Vall d'Uixó,Castellón,4.139,19.18,21.49,19250.0,996.0,79680,307.61,4.31,345.0,https://quorum.evoost.ai/vivienda/la-vall-d-uixo/
+12084,Onda,Castellón,4.122,19.1,22.28,19950.0,1028.0,82240,317.5,4.63,370.0,https://quorum.evoost.ai/vivienda/onda/
+33037,Mieres,Asturias,4.107,19.03,22.71,21350.0,1096.0,87680,338.5,5.05,404.0,https://quorum.evoost.ai/vivienda/mieres/
+13087,Valdepeñas,Ciudad Real,4.03,18.67,28.1,17150.0,864.0,69120,266.84,5.02,402.0,https://quorum.evoost.ai/vivienda/valdepenas/
+02037,Hellín,Albacete,3.962,18.35,21.82,15750.0,780.0,62400,240.9,3.58,286.0,https://quorum.evoost.ai/vivienda/hellin/
+13082,Tomelloso,Ciudad Real,3.896,18.05,27.43,15750.0,767.0,61360,236.89,4.5,360.0,https://quorum.evoost.ai/vivienda/tomelloso/
+24115,Ponferrada,León,3.836,17.77,25.08,19250.0,923.0,73840,285.07,5.03,402.0,https://quorum.evoost.ai/vivienda/ponferrada/
+06153,Villanueva de la Serena,Badajoz,3.741,17.33,21.83,17150.0,802.0,64160,247.7,3.9,312.0,https://quorum.evoost.ai/vivienda/villanueva-de-la-serena/
+02009,Almansa,Albacete,3.599,16.67,23.02,17850.0,803.0,64240,248.0,4.28,342.0,https://quorum.evoost.ai/vivienda/almansa/
+02081,Villarrobledo,Albacete,3.107,14.39,19.14,17150.0,666.0,53280,205.69,3.42,274.0,https://quorum.evoost.ai/vivienda/villarrobledo/
+13071,Puertollano,Ciudad Real,2.958,13.71,23.44,18550.0,686.0,54880,211.87,4.53,362.0,https://quorum.evoost.ai/vivienda/puertollano/

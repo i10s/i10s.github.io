@@ -24,7 +24,8 @@
  *   updated: 2026-11-02      # optional
  *   ---
  *   Markdown body: paragraphs, ## and ### headings, - and 1. lists, > quotes, ``` code,
- *   **bold**, *italic*, `code` and [links](https://…).
+ *   **bold**, *italic*, `code`, [links](https://…) and, alone on a line, an image from this site:
+ *   ![alt text](/images/blog/file.png) or ![alt text](/images/blog/file.png "Caption") (PNG; alt is required).
  *
  * Usage:
  *   npm run generate:blog                     # write files
@@ -69,6 +70,23 @@ const rfc822 = d => `${RFC_DAYS[d.getUTCDay()]}, ${String(d.getUTCDate()).padSta
 const jsonLd = obj => JSON.stringify(obj).replace(/</g, '\\u003c');
 
 // ── Markdown (the subset posts use) ───────────────────────────────────────────────────────────────
+/** Width and height of a PNG in the repository, read from its IHDR chunk (so the page reserves the space). */
+function pngSize(src) {
+  const file = path.join(root, src);
+  if (!/^\/images\/blog\/[a-z0-9][a-z0-9._-]*\.png$/.test(src)) throw new Error(`image must be a PNG under /images/blog/: ${src}`);
+  if (!fs.existsSync(file)) throw new Error(`image not found: ${src}`);
+  const head = fs.readFileSync(file).subarray(0, 24);
+  if (head.toString('latin1', 1, 4) !== 'PNG') throw new Error(`not a PNG: ${src}`);
+  return { width: head.readUInt32BE(16), height: head.readUInt32BE(20) };
+}
+
+function figure(alt, src, caption) {
+  if (!alt.trim()) throw new Error(`image without alt text: ${src}`);
+  const { width, height } = pngSize(src);
+  const cap = caption ? `<figcaption>${inline(caption)}</figcaption>` : '';
+  return `<figure><img src="${esc(src)}" alt="${esc(alt.trim())}" width="${width}" height="${height}" loading="lazy" decoding="async">${cap}</figure>`;
+}
+
 function inline(text) {
   const codes = [];
   let s = esc(text).replace(/`([^`]+)`/g, (_, c) => `\u0000${codes.push(c) - 1}\u0000`);
@@ -99,6 +117,8 @@ function markdown(src) {
     const h = line.match(/^(#{2,3})\s+(.+)$/);
     if (h) { out.push(`<h${h[1].length}>${inline(h[2].trim())}</h${h[1].length}>`); i++; continue; }
     if (/^#\s/.test(line)) throw new Error('use ## and ### in posts; the title is the only h1');
+    const img = line.match(/^!\[([^\]]*)\]\((\S+?)(?:\s+"([^"]*)")?\)\s*$/);
+    if (img) { out.push(figure(img[1], img[2], img[3])); i++; continue; }
     if (line.startsWith('>')) {
       const q = [];
       for (; i < lines.length && lines[i].startsWith('>'); i++) q.push(lines[i].replace(/^>\s?/, ''));
@@ -115,7 +135,7 @@ function markdown(src) {
       continue;
     }
     const para = [];
-    for (; i < lines.length && lines[i].trim() && !/^(#{2,3}\s|>|```|\s*([-*]|\d+\.)\s+)/.test(lines[i]); i++) para.push(lines[i].trim());
+    for (; i < lines.length && lines[i].trim() && !/^(#{2,3}\s|>|```|!\[|\s*([-*]|\d+\.)\s+)/.test(lines[i]); i++) para.push(lines[i].trim());
     out.push(`<p>${inline(para.join(' '))}</p>`);
   }
   return out.join('\n');
@@ -216,6 +236,9 @@ h1{margin:1.1rem 0 1.4rem;line-height:1.05;letter-spacing:-.03em}
 .prose ul,.prose ol{padding-left:1.3em}
 .prose li+li{margin-top:.4em}
 .prose blockquote{padding-left:1.1em;border-left:4px solid var(--mark);color:var(--fg2)}
+.prose figure{margin-left:0;margin-right:0}
+.prose figure img{display:block;max-width:100%;height:auto;border-radius:6px}
+.prose figcaption{margin-top:.5em;font-size:.85em;color:var(--fg2)}
 .prose code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.88em}
 .prose pre{padding:1rem 1.2rem;border-radius:.5rem;background:var(--board);color:var(--ink);overflow-x:auto}
 .byline{margin-top:2.5rem;padding-top:1.2rem;border-top:1px solid var(--line);color:var(--fg2)}
@@ -457,7 +480,7 @@ function feed(posts) {
       <dc:creator>Iñaki Fuentes</dc:creator>
       <category>${TOPICS[p.meta.topic].name}</category>
       <description>${esc(p.meta.description)}</description>
-      <content:encoded><![CDATA[${p.html.replace(/]]>/g, ']]]]><![CDATA[>')}]]></content:encoded>
+      <content:encoded><![CDATA[${p.html.replace(/ src="\//g, ` src="${SITE}/`).replace(/]]>/g, ']]]]><![CDATA[>')}]]></content:encoded>
     </item>`).join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
